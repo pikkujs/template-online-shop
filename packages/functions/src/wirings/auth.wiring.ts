@@ -58,5 +58,5 @@ const configFactory: AuthConfigOrFactory = async (services) => {
 wireHTTPRoutes({ routes: { auth: createAuthRoutes(configFactory) as any } })
 
 // @snippet start authProviders
-// providers: [ Google({ clientId, clientSecret }), Okta({ clientId, clientSecret, issuer }), ... ]
+wireAuth({ providers: ['github', 'google'] })
 // @snippet end authProviders
