@@ -4,7 +4,14 @@ import { cleanupAbandonedBaskets } from '../functions/reports/cleanup-abandoned-
 import { listItems } from '../functions/items/list-items.function.js'
 
 // @snippet start cliSubcommands
-// commands: { report: dailySalesReport, cleanup: cleanupAbandonedBaskets, items: listItems }
+wireCLI({
+  program: 'shop',
+  commands: {
+    report:  pikkuCLICommand({ description: 'Generate the daily sales report',              func: dailySalesReport }),
+    cleanup: pikkuCLICommand({ description: 'Remove baskets abandoned for more than 24 h', func: cleanupAbandonedBaskets }),
+    items:   pikkuCLICommand({ description: 'List all items in the catalogue',              func: listItems }),
+  },
+})
 // @snippet end cliSubcommands
 
 // @snippet start cliWiring
