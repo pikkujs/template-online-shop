@@ -1,0 +1,43 @@
+{
+  "agentsMeta": {
+    "shopAssistant": {
+      "name": "shop-assistant",
+      "description": "Helps customers browse the catalogue and manage their basket.",
+      "goal": "Help users find products, manage their basket, and answer questions about shop items.",
+      "model": "openai/gpt-4o-mini",
+      "sourceFile": "/Users/yasser/git/pikku/fabric/templates/online-shop-template/packages/functions/src/wirings/shop.bot.ts",
+      "exportedName": "shopAssistant",
+      "maxSteps": 10,
+      "tools": [
+        "listCategories",
+        "listItems",
+        "getItem",
+        "getBasket",
+        "addToBasket",
+        "removeFromBasket"
+      ],
+      "inputSchema": null,
+      "outputSchema": null,
+      "workingMemorySchema": null
+    },
+    "checkoutAssistant": {
+      "name": "checkout-assistant",
+      "description": "Guides authenticated users through checkout.",
+      "goal": "Help users review their basket and complete their purchase. Delegate product questions to the shop assistant.",
+      "model": "openai/gpt-4o-mini",
+      "sourceFile": "/Users/yasser/git/pikku/fabric/templates/online-shop-template/packages/functions/src/wirings/shop.bot.ts",
+      "exportedName": "checkoutAssistant",
+      "maxSteps": 5,
+      "tools": [
+        "getBasket",
+        "getItem"
+      ],
+      "agents": [
+        "shopAssistant"
+      ],
+      "inputSchema": null,
+      "outputSchema": null,
+      "workingMemorySchema": null
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@project/functions",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "pikku": "pikku",
+    "build": "tsc -b",
+    "tsc": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "imports": {
+    "#pikku": "./.pikku/pikku-types.gen.js",
+    "#pikku/*": "./.pikku/*"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.8"
+  }
+}

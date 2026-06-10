@@ -1,0 +1,18 @@
+{
+  "pikku-remote-internal-rpc": {
+    "pikkuFuncId": "remoteRPCHandler",
+    "name": "pikku-remote-internal-rpc"
+  },
+  "send-order-confirmation": {
+    "pikkuFuncId": "sendOrderConfirmation",
+    "name": "send-order-confirmation"
+  },
+  "audit-event": {
+    "pikkuFuncId": "writeAuditEvent",
+    "name": "audit-event"
+  },
+  "process-export": {
+    "pikkuFuncId": "processLargeExport",
+    "name": "process-export"
+  }
+}

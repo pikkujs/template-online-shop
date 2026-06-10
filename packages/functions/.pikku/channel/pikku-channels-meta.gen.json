@@ -1,0 +1,16 @@
+{
+  "order-status": {
+    "name": "order-status",
+    "route": "/orders/status",
+    "input": null,
+    "connect": {
+      "pikkuFuncId": "channel:order-status:connect"
+    },
+    "disconnect": {
+      "pikkuFuncId": "channel:order-status:disconnect"
+    },
+    "message": null,
+    "messageWirings": {},
+    "binary": null
+  }
+}

@@ -1,0 +1,1 @@
+{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"variableId":{"type":"string"},"value":{}},"required":["variableId","value"],"additionalProperties":false,"definitions":{}}

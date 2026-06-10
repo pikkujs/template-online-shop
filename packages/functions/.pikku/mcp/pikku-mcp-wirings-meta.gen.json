@@ -1,0 +1,23 @@
+{
+  "resourcesMeta": {
+    "shop://items/{itemId}": {
+      "pikkuFuncId": "mcp:resource:shop://items/{itemId}",
+      "uri": "shop://items/{itemId}",
+      "title": "Shop Item",
+      "description": "Retrieve a single shop item by ID",
+      "inputSchema": null,
+      "outputSchema": null
+    }
+  },
+  "toolsMeta": {},
+  "promptsMeta": {
+    "product_recommendation": {
+      "pikkuFuncId": "mcp:prompt:product_recommendation",
+      "name": "product_recommendation",
+      "description": "Generate a product recommendation prompt for a given category and budget",
+      "inputSchema": null,
+      "outputSchema": null,
+      "arguments": []
+    }
+  }
+}

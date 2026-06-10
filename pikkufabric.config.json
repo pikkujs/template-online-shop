@@ -1,0 +1,6 @@
+{
+  "projectId": "__PROJECT_ID__",
+  "production": {
+    "branch": "main"
+  }
+}

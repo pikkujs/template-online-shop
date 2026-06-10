@@ -1,0 +1,39 @@
+{
+  "name": "@project/root",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "prebuild": "yarn workspace @project/functions pikku all",
+    "build": "yarn workspaces foreach --all run build",
+    "tsc": "yarn workspaces foreach --all run tsc",
+    "dev": "yarn workspace @project/functions pikku dev",
+    "test": "yarn workspace @project/functions test",
+    "lint": "oxlint packages"
+  },
+  "dependencies": {
+    "@auth/core": "^0.37.4",
+    "@pikku/addon-console": "^0.12.9",
+    "@pikku/auth-js": "^0.12.3",
+    "@pikku/core": "^0.12.26",
+    "@pikku/fetch": "^0.12.2",
+    "@pikku/kysely": "^0.12.13",
+    "@pikku/kysely-sqlite": "^0.12.5",
+    "@pikku/node-http-server": "^0.12.1",
+    "@pikku/react": "^0.12.2",
+    "@pikku/schedule": "^0.12.2",
+    "@pikku/schema-cfworker": "^0.12.2"
+  },
+  "devDependencies": {
+    "@pikku/cli": "^0.12.27",
+    "@pikku/cucumber": "^0.12.1",
+    "@pikku/deploy-cloudflare": "^0.12.3",
+    "@pikku/inspector": "^0.12.13",
+    "@pikku/kysely-node-sqlite": "^0.12.1",
+    "kysely": "^0.27.4",
+    "typescript": "~5.8.3",
+    "zod": "^3.25.28"
+  }
+}

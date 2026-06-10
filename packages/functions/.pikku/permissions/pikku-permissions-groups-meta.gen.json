@@ -1,0 +1,66 @@
+{
+  "definitions": {
+    "isAuthenticated": {
+      "services": {
+        "optimized": true,
+        "services": []
+      },
+      "wires": {
+        "optimized": false,
+        "wires": []
+      },
+      "sourceFile": "/Users/yasser/git/pikku/fabric/templates/online-shop-template/packages/functions/src/wirings/shop.security.ts",
+      "position": 326,
+      "exportedName": "isAuthenticated",
+      "requiresData": false
+    },
+    "isAdmin": {
+      "services": {
+        "optimized": true,
+        "services": []
+      },
+      "wires": {
+        "optimized": false,
+        "wires": []
+      },
+      "sourceFile": "/Users/yasser/git/pikku/fabric/templates/online-shop-template/packages/functions/src/wirings/shop.security.ts",
+      "position": 405,
+      "exportedName": "isAdmin",
+      "requiresData": false
+    },
+    "isOrderOwner": {
+      "services": {
+        "optimized": true,
+        "services": [
+          "kysely"
+        ]
+      },
+      "wires": {
+        "optimized": true,
+        "wires": [
+          "session"
+        ]
+      },
+      "sourceFile": "/Users/yasser/git/pikku/fabric/templates/online-shop-template/packages/functions/src/wirings/shop.security.ts",
+      "position": 576,
+      "exportedName": "isOrderOwner"
+    }
+  },
+  "httpGroups": {
+    "/admin/*": {
+      "exportName": null,
+      "sourceFile": "/Users/yasser/git/pikku/fabric/templates/online-shop-template/packages/functions/src/wirings/shop.security.ts",
+      "position": 3139,
+      "services": {
+        "optimized": false,
+        "services": []
+      },
+      "count": 1,
+      "instanceIds": [
+        "isAdmin"
+      ],
+      "isFactory": false
+    }
+  },
+  "tagGroups": {}
+}
