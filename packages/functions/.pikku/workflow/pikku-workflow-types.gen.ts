@@ -109,6 +109,27 @@ export function pikkuWorkflowComplexFunc(func: any) {
   return typeof func === 'function' ? { func } : func
 }
 
+/**
+ * A scenario: a complex workflow that drives the app the way users do.
+ * Steps run as actors over the REAL transport — `workflow.do(step, rpc,
+ * data, { actor: actors.yasser })` — so flows double as e2e tests and
+ * staged/production health checks (no state reset; scope what you create).
+ */
+export function pikkuScenario<
+  InputSchema extends StandardSchemaV1 | undefined = undefined,
+  OutputSchema extends StandardSchemaV1 | undefined = undefined
+>(
+  config: PikkuWorkflowConfigWithSchema<InputSchema, OutputSchema>
+): PikkuFunctionConfig<InputSchema extends StandardSchemaV1 ? InferSchemaOutput<InputSchema> : unknown, OutputSchema extends StandardSchemaV1 ? InferSchemaOutput<OutputSchema> : unknown, 'workflow', PikkuFunctionWorkflow<InputSchema extends StandardSchemaV1 ? InferSchemaOutput<InputSchema> : unknown, OutputSchema extends StandardSchemaV1 ? InferSchemaOutput<OutputSchema> : unknown>, InputSchema, OutputSchema>
+export function pikkuScenario<In, Out = unknown>(
+  func:
+    | PikkuFunctionWorkflow<In, Out>
+    | PikkuFunctionConfig<In, Out, 'workflow', PikkuFunctionWorkflow<In, Out>>
+): PikkuFunctionConfig<In, Out, 'workflow'>
+export function pikkuScenario(func: any) {
+  return typeof func === 'function' ? { func } : func
+}
+
 type TypedRef<T> = { $ref: string; path?: string } & { __phantomType?: T }
 
 type TemplateString = {

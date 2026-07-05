@@ -17,6 +17,20 @@
   "schema": {
     "supportsImportAttributes": true
   },
+  "scenarios": {
+    "actors": {
+      "shopper": {
+        "email": "shopper@actors.local",
+        "name": "Sam the Shopper",
+        "jobTitle": "Customer",
+        "personality": "A friendly customer who loves coffee and asks short, direct questions."
+      }
+    },
+    "environments": {
+      "local": { "apiUrl": "http://localhost:3000" },
+      "staging": { "apiUrl": "https://shop-staging.example.com" }
+    }
+  },
   "scaffold": {
     "pikkuDir": "packages/functions/src/scaffold",
     "console": true,
