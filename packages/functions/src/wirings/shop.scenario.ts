@@ -10,7 +10,10 @@ export const shopperBuysAnItem = pikkuScenario({
   description: 'Browse the catalogue, fill a basket and pay for an order.',
   tags: ['checkout'],
   func: async ({ logger }, _input, { workflow, actors }) => {
-    const shopper = actors!.shopper
+    if (!actors?.shopper) {
+      throw new Error('shopperBuysAnItem needs the `shopper` actor — run via `pikku scenario run`')
+    }
+    const shopper = actors.shopper
 
     // Each actor step names an exposed RPC and who performs it. The call goes
     // through the actor's authenticated client — never internal dispatch.
@@ -47,13 +50,13 @@ export const shopperBuysAnItem = pikkuScenario({
     )
 
     // Durable polling step: re-invokes the RPC as the actor until the
-    // predicate passes (or the timeout fails the scenario).
+    // predicate passes, or `within` elapses and fails the scenario.
     await workflow.expectEventually(
       'Order is paid',
       'getOrder',
       { orderId: order.orderId },
       (o) => o.status === 'paid',
-      { actor: shopper }
+      { actor: shopper, within: '30s', interval: 500 }
     )
 
     logger.info(`Scenario order ${order.orderId} paid: ${order.totalCents} cents`)
@@ -71,7 +74,10 @@ export const shopperAsksTheAssistant = pikkuScenario({
   description: 'The shop assistant finds a product and adds it to the basket.',
   tags: ['agents'],
   func: async ({ logger }, _input, { workflow, actors }) => {
-    const shopper = actors!.shopper
+    if (!actors?.shopper) {
+      throw new Error('shopperAsksTheAssistant needs the `shopper` actor — run via `pikku scenario run`')
+    }
+    const shopper = actors.shopper
 
     const verdict = await workflow.do('Shopper chats to the assistant', async () =>
       shopper.converse({
