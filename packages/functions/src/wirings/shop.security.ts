@@ -1,6 +1,6 @@
 import { pikkuAuth, pikkuPermission, pikkuFunc } from '#pikku'
 import { authBearer, authCookie } from '@pikku/core/middleware'
-import { addHTTPMiddleware, addHTTPPermission, wireHTTP } from '#pikku'
+import { addHTTPMiddleware, addGlobalPermission, wireHTTP } from '#pikku'
 import { verifyPassword } from '../services/password.js'
 
 // @snippet start shopIsAuthenticated
@@ -105,15 +105,15 @@ addHTTPMiddleware('*', [
 // Global: apply auth middleware to all routes
 addHTTPMiddleware('*', [authBearer({})])
 
-// Prefix-based: tighter permissions for admin routes only
-addHTTPPermission('/admin/*', { admin: isAdmin })
+// App-wide permission baseline: every function also requires a session
+addGlobalPermission([isAuthenticated])
 
-// Inline: per-route permission override
+// Authorization lives on the function (see deleteOrder above); the wiring
+// only maps the route to it.
 wireHTTP({
   method: 'delete',
   route: '/orders/:orderId',
   func: deleteOrder,
   auth: true,
-  permissions: { admin: isAdmin, owner: [isAuthenticated, isOrderOwner] },
 })
 // @snippet end shopAuthScope
