@@ -42,17 +42,14 @@ wireHTTP({
 })
 // @snippet end aiAgentStream
 
-// @snippet start aiAgentDynamic
 export const opsAgent = pikkuAIAgent({
   name: 'ops-agent',
   description: 'Manages orders; automates repeat ops tasks.',
   goal: 'Manage orders and automate recurring ops as durable workflows.',
   model: 'openai/gpt-4o-mini',
   tools: [listOrders, getOrder, cancelOrder],
-  dynamicWorkflows: 'write',
   maxSteps: 8,
 })
-// @snippet end aiAgentDynamic
 
 // A focused checkout assistant — delegates browsing to the shop assistant.
 export const checkoutAssistant = pikkuAIAgent({
