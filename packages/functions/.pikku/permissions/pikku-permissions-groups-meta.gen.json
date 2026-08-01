@@ -1,16 +1,29 @@
 {
   "definitions": {
+    "isThreadOwner": {
+      "services": {
+        "optimized": true,
+        "services": [
+          "agentRunService"
+        ]
+      },
+      "wires": {
+        "optimized": true,
+        "wires": [
+          "session"
+        ]
+      },
+      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/agent/agent.gen.ts",
+      "position": 622,
+      "exportedName": "isThreadOwner"
+    },
     "isAuthenticated": {
       "services": {
         "optimized": true,
         "services": []
       },
-      "wires": {
-        "optimized": false,
-        "wires": []
-      },
-      "sourceFile": "/Users/yasser/git/pikku/fabric/templates/online-shop-template/packages/functions/src/wirings/shop.security.ts",
-      "position": 326,
+      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.security.ts",
+      "position": 143,
       "exportedName": "isAuthenticated",
       "requiresData": false
     },
@@ -19,12 +32,8 @@
         "optimized": true,
         "services": []
       },
-      "wires": {
-        "optimized": false,
-        "wires": []
-      },
-      "sourceFile": "/Users/yasser/git/pikku/fabric/templates/online-shop-template/packages/functions/src/wirings/shop.security.ts",
-      "position": 405,
+      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.security.ts",
+      "position": 222,
       "exportedName": "isAdmin",
       "requiresData": false
     },
@@ -41,26 +50,9 @@
           "session"
         ]
       },
-      "sourceFile": "/Users/yasser/git/pikku/fabric/templates/online-shop-template/packages/functions/src/wirings/shop.security.ts",
-      "position": 576,
+      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.security.ts",
+      "position": 393,
       "exportedName": "isOrderOwner"
     }
-  },
-  "httpGroups": {
-    "/admin/*": {
-      "exportName": null,
-      "sourceFile": "/Users/yasser/git/pikku/fabric/templates/online-shop-template/packages/functions/src/wirings/shop.security.ts",
-      "position": 3139,
-      "services": {
-        "optimized": false,
-        "services": []
-      },
-      "count": 1,
-      "instanceIds": [
-        "isAdmin"
-      ],
-      "isFactory": false
-    }
-  },
-  "tagGroups": {}
+  }
 }

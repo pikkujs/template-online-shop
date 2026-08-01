@@ -1,13 +1,13 @@
 {
   "nodes": {},
   "secrets": {
-    "authSecret": {
-      "name": "authSecret",
-      "displayName": "Auth Secret",
-      "description": "Secret used to sign auth.js JWTs. Generate with: openssl rand -hex 32",
-      "secretId": "AUTH_SECRET",
-      "schema": "SecretSchema_authSecret",
-      "sourceFile": "/Users/yasser/git/pikku/fabric/templates/online-shop-template/packages/functions/src/wirings/shop.secret.ts"
+    "betterAuthSecret": {
+      "name": "betterAuthSecret",
+      "displayName": "Better Auth Secret",
+      "description": "Signing secret for better-auth sessions",
+      "secretId": "BETTER_AUTH_SECRET",
+      "schema": "SecretSchema_betterAuthSecret",
+      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/auth/auth-secrets.gen.ts"
     },
     "stripeSecretKey": {
       "name": "stripeSecretKey",
@@ -15,8 +15,25 @@
       "description": "Stripe secret key (optional — only needed for real payments)",
       "secretId": "STRIPE_SECRET_KEY",
       "schema": "SecretSchema_stripeSecretKey",
-      "sourceFile": "/Users/yasser/git/pikku/fabric/templates/online-shop-template/packages/functions/src/wirings/shop.secret.ts"
+      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.secret.ts"
     }
   },
-  "package": {}
+  "package": {},
+  "requiredParentServices": [
+    "variables",
+    "metaService",
+    "aiAgentRunner",
+    "schedulerService",
+    "agentRunService",
+    "workflowService",
+    "workflowRunService",
+    "aiStorage",
+    "aiRunState",
+    "deploymentService",
+    "credentialService",
+    "coverageService",
+    "scopeService",
+    "webhookService",
+    "auth"
+  ]
 }

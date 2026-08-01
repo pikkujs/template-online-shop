@@ -1,0 +1,63 @@
+{
+  "admin": {
+    "name": "admin",
+    "displayName": "Administration",
+    "description": "Capabilities that act on the application as a whole",
+    "scopes": {
+      "impersonate": {
+        "description": "Act as another user"
+      },
+      "credentials": {
+        "description": "Application-wide credentials",
+        "scopes": {
+          "link": {
+            "description": "Bind a shared credential for every user"
+          }
+        }
+      },
+      "users": {
+        "description": "The user directory",
+        "scopes": {
+          "list": {
+            "description": "List and search users"
+          },
+          "create": {
+            "description": "Create users out of band"
+          },
+          "ban": {
+            "description": "Ban and unban users"
+          },
+          "remove": {
+            "description": "Delete users and all their data"
+          },
+          "sessions": {
+            "description": "Revoke a user's sessions"
+          },
+          "password": {
+            "description": "Set a user's password"
+          }
+        }
+      }
+    },
+    "sourceFile": "/home/runner/work/pikku/pikku/packages/addon/pikku-console/src/scopes.ts"
+  },
+  "pikku": {
+    "name": "pikku",
+    "displayName": "Pikku Console",
+    "description": "The console's own administrative capabilities",
+    "scopes": {
+      "scopes": {
+        "description": "Authorization management",
+        "scopes": {
+          "read": {
+            "description": "View declared scopes, roles, and who holds them"
+          },
+          "manage": {
+            "description": "Create and delete roles, change their scopes, and grant roles to users"
+          }
+        }
+      }
+    },
+    "sourceFile": "/home/runner/work/pikku/pikku/packages/addon/pikku-console/src/scopes.ts"
+  }
+}

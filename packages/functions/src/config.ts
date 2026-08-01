@@ -1,3 +1,9 @@
-import type { Config } from './application-types.js'
+import { pikkuConfig } from '../.pikku/pikku-types.gen.js'
 
-export const createConfig = async (): Promise<Config> => ({})
+// @snippet start shopConfig
+// Wrapping the factory in pikkuConfig is what lets the CLI find it — the dev
+// server, `pikku db` and the deploy manifest all resolve config through here.
+export const createConfig = pikkuConfig(async () => {
+  return {}
+})
+// @snippet end shopConfig

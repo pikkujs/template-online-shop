@@ -7,7 +7,7 @@ export const AuditEventInput = z.object({
   entityId: z.string(),
   action: z.string(),
   actorId: z.string().optional(),
-  payload: z.record(z.unknown()).optional(),
+  payload: z.record(z.string(), z.unknown()).optional(),
 })
 
 // @snippet start writeAuditEvent

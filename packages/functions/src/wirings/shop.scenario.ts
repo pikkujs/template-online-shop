@@ -9,39 +9,40 @@ export const shopperBuysAnItem = pikkuScenario({
   title: 'Shopper buys an item',
   description: 'Browse the catalogue, fill a basket and pay for an order.',
   tags: ['checkout'],
-  func: async ({ logger }, _input, { workflow, actors }) => {
+  func: async ({ logger }, _input, { scenario, actors }) => {
     if (!actors?.shopper) {
       throw new Error('shopperBuysAnItem needs the `shopper` actor — run via `pikku scenario run`')
     }
     const shopper = actors.shopper
 
     // @snippet start scenarioSteps
-    // Each actor step names an exposed RPC and who performs it. The call goes
-    // through the actor's authenticated client — never internal dispatch.
-    const basket = await workflow.do(
+    // Each step names what the actor is trying to achieve, the exposed RPC
+    // that achieves it, and who performs it. The call goes through the actor's
+    // authenticated client — never internal dispatch.
+    const basket = await scenario.do(
       'Shopper opens their basket',
       'getBasket',
       {},
       { actor: shopper }
     )
 
-    const { items } = await workflow.do(
+    const catalogue = await scenario.do(
       'Shopper browses the catalogue',
       'listItems',
       { search: 'mug' },
       { actor: shopper }
     )
-    if (items.length === 0) throw new Error('Catalogue has no mugs to buy')
+    if (catalogue.items.length === 0) throw new Error('Catalogue has no mugs to buy')
     // @snippet end scenarioSteps
 
-    await workflow.do(
+    await scenario.do(
       'Shopper adds a mug to the basket',
       'addToBasket',
-      { basketId: basket.basketId, itemId: items[0].itemId, quantity: 1 },
+      { basketId: basket.basketId, itemId: catalogue.items[0]!.itemId, quantity: 1 },
       { actor: shopper }
     )
 
-    const order = await workflow.do(
+    const order = await scenario.do(
       'Shopper checks out',
       'createOrder',
       {
@@ -53,11 +54,11 @@ export const shopperBuysAnItem = pikkuScenario({
 
     // Durable polling step: re-invokes the RPC as the actor until the
     // predicate passes, or `within` elapses and fails the scenario.
-    await workflow.expectEventually(
+    await scenario.expectEventually(
       'Order is paid',
       'getOrder',
       { orderId: order.orderId },
-      (o) => o.status === 'paid',
+      (o: { status: string }) => o.status === 'paid',
       { actor: shopper, within: '30s', interval: 500 }
     )
 
@@ -75,16 +76,16 @@ export const shopperAsksTheAssistant = pikkuScenario({
   title: 'Shopper gets help from the assistant',
   description: 'The shop assistant finds a product and adds it to the basket.',
   tags: ['agents'],
-  func: async ({ logger }, _input, { workflow, actors }) => {
+  func: async ({ logger }, _input, { scenario, actors }) => {
     if (!actors?.shopper) {
       throw new Error('shopperAsksTheAssistant needs the `shopper` actor — run via `pikku scenario run`')
     }
     const shopper = actors.shopper
 
     // @snippet start converseSteps
-    const verdict = await workflow.do('Shopper chats to the assistant', async () =>
+    const verdict = await scenario.do('Shopper chats to the assistant', async () =>
       shopper.converse({
-        agent: 'shop-assistant',
+        agent: 'shopAssistant',
         task: 'Find a coffee mug in the shop and add one to my basket.',
         evaluate: 'The assistant found a mug and confirmed it is in the basket.',
       })
@@ -96,7 +97,7 @@ export const shopperAsksTheAssistant = pikkuScenario({
 
     // The verdict is the persona's judgement — follow up with a deterministic
     // check through the same actor.
-    const basket = await workflow.do('Basket really has the mug', 'getBasket', {}, { actor: shopper })
+    const basket = await scenario.do('Basket really has the mug', 'getBasket', {}, { actor: shopper })
     if (basket.itemCount === 0) throw new Error('Assistant claimed success but the basket is empty')
     // @snippet end converseSteps
 

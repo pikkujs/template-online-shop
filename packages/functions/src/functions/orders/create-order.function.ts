@@ -26,8 +26,12 @@ export const createOrder = pikkuFunc({
   description: 'Create an order from a basket and charge via the fake payment provider.',
   input: CreateOrderInput,
   output: CreateOrderOutput,
-  func: async ({ kysely, paymentService, queueService, userSession }, { basketId, shippingAddress, cardToken }) => {
-    const userId = userSession.userId
+  func: async (
+    { kysely, paymentService, queueService, audit },
+    { basketId, shippingAddress, cardToken },
+    { session }
+  ) => {
+    const userId = session.userId
 
     // Load basket items with current prices
     const basketItems = await kysely

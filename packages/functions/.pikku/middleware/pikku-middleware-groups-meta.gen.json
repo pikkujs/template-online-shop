@@ -7,38 +7,42 @@
           "logger"
         ]
       },
-      "sourceFile": "/Users/yasser/git/pikku/fabric/templates/online-shop-template/packages/functions/src/wirings/shop.cron.ts",
-      "position": 1482,
+      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.cron.ts",
+      "position": 464,
       "exportedName": null
     }
   },
   "instances": {
     "http:*:0": {
+      "definitionId": "betterAuthStatelessSession",
+      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/auth/auth-middleware.gen.ts",
+      "position": 291,
+      "isFactoryCall": true
+    },
+    "http:*:1": {
       "definitionId": "authBearer",
-      "sourceFile": "/Users/yasser/git/pikku/fabric/templates/online-shop-template/packages/functions/src/wirings/shop.security.ts",
-      "position": 3038,
+      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/auth/auth-middleware.gen.ts",
+      "position": 291,
       "isFactoryCall": true
     }
   },
   "httpGroups": {
     "*": {
       "exportName": null,
-      "sourceFile": "/Users/yasser/git/pikku/fabric/templates/online-shop-template/packages/functions/src/wirings/shop.security.ts",
-      "position": 3038,
+      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
+      "position": 3047,
       "services": {
         "optimized": false,
         "services": []
       },
-      "count": 1,
-      "instanceIds": [
-        "http:*:0"
-      ],
+      "count": 0,
+      "instanceIds": [],
       "isFactory": false
     },
     "/orders": {
       "exportName": null,
-      "sourceFile": "/Users/yasser/git/pikku/fabric/templates/online-shop-template/packages/functions/src/wirings/shop.http.ts",
-      "position": 3288,
+      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
+      "position": 3292,
       "services": {
         "optimized": false,
         "services": []

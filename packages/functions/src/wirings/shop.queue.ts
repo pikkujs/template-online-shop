@@ -58,46 +58,29 @@ export const placeOrder = pikkuFunc({
 // @snippet end queuePublish
 
 // @snippet start queueJobControl
-// Wire object available inside every queue worker:
+// The wire object every queue worker is handed: discard the job, or report
+// progress back to whoever is watching it.
 export const processExport = pikkuSessionlessFunc({
-  func: async ({ logger }, { exportId }, wire) => {
-    const rows = await fetchRows(exportId)
+  func: async ({ kysely, logger }, { exportId }: { exportId: string }, { queue }) => {
+    const rows = await kysely.selectFrom('order').selectAll().execute()
 
-    if (!rows.length) {
-      // No work — remove from queue, no retry
-      wire.queue?.discard('Nothing to export')
+    if (rows.length === 0) {
+      // No work — remove from the queue, no retry
+      queue?.discard('No orders to export')
       return
     }
 
     for (let i = 0; i < rows.length; i++) {
       // Report 0-100 progress
-      await wire.queue?.updateProgress(
-        Math.round((i / rows.length) * 100),
-      )
-    }
-  },
-})
-// @snippet end queueJobControl
-
-export const processLargeExport = pikkuSessionlessFunc({
-  func: async ({ kysely, logger }, { exportId }: { exportId: string }, wire) => {
-    const rows = await kysely.selectFrom('order').selectAll().execute()
-
-    if (rows.length === 0) {
-      wire.queue?.discard('No orders to export')
-      return
-    }
-
-    for (let i = 0; i < rows.length; i++) {
-      const pct = Math.round((i / rows.length) * 100)
-      await wire.queue?.updateProgress(pct)
+      await queue?.updateProgress(Math.round((i / rows.length) * 100))
     }
 
     logger.info({ exportId, count: rows.length })
   },
 })
+// @snippet end queueJobControl
 
 wireQueueWorker({
   name: 'process-export',
-  func: processLargeExport,
+  func: processExport,
 })

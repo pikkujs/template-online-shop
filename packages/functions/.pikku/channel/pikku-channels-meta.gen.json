@@ -4,13 +4,22 @@
     "route": "/orders/status",
     "input": null,
     "connect": {
-      "pikkuFuncId": "channel:order-status:connect"
+      "pikkuFuncId": "onConnect"
     },
     "disconnect": {
-      "pikkuFuncId": "channel:order-status:disconnect"
+      "pikkuFuncId": "onDisconnect"
     },
     "message": null,
-    "messageWirings": {},
+    "messageWirings": {
+      "type": {
+        "subscribe": {
+          "pikkuFuncId": "subscribeToOrder"
+        },
+        "unsubscribe": {
+          "pikkuFuncId": "unsubscribeFromOrder"
+        }
+      }
+    },
     "binary": null
   }
 }

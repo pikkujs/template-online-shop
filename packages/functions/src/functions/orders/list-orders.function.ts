@@ -11,11 +11,11 @@ export const listOrders = pikkuFunc({
   expose: true,
   description: 'List orders for the current user.',
   input: ListOrdersInput,
-  func: async ({ kysely, userSession }, { limit, offset }) => {
+  func: async ({ kysely }, { limit, offset }, { session }) => {
     return kysely
       .selectFrom('order')
       .select(['orderId', 'status', 'totalCents', 'createdAt'])
-      .where('userId', '=', userSession.userId)
+      .where('userId', '=', session.userId)
       .orderBy('createdAt', 'desc')
       .limit(limit)
       .offset(offset)

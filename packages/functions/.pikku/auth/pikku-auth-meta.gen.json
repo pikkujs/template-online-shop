@@ -1,0 +1,11 @@
+{
+  "basePath": "/api/auth",
+  "hasCredentials": true,
+  "providers": [],
+  "plugins": [
+    {
+      "id": "actor",
+      "displayName": "Actor"
+    }
+  ]
+}

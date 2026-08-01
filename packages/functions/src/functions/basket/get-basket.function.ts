@@ -30,8 +30,8 @@ export const getBasket = pikkuSessionlessFunc({
   description: 'Get basket for the current user or session. Creates one if it does not exist.',
   input: GetBasketInput,
   output: GetBasketOutput,
-  func: async ({ kysely, userSession }, { sessionId }) => {
-    const userId = userSession?.userId ?? null
+  func: async ({ kysely }, { sessionId }, { session }) => {
+    const userId = session?.userId ?? null
     const sid = sessionId ?? null
 
     // Find or create basket

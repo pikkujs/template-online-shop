@@ -3,16 +3,10 @@ import { wireSecret } from '#pikku/secrets/pikku-secret-types.gen.js'
 import { pikkuFunc } from '#pikku'
 
 // @snippet start secrets
-export const AuthSecretSchema = z.string()
+// BETTER_AUTH_SECRET is not declared here — the CLI generates its wireSecret
+// into src/scaffold/auth/ from the pikkuBetterAuth config, along with one per
+// configured provider.
 export const StripeKeySchema = z.string()
-
-wireSecret({
-  name: 'authSecret',
-  displayName: 'Auth Secret',
-  description: 'Secret used to sign auth.js JWTs. Generate with: openssl rand -hex 32',
-  secretId: 'AUTH_SECRET',
-  schema: AuthSecretSchema,
-})
 
 wireSecret({
   name: 'stripeSecretKey',

@@ -1,7 +1,4 @@
-import { pikkuAuth, pikkuPermission, pikkuFunc } from '#pikku'
-import { authBearer, authCookie } from '@pikku/core/middleware'
-import { addHTTPMiddleware, addGlobalPermission, wireHTTP } from '#pikku'
-import { verifyPassword } from '../services/password.js'
+import { pikkuAuth, pikkuPermission, pikkuFunc, wireHTTP } from '#pikku'
 
 // @snippet start shopIsAuthenticated
 export const isAuthenticated = pikkuAuth(
@@ -43,30 +40,6 @@ export const deleteOrder = pikkuFunc({
 })
 // @snippet end shopPermissions
 
-// @snippet start shopLogin
-export const shopLogin = pikkuFunc({
-  auth: false,
-  func: async (
-    { kysely },
-    { email, password }: { email: string; password: string },
-    { setSession }
-  ) => {
-    const user = await kysely
-      .selectFrom('appUser')
-      .select(['userId', 'role', 'passwordHash'])
-      .where('email', '=', email.toLowerCase())
-      .executeTakeFirst()
-
-    if (!user || !(await verifyPassword(password, user.passwordHash ?? ''))) {
-      throw new Error('Invalid credentials')
-    }
-
-    setSession?.({ userId: user.userId, role: user.role })
-    return { userId: user.userId, role: user.role }
-  },
-})
-// @snippet end shopLogin
-
 // @snippet start shopGetProfile
 export const getProfile = pikkuFunc({
   func: async ({ kysely }, _data, { session }) => {
@@ -79,37 +52,13 @@ export const getProfile = pikkuFunc({
 })
 // @snippet end shopGetProfile
 
-// @snippet start shopLogout
-export const shopLogout = pikkuFunc({
-  func: async (_services, _data, { clearSession }) => {
-    clearSession?.()
-  },
-})
-// @snippet end shopLogout
-
-// @snippet start shopAuthMiddleware
-// JWT Bearer — reads Authorization: Bearer <token> header
-addHTTPMiddleware('*', [authBearer({})])
-
-// Cookie-based sessions — auto-refreshes JWT on each request
-addHTTPMiddleware('*', [
-  authCookie({
-    name: 'session',
-    expiresIn: { value: 30, unit: 'day' },
-    options: { httpOnly: true, secure: true },
-  }),
-])
-// @snippet end shopAuthMiddleware
-
 // @snippet start shopAuthScope
-// Global: apply auth middleware to all routes
-addHTTPMiddleware('*', [authBearer({})])
-
-// App-wide permission baseline: every function also requires a session
-addGlobalPermission([isAuthenticated])
-
-// Authorization lives on the function (see deleteOrder above); the wiring
-// only maps the route to it.
+// Sessions arrive from Better Auth — the CLI generates the session-bridge
+// middleware from src/wirings/auth.wiring.ts, so nothing here has to read a
+// cookie or a bearer header itself.
+//
+// `auth: true` is the baseline: no session, no call. Authorization lives on
+// the function (see deleteOrder above); the wiring only maps the route to it.
 wireHTTP({
   method: 'delete',
   route: '/orders/:orderId',

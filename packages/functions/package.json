@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "pikku": "pikku",
-    "build": "tsc -b",
-    "tsc": "tsc --noEmit",
+    "build": "tsc",
+    "tsc": "tsc",
     "test": "vitest run"
   },
   "imports": {

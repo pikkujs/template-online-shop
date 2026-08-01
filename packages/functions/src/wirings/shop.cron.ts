@@ -3,12 +3,23 @@ import { pikkuVoidFunc, pikkuMiddleware } from '#pikku'
 import { dailySalesReport } from '../functions/reports/daily-sales-report.function.js'
 import { cleanupAbandonedBaskets } from '../functions/reports/cleanup-abandoned-baskets.function.js'
 
+// @snippet start cronMiddleware
+// Middleware wraps every run of the tasks it is wired to — here, to record how
+// long each run took.
+const timingMiddleware = pikkuMiddleware(async ({ logger }, _data, next) => {
+  const start = Date.now()
+  await next()
+  logger.info({ event: 'scheduler_timing', ms: Date.now() - start })
+})
+
 // @snippet start cronWirings
 wireScheduler({
   name: 'dailySalesReport',
   schedule: '0 6 * * *',   // 06:00 UTC every day
   func: dailySalesReport,
+  middleware: [timingMiddleware],
 })
+// @snippet end cronMiddleware
 
 wireScheduler({
   name: 'cleanupAbandonedBaskets',
@@ -20,7 +31,7 @@ wireScheduler({
 // @snippet start cronSkip
 // A scheduled task can skip its own execution by calling wire.scheduledTask.skip().
 export const conditionalReport = pikkuVoidFunc({
-  func: async ({ kysely, logger }, _, wire) => {
+  func: async ({ kysely, logger }, _, { scheduledTask }) => {
     const count = await kysely
       .selectFrom('order')
       .where('status', '=', 'pending')
@@ -28,7 +39,7 @@ export const conditionalReport = pikkuVoidFunc({
       .executeTakeFirstOrThrow()
 
     if (count.n === 0) {
-      wire.scheduledTask?.skip('No pending orders — nothing to report')
+      scheduledTask?.skip('No pending orders — nothing to report')
       return
     }
 
@@ -42,19 +53,3 @@ wireScheduler({
   func: conditionalReport,
 })
 // @snippet end cronSkip
-
-// @snippet start cronMiddleware
-// Apply middleware to log execution time for every run of a scheduled task.
-const timingMiddleware = pikkuMiddleware(async ({ logger }, _data, next) => {
-  const start = Date.now()
-  await next()
-  logger.info({ event: 'scheduler_timing', ms: Date.now() - start })
-})
-
-wireScheduler({
-  name: 'dailySalesReport',
-  schedule: '0 6 * * *',
-  func: dailySalesReport,
-  middleware: [timingMiddleware],
-})
-// @snippet end cronMiddleware

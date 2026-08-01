@@ -4,8 +4,10 @@ import { pikkuSessionlessFunc } from '#pikku'
 export const ListItemsInput = z.object({
   categorySlug: z.string().optional(),
   search: z.string().optional(),
-  limit: z.number().int().min(1).max(100).default(20),
-  offset: z.number().int().min(0).default(0),
+  // Paging is optional for callers; the defaults are applied in the function so
+  // the generated input type stays `limit?: number` rather than a required key.
+  limit: z.number().int().min(1).max(100).optional(),
+  offset: z.number().int().min(0).optional(),
 })
 
 export const ListItemsOutput = z.object({
@@ -30,7 +32,7 @@ export const listItems = pikkuSessionlessFunc({
   description: 'List items, optionally filtered by category or search query.',
   input: ListItemsInput,
   output: ListItemsOutput,
-  func: async ({ kysely }, { categorySlug, search, limit, offset }) => {
+  func: async ({ kysely }, { categorySlug, search, limit = 20, offset = 0 }) => {
     let query = kysely
       .selectFrom('item')
       .innerJoin('category', 'category.categoryId', 'item.categoryId')

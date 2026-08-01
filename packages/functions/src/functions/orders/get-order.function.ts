@@ -7,7 +7,7 @@ export const GetOrderOutput = z.object({
   orderId: z.string(),
   status: z.string(),
   totalCents: z.number(),
-  shippingAddress: z.record(z.unknown()),
+  shippingAddress: z.record(z.string(), z.unknown()),
   items: z.array(z.object({
     itemId: z.string(),
     name: z.string(),
@@ -42,7 +42,7 @@ export const getOrder = pikkuFunc({
   description: 'Get a single order. Users can only access their own orders.',
   input: GetOrderInput,
   output: GetOrderOutput,
-  func: async ({ kysely, userSession }, { orderId }) => {
+  func: async ({ kysely }, { orderId }, { session }) => {
     const order = await kysely
       .selectFrom('order')
       .selectAll()
@@ -50,7 +50,7 @@ export const getOrder = pikkuFunc({
       .executeTakeFirst()
 
     if (!order) throw new Error('Order not found')
-    if (order.userId !== userSession.userId && userSession.role !== 'admin') {
+    if (order.userId !== session.userId && session.role !== 'admin') {
       throw new Error('Forbidden')
     }
 

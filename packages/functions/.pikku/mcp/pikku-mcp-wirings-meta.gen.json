@@ -9,7 +9,43 @@
       "outputSchema": null
     }
   },
-  "toolsMeta": {},
+  "toolsMeta": {
+    "listCategoriesTool": {
+      "pikkuFuncId": "listCategoriesTool",
+      "name": "listCategoriesTool",
+      "description": "List all product categories in the shop",
+      "inputSchema": null,
+      "outputSchema": "MCPToolResponse"
+    },
+    "listItemsTool": {
+      "pikkuFuncId": "listItemsTool",
+      "name": "listItemsTool",
+      "description": "List shop items, optionally filtered by category or search query",
+      "inputSchema": "ListItemsToolInput",
+      "outputSchema": "MCPToolResponse"
+    },
+    "getItemTool": {
+      "pikkuFuncId": "getItemTool",
+      "name": "getItemTool",
+      "description": "Get full details for a specific shop item by ID",
+      "inputSchema": "GetItemToolInput",
+      "outputSchema": "MCPToolResponse"
+    },
+    "getItemForAI": {
+      "pikkuFuncId": "getItemForAI",
+      "name": "getItemForAI",
+      "description": "Retrieve a shop item by its ID",
+      "inputSchema": "GetItemForAIInput",
+      "outputSchema": "MCPToolResponse"
+    },
+    "updateStockTool": {
+      "pikkuFuncId": "updateStockTool",
+      "name": "updateStockTool",
+      "description": "Update stock level for a shop item",
+      "inputSchema": "UpdateStockToolInput",
+      "outputSchema": "MCPToolResponse"
+    }
+  },
   "promptsMeta": {
     "product_recommendation": {
       "pikkuFuncId": "mcp:prompt:product_recommendation",

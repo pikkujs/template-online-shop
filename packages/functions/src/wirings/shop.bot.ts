@@ -27,7 +27,7 @@ export const shopAssistant = pikkuAIAgent({
 wireHTTP({
   method: 'post',
   route: '/agents/shop',
-  func: agent('shop-assistant'),
+  func: agent('shopAssistant'),
   auth: true,
 })
 // @snippet end aiAgentInvoke
@@ -37,7 +37,7 @@ wireHTTP({
 wireHTTP({
   method: 'post',
   route: '/agents/shop/stream',
-  func: agentStream('shop-assistant'),
+  func: agentStream('shopAssistant'),
   auth: true,
 })
 // @snippet end aiAgentStream

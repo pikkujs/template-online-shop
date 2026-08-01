@@ -4,6 +4,8 @@ import { wireVariable } from '#pikku/variables/pikku-variable-types.gen.js'
 // @snippet start variables
 export const DatabaseUrlSchema = z.string()
 export const LowStockThresholdSchema = z.number().int().positive()
+export const ScenarioActorSecretSchema = z.string()
+export const BetterAuthUrlSchema = z.string().url()
 
 wireVariable({
   name: 'databaseUrl',
@@ -19,5 +21,21 @@ wireVariable({
   description: 'Item stock level that triggers a low-stock alert',
   variableId: 'LOW_STOCK_THRESHOLD',
   schema: LowStockThresholdSchema,
+})
+
+wireVariable({
+  name: 'scenarioActorSecret',
+  displayName: 'Scenario Actor Secret',
+  description: 'Impersonation secret for `pikku scenario run` actors. Leave unset to disable actor sign-in',
+  variableId: 'SCENARIO_ACTOR_SECRET',
+  schema: ScenarioActorSecretSchema,
+})
+
+wireVariable({
+  name: 'betterAuthUrl',
+  displayName: 'Better Auth Base URL',
+  description: 'Public origin the API is served from, used for auth callbacks and redirects',
+  variableId: 'BETTER_AUTH_URL',
+  schema: BetterAuthUrlSchema,
 })
 // @snippet end variables

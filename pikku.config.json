@@ -27,8 +27,14 @@
       }
     },
     "environments": {
-      "local": { "apiUrl": "http://localhost:3000" },
-      "staging": { "apiUrl": "https://shop-staging.example.com" }
+      "local": {
+        "apiUrl": "http://localhost:3000",
+        "signInPath": "/api/auth/sign-in/actor"
+      },
+      "staging": {
+        "apiUrl": "https://shop-staging.example.com",
+        "signInPath": "/api/auth/sign-in/actor"
+      }
     }
   },
   "scaffold": {

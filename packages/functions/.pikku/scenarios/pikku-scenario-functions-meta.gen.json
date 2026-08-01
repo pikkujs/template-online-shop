@@ -1,0 +1,38 @@
+{
+  "shopperBuysAnItem": {
+    "pikkuFuncId": "shopperBuysAnItem",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenario",
+    "sessionless": true,
+    "name": "shopperBuysAnItem",
+    "inputSchemaName": null,
+    "outputSchemaName": "ShopperBuysAnItemOutput",
+    "inputs": [],
+    "outputs": [
+      "ShopperBuysAnItemOutput"
+    ],
+    "scenario": true,
+    "implementationHash": "4717e77a8fba4ce8",
+    "contractHash": "ec991de7ecbf3ec5",
+    "inputHash": "c22138d6",
+    "outputHash": "7f04e386"
+  },
+  "shopperAsksTheAssistant": {
+    "pikkuFuncId": "shopperAsksTheAssistant",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenario",
+    "sessionless": true,
+    "name": "shopperAsksTheAssistant",
+    "inputSchemaName": null,
+    "outputSchemaName": "ShopperAsksTheAssistantOutput",
+    "inputs": [],
+    "outputs": [
+      "ShopperAsksTheAssistantOutput"
+    ],
+    "scenario": true,
+    "implementationHash": "44fe3aa314a94fe4",
+    "contractHash": "5bae8309c7cafd6e",
+    "inputHash": "db130ce1",
+    "outputHash": "2d895abd"
+  }
+}

@@ -1,1 +1,34 @@
-{}
+{
+  "databaseUrl": {
+    "name": "databaseUrl",
+    "displayName": "Database URL",
+    "description": "Primary database connection string (Postgres or libsql URL)",
+    "variableId": "DATABASE_URL",
+    "schema": "VariableSchema_databaseUrl",
+    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.variable.ts"
+  },
+  "lowStockThreshold": {
+    "name": "lowStockThreshold",
+    "displayName": "Low Stock Threshold",
+    "description": "Item stock level that triggers a low-stock alert",
+    "variableId": "LOW_STOCK_THRESHOLD",
+    "schema": "VariableSchema_lowStockThreshold",
+    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.variable.ts"
+  },
+  "scenarioActorSecret": {
+    "name": "scenarioActorSecret",
+    "displayName": "Scenario Actor Secret",
+    "description": "Impersonation secret for `pikku scenario run` actors. Leave unset to disable actor sign-in",
+    "variableId": "SCENARIO_ACTOR_SECRET",
+    "schema": "VariableSchema_scenarioActorSecret",
+    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.variable.ts"
+  },
+  "betterAuthUrl": {
+    "name": "betterAuthUrl",
+    "displayName": "Better Auth Base URL",
+    "description": "Public origin the API is served from, used for auth callbacks and redirects",
+    "variableId": "BETTER_AUTH_URL",
+    "schema": "VariableSchema_betterAuthUrl",
+    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.variable.ts"
+  }
+}

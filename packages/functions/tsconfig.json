@@ -1,11 +1,9 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist",
-    "declarationDir": "dist",
-    "declaration": true,
-    "tsBuildInfoFile": "tsconfig.tsbuildinfo"
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "types": ["node"]
   },
-  "include": ["src"]
+  "include": ["src/", ".pikku/*", ".pikku/**/*"]
 }

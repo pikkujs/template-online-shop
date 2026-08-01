@@ -1,26 +1,26 @@
 import { wireChannel, pikkuChannelFunc, pikkuChannelConnectionFunc, pikkuChannelDisconnectionFunc } from '#pikku/channel/pikku-channel-types.gen.js'
 import { pikkuFunc } from '#pikku'
 
-const onConnect = pikkuChannelConnectionFunc(
+export const onConnect = pikkuChannelConnectionFunc(
   async ({ logger }, _, { channel }) => {
     logger.info({ event: 'ws_connected', channelId: channel.channelId })
   }
 )
 
-const onDisconnect = pikkuChannelDisconnectionFunc(
+export const onDisconnect = pikkuChannelDisconnectionFunc(
   async ({ logger }, _, { channel }) => {
     logger.info({ event: 'ws_disconnected', channelId: channel.channelId })
   }
 )
 
 // @snippet start orderStatusChannel
-const subscribeToOrder = pikkuChannelFunc<{ orderId: string }, void>(
+export const subscribeToOrder = pikkuChannelFunc<{ orderId: string }, void>(
   async ({ eventHub }, { orderId }, { channel }) => {
     await eventHub?.subscribe(`order:${orderId}`, channel.channelId)
   }
 )
 
-const unsubscribeFromOrder = pikkuChannelFunc<{ orderId: string }, void>(
+export const unsubscribeFromOrder = pikkuChannelFunc<{ orderId: string }, void>(
   async ({ eventHub }, { orderId }, { channel }) => {
     await eventHub?.unsubscribe(`order:${orderId}`, channel.channelId)
   }

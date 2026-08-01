@@ -1,62 +1,62 @@
-import Credentials from '@auth/core/providers/credentials'
-import { createAuthRoutes } from '@pikku/auth-js'
-import type { AuthConfigOrFactory } from '@pikku/auth-js'
-import { wireHTTPRoutes } from '#pikku'
-import { verifyPassword } from '../services/password.js'
-
-const DEV_AUTH_SECRET = 'dev-insecure-auth-secret-change-me'
+import { betterAuth } from 'better-auth'
+import { pikkuBetterAuth, actor } from '@pikku/better-auth'
+import type { CoreSingletonServices } from '@pikku/core'
+import type { Kysely } from 'kysely'
+import type { DB } from '../types/db.types.js'
 
 // @snippet start authConfig
-const configFactory: AuthConfigOrFactory = async (services) => {
-  const { kysely, secrets } = services as any
-  const secret = (await secrets.getSecret('AUTH_SECRET').catch(() => null)) ?? DEV_AUTH_SECRET
-
-  return {
-    providers: [
-      Credentials({
-        credentials: {
-          email: { label: 'Email', type: 'email' },
-          password: { label: 'Password', type: 'password' },
+/**
+ * Better Auth owns identity: the `user`, `session`, `account` and
+ * `verification` tables are its own, and `pikku db generate` writes the
+ * migration for them alongside the shop's tables.
+ *
+ * The CLI inspects this export and generates the catch-all `/auth/**` HTTP
+ * wiring, the session-bridge middleware and a `wireSecret` per configured
+ * provider — so auth routes and secret requirements flow through normal
+ * inspection into the deploy manifest.
+ */
+export const auth = pikkuBetterAuth(async ({
+  secrets,
+  variables,
+  kysely,
+}: CoreSingletonServices & { kysely: Kysely<DB> }) => {
+  return betterAuth({
+    secret: await secrets.getSecret('BETTER_AUTH_SECRET'),
+    baseURL: await variables.get('BETTER_AUTH_URL'),
+    database: { db: kysely, type: 'sqlite' },
+    emailAndPassword: { enabled: true },
+    // Lets the CLI split the stateless session middleware out, so workers that
+    // never touch auth don't bundle the full Better Auth server.
+    session: { cookieCache: { enabled: true } },
+    databaseHooks: {
+      user: {
+        create: {
+          // Mirror every new identity into the shop's own profile table, so
+          // baskets and orders have something of ours to point at.
+          after: async (user) => {
+            await kysely
+              .insertInto('appUser')
+              .values({
+                userId: user.id,
+                email: user.email,
+                name: user.name,
+                role: 'customer',
+                createdAt: new Date().toISOString(),
+              })
+              .onConflict((oc) => oc.column('userId').doNothing())
+              .execute()
+          },
         },
-        async authorize(credentials) {
-          const email = (credentials?.email as string | undefined)?.toLowerCase()
-          const password = credentials?.password as string | undefined
-          if (!email || !password) return null
-
-          const user = await kysely
-            .selectFrom('appUser')
-            .where('email', '=', email)
-            .select(['userId', 'role', 'name', 'email', 'passwordHash'])
-            .executeTakeFirst()
-
-          if (!user || !user.passwordHash) return null
-          const ok = await verifyPassword(password, user.passwordHash)
-          if (!ok) return null
-
-          return { id: user.userId, email: user.email, name: user.name, role: user.role }
-        },
-      }),
-    ],
-    callbacks: {
-      jwt({ token, user }: any) {
-        if (user) { token.role = user.role; token.userId = user.id }
-        return token
-      },
-      session({ session, token }: any) {
-        if (token) { session.role = token.role; session.userId = token.userId }
-        return session
       },
     },
-    session: { strategy: 'jwt' as const },
-    secret,
-    trustHost: true,
-    basePath: '/auth',
-  }
-}
+    plugins: [
+      // `pikku scenario run` signs its actors in through this plugin, at
+      // POST /auth/sign-in/actor. Only rows flagged `actor: true` can use it,
+      // so holding the secret never impersonates a real customer.
+      actor({
+        secret: (await variables.get('SCENARIO_ACTOR_SECRET')) ?? '',
+      }),
+    ],
+  })
+})
 // @snippet end authConfig
-
-wireHTTPRoutes({ routes: { auth: createAuthRoutes(configFactory) as any } })
-
-// @snippet start authProviders
-wireAuth({ providers: ['github', 'google'] })
-// @snippet end authProviders

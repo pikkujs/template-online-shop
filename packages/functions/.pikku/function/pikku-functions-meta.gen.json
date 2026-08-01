@@ -1,340 +1,79 @@
 {
-  "processPayment": {
-    "pikkuFuncId": "processPayment",
+  "addToBasket": {
+    "pikkuFuncId": "addToBasket",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "addToBasket",
+    "inputSchemaName": "AddToBasketInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "AddToBasketInput"
+    ],
+    "outputs": [],
+    "expose": true,
+    "implementationHash": "626b6eed5a44701b",
+    "contractHash": "f5f36d6618c1be48",
+    "inputHash": "a8ce2291",
+    "outputHash": "2f28f3c9"
+  },
+  "getBasket": {
+    "pikkuFuncId": "getBasket",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "getBasket",
+    "inputSchemaName": "GetBasketInput",
+    "outputSchemaName": "GetBasketOutput",
+    "inputs": [
+      "GetBasketInput"
+    ],
+    "outputs": [
+      "GetBasketOutput"
+    ],
+    "expose": true,
+    "implementationHash": "c76e53818fbb2528",
+    "contractHash": "8320f312eba9cce0",
+    "inputHash": "ac0a0186",
+    "outputHash": "27d0ae74"
+  },
+  "removeFromBasket": {
+    "pikkuFuncId": "removeFromBasket",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "removeFromBasket",
+    "inputSchemaName": "RemoveFromBasketInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "RemoveFromBasketInput"
+    ],
+    "outputs": [],
+    "expose": true,
+    "implementationHash": "c6100c113a0ccaa0",
+    "contractHash": "f0c0f960dd928ea5",
+    "inputHash": "dc2d38c8",
+    "outputHash": "8eea6cd5"
+  },
+  "createCategory": {
+    "pikkuFuncId": "createCategory",
     "functionType": "user",
     "funcWrapper": "pikkuFunc",
     "sessionless": false,
-    "name": "processPayment",
-    "inputSchemaName": "ProcessPaymentInput",
-    "outputSchemaName": "ProcessPaymentOutput",
+    "name": "createCategory",
+    "inputSchemaName": "CreateCategoryInput",
+    "outputSchemaName": "CreateCategoryOutput",
     "inputs": [
-      "ProcessPaymentInput"
+      "CreateCategoryInput"
     ],
     "outputs": [
-      "ProcessPaymentOutput"
-    ],
-    "implementationHash": "f766471907d09533",
-    "contractHash": "14bbdb647da96d16",
-    "inputHash": "ff315407",
-    "outputHash": "add24027"
-  },
-  "agentCaller": {
-    "pikkuFuncId": "agentCaller",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "agentCaller",
-    "inputSchemaName": "AgentCallerInput",
-    "outputSchemaName": null,
-    "inputs": [
-      "AgentCallerInput"
-    ],
-    "outputs": [],
-    "implementationHash": "4af198bf5bbd9bd8",
-    "contractHash": "76619abd99f23189",
-    "inputHash": "4d1eddbc",
-    "outputHash": "9a3af204"
-  },
-  "agentStreamCaller": {
-    "pikkuFuncId": "agentStreamCaller",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "agentStreamCaller",
-    "inputSchemaName": "AgentStreamCallerInput",
-    "outputSchemaName": null,
-    "inputs": [
-      "AgentStreamCallerInput"
-    ],
-    "outputs": [],
-    "implementationHash": "5d475a264b62cc63",
-    "contractHash": "440ca8bea8919cc6",
-    "inputHash": "6b434982",
-    "outputHash": "641a263e"
-  },
-  "agentApproveCaller": {
-    "pikkuFuncId": "agentApproveCaller",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "agentApproveCaller",
-    "inputSchemaName": "AgentApproveCallerInput",
-    "outputSchemaName": null,
-    "inputs": [
-      "AgentApproveCallerInput"
-    ],
-    "outputs": [],
-    "implementationHash": "ae5d4bfb0293119a",
-    "contractHash": "83a9293c4b51d65c",
-    "inputHash": "f1628b7c",
-    "outputHash": "ef71f08a"
-  },
-  "agentResumeCaller": {
-    "pikkuFuncId": "agentResumeCaller",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "agentResumeCaller",
-    "inputSchemaName": "AgentResumeCallerInput",
-    "outputSchemaName": null,
-    "inputs": [
-      "AgentResumeCallerInput"
-    ],
-    "outputs": [],
-    "implementationHash": "d17ccf1259ba4a60",
-    "contractHash": "0648ffb2cfa9d861",
-    "inputHash": "f25b50dd",
-    "outputHash": "ee89e454"
-  },
-  "getAgentThreads": {
-    "pikkuFuncId": "getAgentThreads",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "getAgentThreads",
-    "inputSchemaName": "GetAgentThreadsInput",
-    "outputSchemaName": "GetAgentThreadsOutput",
-    "inputs": [
-      "GetAgentThreadsInput"
-    ],
-    "outputs": [
-      "GetAgentThreadsOutput"
+      "CreateCategoryOutput"
     ],
     "expose": true,
-    "implementationHash": "3823f8f3911c48e2",
-    "contractHash": "d629208347702d27",
-    "inputHash": "41f5350c",
-    "outputHash": "6598bdff"
-  },
-  "getAgentThreadMessages": {
-    "pikkuFuncId": "getAgentThreadMessages",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "getAgentThreadMessages",
-    "inputSchemaName": "GetAgentThreadMessagesInput",
-    "outputSchemaName": "GetAgentThreadMessagesOutput",
-    "inputs": [
-      "GetAgentThreadMessagesInput"
-    ],
-    "outputs": [
-      "GetAgentThreadMessagesOutput"
-    ],
-    "expose": true,
-    "implementationHash": "dffe581287205c6e",
-    "contractHash": "44e43e96024680f3",
-    "inputHash": "a158e652",
-    "outputHash": "04960780"
-  },
-  "getAgentThreadRuns": {
-    "pikkuFuncId": "getAgentThreadRuns",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "getAgentThreadRuns",
-    "inputSchemaName": "GetAgentThreadRunsInput",
-    "outputSchemaName": "GetAgentThreadRunsOutput",
-    "inputs": [
-      "GetAgentThreadRunsInput"
-    ],
-    "outputs": [
-      "GetAgentThreadRunsOutput"
-    ],
-    "expose": true,
-    "implementationHash": "2e83ec1d0e08772d",
-    "contractHash": "c51892c37c245537",
-    "inputHash": "fb544997",
-    "outputHash": "6352aca1"
-  },
-  "deleteAgentThread": {
-    "pikkuFuncId": "deleteAgentThread",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "deleteAgentThread",
-    "inputSchemaName": "DeleteAgentThreadInput",
-    "outputSchemaName": "DeleteAgentThreadOutput",
-    "inputs": [
-      "DeleteAgentThreadInput"
-    ],
-    "outputs": [
-      "DeleteAgentThreadOutput"
-    ],
-    "expose": true,
-    "implementationHash": "7c0d0fb40a42fc20",
-    "contractHash": "b970011db1e0230e",
-    "inputHash": "3ed36ee5",
-    "outputHash": "a2094cc1"
-  },
-  "pikkuConsoleSetSecret": {
-    "pikkuFuncId": "pikkuConsoleSetSecret",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "pikkuConsoleSetSecret",
-    "inputSchemaName": "PikkuConsoleSetSecretInput",
-    "outputSchemaName": "PikkuConsoleSetSecretOutput",
-    "inputs": [
-      "PikkuConsoleSetSecretInput"
-    ],
-    "outputs": [
-      "PikkuConsoleSetSecretOutput"
-    ],
-    "expose": true,
-    "implementationHash": "403f267c2ff0edad",
-    "contractHash": "fcb625d86fe88b8f",
-    "inputHash": "a0c8a043",
-    "outputHash": "57702b41"
-  },
-  "pikkuConsoleGetVariable": {
-    "pikkuFuncId": "pikkuConsoleGetVariable",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "pikkuConsoleGetVariable",
-    "inputSchemaName": "PikkuConsoleGetVariableInput",
-    "outputSchemaName": "PikkuConsoleGetVariableOutput",
-    "inputs": [
-      "PikkuConsoleGetVariableInput"
-    ],
-    "outputs": [
-      "PikkuConsoleGetVariableOutput"
-    ],
-    "expose": true,
-    "implementationHash": "a2637db8df0daa91",
-    "contractHash": "3b66dda4d82fa48a",
-    "inputHash": "ce4b2e06",
-    "outputHash": "f54f1059"
-  },
-  "pikkuConsoleSetVariable": {
-    "pikkuFuncId": "pikkuConsoleSetVariable",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "pikkuConsoleSetVariable",
-    "inputSchemaName": "PikkuConsoleSetVariableInput",
-    "outputSchemaName": "PikkuConsoleSetVariableOutput",
-    "inputs": [
-      "PikkuConsoleSetVariableInput"
-    ],
-    "outputs": [
-      "PikkuConsoleSetVariableOutput"
-    ],
-    "expose": true,
-    "implementationHash": "4fac80de849be6c9",
-    "contractHash": "9dda40633b173a08",
-    "inputHash": "d91a4af5",
-    "outputHash": "91fe907b"
-  },
-  "pikkuConsoleHasSecret": {
-    "pikkuFuncId": "pikkuConsoleHasSecret",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "pikkuConsoleHasSecret",
-    "inputSchemaName": "PikkuConsoleHasSecretInput",
-    "outputSchemaName": "PikkuConsoleHasSecretOutput",
-    "inputs": [
-      "PikkuConsoleHasSecretInput"
-    ],
-    "outputs": [
-      "PikkuConsoleHasSecretOutput"
-    ],
-    "expose": true,
-    "implementationHash": "b8c818fb2291b032",
-    "contractHash": "eeff751c00461679",
-    "inputHash": "a67adc7c",
-    "outputHash": "1da66eac"
-  },
-  "pikkuConsoleGetSecret": {
-    "pikkuFuncId": "pikkuConsoleGetSecret",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "pikkuConsoleGetSecret",
-    "inputSchemaName": "PikkuConsoleGetSecretInput",
-    "outputSchemaName": "PikkuConsoleGetSecretOutput",
-    "inputs": [
-      "PikkuConsoleGetSecretInput"
-    ],
-    "outputs": [
-      "PikkuConsoleGetSecretOutput"
-    ],
-    "expose": true,
-    "implementationHash": "6808aead5cd1896a",
-    "contractHash": "d651ad93642eaeed",
-    "inputHash": "329251da",
-    "outputHash": "fb675a26"
-  },
-  "http:get:/workflow-run/:runId/stream": {
-    "pikkuFuncId": "http:get:/workflow-run/:runId/stream",
-    "functionType": "inline",
-    "name": "/workflow-run/:runId/stream",
-    "inputSchemaName": "StreamWorkflowRunInput",
-    "outputSchemaName": null,
-    "inputs": [
-      "StreamWorkflowRunInput"
-    ],
-    "outputs": [],
-    "contractHash": "b693c43c3c0f10d5",
-    "inputHash": "e0a18a17",
-    "outputHash": "fc2fd4a0"
-  },
-  "rpcCaller": {
-    "pikkuFuncId": "rpcCaller",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "rpcCaller",
-    "inputSchemaName": "RpcCallerInput",
-    "outputSchemaName": null,
-    "inputs": [
-      "RpcCallerInput"
-    ],
-    "outputs": [],
-    "implementationHash": "f92b60dda357f483",
-    "contractHash": "f6901fd233740bf4",
-    "inputHash": "a69cacc4",
-    "outputHash": "629e0b5a"
-  },
-  "remoteRPCHandler": {
-    "pikkuFuncId": "remoteRPCHandler",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "remoteRPCHandler",
-    "inputSchemaName": "RemoteRPCHandlerInput",
-    "outputSchemaName": null,
-    "inputs": [
-      "RemoteRPCHandlerInput"
-    ],
-    "outputs": [],
-    "remote": true,
-    "implementationHash": "105018a823bdb551"
-  },
-  "http:post:/checkout": {
-    "pikkuFuncId": "http:post:/checkout",
-    "functionType": "inline",
-    "name": "/checkout",
-    "inputSchemaName": null,
-    "outputSchemaName": null,
-    "inputs": [],
-    "outputs": [],
-    "contractHash": "a8010d7febc364e8",
-    "inputHash": "e4fa62a4",
-    "outputHash": "722252ca"
-  },
-  "http:get:/checkout/:runId/status": {
-    "pikkuFuncId": "http:get:/checkout/:runId/status",
-    "functionType": "inline",
-    "name": "/checkout/:runId/status",
-    "inputSchemaName": null,
-    "outputSchemaName": null,
-    "inputs": [],
-    "outputs": [],
-    "contractHash": "f259d8955c5fe1ae",
-    "inputHash": "df949cf6",
-    "outputHash": "6f1a8f5d"
+    "implementationHash": "d64503f712674da8",
+    "contractHash": "27fecffd1ac7d6c2",
+    "inputHash": "f6149532",
+    "outputHash": "f2fbb552"
   },
   "listCategories": {
     "pikkuFuncId": "listCategories",
@@ -354,25 +93,25 @@
     "inputHash": "10457de4",
     "outputHash": "dbc43cfd"
   },
-  "listItems": {
-    "pikkuFuncId": "listItems",
+  "createItem": {
+    "pikkuFuncId": "createItem",
     "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "listItems",
-    "inputSchemaName": "ListItemsInput",
-    "outputSchemaName": "ListItemsOutput",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "createItem",
+    "inputSchemaName": "CreateItemInput",
+    "outputSchemaName": "CreateItemOutput",
     "inputs": [
-      "ListItemsInput"
+      "CreateItemInput"
     ],
     "outputs": [
-      "ListItemsOutput"
+      "CreateItemOutput"
     ],
     "expose": true,
-    "implementationHash": "a77c2a8bf941ddb2",
-    "contractHash": "fe26da263f534d00",
-    "inputHash": "2297bc31",
-    "outputHash": "8a9a177c"
+    "implementationHash": "444ba8250a280296",
+    "contractHash": "4b4353432e043692",
+    "inputHash": "7c76a951",
+    "outputHash": "bf65f740"
   },
   "getItem@v1": {
     "pikkuFuncId": "getItem@v1",
@@ -416,212 +155,25 @@
     "inputHash": "2cad2fce",
     "outputHash": "3902877b"
   },
-  "getBasket": {
-    "pikkuFuncId": "getBasket",
+  "listItems": {
+    "pikkuFuncId": "listItems",
     "functionType": "user",
     "funcWrapper": "pikkuSessionlessFunc",
     "sessionless": true,
-    "name": "getBasket",
-    "inputSchemaName": "GetBasketInput",
-    "outputSchemaName": "GetBasketOutput",
+    "name": "listItems",
+    "inputSchemaName": "ListItemsInput",
+    "outputSchemaName": "ListItemsOutput",
     "inputs": [
-      "GetBasketInput"
+      "ListItemsInput"
     ],
     "outputs": [
-      "GetBasketOutput"
+      "ListItemsOutput"
     ],
     "expose": true,
-    "implementationHash": "29f9bafbdf1f3016",
-    "contractHash": "8320f312eba9cce0",
-    "inputHash": "ac0a0186",
-    "outputHash": "27d0ae74"
-  },
-  "addToBasket": {
-    "pikkuFuncId": "addToBasket",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "addToBasket",
-    "inputSchemaName": "AddToBasketInput",
-    "outputSchemaName": null,
-    "inputs": [
-      "AddToBasketInput"
-    ],
-    "outputs": [],
-    "expose": true,
-    "implementationHash": "626b6eed5a44701b",
-    "contractHash": "f5f36d6618c1be48",
-    "inputHash": "a8ce2291",
-    "outputHash": "2f28f3c9"
-  },
-  "removeFromBasket": {
-    "pikkuFuncId": "removeFromBasket",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "removeFromBasket",
-    "inputSchemaName": "RemoveFromBasketInput",
-    "outputSchemaName": null,
-    "inputs": [
-      "RemoveFromBasketInput"
-    ],
-    "outputs": [],
-    "expose": true,
-    "implementationHash": "c6100c113a0ccaa0",
-    "contractHash": "f0c0f960dd928ea5",
-    "inputHash": "dc2d38c8",
-    "outputHash": "8eea6cd5"
-  },
-  "http:post:/agents/shop": {
-    "pikkuFuncId": "http:post:/agents/shop",
-    "functionType": "inline",
-    "name": "/agents/shop",
-    "inputSchemaName": "AIAgentInput",
-    "outputSchemaName": "HttpPostAgentsShopOutput",
-    "inputs": [
-      "AIAgentInput"
-    ],
-    "outputs": [
-      "HttpPostAgentsShopOutput"
-    ],
-    "contractHash": "fe533aa02ee89bce",
-    "inputHash": "41e0ec9b",
-    "outputHash": "a27dab8e"
-  },
-  "http:post:/agents/shop/stream": {
-    "pikkuFuncId": "http:post:/agents/shop/stream",
-    "functionType": "inline",
-    "name": "/agents/shop/stream",
-    "inputSchemaName": "HttpPostAgentsShopStreamInput",
-    "outputSchemaName": null,
-    "inputs": [
-      "HttpPostAgentsShopStreamInput"
-    ],
-    "outputs": [],
-    "contractHash": "374292e4e16732ae",
-    "inputHash": "e4f8daaf",
-    "outputHash": "326e5dd3"
-  },
-  "notifyOrderShipped": {
-    "pikkuFuncId": "notifyOrderShipped",
-    "functionType": "user",
-    "funcWrapper": "pikkuFunc",
-    "sessionless": false,
-    "name": "notifyOrderShipped",
-    "inputSchemaName": "NotifyOrderShippedInput",
-    "outputSchemaName": null,
-    "inputs": [
-      "NotifyOrderShippedInput"
-    ],
-    "outputs": [],
-    "implementationHash": "46ed4e087233c4ba",
-    "contractHash": "577e6d7e156d1c65",
-    "inputHash": "606cab48",
-    "outputHash": "4094c392"
-  },
-  "dailySalesReport": {
-    "pikkuFuncId": "dailySalesReport",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "dailySalesReport",
-    "inputSchemaName": null,
-    "outputSchemaName": null,
-    "inputs": [],
-    "outputs": [],
-    "implementationHash": "7090c21b999e2455",
-    "contractHash": "757e4681fc30dc55",
-    "inputHash": "b3a8987e",
-    "outputHash": "468747d0"
-  },
-  "cleanupAbandonedBaskets": {
-    "pikkuFuncId": "cleanupAbandonedBaskets",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "cleanupAbandonedBaskets",
-    "inputSchemaName": null,
-    "outputSchemaName": null,
-    "inputs": [],
-    "outputs": [],
-    "implementationHash": "e1d60ca416e96040",
-    "contractHash": "bfd266803f3c472e",
-    "inputHash": "008b046d",
-    "outputHash": "1d49c1b8"
-  },
-  "conditionalReport": {
-    "pikkuFuncId": "conditionalReport",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "conditionalReport",
-    "inputSchemaName": null,
-    "outputSchemaName": null,
-    "inputs": [],
-    "outputs": [],
-    "implementationHash": "cb80f610c2c5cdd9",
-    "contractHash": "f29b6e139f77f5fa",
-    "inputHash": "05eaeca0",
-    "outputHash": "bed14a05"
-  },
-  "handlePaymentWebhook": {
-    "pikkuFuncId": "handlePaymentWebhook",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "handlePaymentWebhook",
-    "inputSchemaName": "HandlePaymentWebhookInput",
-    "outputSchemaName": "HandlePaymentWebhookOutput",
-    "inputs": [
-      "HandlePaymentWebhookInput"
-    ],
-    "outputs": [
-      "HandlePaymentWebhookOutput"
-    ],
-    "implementationHash": "b21f093b1a970f21",
-    "contractHash": "61e92835d16f3167",
-    "inputHash": "ffe91713",
-    "outputHash": "1d50db30"
-  },
-  "createCategory": {
-    "pikkuFuncId": "createCategory",
-    "functionType": "user",
-    "funcWrapper": "pikkuFunc",
-    "sessionless": false,
-    "name": "createCategory",
-    "inputSchemaName": "CreateCategoryInput",
-    "outputSchemaName": "CreateCategoryOutput",
-    "inputs": [
-      "CreateCategoryInput"
-    ],
-    "outputs": [
-      "CreateCategoryOutput"
-    ],
-    "expose": true,
-    "implementationHash": "d64503f712674da8",
-    "contractHash": "27fecffd1ac7d6c2",
-    "inputHash": "f6149532",
-    "outputHash": "f2fbb552"
-  },
-  "createItem": {
-    "pikkuFuncId": "createItem",
-    "functionType": "user",
-    "funcWrapper": "pikkuFunc",
-    "sessionless": false,
-    "name": "createItem",
-    "inputSchemaName": "CreateItemInput",
-    "outputSchemaName": "CreateItemOutput",
-    "inputs": [
-      "CreateItemInput"
-    ],
-    "outputs": [
-      "CreateItemOutput"
-    ],
-    "expose": true,
-    "implementationHash": "444ba8250a280296",
-    "contractHash": "4b4353432e043692",
-    "inputHash": "7c76a951",
-    "outputHash": "bf65f740"
+    "implementationHash": "d3b6b3d33ce43c19",
+    "contractHash": "f91b782f1222d52d",
+    "inputHash": "34c12795",
+    "outputHash": "8a9a177c"
   },
   "updateItem": {
     "pikkuFuncId": "updateItem",
@@ -640,129 +192,6 @@
     "contractHash": "925b1428502fd7ca",
     "inputHash": "04f0ce98",
     "outputHash": "b58dfe42"
-  },
-  "createOrder": {
-    "pikkuFuncId": "createOrder",
-    "functionType": "user",
-    "funcWrapper": "pikkuFunc",
-    "sessionless": false,
-    "name": "createOrder",
-    "inputSchemaName": "CreateOrderInput",
-    "outputSchemaName": "CreateOrderOutput",
-    "inputs": [
-      "CreateOrderInput"
-    ],
-    "outputs": [
-      "CreateOrderOutput"
-    ],
-    "expose": true,
-    "implementationHash": "879f1894807a765e",
-    "contractHash": "a5be481b778a1d8b",
-    "inputHash": "165ef10b",
-    "outputHash": "de346d00"
-  },
-  "getOrderThreeParams": {
-    "pikkuFuncId": "getOrderThreeParams",
-    "functionType": "user",
-    "funcWrapper": "pikkuFunc",
-    "sessionless": false,
-    "name": "getOrderThreeParams",
-    "inputSchemaName": null,
-    "outputSchemaName": "GetOrderThreeParamsOutput",
-    "inputs": [],
-    "outputs": [
-      "GetOrderThreeParamsOutput"
-    ],
-    "implementationHash": "baa5d148e12411ca",
-    "contractHash": "e3732b5e2b0f596b",
-    "inputHash": "f3bd7917",
-    "outputHash": "0ad29038"
-  },
-  "getOrder": {
-    "pikkuFuncId": "getOrder",
-    "functionType": "user",
-    "funcWrapper": "pikkuFunc",
-    "sessionless": false,
-    "name": "getOrder",
-    "inputSchemaName": "GetOrderInput",
-    "outputSchemaName": "GetOrderOutput",
-    "inputs": [
-      "GetOrderInput"
-    ],
-    "outputs": [
-      "GetOrderOutput"
-    ],
-    "expose": true,
-    "implementationHash": "76597dc883bfb315",
-    "contractHash": "185e20c90cea12ab",
-    "inputHash": "20ab47d1",
-    "outputHash": "b4ab02c0"
-  },
-  "listOrders": {
-    "pikkuFuncId": "listOrders",
-    "functionType": "user",
-    "funcWrapper": "pikkuFunc",
-    "sessionless": false,
-    "name": "listOrders",
-    "inputSchemaName": "ListOrdersInput",
-    "outputSchemaName": "ListOrdersOutput",
-    "inputs": [
-      "ListOrdersInput"
-    ],
-    "outputs": [
-      "ListOrdersOutput"
-    ],
-    "expose": true,
-    "implementationHash": "c3ced72f98af1b6a",
-    "contractHash": "81a558417e1cba4c",
-    "inputHash": "4a70189d",
-    "outputHash": "366232b3"
-  },
-  "cancelOrder": {
-    "pikkuFuncId": "cancelOrder",
-    "functionType": "user",
-    "funcWrapper": "pikkuFunc",
-    "sessionless": false,
-    "name": "cancelOrder",
-    "inputSchemaName": "CancelOrderInput",
-    "outputSchemaName": null,
-    "inputs": [
-      "CancelOrderInput"
-    ],
-    "outputs": [],
-    "expose": true,
-    "implementationHash": "010fac42ff81edc5",
-    "contractHash": "f381569738a90b20",
-    "inputHash": "1ab7f089",
-    "outputHash": "27dc45ee"
-  },
-  "mcp:resource:shop://items/{itemId}": {
-    "pikkuFuncId": "mcp:resource:shop://items/{itemId}",
-    "functionType": "inline",
-    "name": "shop://items/{itemId}",
-    "inputSchemaName": null,
-    "outputSchemaName": "MCPResourceResponse",
-    "inputs": [],
-    "outputs": [
-      "MCPResourceResponse"
-    ],
-    "contractHash": "d7c96c291c14d1df",
-    "inputHash": "d87781af",
-    "outputHash": "c9008c4a"
-  },
-  "mcp:prompt:product_recommendation": {
-    "pikkuFuncId": "mcp:prompt:product_recommendation",
-    "functionType": "inline",
-    "name": "product_recommendation",
-    "inputSchemaName": null,
-    "outputSchemaName": "MCPPromptResponse",
-    "inputs": [],
-    "outputs": [
-      "MCPPromptResponse"
-    ],
-    "contractHash": "f7f832b5faeca97b",
-    "inputHash": "d5f9aa98",
-    "outputHash": "c4c5caa0"
   },
   "sendOrderConfirmation": {
     "pikkuFuncId": "sendOrderConfirmation",
@@ -798,6 +227,946 @@
     "inputHash": "24a0a82a",
     "outputHash": "d55282fc"
   },
+  "cancelOrder": {
+    "pikkuFuncId": "cancelOrder",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "cancelOrder",
+    "inputSchemaName": "CancelOrderInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "CancelOrderInput"
+    ],
+    "outputs": [],
+    "expose": true,
+    "implementationHash": "9ffd586d2857bec9",
+    "contractHash": "f381569738a90b20",
+    "inputHash": "1ab7f089",
+    "outputHash": "27dc45ee"
+  },
+  "createOrder": {
+    "pikkuFuncId": "createOrder",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "createOrder",
+    "inputSchemaName": "CreateOrderInput",
+    "outputSchemaName": "CreateOrderOutput",
+    "inputs": [
+      "CreateOrderInput"
+    ],
+    "outputs": [
+      "CreateOrderOutput"
+    ],
+    "expose": true,
+    "implementationHash": "7c5b939c2cbf9e24",
+    "contractHash": "a5be481b778a1d8b",
+    "inputHash": "165ef10b",
+    "outputHash": "de346d00"
+  },
+  "getOrderThreeParams": {
+    "pikkuFuncId": "getOrderThreeParams",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "getOrderThreeParams",
+    "inputSchemaName": "GetOrderThreeParamsInput",
+    "outputSchemaName": "GetOrderThreeParamsOutput",
+    "inputs": [
+      "GetOrderThreeParamsInput"
+    ],
+    "outputs": [
+      "GetOrderThreeParamsOutput"
+    ],
+    "implementationHash": "baa5d148e12411ca",
+    "contractHash": "7a545332f615a384",
+    "inputHash": "df0a0541",
+    "outputHash": "8f257e2c"
+  },
+  "getOrder": {
+    "pikkuFuncId": "getOrder",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "getOrder",
+    "inputSchemaName": "GetOrderInput",
+    "outputSchemaName": "GetOrderOutput",
+    "inputs": [
+      "GetOrderInput"
+    ],
+    "outputs": [
+      "GetOrderOutput"
+    ],
+    "expose": true,
+    "implementationHash": "f443cb5aa2e7ed80",
+    "contractHash": "185e20c90cea12ab",
+    "inputHash": "20ab47d1",
+    "outputHash": "b4ab02c0"
+  },
+  "listOrders": {
+    "pikkuFuncId": "listOrders",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "listOrders",
+    "inputSchemaName": "ListOrdersInput",
+    "outputSchemaName": "ListOrdersOutput",
+    "inputs": [
+      "ListOrdersInput"
+    ],
+    "outputs": [
+      "ListOrdersOutput"
+    ],
+    "expose": true,
+    "implementationHash": "e879dd2ee4391606",
+    "contractHash": "b965fa3ee95eb1c6",
+    "inputHash": "4a70189d",
+    "outputHash": "70b80524"
+  },
+  "cleanupAbandonedBaskets": {
+    "pikkuFuncId": "cleanupAbandonedBaskets",
+    "functionType": "user",
+    "funcWrapper": "pikkuVoidFunc",
+    "sessionless": true,
+    "name": "cleanupAbandonedBaskets",
+    "inputSchemaName": null,
+    "outputSchemaName": null,
+    "inputs": [],
+    "outputs": [],
+    "implementationHash": "aa34c28a3e12ce96",
+    "contractHash": "bfd266803f3c472e",
+    "inputHash": "008b046d",
+    "outputHash": "1d49c1b8"
+  },
+  "dailySalesReport": {
+    "pikkuFuncId": "dailySalesReport",
+    "functionType": "user",
+    "funcWrapper": "pikkuVoidFunc",
+    "sessionless": true,
+    "name": "dailySalesReport",
+    "inputSchemaName": null,
+    "outputSchemaName": null,
+    "inputs": [],
+    "outputs": [],
+    "implementationHash": "84881d83abd7a9e3",
+    "contractHash": "757e4681fc30dc55",
+    "inputHash": "b3a8987e",
+    "outputHash": "468747d0"
+  },
+  "agentCaller": {
+    "pikkuFuncId": "agentCaller",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "agentCaller",
+    "inputSchemaName": "AgentCallerInput",
+    "outputSchemaName": "AgentCallerOutput",
+    "inputs": [
+      "AgentCallerInput"
+    ],
+    "outputs": [
+      "AgentCallerOutput"
+    ],
+    "implementationHash": "676bd74addc3f9a3",
+    "contractHash": "37551e5ed7eab8ce",
+    "inputHash": "b7250306",
+    "outputHash": "5fb07a82"
+  },
+  "agentStreamCaller": {
+    "pikkuFuncId": "agentStreamCaller",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "agentStreamCaller",
+    "inputSchemaName": "AgentStreamCallerInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "AgentStreamCallerInput"
+    ],
+    "outputs": [],
+    "implementationHash": "e0a175491da15948",
+    "contractHash": "cbee447908b3884f",
+    "inputHash": "8ce997b4",
+    "outputHash": "641a263e"
+  },
+  "agentApproveCaller": {
+    "pikkuFuncId": "agentApproveCaller",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "agentApproveCaller",
+    "inputSchemaName": "AgentApproveCallerInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "AgentApproveCallerInput"
+    ],
+    "outputs": [],
+    "implementationHash": "0def3f7e0907c5fc",
+    "contractHash": "dac7ab155be9f5f9",
+    "inputHash": "5492770b",
+    "outputHash": "ef71f08a"
+  },
+  "agentResumeCaller": {
+    "pikkuFuncId": "agentResumeCaller",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "agentResumeCaller",
+    "inputSchemaName": "AgentResumeCallerInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "AgentResumeCallerInput"
+    ],
+    "outputs": [],
+    "implementationHash": "00505b167dc5ce1d",
+    "contractHash": "e1f0e61706b653c2",
+    "inputHash": "88f39100",
+    "outputHash": "ee89e454"
+  },
+  "getAgentThreads": {
+    "pikkuFuncId": "getAgentThreads",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "getAgentThreads",
+    "inputSchemaName": "GetAgentThreadsInput",
+    "outputSchemaName": "GetAgentThreadsOutput",
+    "inputs": [
+      "GetAgentThreadsInput"
+    ],
+    "outputs": [
+      "GetAgentThreadsOutput"
+    ],
+    "expose": true,
+    "implementationHash": "78fe873b8e7e08f8",
+    "contractHash": "9e99c6a25a15abd4",
+    "inputHash": "92d13c90",
+    "outputHash": "57175ae4"
+  },
+  "getAgentThreadMessages": {
+    "pikkuFuncId": "getAgentThreadMessages",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "getAgentThreadMessages",
+    "inputSchemaName": "GetAgentThreadMessagesInput",
+    "outputSchemaName": "GetAgentThreadMessagesOutput",
+    "inputs": [
+      "GetAgentThreadMessagesInput"
+    ],
+    "outputs": [
+      "GetAgentThreadMessagesOutput"
+    ],
+    "expose": true,
+    "implementationHash": "305ea4752fa201a3",
+    "permissions": [
+      {
+        "type": "wire",
+        "name": "isThreadOwner",
+        "inline": false
+      }
+    ],
+    "contractHash": "0cfb0e2bdc2410b1",
+    "inputHash": "4e30fe21",
+    "outputHash": "4be7241d"
+  },
+  "getAgentThreadRuns": {
+    "pikkuFuncId": "getAgentThreadRuns",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "getAgentThreadRuns",
+    "inputSchemaName": "GetAgentThreadRunsInput",
+    "outputSchemaName": "GetAgentThreadRunsOutput",
+    "inputs": [
+      "GetAgentThreadRunsInput"
+    ],
+    "outputs": [
+      "GetAgentThreadRunsOutput"
+    ],
+    "expose": true,
+    "implementationHash": "feda90bb2c95a4b5",
+    "permissions": [
+      {
+        "type": "wire",
+        "name": "isThreadOwner",
+        "inline": false
+      }
+    ],
+    "contractHash": "0c560ded2ce4755a",
+    "inputHash": "df3cdce9",
+    "outputHash": "feff89e7"
+  },
+  "deleteAgentThread": {
+    "pikkuFuncId": "deleteAgentThread",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "deleteAgentThread",
+    "inputSchemaName": "DeleteAgentThreadInput",
+    "outputSchemaName": "DeleteAgentThreadOutput",
+    "inputs": [
+      "DeleteAgentThreadInput"
+    ],
+    "outputs": [
+      "DeleteAgentThreadOutput"
+    ],
+    "expose": true,
+    "implementationHash": "817aab1df9dc0111",
+    "permissions": [
+      {
+        "type": "wire",
+        "name": "isThreadOwner",
+        "inline": false
+      }
+    ],
+    "contractHash": "a394477bbe43212f",
+    "inputHash": "080e0438",
+    "outputHash": "fc86f2f3"
+  },
+  "authHandler": {
+    "pikkuFuncId": "authHandler",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "authHandler",
+    "inputSchemaName": null,
+    "outputSchemaName": "AuthHandlerOutput",
+    "inputs": [],
+    "outputs": [
+      "AuthHandlerOutput"
+    ],
+    "implementationHash": "0d0218bff99f1773",
+    "contractHash": "9dfce2dcd1fac626",
+    "inputHash": "3db46710",
+    "outputHash": "5b0d193e"
+  },
+  "pikkuConsoleSetSecret": {
+    "pikkuFuncId": "pikkuConsoleSetSecret",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "pikkuConsoleSetSecret",
+    "inputSchemaName": "PikkuConsoleSetSecretInput",
+    "outputSchemaName": "PikkuConsoleSetSecretOutput",
+    "inputs": [
+      "PikkuConsoleSetSecretInput"
+    ],
+    "outputs": [
+      "PikkuConsoleSetSecretOutput"
+    ],
+    "expose": true,
+    "implementationHash": "8ac7fc2817078836",
+    "contractHash": "31a378744c4059bd",
+    "inputHash": "852750a1",
+    "outputHash": "79f3fba7"
+  },
+  "pikkuConsoleGetVariable": {
+    "pikkuFuncId": "pikkuConsoleGetVariable",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "pikkuConsoleGetVariable",
+    "inputSchemaName": "PikkuConsoleGetVariableInput",
+    "outputSchemaName": "PikkuConsoleGetVariableOutput",
+    "inputs": [
+      "PikkuConsoleGetVariableInput"
+    ],
+    "outputs": [
+      "PikkuConsoleGetVariableOutput"
+    ],
+    "expose": true,
+    "implementationHash": "b8b7862cf456701a",
+    "contractHash": "2848c3e22b23fe00",
+    "inputHash": "38f93644",
+    "outputHash": "dc35791b"
+  },
+  "pikkuConsoleSetVariable": {
+    "pikkuFuncId": "pikkuConsoleSetVariable",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "pikkuConsoleSetVariable",
+    "inputSchemaName": "PikkuConsoleSetVariableInput",
+    "outputSchemaName": "PikkuConsoleSetVariableOutput",
+    "inputs": [
+      "PikkuConsoleSetVariableInput"
+    ],
+    "outputs": [
+      "PikkuConsoleSetVariableOutput"
+    ],
+    "expose": true,
+    "implementationHash": "491f805b98a3d622",
+    "contractHash": "cb14a60d90a58c6b",
+    "inputHash": "f2e64dab",
+    "outputHash": "ef85132e"
+  },
+  "pikkuConsoleHasSecret": {
+    "pikkuFuncId": "pikkuConsoleHasSecret",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "pikkuConsoleHasSecret",
+    "inputSchemaName": "PikkuConsoleHasSecretInput",
+    "outputSchemaName": "PikkuConsoleHasSecretOutput",
+    "inputs": [
+      "PikkuConsoleHasSecretInput"
+    ],
+    "outputs": [
+      "PikkuConsoleHasSecretOutput"
+    ],
+    "expose": true,
+    "implementationHash": "572d471fca34830b",
+    "contractHash": "3f98e403f715c50b",
+    "inputHash": "653ba026",
+    "outputHash": "4b1a2834"
+  },
+  "pikkuConsoleGetSecret": {
+    "pikkuFuncId": "pikkuConsoleGetSecret",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "pikkuConsoleGetSecret",
+    "inputSchemaName": "PikkuConsoleGetSecretInput",
+    "outputSchemaName": "PikkuConsoleGetSecretOutput",
+    "inputs": [
+      "PikkuConsoleGetSecretInput"
+    ],
+    "outputs": [
+      "PikkuConsoleGetSecretOutput"
+    ],
+    "expose": true,
+    "implementationHash": "ae47c7eae2386f7a",
+    "contractHash": "3b85e09aaf8ed51c",
+    "inputHash": "42277e15",
+    "outputHash": "1610a354"
+  },
+  "rpcCaller": {
+    "pikkuFuncId": "rpcCaller",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "rpcCaller",
+    "inputSchemaName": "RpcCallerInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "RpcCallerInput"
+    ],
+    "outputs": [],
+    "implementationHash": "1be6e1c1e2f95190",
+    "contractHash": "634bbf0fea9ae7d2",
+    "inputHash": "255f53e2",
+    "outputHash": "629e0b5a"
+  },
+  "workflowStarter": {
+    "pikkuFuncId": "workflowStarter",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "workflowStarter",
+    "inputSchemaName": "WorkflowStarterInput",
+    "outputSchemaName": "WorkflowStarterOutput",
+    "inputs": [
+      "WorkflowStarterInput"
+    ],
+    "outputs": [
+      "WorkflowStarterOutput"
+    ],
+    "implementationHash": "a193546f27bfbc50",
+    "contractHash": "ca905bee516424d2",
+    "inputHash": "65720316",
+    "outputHash": "724d2246"
+  },
+  "workflowRunner": {
+    "pikkuFuncId": "workflowRunner",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "workflowRunner",
+    "inputSchemaName": "WorkflowRunnerInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "WorkflowRunnerInput"
+    ],
+    "outputs": [],
+    "implementationHash": "19e173ac8dbf155a",
+    "contractHash": "d0538aadf6ed3553",
+    "inputHash": "d43158b5",
+    "outputHash": "316bdb87"
+  },
+  "workflowStatusChecker": {
+    "pikkuFuncId": "workflowStatusChecker",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "workflowStatusChecker",
+    "inputSchemaName": "WorkflowStatusCheckerInput",
+    "outputSchemaName": "WorkflowRunStatus",
+    "inputs": [
+      "WorkflowStatusCheckerInput"
+    ],
+    "outputs": [
+      "WorkflowRunStatus"
+    ],
+    "implementationHash": "54dacd6172c76082",
+    "contractHash": "4636e30893929858",
+    "inputHash": "8b76388a",
+    "outputHash": "a7c56435"
+  },
+  "workflowStatusStream": {
+    "pikkuFuncId": "workflowStatusStream",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "workflowStatusStream",
+    "inputSchemaName": "WorkflowStatusStreamInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "WorkflowStatusStreamInput"
+    ],
+    "outputs": [],
+    "implementationHash": "1d9ca10fa89d77fa",
+    "contractHash": "c80642eaef991622",
+    "inputHash": "1ffa4b0a",
+    "outputHash": "6180f124"
+  },
+  "workflowStatusStreamFull": {
+    "pikkuFuncId": "workflowStatusStreamFull",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "workflowStatusStreamFull",
+    "inputSchemaName": "WorkflowStatusStreamFullInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "WorkflowStatusStreamFullInput"
+    ],
+    "outputs": [],
+    "implementationHash": "21171dd08fadae79",
+    "contractHash": "cfa22ced3946bfb4",
+    "inputHash": "901e07ab",
+    "outputHash": "dcd02549"
+  },
+  "graphStarter": {
+    "pikkuFuncId": "graphStarter",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "graphStarter",
+    "inputSchemaName": "GraphStarterInput",
+    "outputSchemaName": "GraphStarterOutput",
+    "inputs": [
+      "GraphStarterInput"
+    ],
+    "outputs": [
+      "GraphStarterOutput"
+    ],
+    "implementationHash": "60e38318ef11d70f",
+    "contractHash": "d46a162dd754ccc6",
+    "inputHash": "f55748c4",
+    "outputHash": "ceb3e46e"
+  },
+  "workflowApprover": {
+    "pikkuFuncId": "workflowApprover",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "workflowApprover",
+    "inputSchemaName": "WorkflowApproverInput",
+    "outputSchemaName": "WorkflowApproverOutput",
+    "inputs": [
+      "WorkflowApproverInput"
+    ],
+    "outputs": [
+      "WorkflowApproverOutput"
+    ],
+    "implementationHash": "1d4ba66a29b8293e",
+    "contractHash": "743929fad4bbaf60",
+    "inputHash": "b37eecda",
+    "outputHash": "330cba2c"
+  },
+  "validateBasket": {
+    "pikkuFuncId": "validateBasket",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "validateBasket",
+    "inputSchemaName": "ValidateBasketInput",
+    "outputSchemaName": "ValidateBasketOutput",
+    "inputs": [
+      "ValidateBasketInput"
+    ],
+    "outputs": [
+      "ValidateBasketOutput"
+    ],
+    "implementationHash": "6e86805cf7f38a9c",
+    "contractHash": "64ab24c801efbe64",
+    "inputHash": "09fc3daa",
+    "outputHash": "892b24ac"
+  },
+  "createOrderRecord": {
+    "pikkuFuncId": "createOrderRecord",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "createOrderRecord",
+    "inputSchemaName": "CreateOrderRecordInput",
+    "outputSchemaName": "CreateOrderRecordOutput",
+    "inputs": [
+      "CreateOrderRecordInput"
+    ],
+    "outputs": [
+      "CreateOrderRecordOutput"
+    ],
+    "implementationHash": "d70e6f0f1d1a7bab",
+    "contractHash": "1e4d45637ab9c638",
+    "inputHash": "299de8ca",
+    "outputHash": "27b949e4"
+  },
+  "chargeCard": {
+    "pikkuFuncId": "chargeCard",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "chargeCard",
+    "inputSchemaName": "ChargeCardInput",
+    "outputSchemaName": "ChargeCardOutput",
+    "inputs": [
+      "ChargeCardInput"
+    ],
+    "outputs": [
+      "ChargeCardOutput"
+    ],
+    "implementationHash": "329a8171248df678",
+    "contractHash": "113a6d0fbfd60ce1",
+    "inputHash": "f855eb5f",
+    "outputHash": "3e29622e"
+  },
+  "finalizeOrder": {
+    "pikkuFuncId": "finalizeOrder",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "finalizeOrder",
+    "inputSchemaName": "FinalizeOrderInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "FinalizeOrderInput"
+    ],
+    "outputs": [],
+    "implementationHash": "ec78e1fbb4b1c607",
+    "contractHash": "cf4105eee757fa81",
+    "inputHash": "b547b38f",
+    "outputHash": "3bddfeec"
+  },
+  "checkoutWorkflow": {
+    "pikkuFuncId": "checkoutWorkflow",
+    "functionType": "user",
+    "funcWrapper": "pikkuWorkflowFunc",
+    "sessionless": true,
+    "name": "checkoutWorkflow",
+    "inputSchemaName": "CheckoutWorkflowInput",
+    "outputSchemaName": "CheckoutWorkflowOutput",
+    "inputs": [
+      "CheckoutWorkflowInput"
+    ],
+    "outputs": [
+      "CheckoutWorkflowOutput"
+    ],
+    "expose": true,
+    "implementationHash": "cce5bf73455f3283",
+    "contractHash": "33fc3db1aeda33af",
+    "inputHash": "6129b387",
+    "outputHash": "cbd83fab"
+  },
+  "startCheckout": {
+    "pikkuFuncId": "startCheckout",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "startCheckout",
+    "inputSchemaName": "StartCheckoutInput",
+    "outputSchemaName": "StartCheckoutOutput",
+    "inputs": [
+      "StartCheckoutInput"
+    ],
+    "outputs": [
+      "StartCheckoutOutput"
+    ],
+    "implementationHash": "85543ad95551dd5d",
+    "contractHash": "b437127d364f1c5a",
+    "inputHash": "e324754d",
+    "outputHash": "10b494ca"
+  },
+  "checkOrderRefundable": {
+    "pikkuFuncId": "checkOrderRefundable",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "checkOrderRefundable",
+    "inputSchemaName": "CheckOrderRefundableInput",
+    "outputSchemaName": "CheckOrderRefundableOutput",
+    "inputs": [
+      "CheckOrderRefundableInput"
+    ],
+    "outputs": [
+      "CheckOrderRefundableOutput"
+    ],
+    "implementationHash": "1043d5994414f969",
+    "contractHash": "e9fad2745ecb4443",
+    "inputHash": "29349325",
+    "outputHash": "5da5da14"
+  },
+  "issueRefund": {
+    "pikkuFuncId": "issueRefund",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "issueRefund",
+    "inputSchemaName": "IssueRefundInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "IssueRefundInput"
+    ],
+    "outputs": [],
+    "implementationHash": "1886b27bd8cc9431",
+    "contractHash": "3e47cde276bcb9c8",
+    "inputHash": "35c6cd52",
+    "outputHash": "a7d40b02"
+  },
+  "refundWorkflow": {
+    "pikkuFuncId": "refundWorkflow",
+    "functionType": "user",
+    "funcWrapper": "pikkuWorkflowFunc",
+    "sessionless": true,
+    "name": "refundWorkflow",
+    "inputSchemaName": "RefundWorkflowInput",
+    "outputSchemaName": "RefundWorkflowOutput",
+    "inputs": [
+      "RefundWorkflowInput"
+    ],
+    "outputs": [
+      "RefundWorkflowOutput"
+    ],
+    "implementationHash": "9f7906acf6b486c2",
+    "contractHash": "05d9be905688f7f8",
+    "inputHash": "2076ac67",
+    "outputHash": "51d8e912"
+  },
+  "onConnect": {
+    "pikkuFuncId": "onConnect",
+    "functionType": "user",
+    "funcWrapper": "pikkuChannelConnectionFunc",
+    "sessionless": true,
+    "name": "onConnect",
+    "inputSchemaName": null,
+    "outputSchemaName": null,
+    "inputs": [],
+    "outputs": [],
+    "implementationHash": "4e14ba4f944cea01",
+    "contractHash": "bb33d053aba472f8",
+    "inputHash": "d50f122e",
+    "outputHash": "ec9ebad4"
+  },
+  "onDisconnect": {
+    "pikkuFuncId": "onDisconnect",
+    "functionType": "user",
+    "funcWrapper": "pikkuChannelDisconnectionFunc",
+    "sessionless": true,
+    "name": "onDisconnect",
+    "inputSchemaName": null,
+    "outputSchemaName": null,
+    "inputs": [],
+    "outputs": [],
+    "implementationHash": "5909c731551d98d9",
+    "contractHash": "43619d59be3869e2",
+    "inputHash": "e784dc94",
+    "outputHash": "af0b48e4"
+  },
+  "subscribeToOrder": {
+    "pikkuFuncId": "subscribeToOrder",
+    "functionType": "user",
+    "funcWrapper": "pikkuChannelFunc",
+    "sessionless": true,
+    "name": "subscribeToOrder",
+    "inputSchemaName": "SubscribeToOrderInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "SubscribeToOrderInput"
+    ],
+    "outputs": [],
+    "implementationHash": "9da729f2ccd19137",
+    "contractHash": "adce351da05a3b51",
+    "inputHash": "e6f7c708",
+    "outputHash": "83679a05"
+  },
+  "unsubscribeFromOrder": {
+    "pikkuFuncId": "unsubscribeFromOrder",
+    "functionType": "user",
+    "funcWrapper": "pikkuChannelFunc",
+    "sessionless": true,
+    "name": "unsubscribeFromOrder",
+    "inputSchemaName": "UnsubscribeFromOrderInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "UnsubscribeFromOrderInput"
+    ],
+    "outputs": [],
+    "implementationHash": "fec9cba5636b3fef",
+    "contractHash": "bcb9d84db342ef81",
+    "inputHash": "cc993948",
+    "outputHash": "a2205913"
+  },
+  "notifyOrderShipped": {
+    "pikkuFuncId": "notifyOrderShipped",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "notifyOrderShipped",
+    "inputSchemaName": "NotifyOrderShippedInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "NotifyOrderShippedInput"
+    ],
+    "outputs": [],
+    "implementationHash": "46ed4e087233c4ba",
+    "contractHash": "577e6d7e156d1c65",
+    "inputHash": "606cab48",
+    "outputHash": "4094c392"
+  },
+  "conditionalReport": {
+    "pikkuFuncId": "conditionalReport",
+    "functionType": "user",
+    "funcWrapper": "pikkuVoidFunc",
+    "sessionless": true,
+    "name": "conditionalReport",
+    "inputSchemaName": null,
+    "outputSchemaName": null,
+    "inputs": [],
+    "outputs": [],
+    "implementationHash": "f82940b2bd668225",
+    "contractHash": "f29b6e139f77f5fa",
+    "inputHash": "05eaeca0",
+    "outputHash": "bed14a05"
+  },
+  "handlePaymentWebhook": {
+    "pikkuFuncId": "handlePaymentWebhook",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "handlePaymentWebhook",
+    "inputSchemaName": "HandlePaymentWebhookInput",
+    "outputSchemaName": "HandlePaymentWebhookOutput",
+    "inputs": [
+      "HandlePaymentWebhookInput"
+    ],
+    "outputs": [
+      "HandlePaymentWebhookOutput"
+    ],
+    "implementationHash": "b21f093b1a970f21",
+    "contractHash": "61e92835d16f3167",
+    "inputHash": "ffe91713",
+    "outputHash": "1d50db30"
+  },
+  "listCategoriesTool": {
+    "pikkuFuncId": "listCategoriesTool",
+    "functionType": "user",
+    "funcWrapper": "pikkuMCPToolFunc",
+    "sessionless": true,
+    "name": "listCategoriesTool",
+    "inputSchemaName": null,
+    "outputSchemaName": "MCPToolResponse",
+    "inputs": [],
+    "outputs": [
+      "MCPToolResponse"
+    ],
+    "mcp": true,
+    "implementationHash": "5a4d73de07c99c23",
+    "contractHash": "b4b808c4ce56458d",
+    "inputHash": "c185f20c",
+    "outputHash": "679e6adc"
+  },
+  "listItemsTool": {
+    "pikkuFuncId": "listItemsTool",
+    "functionType": "user",
+    "funcWrapper": "pikkuMCPToolFunc",
+    "sessionless": true,
+    "name": "listItemsTool",
+    "inputSchemaName": "ListItemsToolInput",
+    "outputSchemaName": "MCPToolResponse",
+    "inputs": [
+      "ListItemsToolInput"
+    ],
+    "outputs": [
+      "MCPToolResponse"
+    ],
+    "mcp": true,
+    "implementationHash": "57e921a52fb39270",
+    "contractHash": "0ee5241dfcc0ca82",
+    "inputHash": "b2b8291d",
+    "outputHash": "6b202b92"
+  },
+  "getItemTool": {
+    "pikkuFuncId": "getItemTool",
+    "functionType": "user",
+    "funcWrapper": "pikkuMCPToolFunc",
+    "sessionless": true,
+    "name": "getItemTool",
+    "inputSchemaName": "GetItemToolInput",
+    "outputSchemaName": "MCPToolResponse",
+    "inputs": [
+      "GetItemToolInput"
+    ],
+    "outputs": [
+      "MCPToolResponse"
+    ],
+    "mcp": true,
+    "implementationHash": "b65efd7a53a5fa65",
+    "contractHash": "5310019ccba95ec2",
+    "inputHash": "2cd66ef0",
+    "outputHash": "4197bf7d"
+  },
+  "getItemForAI": {
+    "pikkuFuncId": "getItemForAI",
+    "functionType": "user",
+    "funcWrapper": "pikkuMCPToolFunc",
+    "sessionless": true,
+    "name": "getItemForAI",
+    "inputSchemaName": "GetItemForAIInput",
+    "outputSchemaName": "MCPToolResponse",
+    "inputs": [
+      "GetItemForAIInput"
+    ],
+    "outputs": [
+      "MCPToolResponse"
+    ],
+    "mcp": true,
+    "implementationHash": "65520e4d64c3e42b",
+    "contractHash": "449ab161d1dc9efb",
+    "inputHash": "b190b9cd",
+    "outputHash": "b83ba310"
+  },
+  "updateStockTool": {
+    "pikkuFuncId": "updateStockTool",
+    "functionType": "user",
+    "funcWrapper": "pikkuMCPToolFunc",
+    "sessionless": true,
+    "name": "updateStockTool",
+    "inputSchemaName": "UpdateStockToolInput",
+    "outputSchemaName": "MCPToolResponse",
+    "inputs": [
+      "UpdateStockToolInput"
+    ],
+    "outputs": [
+      "MCPToolResponse"
+    ],
+    "mcp": true,
+    "implementationHash": "a11e573e468d8602",
+    "contractHash": "20c77caf8982bab7",
+    "inputHash": "5acef028",
+    "outputHash": "0ede70fc"
+  },
   "placeOrder": {
     "pikkuFuncId": "placeOrder",
     "functionType": "user",
@@ -812,27 +1181,27 @@
     "outputs": [
       "PlaceOrderOutput"
     ],
-    "implementationHash": "c96cff7c3adc269b",
+    "implementationHash": "b2debce8c6f2776f",
     "contractHash": "3da69a809c422bc1",
     "inputHash": "6ea57c13",
     "outputHash": "57326851"
   },
-  "processLargeExport": {
-    "pikkuFuncId": "processLargeExport",
+  "processExport": {
+    "pikkuFuncId": "processExport",
     "functionType": "user",
     "funcWrapper": "pikkuSessionlessFunc",
     "sessionless": true,
-    "name": "processLargeExport",
-    "inputSchemaName": "ProcessLargeExportInput",
+    "name": "processExport",
+    "inputSchemaName": "ProcessExportInput",
     "outputSchemaName": null,
     "inputs": [
-      "ProcessLargeExportInput"
+      "ProcessExportInput"
     ],
     "outputs": [],
-    "implementationHash": "7f68565df2c47c2f",
-    "contractHash": "71fb5d2cb2add80e",
-    "inputHash": "eb3ed3f3",
-    "outputHash": "7d62b51c"
+    "implementationHash": "2c97cdd8f517b2b2",
+    "contractHash": "76b125af7fb001e4",
+    "inputHash": "2023710f",
+    "outputHash": "11138aa5"
   },
   "checkItemAvailability": {
     "pikkuFuncId": "checkItemAvailability",
@@ -850,9 +1219,9 @@
     ],
     "expose": true,
     "implementationHash": "443c2076cfea4f28",
-    "contractHash": "4b0f7fc132360cf8",
+    "contractHash": "1e07efab7ec97539",
     "inputHash": "4538ab88",
-    "outputHash": "8b1262aa"
+    "outputHash": "e698c31e"
   },
   "createOrderWithValidation": {
     "pikkuFuncId": "createOrderWithValidation",
@@ -868,10 +1237,29 @@
     "outputs": [
       "CreateOrderWithValidationOutput"
     ],
-    "implementationHash": "7245deaca468d125",
-    "contractHash": "7f07868f323463c4",
-    "inputHash": "52ad513b",
-    "outputHash": "3c36f1f1"
+    "implementationHash": "62c8c0e1a88f2f51",
+    "contractHash": "3182b1b6ef0045b8",
+    "inputHash": "ec84c29b",
+    "outputHash": "edf41bc9"
+  },
+  "processPayment": {
+    "pikkuFuncId": "processPayment",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "processPayment",
+    "inputSchemaName": "ProcessPaymentInput",
+    "outputSchemaName": "ProcessPaymentOutput",
+    "inputs": [
+      "ProcessPaymentInput"
+    ],
+    "outputs": [
+      "ProcessPaymentOutput"
+    ],
+    "implementationHash": "f766471907d09533",
+    "contractHash": "14bbdb647da96d16",
+    "inputHash": "ff315407",
+    "outputHash": "add24027"
   },
   "deleteOrder": {
     "pikkuFuncId": "deleteOrder",
@@ -907,25 +1295,6 @@
     "inputHash": "63015468",
     "outputHash": "95998d10"
   },
-  "shopLogin": {
-    "pikkuFuncId": "shopLogin",
-    "functionType": "user",
-    "funcWrapper": "pikkuFunc",
-    "sessionless": false,
-    "name": "shopLogin",
-    "inputSchemaName": "ShopLoginInput",
-    "outputSchemaName": "ShopLoginOutput",
-    "inputs": [
-      "ShopLoginInput"
-    ],
-    "outputs": [
-      "ShopLoginOutput"
-    ],
-    "implementationHash": "13a37202e39e358f",
-    "contractHash": "6f79c76abac6b4fe",
-    "inputHash": "7ab6bad3",
-    "outputHash": "0467ea53"
-  },
   "getProfile": {
     "pikkuFuncId": "getProfile",
     "functionType": "user",
@@ -939,24 +1308,9 @@
       "GetProfileOutput"
     ],
     "implementationHash": "29158f7ef86c2d08",
-    "contractHash": "85fdfe7b7ccccbfb",
+    "contractHash": "b6256212174700cf",
     "inputHash": "3bae9870",
-    "outputHash": "d50b3cda"
-  },
-  "shopLogout": {
-    "pikkuFuncId": "shopLogout",
-    "functionType": "user",
-    "funcWrapper": "pikkuFunc",
-    "sessionless": false,
-    "name": "shopLogout",
-    "inputSchemaName": null,
-    "outputSchemaName": null,
-    "inputs": [],
-    "outputs": [],
-    "implementationHash": "ed69d501933e8d10",
-    "contractHash": "b1527d9626f87b4e",
-    "inputHash": "2ad71128",
-    "outputHash": "100db4de"
+    "outputHash": "7361d2d0"
   },
   "onLowStock": {
     "pikkuFuncId": "onLowStock",
@@ -993,6 +1347,97 @@
     "contractHash": "f4ed4a1e2864309e",
     "inputHash": "875cbefe",
     "outputHash": "a5ea3138"
+  },
+  "http:get:/workflow-run/:runId/stream": {
+    "pikkuFuncId": "http:get:/workflow-run/:runId/stream",
+    "functionType": "inline",
+    "name": "/workflow-run/:runId/stream",
+    "inputSchemaName": "StreamWorkflowRunInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "StreamWorkflowRunInput"
+    ],
+    "outputs": [],
+    "sessionless": true,
+    "contractHash": "b693c43c3c0f10d5",
+    "inputHash": "e0a18a17",
+    "outputHash": "fc2fd4a0"
+  },
+  "http:post:/agents/shop": {
+    "pikkuFuncId": "http:post:/agents/shop",
+    "functionType": "inline",
+    "name": "/agents/shop",
+    "inputSchemaName": "AIAgentInput",
+    "outputSchemaName": "HttpPostAgentsShopOutput",
+    "inputs": [
+      "AIAgentInput"
+    ],
+    "outputs": [
+      "HttpPostAgentsShopOutput"
+    ],
+    "contractHash": "fe533aa02ee89bce",
+    "inputHash": "41e0ec9b",
+    "outputHash": "a27dab8e"
+  },
+  "http:post:/agents/shop/stream": {
+    "pikkuFuncId": "http:post:/agents/shop/stream",
+    "functionType": "inline",
+    "name": "/agents/shop/stream",
+    "inputSchemaName": "HttpPostAgentsShopStreamInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "HttpPostAgentsShopStreamInput"
+    ],
+    "outputs": [],
+    "contractHash": "374292e4e16732ae",
+    "inputHash": "e4f8daaf",
+    "outputHash": "326e5dd3"
+  },
+  "gateway__payment-webhook__post": {
+    "pikkuFuncId": "gateway__payment-webhook__post",
+    "inputSchemaName": null,
+    "outputSchemaName": null,
+    "sessionless": true,
+    "contractHash": "f5b2be75d49f01df",
+    "inputHash": "2e8dba5d",
+    "outputHash": "ebacec4f"
+  },
+  "gateway__payment-webhook__verify": {
+    "pikkuFuncId": "gateway__payment-webhook__verify",
+    "inputSchemaName": null,
+    "outputSchemaName": null,
+    "sessionless": true,
+    "contractHash": "6f0c01b57f66d417",
+    "inputHash": "b14a31d9",
+    "outputHash": "3a26f116"
+  },
+  "mcp:resource:shop://items/{itemId}": {
+    "pikkuFuncId": "mcp:resource:shop://items/{itemId}",
+    "functionType": "inline",
+    "name": "shop://items/{itemId}",
+    "inputSchemaName": null,
+    "outputSchemaName": "MCPResourceResponse",
+    "inputs": [],
+    "outputs": [
+      "MCPResourceResponse"
+    ],
+    "contractHash": "d7c96c291c14d1df",
+    "inputHash": "d87781af",
+    "outputHash": "c9008c4a"
+  },
+  "mcp:prompt:product_recommendation": {
+    "pikkuFuncId": "mcp:prompt:product_recommendation",
+    "functionType": "inline",
+    "name": "product_recommendation",
+    "inputSchemaName": null,
+    "outputSchemaName": "MCPPromptResponse",
+    "inputs": [],
+    "outputs": [
+      "MCPPromptResponse"
+    ],
+    "contractHash": "f7f832b5faeca97b",
+    "inputHash": "d5f9aa98",
+    "outputHash": "c4c5caa0"
   },
   "getItem@v3": {
     "pikkuFuncId": "getItem@v3",

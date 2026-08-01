@@ -21,30 +21,18 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
   // In CF Workers DATABASE_URL is injected by Fabric.
   // In local dev (pikku dev) existingServices.kysely is the node:sqlite instance.
   // In tests existingServices.kysely is provided by the test support layer.
-  let kysely: Kysely<DB> | undefined
+  let kysely: Kysely<DB>
   if (existingServices?.kysely) {
     kysely = existingServices.kysely as Kysely<DB>
   } else {
     const databaseUrl = await variables.get('DATABASE_URL')
-    if (databaseUrl) {
-      if (/^postgres(ql)?:\/\//.test(databaseUrl)) {
-        const [{ PostgresJSDialect }, postgres] = await Promise.all([
-          import('kysely-postgres-js'),
-          import('postgres'),
-        ])
-        kysely = new Kysely<DB>({
-          dialect: new PostgresJSDialect({ postgres: postgres.default(databaseUrl) }),
-          plugins: [new CamelCasePlugin()],
-        })
-      } else {
-        kysely = new Kysely<DB>({
-          dialect: new LibsqlWebDialect({ url: databaseUrl }),
-          plugins: [new CamelCasePlugin()],
-        })
-      }
-    } else {
+    if (!databaseUrl) {
       throw new Error('kysely not provided: set DATABASE_URL or pass kysely via existingServices')
     }
+    kysely = new Kysely<DB>({
+      dialect: new LibsqlWebDialect({ url: databaseUrl }),
+      plugins: [new CamelCasePlugin()],
+    })
   }
 
   return {

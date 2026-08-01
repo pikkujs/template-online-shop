@@ -8,7 +8,7 @@ export const cancelOrder = pikkuFunc({
   expose: true,
   description: 'Cancel a pending order and restore stock.',
   input: CancelOrderInput,
-  func: async ({ kysely, queueService, userSession }, { orderId }) => {
+  func: async ({ kysely, queueService }, { orderId }, { session }) => {
     const order = await kysely
       .selectFrom('order')
       .select(['orderId', 'userId', 'status'])
@@ -16,7 +16,7 @@ export const cancelOrder = pikkuFunc({
       .executeTakeFirst()
 
     if (!order) throw new Error('Order not found')
-    if (order.userId !== userSession.userId && userSession.role !== 'admin') {
+    if (order.userId !== session.userId && session.role !== 'admin') {
       throw new Error('Forbidden')
     }
     if (!['pending', 'paid'].includes(order.status)) {
@@ -46,7 +46,7 @@ export const cancelOrder = pikkuFunc({
       .execute()
 
     await queueService.add('audit-event', {
-      entityType: 'order', entityId: orderId, action: 'cancelled', actorId: userSession.userId,
+      entityType: 'order', entityId: orderId, action: 'cancelled', actorId: session.userId,
     })
   },
 })
