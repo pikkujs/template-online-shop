@@ -99,6 +99,7 @@ export const refundWorkflow = pikkuWorkflowFunc<
   { orderId: string; refunded: boolean; message: string }
 >({
   func: async ({ kysely }, data, { workflow }) => {
+    // @snippet start workflowBranching
     const { eligible, totalCents } = await workflow.do('Check order', async () => {
       const order = await kysely
         .selectFrom('order').select(['status', 'totalCents'])
@@ -120,6 +121,7 @@ export const refundWorkflow = pikkuWorkflowFunc<
         .where('orderId', '=', data.orderId)
         .execute()
     })
+    // @snippet end workflowBranching
 
     return {
       orderId: data.orderId,

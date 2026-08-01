@@ -15,6 +15,7 @@ export const shopperBuysAnItem = pikkuScenario({
     }
     const shopper = actors.shopper
 
+    // @snippet start scenarioSteps
     // Each actor step names an exposed RPC and who performs it. The call goes
     // through the actor's authenticated client — never internal dispatch.
     const basket = await workflow.do(
@@ -31,6 +32,7 @@ export const shopperBuysAnItem = pikkuScenario({
       { actor: shopper }
     )
     if (items.length === 0) throw new Error('Catalogue has no mugs to buy')
+    // @snippet end scenarioSteps
 
     await workflow.do(
       'Shopper adds a mug to the basket',
@@ -79,6 +81,7 @@ export const shopperAsksTheAssistant = pikkuScenario({
     }
     const shopper = actors.shopper
 
+    // @snippet start converseSteps
     const verdict = await workflow.do('Shopper chats to the assistant', async () =>
       shopper.converse({
         agent: 'shop-assistant',
@@ -95,6 +98,7 @@ export const shopperAsksTheAssistant = pikkuScenario({
     // check through the same actor.
     const basket = await workflow.do('Basket really has the mug', 'getBasket', {}, { actor: shopper })
     if (basket.itemCount === 0) throw new Error('Assistant claimed success but the basket is empty')
+    // @snippet end converseSteps
 
     return { itemCount: basket.itemCount }
   },

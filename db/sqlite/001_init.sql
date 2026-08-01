@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS item (
   updated_at    TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))
 );
 
+-- @snippet start appUserTable
 CREATE TABLE IF NOT EXISTS app_user (
   user_id       TEXT PRIMARY KEY,
   email         TEXT NOT NULL UNIQUE,
@@ -31,6 +32,7 @@ CREATE TABLE IF NOT EXISTS app_user (
   role          TEXT NOT NULL DEFAULT 'customer',
   created_at    TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))
 );
+-- @snippet end appUserTable
 
 CREATE TABLE IF NOT EXISTS basket (
   basket_id     TEXT PRIMARY KEY,
