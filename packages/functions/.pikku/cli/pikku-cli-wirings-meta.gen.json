@@ -1,0 +1,23 @@
+{
+  "programs": {
+    "shop": {
+      "program": "shop",
+      "commands": {
+        "items": {
+          "pikkuFuncId": "listItems",
+          "positionals": [],
+          "options": {},
+          "description": "List the catalogue"
+        },
+        "report": {
+          "pikkuFuncId": "dailySalesReport",
+          "positionals": [],
+          "options": {},
+          "description": "Compute yesterday's sales"
+        }
+      },
+      "options": {}
+    }
+  },
+  "renderers": {}
+}

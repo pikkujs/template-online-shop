@@ -1,0 +1,6 @@
+{
+  "send-order-confirmation": {
+    "pikkuFuncId": "sendOrderConfirmation",
+    "name": "send-order-confirmation"
+  }
+}

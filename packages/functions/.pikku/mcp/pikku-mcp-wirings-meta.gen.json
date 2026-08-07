@@ -1,0 +1,20 @@
+{
+  "resourcesMeta": {},
+  "toolsMeta": {
+    "listItemsTool": {
+      "pikkuFuncId": "listItemsTool",
+      "name": "listItemsTool",
+      "description": "Browse the shop catalogue, optionally filtered by category or search",
+      "inputSchema": "ListItemsToolInput",
+      "outputSchema": "MCPToolResponse"
+    },
+    "cancelOrderTool": {
+      "pikkuFuncId": "cancelOrderTool",
+      "name": "cancelOrderTool",
+      "description": "Cancel a pending or paid order and restore its stock",
+      "inputSchema": "CancelOrderToolInput",
+      "outputSchema": "MCPToolResponse"
+    }
+  },
+  "promptsMeta": {}
+}

@@ -1,0 +1,38 @@
+{
+  "definitions": {
+    "isOrderOwner": {
+      "services": {
+        "optimized": true,
+        "services": [
+          "kysely"
+        ]
+      },
+      "wires": {
+        "optimized": true,
+        "wires": [
+          "session"
+        ]
+      },
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/cancel-order.function.ts",
+      "position": 383,
+      "exportedName": "isOrderOwner"
+    },
+    "isThreadOwner": {
+      "services": {
+        "optimized": true,
+        "services": [
+          "agentRunService"
+        ]
+      },
+      "wires": {
+        "optimized": true,
+        "wires": [
+          "session"
+        ]
+      },
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
+      "position": 622,
+      "exportedName": "isThreadOwner"
+    }
+  }
+}

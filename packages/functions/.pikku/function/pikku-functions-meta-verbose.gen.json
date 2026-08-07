@@ -1,0 +1,1381 @@
+{
+  "addToBasket": {
+    "pikkuFuncId": "addToBasket",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "addToBasket",
+    "services": {
+      "optimized": true,
+      "services": [
+        "kysely"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "session"
+      ]
+    },
+    "inputSchemaName": "AddToBasketInput",
+    "outputSchemaName": "AddToBasketOutput",
+    "inputs": [
+      "AddToBasketInput"
+    ],
+    "outputs": [
+      "AddToBasketOutput"
+    ],
+    "expose": true,
+    "audit": {
+      "durability": "best-effort"
+    },
+    "scopes": [
+      "orders:create"
+    ],
+    "implementationHash": "13f407d0ec7c9d87",
+    "description": "Put an item in the signed-in shopper’s basket.",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/add-to-basket.function.ts",
+    "exportedName": "addToBasket",
+    "bodyStart": 26,
+    "bodyEnd": 81,
+    "contractHash": "a1d51f95b66b3776",
+    "inputHash": "b51473ae",
+    "outputHash": "07bf4a1b"
+  },
+  "cancelOrder": {
+    "pikkuFuncId": "cancelOrder",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "cancelOrder",
+    "services": {
+      "optimized": true,
+      "services": [
+        "kysely"
+      ]
+    },
+    "inputSchemaName": "CancelOrderInput",
+    "outputSchemaName": "CancelOrderOutput",
+    "inputs": [
+      "CancelOrderInput"
+    ],
+    "outputs": [
+      "CancelOrderOutput"
+    ],
+    "expose": true,
+    "audit": {
+      "durability": "best-effort"
+    },
+    "scopes": [
+      "orders:cancel"
+    ],
+    "implementationHash": "c0ab57323d48d014",
+    "description": "Cancel a pending or paid order and restore stock.",
+    "permissions": [
+      {
+        "type": "wire",
+        "name": "isOrderOwner",
+        "inline": false
+      }
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/cancel-order.function.ts",
+    "exportedName": "cancelOrder",
+    "bodyStart": 47,
+    "bodyEnd": 78,
+    "contractHash": "6a3ea9fad383ab31",
+    "inputHash": "1ab7f089",
+    "outputHash": "908a25f3"
+  },
+  "dailySalesReport": {
+    "pikkuFuncId": "dailySalesReport",
+    "functionType": "user",
+    "funcWrapper": "pikkuVoidFunc",
+    "sessionless": true,
+    "name": "dailySalesReport",
+    "services": {
+      "optimized": true,
+      "services": [
+        "kysely",
+        "logger"
+      ]
+    },
+    "inputSchemaName": null,
+    "outputSchemaName": null,
+    "inputs": [],
+    "outputs": [],
+    "implementationHash": "660723bd33522501",
+    "isDirectFunction": true,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/daily-sales-report.function.ts",
+    "exportedName": "dailySalesReport",
+    "bodyStart": 12,
+    "bodyEnd": 23,
+    "contractHash": "757e4681fc30dc55",
+    "inputHash": "b3a8987e",
+    "outputHash": "468747d0"
+  },
+  "getSession": {
+    "pikkuFuncId": "getSession",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "getSession",
+    "services": {
+      "optimized": true,
+      "services": [
+        "kysely"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "session"
+      ]
+    },
+    "inputSchemaName": "GetSessionInput",
+    "outputSchemaName": "GetSessionOutput",
+    "inputs": [
+      "GetSessionInput"
+    ],
+    "outputs": [
+      "GetSessionOutput"
+    ],
+    "expose": true,
+    "auth": true,
+    "readonly": true,
+    "implementationHash": "2ed4f21ea016c7e3",
+    "description": "Returns the current signed-in user.",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/get-session.function.ts",
+    "exportedName": "getSession",
+    "bodyStart": 20,
+    "bodyEnd": 30,
+    "contractHash": "493320ce1e00cb69",
+    "inputHash": "ba4ab2e7",
+    "outputHash": "386fe409"
+  },
+  "listItems": {
+    "pikkuFuncId": "listItems",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "listItems",
+    "services": {
+      "optimized": true,
+      "services": [
+        "kysely"
+      ]
+    },
+    "inputSchemaName": "ListItemsInput",
+    "outputSchemaName": "ListItemsOutput",
+    "inputs": [
+      "ListItemsInput"
+    ],
+    "outputs": [
+      "ListItemsOutput"
+    ],
+    "expose": true,
+    "readonly": true,
+    "scopes": [
+      "catalogue:read"
+    ],
+    "implementationHash": "3727da726c943aa9",
+    "description": "Browse the catalogue, optionally filtered by category or search.",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/list-items.function.ts",
+    "exportedName": "listItems",
+    "bodyStart": 36,
+    "bodyEnd": 54,
+    "contractHash": "872f7d2b62818816",
+    "inputHash": "b763e4bd",
+    "outputHash": "a4804f5e"
+  },
+  "recordAnalyticsEvents": {
+    "pikkuFuncId": "recordAnalyticsEvents",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "recordAnalyticsEvents",
+    "services": {
+      "optimized": true,
+      "services": [
+        "variables",
+        "queueService"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "session"
+      ]
+    },
+    "inputSchemaName": "RecordAnalyticsEventsInput",
+    "outputSchemaName": "RecordAnalyticsEventsOutput",
+    "inputs": [
+      "RecordAnalyticsEventsInput"
+    ],
+    "outputs": [
+      "RecordAnalyticsEventsOutput"
+    ],
+    "implementationHash": "9d9165f0b52dd16c",
+    "tags": [
+      "analytics"
+    ],
+    "description": "Records product-analytics events from the browser.",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/record-analytics-events.function.ts",
+    "exportedName": "recordAnalyticsEvents",
+    "bodyStart": 44,
+    "bodyEnd": 53,
+    "contractHash": "72e0ba8d189e8018",
+    "inputHash": "792b8885",
+    "outputHash": "0aad28eb"
+  },
+  "sendOrderConfirmation": {
+    "pikkuFuncId": "sendOrderConfirmation",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "sendOrderConfirmation",
+    "services": {
+      "optimized": true,
+      "services": [
+        "kysely",
+        "emailService",
+        "logger"
+      ]
+    },
+    "inputSchemaName": "SendOrderConfirmationInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "SendOrderConfirmationInput"
+    ],
+    "outputs": [],
+    "implementationHash": "4a98fa6ca67786f7",
+    "description": "Email a shopper the confirmation for a paid order.",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/send-order-confirmation.function.ts",
+    "exportedName": "sendOrderConfirmation",
+    "bodyStart": 23,
+    "bodyEnd": 43,
+    "contractHash": "f9805ad1c33e7f1b",
+    "inputHash": "5ccd9e3a",
+    "outputHash": "5027f276"
+  },
+  "agentCaller": {
+    "pikkuFuncId": "agentCaller",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "agentCaller",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "rpc"
+      ]
+    },
+    "inputSchemaName": "AgentCallerInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "AgentCallerInput"
+    ],
+    "outputs": [],
+    "implementationHash": "a772e4ff5b2ea83c",
+    "tags": [
+      "pikku"
+    ],
+    "description": "Run a named AI agent with a message and return its reply",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
+    "exportedName": "agentCaller",
+    "bodyStart": 36,
+    "bodyEnd": 44,
+    "contractHash": "5f948fc743a55719",
+    "inputHash": "b7250306",
+    "outputHash": "9a3af204"
+  },
+  "agentStreamCaller": {
+    "pikkuFuncId": "agentStreamCaller",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "agentStreamCaller",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "rpc"
+      ]
+    },
+    "inputSchemaName": "AgentStreamCallerInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "AgentStreamCallerInput"
+    ],
+    "outputs": [],
+    "implementationHash": "e0a175491da15948",
+    "tags": [
+      "pikku"
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
+    "exportedName": "agentStreamCaller",
+    "bodyStart": 53,
+    "bodyEnd": 61,
+    "contractHash": "cbee447908b3884f",
+    "inputHash": "8ce997b4",
+    "outputHash": "641a263e"
+  },
+  "agentApproveCaller": {
+    "pikkuFuncId": "agentApproveCaller",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "agentApproveCaller",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "rpc"
+      ]
+    },
+    "inputSchemaName": "AgentApproveCallerInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "AgentApproveCallerInput"
+    ],
+    "outputs": [],
+    "implementationHash": "0def3f7e0907c5fc",
+    "tags": [
+      "pikku"
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
+    "exportedName": "agentApproveCaller",
+    "bodyStart": 70,
+    "bodyEnd": 70,
+    "contractHash": "dac7ab155be9f5f9",
+    "inputHash": "5492770b",
+    "outputHash": "ef71f08a"
+  },
+  "agentResumeCaller": {
+    "pikkuFuncId": "agentResumeCaller",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "agentResumeCaller",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "rpc"
+      ]
+    },
+    "inputSchemaName": "AgentResumeCallerInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "AgentResumeCallerInput"
+    ],
+    "outputs": [],
+    "implementationHash": "00505b167dc5ce1d",
+    "tags": [
+      "pikku"
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
+    "exportedName": "agentResumeCaller",
+    "bodyStart": 79,
+    "bodyEnd": 82,
+    "contractHash": "e1f0e61706b653c2",
+    "inputHash": "88f39100",
+    "outputHash": "ee89e454"
+  },
+  "getAgentThreads": {
+    "pikkuFuncId": "getAgentThreads",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "getAgentThreads",
+    "services": {
+      "optimized": true,
+      "services": [
+        "agentRunService"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "session"
+      ]
+    },
+    "inputSchemaName": "GetAgentThreadsInput",
+    "outputSchemaName": "GetAgentThreadsOutput",
+    "inputs": [
+      "GetAgentThreadsInput"
+    ],
+    "outputs": [
+      "GetAgentThreadsOutput"
+    ],
+    "expose": true,
+    "implementationHash": "78fe873b8e7e08f8",
+    "title": "Get Agent Threads",
+    "tags": [
+      "pikku",
+      "pikku:agent"
+    ],
+    "description": "Returns the caller's AI agent threads from storage. Accepts optional filters: agentName, resourceId, limit, and offset for pagination.",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
+    "exportedName": "getAgentThreads",
+    "bodyStart": 97,
+    "bodyEnd": 103,
+    "contractHash": "9e99c6a25a15abd4",
+    "inputHash": "92d13c90",
+    "outputHash": "57175ae4"
+  },
+  "getAgentThreadMessages": {
+    "pikkuFuncId": "getAgentThreadMessages",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "getAgentThreadMessages",
+    "services": {
+      "optimized": true,
+      "services": [
+        "agentRunService"
+      ]
+    },
+    "inputSchemaName": "GetAgentThreadMessagesInput",
+    "outputSchemaName": "GetAgentThreadMessagesOutput",
+    "inputs": [
+      "GetAgentThreadMessagesInput"
+    ],
+    "outputs": [
+      "GetAgentThreadMessagesOutput"
+    ],
+    "expose": true,
+    "implementationHash": "305ea4752fa201a3",
+    "title": "Get Agent Thread Messages",
+    "tags": [
+      "pikku",
+      "pikku:agent"
+    ],
+    "description": "Returns all messages for a given AI agent thread, ordered by creation time.",
+    "permissions": [
+      {
+        "type": "wire",
+        "name": "isThreadOwner",
+        "inline": false
+      }
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
+    "exportedName": "getAgentThreadMessages",
+    "bodyStart": 117,
+    "bodyEnd": 117,
+    "contractHash": "f56a759da8e08dbb",
+    "inputHash": "4e30fe21",
+    "outputHash": "2f56dd14"
+  },
+  "getAgentThreadRuns": {
+    "pikkuFuncId": "getAgentThreadRuns",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "getAgentThreadRuns",
+    "services": {
+      "optimized": true,
+      "services": [
+        "agentRunService"
+      ]
+    },
+    "inputSchemaName": "GetAgentThreadRunsInput",
+    "outputSchemaName": "GetAgentThreadRunsOutput",
+    "inputs": [
+      "GetAgentThreadRunsInput"
+    ],
+    "outputs": [
+      "GetAgentThreadRunsOutput"
+    ],
+    "expose": true,
+    "implementationHash": "feda90bb2c95a4b5",
+    "title": "Get Agent Thread Runs",
+    "tags": [
+      "pikku",
+      "pikku:agent"
+    ],
+    "description": "Returns the run history for a given AI agent thread, ordered by creation time.",
+    "permissions": [
+      {
+        "type": "wire",
+        "name": "isThreadOwner",
+        "inline": false
+      }
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
+    "exportedName": "getAgentThreadRuns",
+    "bodyStart": 131,
+    "bodyEnd": 131,
+    "contractHash": "0c560ded2ce4755a",
+    "inputHash": "df3cdce9",
+    "outputHash": "feff89e7"
+  },
+  "deleteAgentThread": {
+    "pikkuFuncId": "deleteAgentThread",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "deleteAgentThread",
+    "services": {
+      "optimized": true,
+      "services": [
+        "agentRunService"
+      ]
+    },
+    "inputSchemaName": "DeleteAgentThreadInput",
+    "outputSchemaName": "DeleteAgentThreadOutput",
+    "inputs": [
+      "DeleteAgentThreadInput"
+    ],
+    "outputs": [
+      "DeleteAgentThreadOutput"
+    ],
+    "expose": true,
+    "implementationHash": "817aab1df9dc0111",
+    "title": "Delete Agent Thread",
+    "tags": [
+      "pikku",
+      "pikku:agent"
+    ],
+    "description": "Deletes an AI agent thread and all of its persisted state.",
+    "permissions": [
+      {
+        "type": "wire",
+        "name": "isThreadOwner",
+        "inline": false
+      }
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
+    "exportedName": "deleteAgentThread",
+    "bodyStart": 146,
+    "bodyEnd": 147,
+    "contractHash": "a394477bbe43212f",
+    "inputHash": "080e0438",
+    "outputHash": "fc86f2f3"
+  },
+  "authHandler": {
+    "pikkuFuncId": "authHandler",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "authHandler",
+    "services": {
+      "optimized": true,
+      "services": [
+        "kysely",
+        "secrets",
+        "variables",
+        "emailService"
+      ]
+    },
+    "wires": {
+      "optimized": false,
+      "wires": []
+    },
+    "inputSchemaName": null,
+    "outputSchemaName": "AuthHandlerOutput",
+    "inputs": [],
+    "outputs": [
+      "AuthHandlerOutput"
+    ],
+    "implementationHash": "0d0218bff99f1773",
+    "tags": [
+      "pikku"
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/auth/auth.gen.ts",
+    "exportedName": "authHandler",
+    "bodyStart": 14,
+    "bodyEnd": 14,
+    "contractHash": "9dfce2dcd1fac626",
+    "inputHash": "3db46710",
+    "outputHash": "5b0d193e"
+  },
+  "pikkuConsoleSetSecret": {
+    "pikkuFuncId": "pikkuConsoleSetSecret",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "pikkuConsoleSetSecret",
+    "services": {
+      "optimized": true,
+      "services": [
+        "secrets"
+      ]
+    },
+    "inputSchemaName": "PikkuConsoleSetSecretInput",
+    "outputSchemaName": "PikkuConsoleSetSecretOutput",
+    "inputs": [
+      "PikkuConsoleSetSecretInput"
+    ],
+    "outputs": [
+      "PikkuConsoleSetSecretOutput"
+    ],
+    "expose": true,
+    "implementationHash": "25c2768329d96615",
+    "tags": [
+      "pikku"
+    ],
+    "description": "Set the value of a secret",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/console/console.gen.ts",
+    "exportedName": "pikkuConsoleSetSecret",
+    "bodyStart": 23,
+    "bodyEnd": 24,
+    "contractHash": "31a378744c4059bd",
+    "inputHash": "852750a1",
+    "outputHash": "79f3fba7",
+    "secretBroker": true
+  },
+  "pikkuConsoleGetVariable": {
+    "pikkuFuncId": "pikkuConsoleGetVariable",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "pikkuConsoleGetVariable",
+    "services": {
+      "optimized": true,
+      "services": [
+        "variables"
+      ]
+    },
+    "inputSchemaName": "PikkuConsoleGetVariableInput",
+    "outputSchemaName": "PikkuConsoleGetVariableOutput",
+    "inputs": [
+      "PikkuConsoleGetVariableInput"
+    ],
+    "outputs": [
+      "PikkuConsoleGetVariableOutput"
+    ],
+    "expose": true,
+    "implementationHash": "b8b7862cf456701a",
+    "tags": [
+      "pikku"
+    ],
+    "description": "Get the current value of a variable",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/console/console.gen.ts",
+    "exportedName": "pikkuConsoleGetVariable",
+    "bodyStart": 35,
+    "bodyEnd": 45,
+    "contractHash": "2848c3e22b23fe00",
+    "inputHash": "38f93644",
+    "outputHash": "dc35791b"
+  },
+  "pikkuConsoleSetVariable": {
+    "pikkuFuncId": "pikkuConsoleSetVariable",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "pikkuConsoleSetVariable",
+    "services": {
+      "optimized": true,
+      "services": [
+        "variables"
+      ]
+    },
+    "inputSchemaName": "PikkuConsoleSetVariableInput",
+    "outputSchemaName": "PikkuConsoleSetVariableOutput",
+    "inputs": [
+      "PikkuConsoleSetVariableInput"
+    ],
+    "outputs": [
+      "PikkuConsoleSetVariableOutput"
+    ],
+    "expose": true,
+    "implementationHash": "491f805b98a3d622",
+    "tags": [
+      "pikku"
+    ],
+    "description": "Set the value of a variable",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/console/console.gen.ts",
+    "exportedName": "pikkuConsoleSetVariable",
+    "bodyStart": 56,
+    "bodyEnd": 61,
+    "contractHash": "cb14a60d90a58c6b",
+    "inputHash": "f2e64dab",
+    "outputHash": "ef85132e"
+  },
+  "pikkuConsoleHasSecret": {
+    "pikkuFuncId": "pikkuConsoleHasSecret",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "pikkuConsoleHasSecret",
+    "services": {
+      "optimized": true,
+      "services": [
+        "secrets"
+      ]
+    },
+    "inputSchemaName": "PikkuConsoleHasSecretInput",
+    "outputSchemaName": "PikkuConsoleHasSecretOutput",
+    "inputs": [
+      "PikkuConsoleHasSecretInput"
+    ],
+    "outputs": [
+      "PikkuConsoleHasSecretOutput"
+    ],
+    "expose": true,
+    "implementationHash": "3c4e4c20a5d8935f",
+    "tags": [
+      "pikku"
+    ],
+    "description": "Check if a secret exists without reading its value",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/console/console.gen.ts",
+    "exportedName": "pikkuConsoleHasSecret",
+    "bodyStart": 73,
+    "bodyEnd": 74,
+    "contractHash": "3f98e403f715c50b",
+    "inputHash": "653ba026",
+    "outputHash": "4b1a2834",
+    "secretBroker": true
+  },
+  "pikkuConsoleGetSecret": {
+    "pikkuFuncId": "pikkuConsoleGetSecret",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "pikkuConsoleGetSecret",
+    "services": {
+      "optimized": true,
+      "services": [
+        "secrets"
+      ]
+    },
+    "inputSchemaName": "PikkuConsoleGetSecretInput",
+    "outputSchemaName": "PikkuConsoleGetSecretOutput",
+    "inputs": [
+      "PikkuConsoleGetSecretInput"
+    ],
+    "outputs": [
+      "PikkuConsoleGetSecretOutput"
+    ],
+    "expose": true,
+    "implementationHash": "355bd5732aa7018f",
+    "tags": [
+      "pikku"
+    ],
+    "description": "Get the current value of a secret",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/console/console.gen.ts",
+    "exportedName": "pikkuConsoleGetSecret",
+    "bodyStart": 86,
+    "bodyEnd": 91,
+    "contractHash": "3b85e09aaf8ed51c",
+    "inputHash": "42277e15",
+    "outputHash": "1610a354",
+    "secretBroker": true
+  },
+  "realtimeSubscribe": {
+    "pikkuFuncId": "realtimeSubscribe",
+    "functionType": "user",
+    "funcWrapper": "pikkuChannelFunc",
+    "sessionless": true,
+    "name": "realtimeSubscribe",
+    "services": {
+      "optimized": true,
+      "services": [
+        "eventHub"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "channel"
+      ]
+    },
+    "inputSchemaName": "RealtimeSubscribeInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "RealtimeSubscribeInput"
+    ],
+    "outputs": [],
+    "implementationHash": "1857667479118a95",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/realtime/events.gen.ts",
+    "exportedName": "realtimeSubscribe",
+    "bodyStart": 26,
+    "bodyEnd": 26,
+    "contractHash": "bc5e1561fda444bd",
+    "inputHash": "9e8c21ea",
+    "outputHash": "4a97e651"
+  },
+  "realtimeUnsubscribe": {
+    "pikkuFuncId": "realtimeUnsubscribe",
+    "functionType": "user",
+    "funcWrapper": "pikkuChannelFunc",
+    "sessionless": true,
+    "name": "realtimeUnsubscribe",
+    "services": {
+      "optimized": true,
+      "services": [
+        "eventHub"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "channel"
+      ]
+    },
+    "inputSchemaName": "RealtimeUnsubscribeInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "RealtimeUnsubscribeInput"
+    ],
+    "outputs": [],
+    "implementationHash": "f1414854056624fe",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/realtime/events.gen.ts",
+    "exportedName": "realtimeUnsubscribe",
+    "bodyStart": 33,
+    "bodyEnd": 33,
+    "contractHash": "63d0658de9b01f24",
+    "inputHash": "bd6266c1",
+    "outputHash": "460c0c66"
+  },
+  "realtimeEventStream": {
+    "pikkuFuncId": "realtimeEventStream",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "realtimeEventStream",
+    "services": {
+      "optimized": true,
+      "services": [
+        "eventHub"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "channel"
+      ]
+    },
+    "inputSchemaName": "RealtimeEventStreamInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "RealtimeEventStreamInput"
+    ],
+    "outputs": [],
+    "implementationHash": "14f2a75366d274a3",
+    "description": "Auto-generated SSE stream for a single event-hub topic",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/realtime/events.gen.ts",
+    "exportedName": "realtimeEventStream",
+    "bodyStart": 63,
+    "bodyEnd": 66,
+    "contractHash": "c12792757a387726",
+    "inputHash": "0e03de1d",
+    "outputHash": "d6679eb5"
+  },
+  "rpcCaller": {
+    "pikkuFuncId": "rpcCaller",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "rpcCaller",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "rpc"
+      ]
+    },
+    "inputSchemaName": "RpcCallerInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "RpcCallerInput"
+    ],
+    "outputs": [],
+    "auth": true,
+    "implementationHash": "3e180cf9ef99e3e0",
+    "tags": [
+      "pikku"
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/rpc/rpc-public.gen.ts",
+    "exportedName": "rpcCaller",
+    "bodyStart": 16,
+    "bodyEnd": 16,
+    "contractHash": "634bbf0fea9ae7d2",
+    "inputHash": "255f53e2",
+    "outputHash": "629e0b5a"
+  },
+  "workflowStarter": {
+    "pikkuFuncId": "workflowStarter",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "workflowStarter",
+    "services": {
+      "optimized": true,
+      "services": [
+        "workflowService"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "rpc"
+      ]
+    },
+    "inputSchemaName": "WorkflowStarterInput",
+    "outputSchemaName": "WorkflowStarterOutput",
+    "inputs": [
+      "WorkflowStarterInput"
+    ],
+    "outputs": [
+      "WorkflowStarterOutput"
+    ],
+    "implementationHash": "a193546f27bfbc50",
+    "tags": [
+      "pikku"
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+    "exportedName": "workflowStarter",
+    "bodyStart": 36,
+    "bodyEnd": 37,
+    "contractHash": "ca905bee516424d2",
+    "inputHash": "65720316",
+    "outputHash": "724d2246"
+  },
+  "workflowRunner": {
+    "pikkuFuncId": "workflowRunner",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "workflowRunner",
+    "services": {
+      "optimized": true,
+      "services": [
+        "workflowService"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "rpc"
+      ]
+    },
+    "inputSchemaName": "WorkflowRunnerInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "WorkflowRunnerInput"
+    ],
+    "outputs": [],
+    "implementationHash": "19e173ac8dbf155a",
+    "tags": [
+      "pikku"
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+    "exportedName": "workflowRunner",
+    "bodyStart": 46,
+    "bodyEnd": 47,
+    "contractHash": "d0538aadf6ed3553",
+    "inputHash": "d43158b5",
+    "outputHash": "316bdb87"
+  },
+  "workflowStatusChecker": {
+    "pikkuFuncId": "workflowStatusChecker",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "workflowStatusChecker",
+    "services": {
+      "optimized": true,
+      "services": [
+        "workflowService"
+      ]
+    },
+    "inputSchemaName": "WorkflowStatusCheckerInput",
+    "outputSchemaName": "WorkflowRunStatus",
+    "inputs": [
+      "WorkflowStatusCheckerInput"
+    ],
+    "outputs": [
+      "WorkflowRunStatus"
+    ],
+    "implementationHash": "54dacd6172c76082",
+    "tags": [
+      "pikku"
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+    "exportedName": "workflowStatusChecker",
+    "bodyStart": 56,
+    "bodyEnd": 59,
+    "contractHash": "4d68a0e13e05c878",
+    "inputHash": "8b76388a",
+    "outputHash": "402bbecf"
+  },
+  "workflowStatusStream": {
+    "pikkuFuncId": "workflowStatusStream",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "workflowStatusStream",
+    "services": {
+      "optimized": true,
+      "services": [
+        "workflowRunService"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "channel"
+      ]
+    },
+    "inputSchemaName": "WorkflowStatusStreamInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "WorkflowStatusStreamInput"
+    ],
+    "outputs": [],
+    "implementationHash": "1d9ca10fa89d77fa",
+    "tags": [
+      "pikku"
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+    "exportedName": "workflowStatusStream",
+    "bodyStart": 72,
+    "bodyEnd": 144,
+    "contractHash": "c80642eaef991622",
+    "inputHash": "1ffa4b0a",
+    "outputHash": "6180f124"
+  },
+  "workflowStatusStreamFull": {
+    "pikkuFuncId": "workflowStatusStreamFull",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "workflowStatusStreamFull",
+    "services": {
+      "optimized": true,
+      "services": [
+        "workflowRunService"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "channel"
+      ]
+    },
+    "inputSchemaName": "WorkflowStatusStreamFullInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "WorkflowStatusStreamFullInput"
+    ],
+    "outputs": [],
+    "implementationHash": "21171dd08fadae79",
+    "tags": [
+      "pikku"
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+    "exportedName": "workflowStatusStreamFull",
+    "bodyStart": 157,
+    "bodyEnd": 233,
+    "contractHash": "cfa22ced3946bfb4",
+    "inputHash": "901e07ab",
+    "outputHash": "dcd02549"
+  },
+  "graphStarter": {
+    "pikkuFuncId": "graphStarter",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "graphStarter",
+    "services": {
+      "optimized": true,
+      "services": [
+        "workflowService"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "rpc"
+      ]
+    },
+    "inputSchemaName": "GraphStarterInput",
+    "outputSchemaName": "GraphStarterOutput",
+    "inputs": [
+      "GraphStarterInput"
+    ],
+    "outputs": [
+      "GraphStarterOutput"
+    ],
+    "implementationHash": "60e38318ef11d70f",
+    "tags": [
+      "pikku"
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+    "exportedName": "graphStarter",
+    "bodyStart": 245,
+    "bodyEnd": 246,
+    "contractHash": "d46a162dd754ccc6",
+    "inputHash": "f55748c4",
+    "outputHash": "ceb3e46e"
+  },
+  "workflowApprover": {
+    "pikkuFuncId": "workflowApprover",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "workflowApprover",
+    "services": {
+      "optimized": true,
+      "services": [
+        "workflowService"
+      ]
+    },
+    "inputSchemaName": "WorkflowApproverInput",
+    "outputSchemaName": "WorkflowApproverOutput",
+    "inputs": [
+      "WorkflowApproverInput"
+    ],
+    "outputs": [
+      "WorkflowApproverOutput"
+    ],
+    "implementationHash": "1d4ba66a29b8293e",
+    "tags": [
+      "pikku"
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+    "exportedName": "workflowApprover",
+    "bodyStart": 267,
+    "bodyEnd": 269,
+    "contractHash": "743929fad4bbaf60",
+    "inputHash": "b37eecda",
+    "outputHash": "330cba2c"
+  },
+  "onConnect": {
+    "pikkuFuncId": "onConnect",
+    "functionType": "user",
+    "funcWrapper": "pikkuChannelConnectionFunc",
+    "sessionless": true,
+    "name": "onConnect",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "channel"
+      ]
+    },
+    "inputSchemaName": null,
+    "outputSchemaName": null,
+    "inputs": [],
+    "outputs": [],
+    "implementationHash": "8521983279153a66",
+    "isDirectFunction": true,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wires/shop.channel.ts",
+    "exportedName": "onConnect",
+    "bodyStart": 10,
+    "bodyEnd": 10,
+    "contractHash": "bb33d053aba472f8",
+    "inputHash": "d50f122e",
+    "outputHash": "ec9ebad4"
+  },
+  "onDisconnect": {
+    "pikkuFuncId": "onDisconnect",
+    "functionType": "user",
+    "funcWrapper": "pikkuChannelDisconnectionFunc",
+    "sessionless": true,
+    "name": "onDisconnect",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "channel"
+      ]
+    },
+    "inputSchemaName": null,
+    "outputSchemaName": null,
+    "inputs": [],
+    "outputs": [],
+    "implementationHash": "1d66cad4cae2c26c",
+    "isDirectFunction": true,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wires/shop.channel.ts",
+    "exportedName": "onDisconnect",
+    "bodyStart": 16,
+    "bodyEnd": 16,
+    "contractHash": "43619d59be3869e2",
+    "inputHash": "e784dc94",
+    "outputHash": "af0b48e4"
+  },
+  "watchOrder": {
+    "pikkuFuncId": "watchOrder",
+    "functionType": "user",
+    "funcWrapper": "pikkuChannelFunc",
+    "sessionless": true,
+    "name": "watchOrder",
+    "services": {
+      "optimized": true,
+      "services": [
+        "eventHub"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "channel"
+      ]
+    },
+    "inputSchemaName": "WatchOrderInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "WatchOrderInput"
+    ],
+    "outputs": [],
+    "implementationHash": "9da729f2ccd19137",
+    "isDirectFunction": true,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wires/shop.channel.ts",
+    "exportedName": "watchOrder",
+    "bodyStart": 31,
+    "bodyEnd": 31,
+    "contractHash": "5bd1757f90cb7d7e",
+    "inputHash": "71287945",
+    "outputHash": "30607703"
+  },
+  "listItemsTool": {
+    "pikkuFuncId": "listItemsTool",
+    "functionType": "user",
+    "funcWrapper": "pikkuMCPToolFunc",
+    "sessionless": true,
+    "name": "listItemsTool",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "rpc"
+      ]
+    },
+    "inputSchemaName": "ListItemsToolInput",
+    "outputSchemaName": "MCPToolResponse",
+    "inputs": [
+      "ListItemsToolInput"
+    ],
+    "outputs": [
+      "MCPToolResponse"
+    ],
+    "mcp": true,
+    "implementationHash": "e9fb25b5b1f22ce2",
+    "description": "Browse the shop catalogue, optionally filtered by category or search",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wires/shop.mcp.ts",
+    "exportedName": "listItemsTool",
+    "bodyStart": 17,
+    "bodyEnd": 22,
+    "contractHash": "435285ba9bc47090",
+    "inputHash": "b586fcb6",
+    "outputHash": "9c435ce6"
+  },
+  "cancelOrderTool": {
+    "pikkuFuncId": "cancelOrderTool",
+    "functionType": "user",
+    "funcWrapper": "pikkuMCPToolFunc",
+    "sessionless": true,
+    "name": "cancelOrderTool",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "rpc"
+      ]
+    },
+    "inputSchemaName": "CancelOrderToolInput",
+    "outputSchemaName": "MCPToolResponse",
+    "inputs": [
+      "CancelOrderToolInput"
+    ],
+    "outputs": [
+      "MCPToolResponse"
+    ],
+    "mcp": true,
+    "implementationHash": "9fc00b587c7ea541",
+    "description": "Cancel a pending or paid order and restore its stock",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wires/shop.mcp.ts",
+    "exportedName": "cancelOrderTool",
+    "bodyStart": 29,
+    "bodyEnd": 30,
+    "contractHash": "3c7cbac6a31e95de",
+    "inputHash": "7aae0a7d",
+    "outputHash": "03b7ae4f"
+  },
+  "http:get:/workflow-run/:runId/stream": {
+    "pikkuFuncId": "http:get:/workflow-run/:runId/stream",
+    "functionType": "inline",
+    "name": "/workflow-run/:runId/stream",
+    "services": {
+      "optimized": false,
+      "services": []
+    },
+    "inputSchemaName": "StreamWorkflowRunInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "StreamWorkflowRunInput"
+    ],
+    "outputs": [],
+    "sessionless": true,
+    "contractHash": "ab85b338c10d89e8",
+    "inputHash": "76838d3e",
+    "outputHash": "fc2fd4a0"
+  }
+}

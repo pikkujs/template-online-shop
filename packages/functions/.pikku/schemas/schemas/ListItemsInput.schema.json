@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","properties":{"categorySlug":{"type":"string"},"search":{"type":"string"},"limit":{"default":24,"type":"integer","minimum":1,"maximum":100}},"additionalProperties":false}

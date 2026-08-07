@@ -1,0 +1,75 @@
+{
+  "definitions": {
+    "analyticsOriginMiddleware": {
+      "services": {
+        "optimized": true,
+        "services": [
+          "variables"
+        ]
+      },
+      "wires": {
+        "optimized": true,
+        "wires": [
+          "http"
+        ]
+      },
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/middleware/analytics-origin.middleware.ts",
+      "position": 2718,
+      "exportedName": "analyticsOriginMiddleware",
+      "name": "analyticsOrigin",
+      "description": "Rejects analytics beacons that did not come from this app."
+    },
+    "corsMiddleware": {
+      "services": {
+        "optimized": true,
+        "services": [
+          "variables",
+          "services"
+        ]
+      },
+      "wires": {
+        "optimized": true,
+        "wires": [
+          "http",
+          "wire"
+        ]
+      },
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/middleware/cors.middleware.ts",
+      "position": 679,
+      "exportedName": null
+    }
+  },
+  "instances": {
+    "http:*:0": {
+      "definitionId": "corsMiddleware",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/middleware/cors.middleware.ts",
+      "position": 1244,
+      "isFactoryCall": false
+    }
+  },
+  "httpGroups": {
+    "*": {
+      "exportName": null,
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/middleware/cors.middleware.ts",
+      "position": 1244,
+      "services": {
+        "optimized": false,
+        "services": [
+          "variables",
+          "services"
+        ]
+      },
+      "count": 1,
+      "instanceIds": [
+        "http:*:0"
+      ],
+      "isFactory": false
+    }
+  },
+  "tagGroups": {},
+  "channelMiddleware": {
+    "definitions": {},
+    "instances": {},
+    "tagGroups": {}
+  }
+}

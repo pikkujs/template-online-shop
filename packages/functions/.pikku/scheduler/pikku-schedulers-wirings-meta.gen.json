@@ -1,0 +1,7 @@
+{
+  "dailySalesReport": {
+    "pikkuFuncId": "dailySalesReport",
+    "name": "dailySalesReport",
+    "schedule": "0 6 * * *"
+  }
+}

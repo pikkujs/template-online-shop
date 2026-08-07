@@ -1,0 +1,152 @@
+{
+  "sessionHealthScenario": {
+    "pikkuFuncId": "sessionHealthScenario",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenario",
+    "sessionless": true,
+    "name": "sessionHealthScenario",
+    "inputSchemaName": null,
+    "outputSchemaName": "SessionHealthScenarioOutput",
+    "inputs": [],
+    "outputs": [
+      "SessionHealthScenarioOutput"
+    ],
+    "scenario": true,
+    "implementationHash": "17f0bbd4dde1ce02",
+    "contractHash": "b28a58eb62a2c6fd",
+    "inputHash": "bd605e05",
+    "outputHash": "a130cbe6"
+  },
+  "signedInActorReachesTheAppScenario": {
+    "pikkuFuncId": "signedInActorReachesTheAppScenario",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenario",
+    "sessionless": true,
+    "name": "signedInActorReachesTheAppScenario",
+    "inputSchemaName": null,
+    "outputSchemaName": "SignedInActorReachesTheAppScenarioOutput",
+    "inputs": [],
+    "outputs": [
+      "SignedInActorReachesTheAppScenarioOutput"
+    ],
+    "scenario": true,
+    "implementationHash": "74ca80dca8d35477",
+    "contractHash": "bcac1c5e71fc7071",
+    "inputHash": "bea55478",
+    "outputHash": "5e03efd8"
+  },
+  "opensPage": {
+    "pikkuFuncId": "opensPage",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenarioStep",
+    "sessionless": true,
+    "name": "opensPage",
+    "inputSchemaName": "OpensPageInput",
+    "outputSchemaName": "OpensPageOutput",
+    "inputs": [
+      "OpensPageInput"
+    ],
+    "outputs": [
+      "OpensPageOutput"
+    ],
+    "scenarioStep": true,
+    "scenarioStepSurfaces": [
+      "browser"
+    ],
+    "scenarioStepTemplate": "opens {path}",
+    "implementationHash": "7bf881d02774d9c2",
+    "contractHash": "edb740c50579fb63",
+    "inputHash": "6ef318ba",
+    "outputHash": "cde56954"
+  },
+  "seesText": {
+    "pikkuFuncId": "seesText",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenarioStep",
+    "sessionless": true,
+    "name": "seesText",
+    "inputSchemaName": "SeesTextInput",
+    "outputSchemaName": "SeesTextOutput",
+    "inputs": [
+      "SeesTextInput"
+    ],
+    "outputs": [
+      "SeesTextOutput"
+    ],
+    "scenarioStep": true,
+    "scenarioStepSurfaces": [
+      "browser"
+    ],
+    "scenarioStepTemplate": "sees {text}",
+    "implementationHash": "0502fc8fedaa333c",
+    "contractHash": "2ecfd4a1af1eed76",
+    "inputHash": "cadae61c",
+    "outputHash": "f12765f0"
+  },
+  "restsOnPath": {
+    "pikkuFuncId": "restsOnPath",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenarioStep",
+    "sessionless": true,
+    "name": "restsOnPath",
+    "inputSchemaName": "RestsOnPathInput",
+    "outputSchemaName": "RestsOnPathOutput",
+    "inputs": [
+      "RestsOnPathInput"
+    ],
+    "outputs": [
+      "RestsOnPathOutput"
+    ],
+    "scenarioStep": true,
+    "scenarioStepSurfaces": [
+      "browser"
+    ],
+    "scenarioStepTemplate": "is on {path}",
+    "implementationHash": "93160648033a41e0",
+    "contractHash": "31caec930ea7e893",
+    "inputHash": "76a2ed38",
+    "outputHash": "b28b5f54"
+  },
+  "sweepsAllPages": {
+    "pikkuFuncId": "sweepsAllPages",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenarioStep",
+    "sessionless": true,
+    "name": "sweepsAllPages",
+    "inputSchemaName": "SweepsAllPagesInput",
+    "outputSchemaName": "SweepsAllPagesOutput",
+    "inputs": [
+      "SweepsAllPagesInput"
+    ],
+    "outputs": [
+      "SweepsAllPagesOutput"
+    ],
+    "scenarioStep": true,
+    "scenarioStepSurfaces": [
+      "browser"
+    ],
+    "scenarioStepTemplate": "every page loads without errors",
+    "implementationHash": "112cd4ec21d00210",
+    "contractHash": "b9775d597942be0b",
+    "inputHash": "7012a113",
+    "outputHash": "87f44271"
+  },
+  "everyPageLoadsScenario": {
+    "pikkuFuncId": "everyPageLoadsScenario",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenario",
+    "sessionless": true,
+    "name": "everyPageLoadsScenario",
+    "inputSchemaName": null,
+    "outputSchemaName": "EveryPageLoadsScenarioOutput",
+    "inputs": [],
+    "outputs": [
+      "EveryPageLoadsScenarioOutput"
+    ],
+    "scenario": true,
+    "implementationHash": "b014c1731cbf2972",
+    "contractHash": "c9ed3a193312a2f6",
+    "inputHash": "8db7c3cf",
+    "outputHash": "b5aed092"
+  }
+}
