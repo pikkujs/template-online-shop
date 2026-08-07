@@ -1,6 +1,7 @@
 import { pikkuVoidFunc } from '#pikku'
 
 // @snippet start dailySalesReport
+// @snippet start scheduledFunction
 export const dailySalesReport = pikkuVoidFunc({
   expose: false,
   description: 'Cron job: compute and log a daily sales summary.',
@@ -51,4 +52,5 @@ export const dailySalesReport = pikkuVoidFunc({
     })
   },
 })
+// @snippet end scheduledFunction
 // @snippet end dailySalesReport

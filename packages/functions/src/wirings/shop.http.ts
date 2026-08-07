@@ -14,6 +14,7 @@ import { listOrders } from '../functions/orders/list-orders.function.js'
 import { cancelOrder } from '../functions/orders/cancel-order.function.js'
 
 // @snippet start shopRoutes
+// @snippet start wireHttp
 export const shopRoutes = defineHTTPRoutes({
   auth: false,
   routes: {
@@ -39,6 +40,7 @@ export const shopRoutes = defineHTTPRoutes({
     cancelOrder: { method: 'post', route: '/orders/:orderId/cancel', func: cancelOrder, auth: true },
   },
 })
+// @snippet end wireHttp
 // @snippet end shopRoutes
 
 wireHTTPRoutes({ routes: { shop: shopRoutes } })

@@ -9,6 +9,7 @@ export const AddToBasketInput = z.object({
 })
 
 // @snippet start addToBasket
+// @snippet start writeFunction
 export const addToBasket = pikkuSessionlessFunc({
   expose: true,
   description: 'Add an item to a basket, or increase its quantity if already present.',
@@ -52,4 +53,5 @@ export const addToBasket = pikkuSessionlessFunc({
       .execute()
   },
 })
+// @snippet end writeFunction
 // @snippet end addToBasket

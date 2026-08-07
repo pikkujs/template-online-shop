@@ -27,6 +27,7 @@ export const ListItemsOutput = z.object({
 })
 
 // @snippet start listItems
+// @snippet start readFunction
 export const listItems = pikkuSessionlessFunc({
   expose: true,
   description: 'List items, optionally filtered by category or search query.',
@@ -75,4 +76,5 @@ export const listItems = pikkuSessionlessFunc({
     }
   },
 })
+// @snippet end readFunction
 // @snippet end listItems

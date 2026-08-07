@@ -7,6 +7,7 @@ export const isAuthenticated = pikkuAuth(
 // @snippet end shopIsAuthenticated
 
 // @snippet start shopIsOrderOwner
+// @snippet start permissionFunction
 export const isOrderOwner = pikkuPermission(
   async ({ kysely }, { orderId }: { orderId: string }, { session }) => {
     const order = await kysely
@@ -17,6 +18,7 @@ export const isOrderOwner = pikkuPermission(
     return order?.userId === session?.userId
   }
 )
+// @snippet end permissionFunction
 // @snippet end shopIsOrderOwner
 
 // @snippet start permissionsCompact

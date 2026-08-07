@@ -14,6 +14,7 @@ export const onDisconnect = pikkuChannelDisconnectionFunc(
 )
 
 // @snippet start orderStatusChannel
+// @snippet start wireChannel
 export const subscribeToOrder = pikkuChannelFunc<{ orderId: string }, void>(
   async ({ eventHub }, { orderId }, { channel }) => {
     await eventHub?.subscribe(`order:${orderId}`, channel.channelId)
@@ -25,6 +26,7 @@ export const unsubscribeFromOrder = pikkuChannelFunc<{ orderId: string }, void>(
     await eventHub?.unsubscribe(`order:${orderId}`, channel.channelId)
   }
 )
+// @snippet end wireChannel
 // @snippet end orderStatusChannel
 
 // @snippet start channelWiring

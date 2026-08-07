@@ -13,6 +13,7 @@
  */
 import { definePersonas } from '#pikku/scopes/pikku-personas.gen.js'
 
+// @snippet start definePersonas
 definePersonas({
   visitor: {
     name: 'Visitor',
@@ -58,3 +59,4 @@ definePersonas({
     account: {},
   },
 })
+// @snippet end definePersonas

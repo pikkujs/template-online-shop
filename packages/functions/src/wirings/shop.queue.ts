@@ -5,6 +5,7 @@ import { writeAuditEvent } from '../functions/notifications/write-audit-event.fu
 import { randomUUID } from 'node:crypto'
 
 // @snippet start queueWirings
+// @snippet start wireQueue
 wireQueueWorker({
   name: 'send-order-confirmation',
   func: sendOrderConfirmation,
@@ -14,6 +15,7 @@ wireQueueWorker({
   name: 'audit-event',
   func: writeAuditEvent,
 })
+// @snippet end wireQueue
 // @snippet end queueWirings
 
 // @snippet start queueConfig

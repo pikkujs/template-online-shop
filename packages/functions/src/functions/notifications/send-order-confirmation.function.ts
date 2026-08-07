@@ -7,6 +7,7 @@ export const SendOrderConfirmationInput = z.object({
 })
 
 // @snippet start sendOrderConfirmation
+// @snippet start queueWorkerFunction
 export const sendOrderConfirmation = pikkuSessionlessFunc({
   expose: false,
   description: 'Queue consumer: send order confirmation email after a successful payment.',
@@ -40,4 +41,5 @@ export const sendOrderConfirmation = pikkuSessionlessFunc({
     })
   },
 })
+// @snippet end queueWorkerFunction
 // @snippet end sendOrderConfirmation

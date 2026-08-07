@@ -13,6 +13,7 @@ const timingMiddleware = pikkuMiddleware(async ({ logger }, _data, next) => {
 })
 
 // @snippet start cronWirings
+// @snippet start wireScheduler
 wireScheduler({
   name: 'dailySalesReport',
   schedule: '0 6 * * *',   // 06:00 UTC every day
@@ -26,6 +27,7 @@ wireScheduler({
   schedule: '0 3 * * *',   // 03:00 UTC every day
   func: cleanupAbandonedBaskets,
 })
+// @snippet end wireScheduler
 // @snippet end cronWirings
 
 // @snippet start cronSkip
