@@ -79,5 +79,15 @@
   "preferences__color_scheme": "Color scheme",
   "dev_actors__cta": "Sign in as…",
   "dev_actors__label": "Dev personas",
-  "dev_actors__error": "Unable to sign in"
+  "dev_actors__error": "Unable to sign in",
+  "catalogue__title": "Catalogue",
+  "catalogue__subtitle": "Everything currently for sale",
+  "catalogue__search_placeholder": "Search the catalogue",
+  "catalogue__empty_title": "Nothing matches that search",
+  "catalogue__empty_hint": "Try a shorter word, or clear the search to see everything.",
+  "catalogue__add": "Add to basket",
+  "catalogue__added": "Added",
+  "catalogue__in_stock": "In stock",
+  "catalogue__sold_out": "Sold out",
+  "catalogue__low_stock": "{count} left"
 }
