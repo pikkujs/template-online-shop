@@ -24,6 +24,7 @@ import { pikkuBetterAuth } from '#pikku'
 // destructure whatever you need, e.g. `{ kysely, secrets, emailService }` to wire
 // sendResetPassword/verification emails. It runs lazily after all services exist,
 // so never re-construct a service here or reach for a dynamic import.
+// @snippet start betterAuthConfig
 export const auth = pikkuBetterAuth(async ({ kysely, secrets, variables, emailService }) => {
   // `.reveal()` at the sink, not earlier: getSecret hands back a nominal
   // SecretValue that no concretely-typed parameter accepts, so every disclosure
@@ -91,3 +92,5 @@ export const auth = pikkuBetterAuth(async ({ kysely, secrets, variables, emailSe
     ],
   })
 })
+
+// @snippet end betterAuthConfig

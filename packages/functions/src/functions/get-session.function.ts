@@ -9,6 +9,7 @@ export const GetSessionOutput = z.object({
   name: z.string().nullable(),
 })
 
+// @snippet start sessionFunction
 export const getSession = pikkuFunc({
   expose: true,
   readonly: true,
@@ -30,3 +31,4 @@ export const getSession = pikkuFunc({
     }
   },
 })
+// @snippet end sessionFunction
