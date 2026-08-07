@@ -93,7 +93,7 @@
         {
           "exportName": null,
           "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
-          "position": 3047,
+          "position": 3099,
           "isFactory": false
         }
       ]
@@ -101,7 +101,7 @@
     "/orders": {
       "exportName": null,
       "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
-      "position": 3292,
+      "position": 3344,
       "services": {
         "optimized": false,
         "services": []

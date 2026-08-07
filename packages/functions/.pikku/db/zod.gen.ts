@@ -360,7 +360,7 @@ export const ItemPatchZ = ItemZ.partial()
 export const OrderZ = z.object({
   orderId: z.string(),
   userId: z.string(),
-  status: z.string(),
+  status: z.enum(['pending', 'paid', 'payment_failed', 'shipped', 'cancelled', 'refunded']),
   totalCents: z.number(),
   shippingAddress: z.string().nullable(),
   createdAt: z.string(),
@@ -370,7 +370,7 @@ export const OrderZ = z.object({
 export const OrderInsertZ = z.object({
   orderId: z.string(),
   userId: z.string(),
-  status: z.string().optional(),
+  status: z.enum(['pending', 'paid', 'payment_failed', 'shipped', 'cancelled', 'refunded']).optional(),
   totalCents: z.number(),
   shippingAddress: z.string().nullable(),
   createdAt: z.string().optional(),

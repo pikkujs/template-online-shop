@@ -89,5 +89,11 @@
   "catalogue__added": "Added",
   "catalogue__in_stock": "In stock",
   "catalogue__sold_out": "Sold out",
-  "catalogue__low_stock": "{count} left"
+  "catalogue__low_stock": "{count} left",
+  "enum__order_status__pending": "Pending",
+  "enum__order_status__paid": "Paid",
+  "enum__order_status__shipped": "Shipped",
+  "enum__order_status__cancelled": "Cancelled",
+  "enum__order_status__payment_failed": "Payment failed",
+  "enum__order_status__refunded": "Refunded"
 }

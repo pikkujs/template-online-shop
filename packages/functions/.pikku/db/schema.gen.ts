@@ -176,7 +176,7 @@ export interface Item {
 export interface Order {
   orderId: ColumnType<Private<string>, string, string>
   userId: ColumnType<Private<string>, string, string>
-  status: ColumnType<Private<string>, string | undefined, string>
+  status: ColumnType<Private<'pending' | 'paid' | 'payment_failed' | 'shipped' | 'cancelled' | 'refunded'>, 'pending' | 'paid' | 'payment_failed' | 'shipped' | 'cancelled' | 'refunded' | undefined, 'pending' | 'paid' | 'payment_failed' | 'shipped' | 'cancelled' | 'refunded'>
   totalCents: ColumnType<Private<number>, number, number>
   shippingAddress: ColumnType<Private<string> | null, string | null, string | null>
   createdAt: ColumnType<Private<string>, string | undefined, string>

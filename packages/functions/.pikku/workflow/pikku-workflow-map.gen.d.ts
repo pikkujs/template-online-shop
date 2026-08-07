@@ -239,7 +239,7 @@ export type GetOrderOutput = {
     createdAt: string;
 }
 export type GetOrderThreeParamsInput = { orderId: any; }
-export type GetOrderThreeParamsOutput = { order: { userId: string; orderId: string; status: string; totalCents: number; shippingAddress: string | null; createdAt: string; updatedAt: string; }; viewer: string; }
+export type GetOrderThreeParamsOutput = { order: { userId: string; orderId: string; status: "paid" | "payment_failed" | "refunded" | "pending" | "shipped" | "cancelled"; totalCents: number; shippingAddress: string | null; createdAt: string; updatedAt: string; }; viewer: string; }
 export type GetProfileOutput = { name: string | null; email: string; userId: string; role: string; }
 export type GetSessionInput = {}
 export type GetSessionOutput = {
@@ -296,7 +296,7 @@ export type ListOrdersInput = {
     limit: number;
     offset: number;
 }
-export type ListOrdersOutput = { orderId: string; status: string; totalCents: number; createdAt: string; }[]
+export type ListOrdersOutput = { orderId: string; status: "paid" | "payment_failed" | "refunded" | "pending" | "shipped" | "cancelled"; totalCents: number; createdAt: string; }[]
 export type NotifyOrderShippedInput = { orderId: string; }
 export type OnLowStockInput = {
     itemId: string;

@@ -59,6 +59,7 @@
       "devDependencies": {
         "@babel/core": "^7.26.0",
         "@inlang/paraglide-js": "^2.20.0",
+        "@pikku/paraglide": "^0.12.2",
         "@tanstack/router-generator": "^1.132.0",
         "@types/node": "^22",
         "@types/react": "^19",
@@ -447,6 +448,8 @@
     "@pikku/openapi-parser": ["@pikku/openapi-parser@0.12.17", "", { "dependencies": { "yaml": "^2.7.1" } }, "sha512-DXqlikE2MbSRLNjymi9rfk/cBgR4gw6swyGxvqDv/NpIWIgwsH++imWI/rv4iCBbpZuEnzts6LTlqZNcn2TYag=="],
 
     "@pikku/openapi-to-zod-schema": ["@pikku/openapi-to-zod-schema@0.12.6", "", {}, "sha512-thHzPtZpqHwEYxvjjYiAgvwMPK+BnqKnsBUMSvHiQAIj7DxyQ/kfzYLymFVYV0YiCayhw6YMnC9yplcyDTRj9A=="],
+
+    "@pikku/paraglide": ["@pikku/paraglide@0.12.2", "", { "peerDependencies": { "vite": "^5 || ^6 || ^7" }, "optionalPeers": ["vite"], "bin": { "paraglide-enums": "dist/esm/cli.js" } }, "sha512-WIEul2C48u4AOFNv2r0U3j5qUhgx5qGSXMMYDB9Sg1GAy6CPilnzV7rzSt5M4acP37Pw55TgUW/hem/qiCWQkQ=="],
 
     "@pikku/playwright": ["@pikku/playwright@0.12.72", "", { "peerDependencies": { "@pikku/core": "^0.12.73", "@playwright/test": "^1.50.0" } }, "sha512-zYD8KUAL2WQUtcFWzarvudlmMPjR6vr88GGODIf+o+sVBM2xsB6Ht0UqV9Mms9gmQDqf/0oerbpe7FlLJoun1Q=="],
 

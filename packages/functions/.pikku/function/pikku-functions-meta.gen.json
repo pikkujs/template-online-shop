@@ -312,9 +312,9 @@
       "GetOrderThreeParamsOutput"
     ],
     "implementationHash": "baa5d148e12411ca",
-    "contractHash": "84e8eb4d93dbd5e6",
+    "contractHash": "35508707710d9799",
     "inputHash": "df0a0541",
-    "outputHash": "570ebb19"
+    "outputHash": "b7e5247f"
   },
   "getOrder": {
     "pikkuFuncId": "getOrder",
@@ -352,9 +352,9 @@
     ],
     "expose": true,
     "implementationHash": "e879dd2ee4391606",
-    "contractHash": "b965fa3ee95eb1c6",
+    "contractHash": "4b83b6a294f35460",
     "inputHash": "4a70189d",
-    "outputHash": "70b80524"
+    "outputHash": "0c72b8bc"
   },
   "recordAnalyticsEvents": {
     "pikkuFuncId": "recordAnalyticsEvents",

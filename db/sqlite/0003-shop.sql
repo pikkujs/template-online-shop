@@ -58,8 +58,12 @@ CREATE UNIQUE INDEX IF NOT EXISTS basket_item_unique ON basket_item(basket_id, i
 CREATE TABLE IF NOT EXISTS "order" (
   order_id     TEXT PRIMARY KEY,
   user_id      TEXT NOT NULL,
-  -- 'pending' | 'paid' | 'shipped' | 'cancelled'
-  status       TEXT NOT NULL DEFAULT 'pending',
+  -- The full set the code actually writes. Adding the CHECK constraint is what
+  -- surfaced `payment_failed` and `refunded`: both were written by the checkout
+  -- workflow and neither was in the original comment, so the database would
+  -- have rejected them at runtime. A constraint turns that into a type error.
+  status       TEXT NOT NULL DEFAULT 'pending'
+    CHECK (status IN ('pending','paid','payment_failed','shipped','cancelled','refunded')),
   total_cents  INTEGER NOT NULL,
   shipping_address TEXT,
   created_at   TEXT NOT NULL DEFAULT (datetime('now')),

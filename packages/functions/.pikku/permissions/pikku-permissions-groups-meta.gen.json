@@ -41,7 +41,7 @@
         ]
       },
       "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.security.ts",
-      "position": 298,
+      "position": 335,
       "exportedName": "isOrderOwner"
     }
   }

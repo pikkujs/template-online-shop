@@ -23,8 +23,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/basket/add-to-basket.function.ts",
     "exportedName": "addToBasket",
-    "bodyStart": 17,
-    "bodyEnd": 52,
+    "bodyStart": 18,
+    "bodyEnd": 53,
     "contractHash": "f5f36d6618c1be48",
     "inputHash": "a8ce2291",
     "outputHash": "2f28f3c9"
@@ -322,8 +322,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/items/list-items.function.ts",
     "exportedName": "listItems",
-    "bodyStart": 36,
-    "bodyEnd": 75,
+    "bodyStart": 37,
+    "bodyEnd": 76,
     "contractHash": "f91b782f1222d52d",
     "inputHash": "34c12795",
     "outputHash": "8a9a177c"
@@ -382,8 +382,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/notifications/send-order-confirmation.function.ts",
     "exportedName": "sendOrderConfirmation",
-    "bodyStart": 15,
-    "bodyEnd": 40,
+    "bodyStart": 16,
+    "bodyEnd": 41,
     "contractHash": "581f58f9f3563094",
     "inputHash": "ff4c9138",
     "outputHash": "5027f276"
@@ -538,9 +538,9 @@
     "exportedName": "getOrderThreeParams",
     "bodyStart": 28,
     "bodyEnd": 34,
-    "contractHash": "84e8eb4d93dbd5e6",
+    "contractHash": "35508707710d9799",
     "inputHash": "df0a0541",
-    "outputHash": "570ebb19"
+    "outputHash": "b7e5247f"
   },
   "getOrder": {
     "pikkuFuncId": "getOrder",
@@ -614,9 +614,9 @@
     "exportedName": "listOrders",
     "bodyStart": 15,
     "bodyEnd": 22,
-    "contractHash": "b965fa3ee95eb1c6",
+    "contractHash": "4b83b6a294f35460",
     "inputHash": "4a70189d",
-    "outputHash": "70b80524"
+    "outputHash": "0c72b8bc"
   },
   "recordAnalyticsEvents": {
     "pikkuFuncId": "recordAnalyticsEvents",
@@ -681,8 +681,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/reports/cleanup-abandoned-baskets.function.ts",
     "exportedName": "cleanupAbandonedBaskets",
-    "bodyStart": 8,
-    "bodyEnd": 17,
+    "bodyStart": 9,
+    "bodyEnd": 18,
     "contractHash": "bfd266803f3c472e",
     "inputHash": "008b046d",
     "outputHash": "1d49c1b8"
@@ -709,8 +709,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/reports/daily-sales-report.function.ts",
     "exportedName": "dailySalesReport",
-    "bodyStart": 8,
-    "bodyEnd": 51,
+    "bodyStart": 9,
+    "bodyEnd": 52,
     "contractHash": "757e4681fc30dc55",
     "inputHash": "b3a8987e",
     "outputHash": "468747d0"
@@ -1795,8 +1795,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "checkoutWorkflow",
-    "bodyStart": 114,
-    "bodyEnd": 141,
+    "bodyStart": 115,
+    "bodyEnd": 142,
     "contractHash": "33fc3db1aeda33af",
     "inputHash": "6129b387",
     "outputHash": "cbd83fab"
@@ -1829,8 +1829,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "startCheckout",
-    "bodyStart": 157,
-    "bodyEnd": 157,
+    "bodyStart": 159,
+    "bodyEnd": 159,
     "contractHash": "b437127d364f1c5a",
     "inputHash": "e324754d",
     "outputHash": "10b494ca"
@@ -1860,8 +1860,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "checkOrderRefundable",
-    "bodyStart": 172,
-    "bodyEnd": 175,
+    "bodyStart": 174,
+    "bodyEnd": 177,
     "contractHash": "e9fad2745ecb4443",
     "inputHash": "29349325",
     "outputHash": "5da5da14"
@@ -1889,8 +1889,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "issueRefund",
-    "bodyStart": 182,
-    "bodyEnd": 186,
+    "bodyStart": 184,
+    "bodyEnd": 188,
     "contractHash": "3e47cde276bcb9c8",
     "inputHash": "35c6cd52",
     "outputHash": "a7d40b02"
@@ -1923,8 +1923,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "refundWorkflow",
-    "bodyStart": 198,
-    "bodyEnd": 216,
+    "bodyStart": 200,
+    "bodyEnd": 218,
     "contractHash": "05d9be905688f7f8",
     "inputHash": "2076ac67",
     "outputHash": "51d8e912"
@@ -2021,8 +2021,8 @@
     "isDirectFunction": true,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.channel.ts",
     "exportedName": "subscribeToOrder",
-    "bodyStart": 19,
-    "bodyEnd": 19,
+    "bodyStart": 20,
+    "bodyEnd": 20,
     "contractHash": "adce351da05a3b51",
     "inputHash": "e6f7c708",
     "outputHash": "83679a05"
@@ -2055,8 +2055,8 @@
     "isDirectFunction": true,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.channel.ts",
     "exportedName": "unsubscribeFromOrder",
-    "bodyStart": 25,
-    "bodyEnd": 25,
+    "bodyStart": 26,
+    "bodyEnd": 26,
     "contractHash": "bcb9d84db342ef81",
     "inputHash": "cc993948",
     "outputHash": "a2205913"
@@ -2084,8 +2084,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.channel.ts",
     "exportedName": "notifyOrderShipped",
-    "bodyStart": 50,
-    "bodyEnd": 56,
+    "bodyStart": 52,
+    "bodyEnd": 58,
     "contractHash": "577e6d7e156d1c65",
     "inputHash": "606cab48",
     "outputHash": "4094c392"
@@ -2117,8 +2117,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.cron.ts",
     "exportedName": "conditionalReport",
-    "bodyStart": 35,
-    "bodyEnd": 46,
+    "bodyStart": 37,
+    "bodyEnd": 48,
     "contractHash": "f29b6e139f77f5fa",
     "inputHash": "05eaeca0",
     "outputHash": "bed14a05"
@@ -2366,8 +2366,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.queue.ts",
     "exportedName": "placeOrder",
-    "bodyStart": 40,
-    "bodyEnd": 55,
+    "bodyStart": 42,
+    "bodyEnd": 57,
     "contractHash": "3da69a809c422bc1",
     "inputHash": "6ea57c13",
     "outputHash": "57326851"
@@ -2401,8 +2401,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.queue.ts",
     "exportedName": "processExport",
-    "bodyStart": 65,
-    "bodyEnd": 78,
+    "bodyStart": 67,
+    "bodyEnd": 80,
     "contractHash": "76b125af7fb001e4",
     "inputHash": "2023710f",
     "outputHash": "11138aa5"
@@ -2530,8 +2530,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.security.ts",
     "exportedName": "deleteOrder",
-    "bodyStart": 47,
-    "bodyEnd": 47,
+    "bodyStart": 49,
+    "bodyEnd": 49,
     "contractHash": "c8c9c16009473756",
     "inputHash": "63015468",
     "outputHash": "95998d10"
@@ -2564,8 +2564,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.security.ts",
     "exportedName": "getProfile",
-    "bodyStart": 56,
-    "bodyEnd": 60,
+    "bodyStart": 58,
+    "bodyEnd": 62,
     "contractHash": "f039ecc5b1c35d1a",
     "inputHash": "3bae9870",
     "outputHash": "294a7b92"
@@ -2593,8 +2593,8 @@
     "isDirectFunction": false,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.trigger.ts",
     "exportedName": "onLowStock",
-    "bodyStart": 17,
-    "bodyEnd": 17,
+    "bodyStart": 18,
+    "bodyEnd": 18,
     "contractHash": "879f6560661514bf",
     "inputHash": "6f78dfe5",
     "outputHash": "d6ebbb69"
@@ -2630,8 +2630,8 @@
     "isDirectFunction": true,
     "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.trigger.ts",
     "exportedName": "stockPollTrigger",
-    "bodyStart": 35,
-    "bodyEnd": 50,
+    "bodyStart": 37,
+    "bodyEnd": 52,
     "contractHash": "f4ed4a1e2864309e",
     "inputHash": "875cbefe",
     "outputHash": "a5ea3138"

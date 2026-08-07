@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import { paraglideVitePlugin } from '@inlang/paraglide-js'
+import { paraglideEnums } from '@pikku/paraglide/vite'
 import { fileURLToPath, URL } from 'node:url'
 import { crossSiteSession } from './dev/cross-site-session.plugin'
 
@@ -15,6 +16,13 @@ export default defineConfig({
     // Compile messages/*.json → src/paraglide so `m` resolves, with HMR
     // on message edits. Must run first.
     paraglideVitePlugin({ project: './project.inlang', outdir: './src/paraglide' }),
+    // AFTER paraglideVitePlugin — the generated module imports the compiled `m`.
+    // Reconciles the message catalog against the database's own enums, so a
+    // state the DB allows and the catalog has no label for is a compile error
+    // rather than a raw value leaking onto a page.
+    paraglideEnums({
+      enumsFile: '../../packages/functions/.pikku/db/enums.gen.ts',
+    }),
     tanstackStart(),
     react(),
     // Dev-only (apply: 'serve'), and nothing in src/ imports it: keeps the app
