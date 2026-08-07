@@ -9,6 +9,7 @@ export const LowStockPayload = z.object({
 })
 
 // @snippet start lowStockTrigger
+// @snippet start wireTrigger
 export const onLowStock = pikkuSessionlessFunc({
   expose: false,
   description: 'Trigger: fires when an item stock drops below the configured threshold.',
@@ -23,6 +24,7 @@ wireTrigger({
   name: 'low-stock',
   func: onLowStock,
 })
+// @snippet end wireTrigger
 // @snippet end lowStockTrigger
 
 // @snippet start triggerSource

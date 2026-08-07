@@ -101,6 +101,7 @@ export const finalizeOrder = pikkuSessionlessFunc({
 })
 
 // @snippet start checkoutWorkflow
+// @snippet start wireWorkflow
 // The workflow body is the plan, not the work: each `workflow.do` names a step
 // and the function that performs it. Pikku records every step in a durable log,
 // so a crash mid-payment resumes at the step that failed rather than charging
@@ -141,6 +142,7 @@ export const checkoutWorkflow = pikkuWorkflowFunc<
     return { orderId: order.orderId, status, totalCents: basket.totalCents }
   },
 })
+// @snippet end wireWorkflow
 // @snippet end checkoutWorkflow
 
 // @snippet start workflowHTTPWiring

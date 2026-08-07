@@ -1,6 +1,7 @@
 import { pikkuVoidFunc } from '#pikku'
 
 // @snippet start cleanupAbandonedBaskets
+// @snippet start cleanupFunction
 export const cleanupAbandonedBaskets = pikkuVoidFunc({
   expose: false,
   description: 'Cron job: remove anonymous baskets older than 7 days.',
@@ -17,4 +18,5 @@ export const cleanupAbandonedBaskets = pikkuVoidFunc({
     logger.info({ event: 'cleanup_abandoned_baskets', deleted: Number(result.numDeletedRows ?? 0) })
   },
 })
+// @snippet end cleanupFunction
 // @snippet end cleanupAbandonedBaskets
