@@ -85,9 +85,28 @@ export interface AiWorkingMemory {
   updatedAt: ColumnType<Private<string>, string | undefined, string>
 }
 
+export interface AppUser {
+  userId: ColumnType<Private<string>, string, string>
+  email: ColumnType<Private<string>, string, string>
+  name: ColumnType<Private<string> | null, string | null, string | null>
+  role: ColumnType<Private<string>, string | undefined, string>
+  createdAt: ColumnType<Private<string>, string | undefined, string>
+}
+
+export interface AuditLog {
+  auditId: ColumnType<Private<string>, string, string>
+  entityType: ColumnType<Private<string>, string, string>
+  entityId: ColumnType<Private<string>, string, string>
+  action: ColumnType<Private<string>, string, string>
+  actorId: ColumnType<Private<string> | null, string | null, string | null>
+  payload: ColumnType<Private<string> | null, string | null, string | null>
+  createdAt: ColumnType<Private<string>, string | undefined, string>
+}
+
 export interface Basket {
   basketId: ColumnType<Private<string>, string, string>
-  userId: ColumnType<Private<string>, string, string>
+  userId: ColumnType<Private<string> | null, string | null, string | null>
+  sessionId: ColumnType<Private<string> | null, string | null, string | null>
   createdAt: ColumnType<Private<string>, string | undefined, string>
   updatedAt: ColumnType<Private<string>, string | undefined, string>
 }
@@ -149,6 +168,7 @@ export interface Item {
   priceCents: ColumnType<Private<number>, number, number>
   stock: ColumnType<Private<number>, number | undefined, number>
   imageUrl: ColumnType<Private<string> | null, string | null, string | null>
+  isActive: ColumnType<Private<number>, number | undefined, number>
   createdAt: ColumnType<Private<string>, string | undefined, string>
   updatedAt: ColumnType<Private<string>, string | undefined, string>
 }
@@ -158,6 +178,7 @@ export interface Order {
   userId: ColumnType<Private<string>, string, string>
   status: ColumnType<Private<string>, string | undefined, string>
   totalCents: ColumnType<Private<number>, number, number>
+  shippingAddress: ColumnType<Private<string> | null, string | null, string | null>
   createdAt: ColumnType<Private<string>, string | undefined, string>
   updatedAt: ColumnType<Private<string>, string | undefined, string>
 }
@@ -168,6 +189,17 @@ export interface OrderItem {
   itemId: ColumnType<Private<string>, string, string>
   quantity: ColumnType<Private<number>, number, number>
   unitPriceCents: ColumnType<Private<number>, number, number>
+}
+
+export interface Payment {
+  paymentId: ColumnType<Private<string>, string, string>
+  orderId: ColumnType<Private<string>, string, string>
+  amountCents: ColumnType<Private<number>, number, number>
+  status: ColumnType<Private<string>, string, string>
+  provider: ColumnType<Private<string> | null, string | null, string | null>
+  providerRef: ColumnType<Private<string> | null, string | null, string | null>
+  reason: ColumnType<Private<string> | null, string | null, string | null>
+  createdAt: ColumnType<Private<string>, string | undefined, string>
 }
 
 export interface PikkuDeploymentFunctions {
@@ -359,6 +391,8 @@ export interface DB {
   aiThreads: AiThreads
   aiToolCall: AiToolCall
   aiWorkingMemory: AiWorkingMemory
+  appUser: AppUser
+  auditLog: AuditLog
   basket: Basket
   basketItem: BasketItem
   category: Category
@@ -369,6 +403,7 @@ export interface DB {
   item: Item
   order: Order
   orderItem: OrderItem
+  payment: Payment
   pikkuDeploymentFunctions: PikkuDeploymentFunctions
   pikkuDeployments: PikkuDeployments
   pikkuRoleScopes: PikkuRoleScopes

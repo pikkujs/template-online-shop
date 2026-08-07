@@ -3,3 +3,5 @@
  */
 /* Side-effect imports for direct middleware registration calls */
 import '../../src/middleware/cors.middleware.js'
+import '../../src/scaffold/auth/auth-middleware.gen.js'
+import '../../src/wirings/shop.http.js'

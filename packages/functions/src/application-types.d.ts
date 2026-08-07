@@ -5,9 +5,16 @@ import type { DB } from '#pikku/db/schema.gen.js'
 import type { TypedSecretService } from '../.pikku/secrets/pikku-secrets.gen.js'
 import type { TypedVariablesService } from '../.pikku/variables/pikku-variables.gen.js'
 import type { auth } from './auth.js'
+import type { FakePaymentService } from './services/fake-payment.js'
 
 export interface UserSession extends CoreUserSession {
   userId: string
+  /**
+   * The shop's own profile role, distinct from the declared system roles in
+   * roles.ts. Authorization gates on scopes; this is the column the profile
+   * page shows.
+   */
+  role: 'customer' | 'support' | 'admin'
 }
 
 export interface Config extends CoreConfig {
@@ -19,6 +26,7 @@ export interface SingletonServices extends CoreSingletonServices<Config> {
   variables: TypedVariablesService
   secrets: TypedSecretService
   kysely: Kysely<DB>
+  paymentService: FakePaymentService
   // Lazy Better Auth factory, injected by the generated pikkuServices wrapper.
   // MUST be the factory shape `() => Promise<AuthInstance>` to satisfy
   // CoreSingletonServices['auth'] — call it (`await services.auth()`) to get

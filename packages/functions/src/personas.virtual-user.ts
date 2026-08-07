@@ -20,7 +20,7 @@ definePersonas({
     personality: 'Signs in and checks their own session — proves auth end to end',
     account: {},
   },
-  susan: {
+  shopper: {
     name: 'Susan',
     jobTitle: 'Buys for a small caf\u00e9',
     description: 'Orders stock every week and watches the margins',

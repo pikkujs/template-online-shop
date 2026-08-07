@@ -71,9 +71,26 @@ export const classificationManifest = {
       "data": { classification: 'private', anonymize_strategy: null },
       "updated_at": { classification: 'private', anonymize_strategy: null }
     },
+    "app_user": {
+      "user_id": { classification: 'private', anonymize_strategy: null },
+      "email": { classification: 'private', anonymize_strategy: null },
+      "name": { classification: 'private', anonymize_strategy: null },
+      "role": { classification: 'private', anonymize_strategy: null },
+      "created_at": { classification: 'private', anonymize_strategy: null }
+    },
+    "audit_log": {
+      "audit_id": { classification: 'private', anonymize_strategy: null },
+      "entity_type": { classification: 'private', anonymize_strategy: null },
+      "entity_id": { classification: 'private', anonymize_strategy: null },
+      "action": { classification: 'private', anonymize_strategy: null },
+      "actor_id": { classification: 'private', anonymize_strategy: null },
+      "payload": { classification: 'private', anonymize_strategy: null },
+      "created_at": { classification: 'private', anonymize_strategy: null }
+    },
     "basket": {
       "basket_id": { classification: 'private', anonymize_strategy: null },
       "user_id": { classification: 'private', anonymize_strategy: null },
+      "session_id": { classification: 'private', anonymize_strategy: null },
       "created_at": { classification: 'private', anonymize_strategy: null },
       "updated_at": { classification: 'private', anonymize_strategy: null }
     },
@@ -128,6 +145,7 @@ export const classificationManifest = {
       "price_cents": { classification: 'private', anonymize_strategy: null },
       "stock": { classification: 'private', anonymize_strategy: null },
       "image_url": { classification: 'private', anonymize_strategy: null },
+      "is_active": { classification: 'private', anonymize_strategy: null },
       "created_at": { classification: 'private', anonymize_strategy: null },
       "updated_at": { classification: 'private', anonymize_strategy: null }
     },
@@ -136,6 +154,7 @@ export const classificationManifest = {
       "user_id": { classification: 'private', anonymize_strategy: null },
       "status": { classification: 'private', anonymize_strategy: null },
       "total_cents": { classification: 'private', anonymize_strategy: null },
+      "shipping_address": { classification: 'private', anonymize_strategy: null },
       "created_at": { classification: 'private', anonymize_strategy: null },
       "updated_at": { classification: 'private', anonymize_strategy: null }
     },
@@ -145,6 +164,16 @@ export const classificationManifest = {
       "item_id": { classification: 'private', anonymize_strategy: null },
       "quantity": { classification: 'private', anonymize_strategy: null },
       "unit_price_cents": { classification: 'private', anonymize_strategy: null }
+    },
+    "payment": {
+      "payment_id": { classification: 'private', anonymize_strategy: null },
+      "order_id": { classification: 'private', anonymize_strategy: null },
+      "amount_cents": { classification: 'private', anonymize_strategy: null },
+      "status": { classification: 'private', anonymize_strategy: null },
+      "provider": { classification: 'private', anonymize_strategy: null },
+      "provider_ref": { classification: 'private', anonymize_strategy: null },
+      "reason": { classification: 'private', anonymize_strategy: null },
+      "created_at": { classification: 'private', anonymize_strategy: null }
     },
     "pikku_deployment_functions": {
       "deployment_id": { classification: 'private', anonymize_strategy: null },

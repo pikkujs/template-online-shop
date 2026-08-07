@@ -39,6 +39,88 @@
     "inputHash": "bd605e05",
     "outputHash": "a130cbe6"
   },
+  "shopperBuysAnItem": {
+    "pikkuFuncId": "shopperBuysAnItem",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenario",
+    "sessionless": true,
+    "name": "shopperBuysAnItem",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "scenario",
+        "actors"
+      ]
+    },
+    "inputSchemaName": null,
+    "outputSchemaName": "ShopperBuysAnItemOutput",
+    "inputs": [],
+    "outputs": [
+      "ShopperBuysAnItemOutput"
+    ],
+    "scenario": true,
+    "implementationHash": "4717e77a8fba4ce8",
+    "title": "Shopper buys an item",
+    "tags": [
+      "checkout"
+    ],
+    "description": "Browse the catalogue, fill a basket and pay for an order.",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.scenario.ts",
+    "exportedName": "shopperBuysAnItem",
+    "bodyStart": 13,
+    "bodyEnd": 66,
+    "contractHash": "ec991de7ecbf3ec5",
+    "inputHash": "c22138d6",
+    "outputHash": "7f04e386"
+  },
+  "shopperAsksTheAssistant": {
+    "pikkuFuncId": "shopperAsksTheAssistant",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenario",
+    "sessionless": true,
+    "name": "shopperAsksTheAssistant",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "scenario",
+        "actors"
+      ]
+    },
+    "inputSchemaName": null,
+    "outputSchemaName": "ShopperAsksTheAssistantOutput",
+    "inputs": [],
+    "outputs": [
+      "ShopperAsksTheAssistantOutput"
+    ],
+    "scenario": true,
+    "implementationHash": "44fe3aa314a94fe4",
+    "title": "Shopper gets help from the assistant",
+    "tags": [
+      "agents"
+    ],
+    "description": "The shop assistant finds a product and adds it to the basket.",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.scenario.ts",
+    "exportedName": "shopperAsksTheAssistant",
+    "bodyStart": 80,
+    "bodyEnd": 104,
+    "contractHash": "5bae8309c7cafd6e",
+    "inputHash": "db130ce1",
+    "outputHash": "2d895abd"
+  },
   "signedInActorReachesTheAppScenario": {
     "pikkuFuncId": "signedInActorReachesTheAppScenario",
     "functionType": "user",

@@ -3,12 +3,12 @@
  */
 import { addSchema } from '@pikku/core/schema'
 
+import * as AIAgentInput from './schemas/AIAgentInput.schema.json' with { type: 'json' }
+addSchema('AIAgentInput', AIAgentInput)
+
+
 import * as AddToBasketInput from './schemas/AddToBasketInput.schema.json' with { type: 'json' }
 addSchema('AddToBasketInput', AddToBasketInput)
-
-
-import * as AddToBasketOutput from './schemas/AddToBasketOutput.schema.json' with { type: 'json' }
-addSchema('AddToBasketOutput', AddToBasketOutput)
 
 
 import * as AgentApproveCallerInput from './schemas/AgentApproveCallerInput.schema.json' with { type: 'json' }
@@ -17,6 +17,10 @@ addSchema('AgentApproveCallerInput', AgentApproveCallerInput)
 
 import * as AgentCallerInput from './schemas/AgentCallerInput.schema.json' with { type: 'json' }
 addSchema('AgentCallerInput', AgentCallerInput)
+
+
+import * as AgentCallerOutput from './schemas/AgentCallerOutput.schema.json' with { type: 'json' }
+addSchema('AgentCallerOutput', AgentCallerOutput)
 
 
 import * as AgentResumeCallerInput from './schemas/AgentResumeCallerInput.schema.json' with { type: 'json' }
@@ -35,16 +39,80 @@ import * as CancelOrderInput from './schemas/CancelOrderInput.schema.json' with 
 addSchema('CancelOrderInput', CancelOrderInput)
 
 
-import * as CancelOrderOutput from './schemas/CancelOrderOutput.schema.json' with { type: 'json' }
-addSchema('CancelOrderOutput', CancelOrderOutput)
+import * as ChargeCardInput from './schemas/ChargeCardInput.schema.json' with { type: 'json' }
+addSchema('ChargeCardInput', ChargeCardInput)
 
 
-import * as CancelOrderToolInput from './schemas/CancelOrderToolInput.schema.json' with { type: 'json' }
-addSchema('CancelOrderToolInput', CancelOrderToolInput)
+import * as ChargeCardOutput from './schemas/ChargeCardOutput.schema.json' with { type: 'json' }
+addSchema('ChargeCardOutput', ChargeCardOutput)
 
 
-import * as CancelOrderToolOutput from './schemas/CancelOrderToolOutput.schema.json' with { type: 'json' }
-addSchema('CancelOrderToolOutput', CancelOrderToolOutput)
+import * as CheckItemAvailabilityInput from './schemas/CheckItemAvailabilityInput.schema.json' with { type: 'json' }
+addSchema('CheckItemAvailabilityInput', CheckItemAvailabilityInput)
+
+
+import * as CheckItemAvailabilityOutput from './schemas/CheckItemAvailabilityOutput.schema.json' with { type: 'json' }
+addSchema('CheckItemAvailabilityOutput', CheckItemAvailabilityOutput)
+
+
+import * as CheckOrderRefundableInput from './schemas/CheckOrderRefundableInput.schema.json' with { type: 'json' }
+addSchema('CheckOrderRefundableInput', CheckOrderRefundableInput)
+
+
+import * as CheckOrderRefundableOutput from './schemas/CheckOrderRefundableOutput.schema.json' with { type: 'json' }
+addSchema('CheckOrderRefundableOutput', CheckOrderRefundableOutput)
+
+
+import * as CheckoutWorkflowInput from './schemas/CheckoutWorkflowInput.schema.json' with { type: 'json' }
+addSchema('CheckoutWorkflowInput', CheckoutWorkflowInput)
+
+
+import * as CheckoutWorkflowOutput from './schemas/CheckoutWorkflowOutput.schema.json' with { type: 'json' }
+addSchema('CheckoutWorkflowOutput', CheckoutWorkflowOutput)
+
+
+import * as CreateCategoryInput from './schemas/CreateCategoryInput.schema.json' with { type: 'json' }
+addSchema('CreateCategoryInput', CreateCategoryInput)
+
+
+import * as CreateCategoryOutput from './schemas/CreateCategoryOutput.schema.json' with { type: 'json' }
+addSchema('CreateCategoryOutput', CreateCategoryOutput)
+
+
+import * as CreateItemInput from './schemas/CreateItemInput.schema.json' with { type: 'json' }
+addSchema('CreateItemInput', CreateItemInput)
+
+
+import * as CreateItemOutput from './schemas/CreateItemOutput.schema.json' with { type: 'json' }
+addSchema('CreateItemOutput', CreateItemOutput)
+
+
+import * as CreateOrderInput from './schemas/CreateOrderInput.schema.json' with { type: 'json' }
+addSchema('CreateOrderInput', CreateOrderInput)
+
+
+import * as CreateOrderOutput from './schemas/CreateOrderOutput.schema.json' with { type: 'json' }
+addSchema('CreateOrderOutput', CreateOrderOutput)
+
+
+import * as CreateOrderRecordInput from './schemas/CreateOrderRecordInput.schema.json' with { type: 'json' }
+addSchema('CreateOrderRecordInput', CreateOrderRecordInput)
+
+
+import * as CreateOrderRecordOutput from './schemas/CreateOrderRecordOutput.schema.json' with { type: 'json' }
+addSchema('CreateOrderRecordOutput', CreateOrderRecordOutput)
+
+
+import * as CreateOrderWithValidationInput from './schemas/CreateOrderWithValidationInput.schema.json' with { type: 'json' }
+addSchema('CreateOrderWithValidationInput', CreateOrderWithValidationInput)
+
+
+import * as CreateOrderWithValidationOutput from './schemas/CreateOrderWithValidationOutput.schema.json' with { type: 'json' }
+addSchema('CreateOrderWithValidationOutput', CreateOrderWithValidationOutput)
+
+
+import * as CredentialSchema_shipping_provider from './schemas/CredentialSchema_shipping-provider.schema.json' with { type: 'json' }
+addSchema('CredentialSchema_shipping-provider', CredentialSchema_shipping_provider)
 
 
 import * as DeleteAgentThreadInput from './schemas/DeleteAgentThreadInput.schema.json' with { type: 'json' }
@@ -53,6 +121,14 @@ addSchema('DeleteAgentThreadInput', DeleteAgentThreadInput)
 
 import * as DeleteAgentThreadOutput from './schemas/DeleteAgentThreadOutput.schema.json' with { type: 'json' }
 addSchema('DeleteAgentThreadOutput', DeleteAgentThreadOutput)
+
+
+import * as DeleteOrderInput from './schemas/DeleteOrderInput.schema.json' with { type: 'json' }
+addSchema('DeleteOrderInput', DeleteOrderInput)
+
+
+import * as FinalizeOrderInput from './schemas/FinalizeOrderInput.schema.json' with { type: 'json' }
+addSchema('FinalizeOrderInput', FinalizeOrderInput)
 
 
 import * as GetAgentThreadMessagesInput from './schemas/GetAgentThreadMessagesInput.schema.json' with { type: 'json' }
@@ -79,6 +155,74 @@ import * as GetAgentThreadsOutput from './schemas/GetAgentThreadsOutput.schema.j
 addSchema('GetAgentThreadsOutput', GetAgentThreadsOutput)
 
 
+import * as GetBasketInput from './schemas/GetBasketInput.schema.json' with { type: 'json' }
+addSchema('GetBasketInput', GetBasketInput)
+
+
+import * as GetBasketOutput from './schemas/GetBasketOutput.schema.json' with { type: 'json' }
+addSchema('GetBasketOutput', GetBasketOutput)
+
+
+import * as GetItemForAIInput from './schemas/GetItemForAIInput.schema.json' with { type: 'json' }
+addSchema('GetItemForAIInput', GetItemForAIInput)
+
+
+import * as GetItemForAIOutput from './schemas/GetItemForAIOutput.schema.json' with { type: 'json' }
+addSchema('GetItemForAIOutput', GetItemForAIOutput)
+
+
+import * as GetItemInput from './schemas/GetItemInput.schema.json' with { type: 'json' }
+addSchema('GetItemInput', GetItemInput)
+
+
+import * as GetItemOutput from './schemas/GetItemOutput.schema.json' with { type: 'json' }
+addSchema('GetItemOutput', GetItemOutput)
+
+
+import * as GetItemToolInput from './schemas/GetItemToolInput.schema.json' with { type: 'json' }
+addSchema('GetItemToolInput', GetItemToolInput)
+
+
+import * as GetItemToolOutput from './schemas/GetItemToolOutput.schema.json' with { type: 'json' }
+addSchema('GetItemToolOutput', GetItemToolOutput)
+
+
+import * as GetItemV1Input from './schemas/GetItemV1Input.schema.json' with { type: 'json' }
+addSchema('GetItemV1Input', GetItemV1Input)
+
+
+import * as GetItemV1Output from './schemas/GetItemV1Output.schema.json' with { type: 'json' }
+addSchema('GetItemV1Output', GetItemV1Output)
+
+
+import * as GetItemV2Input from './schemas/GetItemV2Input.schema.json' with { type: 'json' }
+addSchema('GetItemV2Input', GetItemV2Input)
+
+
+import * as GetItemV2Output from './schemas/GetItemV2Output.schema.json' with { type: 'json' }
+addSchema('GetItemV2Output', GetItemV2Output)
+
+
+import * as GetOrderInput from './schemas/GetOrderInput.schema.json' with { type: 'json' }
+addSchema('GetOrderInput', GetOrderInput)
+
+
+import * as GetOrderOutput from './schemas/GetOrderOutput.schema.json' with { type: 'json' }
+addSchema('GetOrderOutput', GetOrderOutput)
+
+
+import * as GetOrderThreeParamsInput from './schemas/GetOrderThreeParamsInput.schema.json' with { type: 'json' }
+addSchema('GetOrderThreeParamsInput', GetOrderThreeParamsInput)
+
+
+import * as GetOrderThreeParamsOutput from './schemas/GetOrderThreeParamsOutput.schema.json' with { type: 'json' }
+addSchema('GetOrderThreeParamsOutput', GetOrderThreeParamsOutput)
+
+
+import * as GetProfileOutput from './schemas/GetProfileOutput.schema.json' with { type: 'json' }
+addSchema('GetProfileOutput', GetProfileOutput)
+
+
 import * as GetSessionInput from './schemas/GetSessionInput.schema.json' with { type: 'json' }
 addSchema('GetSessionInput', GetSessionInput)
 
@@ -93,6 +237,34 @@ addSchema('GraphStarterInput', GraphStarterInput)
 
 import * as GraphStarterOutput from './schemas/GraphStarterOutput.schema.json' with { type: 'json' }
 addSchema('GraphStarterOutput', GraphStarterOutput)
+
+
+import * as HandlePaymentWebhookInput from './schemas/HandlePaymentWebhookInput.schema.json' with { type: 'json' }
+addSchema('HandlePaymentWebhookInput', HandlePaymentWebhookInput)
+
+
+import * as HandlePaymentWebhookOutput from './schemas/HandlePaymentWebhookOutput.schema.json' with { type: 'json' }
+addSchema('HandlePaymentWebhookOutput', HandlePaymentWebhookOutput)
+
+
+import * as HttpPostAgentsShopOutput from './schemas/HttpPostAgentsShopOutput.schema.json' with { type: 'json' }
+addSchema('HttpPostAgentsShopOutput', HttpPostAgentsShopOutput)
+
+
+import * as HttpPostAgentsShopStreamInput from './schemas/HttpPostAgentsShopStreamInput.schema.json' with { type: 'json' }
+addSchema('HttpPostAgentsShopStreamInput', HttpPostAgentsShopStreamInput)
+
+
+import * as IssueRefundInput from './schemas/IssueRefundInput.schema.json' with { type: 'json' }
+addSchema('IssueRefundInput', IssueRefundInput)
+
+
+import * as ListCategoriesOutput from './schemas/ListCategoriesOutput.schema.json' with { type: 'json' }
+addSchema('ListCategoriesOutput', ListCategoriesOutput)
+
+
+import * as ListCategoriesToolOutput from './schemas/ListCategoriesToolOutput.schema.json' with { type: 'json' }
+addSchema('ListCategoriesToolOutput', ListCategoriesToolOutput)
 
 
 import * as ListItemsInput from './schemas/ListItemsInput.schema.json' with { type: 'json' }
@@ -111,8 +283,24 @@ import * as ListItemsToolOutput from './schemas/ListItemsToolOutput.schema.json'
 addSchema('ListItemsToolOutput', ListItemsToolOutput)
 
 
+import * as ListOrdersInput from './schemas/ListOrdersInput.schema.json' with { type: 'json' }
+addSchema('ListOrdersInput', ListOrdersInput)
+
+
+import * as ListOrdersOutput from './schemas/ListOrdersOutput.schema.json' with { type: 'json' }
+addSchema('ListOrdersOutput', ListOrdersOutput)
+
+
 import * as MCPToolResponse from './schemas/MCPToolResponse.schema.json' with { type: 'json' }
 addSchema('MCPToolResponse', MCPToolResponse)
+
+
+import * as NotifyOrderShippedInput from './schemas/NotifyOrderShippedInput.schema.json' with { type: 'json' }
+addSchema('NotifyOrderShippedInput', NotifyOrderShippedInput)
+
+
+import * as OnLowStockInput from './schemas/OnLowStockInput.schema.json' with { type: 'json' }
+addSchema('OnLowStockInput', OnLowStockInput)
 
 
 import * as PikkuConsoleGetSecretInput from './schemas/PikkuConsoleGetSecretInput.schema.json' with { type: 'json' }
@@ -155,6 +343,26 @@ import * as PikkuConsoleSetVariableOutput from './schemas/PikkuConsoleSetVariabl
 addSchema('PikkuConsoleSetVariableOutput', PikkuConsoleSetVariableOutput)
 
 
+import * as PlaceOrderInput from './schemas/PlaceOrderInput.schema.json' with { type: 'json' }
+addSchema('PlaceOrderInput', PlaceOrderInput)
+
+
+import * as PlaceOrderOutput from './schemas/PlaceOrderOutput.schema.json' with { type: 'json' }
+addSchema('PlaceOrderOutput', PlaceOrderOutput)
+
+
+import * as ProcessExportInput from './schemas/ProcessExportInput.schema.json' with { type: 'json' }
+addSchema('ProcessExportInput', ProcessExportInput)
+
+
+import * as ProcessPaymentInput from './schemas/ProcessPaymentInput.schema.json' with { type: 'json' }
+addSchema('ProcessPaymentInput', ProcessPaymentInput)
+
+
+import * as ProcessPaymentOutput from './schemas/ProcessPaymentOutput.schema.json' with { type: 'json' }
+addSchema('ProcessPaymentOutput', ProcessPaymentOutput)
+
+
 import * as RealtimeEventStreamInput from './schemas/RealtimeEventStreamInput.schema.json' with { type: 'json' }
 addSchema('RealtimeEventStreamInput', RealtimeEventStreamInput)
 
@@ -175,6 +383,18 @@ import * as RecordAnalyticsEventsOutput from './schemas/RecordAnalyticsEventsOut
 addSchema('RecordAnalyticsEventsOutput', RecordAnalyticsEventsOutput)
 
 
+import * as RefundWorkflowInput from './schemas/RefundWorkflowInput.schema.json' with { type: 'json' }
+addSchema('RefundWorkflowInput', RefundWorkflowInput)
+
+
+import * as RefundWorkflowOutput from './schemas/RefundWorkflowOutput.schema.json' with { type: 'json' }
+addSchema('RefundWorkflowOutput', RefundWorkflowOutput)
+
+
+import * as RemoveFromBasketInput from './schemas/RemoveFromBasketInput.schema.json' with { type: 'json' }
+addSchema('RemoveFromBasketInput', RemoveFromBasketInput)
+
+
 import * as RpcCallerInput from './schemas/RpcCallerInput.schema.json' with { type: 'json' }
 addSchema('RpcCallerInput', RpcCallerInput)
 
@@ -187,24 +407,84 @@ import * as SecretSchema_scenarioActorSecret from './schemas/SecretSchema_scenar
 addSchema('SecretSchema_scenarioActorSecret', SecretSchema_scenarioActorSecret)
 
 
+import * as SecretSchema_stripeSecretKey from './schemas/SecretSchema_stripeSecretKey.schema.json' with { type: 'json' }
+addSchema('SecretSchema_stripeSecretKey', SecretSchema_stripeSecretKey)
+
+
 import * as SendOrderConfirmationInput from './schemas/SendOrderConfirmationInput.schema.json' with { type: 'json' }
 addSchema('SendOrderConfirmationInput', SendOrderConfirmationInput)
+
+
+import * as StartCheckoutInput from './schemas/StartCheckoutInput.schema.json' with { type: 'json' }
+addSchema('StartCheckoutInput', StartCheckoutInput)
+
+
+import * as StartCheckoutOutput from './schemas/StartCheckoutOutput.schema.json' with { type: 'json' }
+addSchema('StartCheckoutOutput', StartCheckoutOutput)
+
+
+import * as StockPollTriggerInput from './schemas/StockPollTriggerInput.schema.json' with { type: 'json' }
+addSchema('StockPollTriggerInput', StockPollTriggerInput)
+
+
+import * as StockPollTriggerOutput from './schemas/StockPollTriggerOutput.schema.json' with { type: 'json' }
+addSchema('StockPollTriggerOutput', StockPollTriggerOutput)
 
 
 import * as StreamWorkflowRunInput from './schemas/StreamWorkflowRunInput.schema.json' with { type: 'json' }
 addSchema('StreamWorkflowRunInput', StreamWorkflowRunInput)
 
 
+import * as SubscribeToOrderInput from './schemas/SubscribeToOrderInput.schema.json' with { type: 'json' }
+addSchema('SubscribeToOrderInput', SubscribeToOrderInput)
+
+
+import * as UnsubscribeFromOrderInput from './schemas/UnsubscribeFromOrderInput.schema.json' with { type: 'json' }
+addSchema('UnsubscribeFromOrderInput', UnsubscribeFromOrderInput)
+
+
+import * as UpdateItemInput from './schemas/UpdateItemInput.schema.json' with { type: 'json' }
+addSchema('UpdateItemInput', UpdateItemInput)
+
+
+import * as UpdateStockToolInput from './schemas/UpdateStockToolInput.schema.json' with { type: 'json' }
+addSchema('UpdateStockToolInput', UpdateStockToolInput)
+
+
+import * as UpdateStockToolOutput from './schemas/UpdateStockToolOutput.schema.json' with { type: 'json' }
+addSchema('UpdateStockToolOutput', UpdateStockToolOutput)
+
+
+import * as ValidateBasketInput from './schemas/ValidateBasketInput.schema.json' with { type: 'json' }
+addSchema('ValidateBasketInput', ValidateBasketInput)
+
+
+import * as ValidateBasketOutput from './schemas/ValidateBasketOutput.schema.json' with { type: 'json' }
+addSchema('ValidateBasketOutput', ValidateBasketOutput)
+
+
+import * as VariableSchema_betterAuthUrl from './schemas/VariableSchema_betterAuthUrl.schema.json' with { type: 'json' }
+addSchema('VariableSchema_betterAuthUrl', VariableSchema_betterAuthUrl)
+
+
 import * as VariableSchema_corsOrigins from './schemas/VariableSchema_corsOrigins.schema.json' with { type: 'json' }
 addSchema('VariableSchema_corsOrigins', VariableSchema_corsOrigins)
+
+
+import * as VariableSchema_databaseUrl from './schemas/VariableSchema_databaseUrl.schema.json' with { type: 'json' }
+addSchema('VariableSchema_databaseUrl', VariableSchema_databaseUrl)
 
 
 import * as VariableSchema_frontendUrl from './schemas/VariableSchema_frontendUrl.schema.json' with { type: 'json' }
 addSchema('VariableSchema_frontendUrl', VariableSchema_frontendUrl)
 
 
-import * as WatchOrderInput from './schemas/WatchOrderInput.schema.json' with { type: 'json' }
-addSchema('WatchOrderInput', WatchOrderInput)
+import * as VariableSchema_lowStockThreshold from './schemas/VariableSchema_lowStockThreshold.schema.json' with { type: 'json' }
+addSchema('VariableSchema_lowStockThreshold', VariableSchema_lowStockThreshold)
+
+
+import * as VariableSchema_scenarioActorSecret from './schemas/VariableSchema_scenarioActorSecret.schema.json' with { type: 'json' }
+addSchema('VariableSchema_scenarioActorSecret', VariableSchema_scenarioActorSecret)
 
 
 import * as WorkflowApproverInput from './schemas/WorkflowApproverInput.schema.json' with { type: 'json' }
@@ -241,3 +521,7 @@ addSchema('WorkflowStatusStreamFullInput', WorkflowStatusStreamFullInput)
 
 import * as WorkflowStatusStreamInput from './schemas/WorkflowStatusStreamInput.schema.json' with { type: 'json' }
 addSchema('WorkflowStatusStreamInput', WorkflowStatusStreamInput)
+
+
+import * as WriteAuditEventInput from './schemas/WriteAuditEventInput.schema.json' with { type: 'json' }
+addSchema('WriteAuditEventInput', WriteAuditEventInput)

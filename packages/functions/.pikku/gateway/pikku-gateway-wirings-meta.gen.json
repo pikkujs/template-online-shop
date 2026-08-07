@@ -1,0 +1,18 @@
+{
+  "payment-webhook": {
+    "pikkuFuncId": "handlePaymentWebhook",
+    "name": "payment-webhook",
+    "type": "webhook",
+    "route": "/webhooks/payment",
+    "auth": false,
+    "gateway": true
+  },
+  "webchat": {
+    "pikkuFuncId": "handlePaymentWebhook",
+    "name": "webchat",
+    "type": "websocket",
+    "route": "/chat",
+    "auth": false,
+    "gateway": true
+  }
+}

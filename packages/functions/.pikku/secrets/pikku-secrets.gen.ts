@@ -8,6 +8,7 @@ import secretsMeta from './pikku-secrets-meta.gen.json' with { type: 'json' }
 import type { z } from 'zod'
 import { ScenarioActorSecretSchema } from '../scopes/pikku-personas-secrets.gen.js'
 import { BetterAuthSecretSchema } from '../../src/scaffold/auth/auth-secrets.gen.js'
+import { StripeKeySchema } from '../../src/wirings/shop.secret.js'
 
 /**
  * Every secret declared in this package.
@@ -23,13 +24,15 @@ export const SECRETS_META: SecretDefinitionsMeta =
 export interface CredentialsMap {
   'SCENARIO_ACTOR_SECRET': z.infer<typeof ScenarioActorSecretSchema>
   'BETTER_AUTH_SECRET': z.infer<typeof BetterAuthSecretSchema>
+  'STRIPE_SECRET_KEY': z.infer<typeof StripeKeySchema>
 }
 
 export type SecretId = keyof CredentialsMap
 
 const CREDENTIALS_META: Record<string, CredentialMeta> = {
   'SCENARIO_ACTOR_SECRET': { name: 'scenarioActorSecret', displayName: "Scenario Actor Secret" },
-  'BETTER_AUTH_SECRET': { name: 'betterAuthSecret', displayName: "Better Auth Secret" }
+  'BETTER_AUTH_SECRET': { name: 'betterAuthSecret', displayName: "Better Auth Secret" },
+  'STRIPE_SECRET_KEY': { name: 'stripeSecretKey', displayName: "Stripe Secret Key" }
 }
 
 export class TypedSecretService extends CoreTypedSecretService<CredentialsMap> {

@@ -7,6 +7,7 @@ import type { VariableDefinitionsMeta } from '@pikku/core/variable'
 import variablesMeta from './pikku-variables-meta.gen.json' with { type: 'json' }
 import type { z } from 'zod'
 import { CorsOriginsSchema, FrontendUrlSchema } from '../../src/lib/cors-origins.js'
+import { DatabaseUrlSchema, LowStockThresholdSchema, ScenarioActorSecretSchema, BetterAuthUrlSchema } from '../../src/wirings/shop.variable.js'
 
 /**
  * Every variable declared in this package.
@@ -22,13 +23,21 @@ export const VARIABLES_META: VariableDefinitionsMeta =
 export interface VariablesMap {
   'CORS_ORIGINS': z.infer<typeof CorsOriginsSchema>
   'FRONTEND_URL': z.infer<typeof FrontendUrlSchema>
+  'DATABASE_URL': z.infer<typeof DatabaseUrlSchema>
+  'LOW_STOCK_THRESHOLD': z.infer<typeof LowStockThresholdSchema>
+  'SCENARIO_ACTOR_SECRET': z.infer<typeof ScenarioActorSecretSchema>
+  'BETTER_AUTH_URL': z.infer<typeof BetterAuthUrlSchema>
 }
 
 export type VariableId = keyof VariablesMap
 
 const TYPED_VARIABLES_META: Record<string, VariableMeta> = {
   'CORS_ORIGINS': { name: 'corsOrigins', displayName: "Allowed Browser Origins" },
-  'FRONTEND_URL': { name: 'frontendUrl', displayName: "Frontend URL" }
+  'FRONTEND_URL': { name: 'frontendUrl', displayName: "Frontend URL" },
+  'DATABASE_URL': { name: 'databaseUrl', displayName: "Database URL" },
+  'LOW_STOCK_THRESHOLD': { name: 'lowStockThreshold', displayName: "Low Stock Threshold" },
+  'SCENARIO_ACTOR_SECRET': { name: 'scenarioActorSecret', displayName: "Scenario Actor Secret" },
+  'BETTER_AUTH_URL': { name: 'betterAuthUrl', displayName: "Better Auth Base URL" }
 }
 
 export class TypedVariablesService extends CoreTypedVariablesService<VariablesMap> {

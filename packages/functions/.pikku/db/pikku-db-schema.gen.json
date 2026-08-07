@@ -393,6 +393,90 @@
       ]
     },
     {
+      "name": "app_user",
+      "source": "app",
+      "columns": [
+        {
+          "name": "user_id",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": true
+        },
+        {
+          "name": "email",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "name",
+          "type": "TEXT",
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "role",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "created_at",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "audit_log",
+      "source": "app",
+      "columns": [
+        {
+          "name": "audit_id",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": true
+        },
+        {
+          "name": "entity_type",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "entity_id",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "action",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "actor_id",
+          "type": "TEXT",
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "payload",
+          "type": "TEXT",
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "created_at",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": false
+        }
+      ]
+    },
+    {
       "name": "basket",
       "source": "app",
       "columns": [
@@ -405,7 +489,13 @@
         {
           "name": "user_id",
           "type": "TEXT",
-          "nullable": false,
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "session_id",
+          "type": "TEXT",
+          "nullable": true,
           "isPrimaryKey": false
         },
         {
@@ -711,6 +801,12 @@
           "isPrimaryKey": false
         },
         {
+          "name": "is_active",
+          "type": "INTEGER",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
           "name": "created_at",
           "type": "TEXT",
           "nullable": false,
@@ -750,6 +846,12 @@
           "name": "total_cents",
           "type": "INTEGER",
           "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "shipping_address",
+          "type": "TEXT",
+          "nullable": true,
           "isPrimaryKey": false
         },
         {
@@ -805,6 +907,64 @@
         {
           "name": "unit_price_cents",
           "type": "INTEGER",
+          "nullable": false,
+          "isPrimaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "payment",
+      "source": "app",
+      "columns": [
+        {
+          "name": "payment_id",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": true
+        },
+        {
+          "name": "order_id",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": false,
+          "foreignKey": {
+            "table": "order",
+            "column": "order_id"
+          }
+        },
+        {
+          "name": "amount_cents",
+          "type": "INTEGER",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "status",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "provider",
+          "type": "TEXT",
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "provider_ref",
+          "type": "TEXT",
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "reason",
+          "type": "TEXT",
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "created_at",
+          "type": "TEXT",
           "nullable": false,
           "isPrimaryKey": false
         }

@@ -35,6 +35,14 @@ import * as SessionHealthScenarioOutput from './schemas/SessionHealthScenarioOut
 addSchema('SessionHealthScenarioOutput', SessionHealthScenarioOutput)
 
 
+import * as ShopperAsksTheAssistantOutput from './schemas/ShopperAsksTheAssistantOutput.schema.json' with { type: 'json' }
+addSchema('ShopperAsksTheAssistantOutput', ShopperAsksTheAssistantOutput)
+
+
+import * as ShopperBuysAnItemOutput from './schemas/ShopperBuysAnItemOutput.schema.json' with { type: 'json' }
+addSchema('ShopperBuysAnItemOutput', ShopperBuysAnItemOutput)
+
+
 import * as SignedInActorReachesTheAppScenarioOutput from './schemas/SignedInActorReachesTheAppScenarioOutput.schema.json' with { type: 'json' }
 addSchema('SignedInActorReachesTheAppScenarioOutput', SignedInActorReachesTheAppScenarioOutput)
 

@@ -1,0 +1,6 @@
+{
+  "stock-poll": {
+    "name": "stock-poll",
+    "pikkuFuncId": "stockPollTrigger"
+  }
+}

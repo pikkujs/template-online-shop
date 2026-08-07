@@ -5,15 +5,13 @@
  * Workflow type map with input/output types for each workflow
  */
 
+import type { ShippingAddress } from '../../src/wirings/checkout.workflow.js'
 import type { AIMessage, AgentRunRow, AIThread } from '.bun/@pikku+core@0.12.79/node_modules/@pikku/core/dist/wirings/ai-agent/ai-agent.types'
 
 export type AddToBasketInput = {
+    basketId: string;
     itemId: string;
     quantity: number;
-}
-export type AddToBasketOutput = {
-    basketId: string;
-    itemCount: number;
 }
 export type AgentApproveCallerInput = {
     agentName: string;
@@ -39,6 +37,7 @@ export type AgentCallerInput = {
     temperature?: number | undefined;
     context?: string | undefined;
 }
+export type AgentCallerOutput = { runId: string; result: any; usage: { inputTokens: number; outputTokens: number; }; }
 export type AgentResumeCallerInput = {
     agentName: string;
     runId: string;
@@ -65,12 +64,64 @@ export type AuthHandlerOutput = Promise<void> | Promise<any>
 export type CancelOrderInput = {
     orderId: string;
 }
-export type CancelOrderOutput = {
+export type ChargeCardInput = { orderId: string; totalCents: number; cardToken?: string | undefined; }
+export type ChargeCardOutput = { status: "succeeded"; providerRef: string; } | { status: "failed"; reason: string; }
+export type CheckItemAvailabilityInput = { itemId: string; }
+export type CheckItemAvailabilityOutput = { available: boolean; stock: number; name: string; }
+export type CheckOrderRefundableInput = { orderId: string; }
+export type CheckOrderRefundableOutput = { eligible: boolean; totalCents: number | number; }
+export type CheckoutWorkflowInput = { basketId: string; userId: string; shippingAddress: ShippingAddress; cardToken?: string | undefined; }
+export type CheckoutWorkflowOutput = { orderId: string; status: "paid" | "payment_failed"; totalCents: number; }
+export type CreateCategoryInput = {
+    name: string;
+    slug: string;
+    description?: string | undefined;
+}
+export type CreateCategoryOutput = {
+    categoryId: string;
+    name: string;
+    slug: string;
+}
+export type CreateItemInput = {
+    categoryId: string;
+    name: string;
+    slug: string;
+    description?: string | undefined;
+    priceCents: number;
+    stock: number;
+    imageUrl?: string | undefined;
+}
+export type CreateItemOutput = {
+    itemId: string;
+    name: string;
+    slug: string;
+    priceCents: number;
+    stock: number;
+}
+export type CreateOrderInput = {
+    basketId: string;
+    shippingAddress: {
+        line1: string;
+        line2?: string | undefined;
+        city: string;
+        postcode: string;
+        country: string;
+    };
+    cardToken?: string | undefined;
+}
+export type CreateOrderOutput = {
     orderId: string;
     status: string;
+    totalCents: number;
 }
-export type CancelOrderToolInput = { orderId: string; }
-export type CancelOrderToolOutput = { type: "text"; text: string; }[]
+export type CreateOrderRecordInput = { userId: string; totalCents: number; shippingAddress: ShippingAddress; items: { itemId: string; quantity: number; priceCents: number; }[]; }
+export type CreateOrderRecordOutput = { orderId: any; }
+export type CreateOrderWithValidationInput = { sessionId: string; }
+export type CreateOrderWithValidationOutput = { valid: boolean; itemCount: number; sessionId: string; }
+export type CredentialSchema_shipping_provider = {
+    accessToken: string;
+    refreshToken?: string | undefined;
+}
 export type DeleteAgentThreadInput = {
     threadId: string;
     resourceId?: string | undefined;
@@ -78,7 +129,9 @@ export type DeleteAgentThreadInput = {
 export type DeleteAgentThreadOutput = {
     deleted: boolean;
 }
+export type DeleteOrderInput = { orderId: string; }
 export type EveryPageLoadsScenarioOutput = { routes: string[]; }
+export type FinalizeOrderInput = { orderId: string; basketId: string; userId: string; status: "paid" | "payment_failed"; }
 export type GetAgentThreadMessagesInput = {
     threadId: string;
     resourceId?: string | undefined;
@@ -96,30 +149,160 @@ export type GetAgentThreadsInput = {
     offset?: number | undefined;
 }
 export type GetAgentThreadsOutput = AIThread[]
+export type GetBasketInput = {
+    sessionId?: string | undefined;
+}
+export type GetBasketOutput = {
+    basketId: string;
+    items: {
+        basketItemId: string;
+        itemId: string;
+        name: string;
+        slug: string;
+        priceCents: number;
+        imageUrl: string | null;
+        quantity: number;
+        lineTotalCents: number;
+    }[];
+    totalCents: number;
+    itemCount: number;
+}
+export type GetItemForAIInput = { itemId: string; }
+export type GetItemForAIOutput = { type: "text"; text: string; }[]
+export type GetItemInput = {
+    itemId: string;
+}
+export type GetItemOutput = {
+    itemId: string;
+    name: string;
+    slug: string;
+    description: string | null;
+    priceCents: number;
+    stock: number;
+    imageUrl: string | null;
+    isActive: number;
+    category: {
+        categoryId: string;
+        name: string;
+        slug: string;
+    };
+    createdAt: string;
+    updatedAt: string;
+}
+export type GetItemToolInput = { itemId: string; }
+export type GetItemToolOutput = { type: "text"; text: string; }[]
+export type GetItemV1Input = {
+    itemId: string;
+}
+export type GetItemV1Output = {
+    itemId: string;
+    name: string;
+    priceCents: number;
+}
+export type GetItemV2Input = {
+    itemId: string;
+}
+export type GetItemV2Output = {
+    itemId: string;
+    name: string;
+    slug: string;
+    description: string | null;
+    priceCents: number;
+    stock: number;
+    imageUrl: string | null;
+    isActive: number;
+    category: {
+        categoryId: string;
+        name: string;
+        slug: string;
+    };
+    createdAt: string;
+    updatedAt: string;
+}
+export type GetOrderInput = {
+    orderId: string;
+}
+export type GetOrderOutput = {
+    orderId: string;
+    status: string;
+    totalCents: number;
+    shippingAddress: {
+        [key: string]: unknown;
+    };
+    items: {
+        itemId: string;
+        name: string;
+        quantity: number;
+        unitPriceCents: number;
+        lineTotalCents: number;
+    }[];
+    createdAt: string;
+}
+export type GetOrderThreeParamsInput = { orderId: any; }
+export type GetOrderThreeParamsOutput = { order: { userId: string; orderId: string; status: string; totalCents: number; shippingAddress: string | null; createdAt: string; updatedAt: string; }; viewer: string; }
+export type GetProfileOutput = { name: string | null; email: string; userId: string; role: string; }
 export type GetSessionInput = {}
 export type GetSessionOutput = {
     userId: string;
     email: string;
     name: string | null;
 }
+export type GraphStarterInput = {
+    workflowName: string;
+    nodeId: string;
+    data?: unknown | undefined;
+}
+export type GraphStarterOutput = {
+    runId: string;
+}
+export type HandlePaymentWebhookInput = { text: string; raw: unknown; }
+export type HandlePaymentWebhookOutput = { received: boolean; }
+export type HttpPostAgentsShopOutput = { runId: string; result: string; usage: { inputTokens: number; outputTokens: number; }; }
+export type HttpPostAgentsShopStreamInput = { agentName?: string | undefined; message: string; threadId: string; resourceId: string; }
+export type IssueRefundInput = { orderId: string; }
+export type ListCategoriesOutput = {
+    categoryId: string;
+    name: string;
+    slug: string;
+    description: string | null;
+}[]
+export type ListCategoriesToolOutput = { type: "text"; text: string; }[]
 export type ListItemsInput = {
     categorySlug?: string | undefined;
     search?: string | undefined;
-    limit: number;
+    limit?: number | undefined;
+    offset?: number | undefined;
 }
 export type ListItemsOutput = {
     items: {
         itemId: string;
         name: string;
         slug: string;
-        category: string;
+        description: string | null;
         priceCents: number;
         stock: number;
         imageUrl: string | null;
+        category: {
+            categoryId: string;
+            name: string;
+            slug: string;
+        };
     }[];
+    total: number;
 }
-export type ListItemsToolInput = { categorySlug?: string | undefined; search?: string | undefined; limit?: number | undefined; }
+export type ListItemsToolInput = { categorySlug?: string | undefined; search?: string | undefined; limit?: number | undefined; offset?: number | undefined; }
 export type ListItemsToolOutput = { type: "text"; text: string; }[]
+export type ListOrdersInput = {
+    limit: number;
+    offset: number;
+}
+export type ListOrdersOutput = { orderId: string; status: string; totalCents: number; createdAt: string; }[]
+export type NotifyOrderShippedInput = { orderId: string; }
+export type OnLowStockInput = {
+    itemId: string;
+    name: string;
+    stock: number;
+}
 export type OpensPageInput = {
     path: string;
 }
@@ -161,6 +344,11 @@ export type PikkuConsoleSetVariableInput = {
 export type PikkuConsoleSetVariableOutput = {
     success: boolean;
 }
+export type PlaceOrderInput = { basketId: string; }
+export type PlaceOrderOutput = { orderId: any; }
+export type ProcessExportInput = { exportId: string; }
+export type ProcessPaymentInput = { orderId: string; amountCents: number; }
+export type ProcessPaymentOutput = { providerRef: string; status: "succeeded"; }
 export type RealtimeEventStreamInput = {
     topic: string;
 }
@@ -188,6 +376,12 @@ export type RecordAnalyticsEventsInput = {
 export type RecordAnalyticsEventsOutput = {
     accepted: number;
 }
+export type RefundWorkflowInput = { orderId: string; reason: string; }
+export type RefundWorkflowOutput = { orderId: string; refunded: boolean; message: string; }
+export type RemoveFromBasketInput = {
+    basketId: string;
+    itemId: string;
+}
 export type RestsOnPathInput = {
     path: string;
 }
@@ -200,6 +394,7 @@ export type RpcCallerInput = {
 }
 export type SecretSchema_betterAuthSecret = string
 export type SecretSchema_scenarioActorSecret = string
+export type SecretSchema_stripeSecretKey = string
 export type SeesTextInput = {
     text: string;
 }
@@ -208,19 +403,84 @@ export type SeesTextOutput = {
 }
 export type SendOrderConfirmationInput = {
     orderId: string;
-    email: string;
+    userId: string;
 }
 export type SessionHealthScenarioOutput = { email: string; userId: string; }
+export type ShopperAsksTheAssistantOutput = { itemCount: number; }
+export type ShopperBuysAnItemOutput = { orderId: string; totalCents: number; }
 export type SignedInActorReachesTheAppScenarioOutput = { pathname: string; email: string; }
+export type StartCheckoutInput = { basketId: string; userId: string; shippingAddress: ShippingAddress; cardToken?: string | undefined; }
+export type StartCheckoutOutput = { runId: string; }
+export type StockPollTriggerInput = { thresholdStock: number; }
+export type StockPollTriggerOutput = { itemId: string; name: string; stock: number; }
+export type SubscribeToOrderInput = { orderId: string; }
 export type SweepsAllPagesInput = {
     repoRoot: string;
 }
 export type SweepsAllPagesOutput = {
     routes: string[];
 }
+export type UnsubscribeFromOrderInput = { orderId: string; }
+export type UpdateItemInput = {
+    itemId: string;
+    name?: string | undefined;
+    description?: string | undefined;
+    priceCents?: number | undefined;
+    stock?: number | undefined;
+    imageUrl?: (string | null) | undefined;
+    isActive?: boolean | undefined;
+}
+export type UpdateStockToolInput = { itemId: string; stock: number; }
+export type UpdateStockToolOutput = { type: "text"; text: string; }[]
+export type ValidateBasketInput = { basketId: string; }
+export type ValidateBasketOutput = { items: { itemId: string; quantity: number; priceCents: number; }[]; totalCents: number; }
+export type VariableSchema_betterAuthUrl = string
 export type VariableSchema_corsOrigins = string
+export type VariableSchema_databaseUrl = string
 export type VariableSchema_frontendUrl = string
-export type WatchOrderInput = { orderId: string; }
+export type VariableSchema_lowStockThreshold = number
+export type VariableSchema_scenarioActorSecret = string
+export type WorkflowApproverInput = {
+    workflowName: string;
+    runId: string;
+    reason: string;
+    decision: unknown;
+}
+export type WorkflowApproverOutput = {
+    ok: true;
+}
+export type WorkflowRunnerInput = {
+    workflowName: string;
+    data?: unknown | undefined;
+}
+export type WorkflowStarterInput = {
+    workflowName: string;
+    data?: unknown | undefined;
+}
+export type WorkflowStarterOutput = {
+    runId: string;
+}
+export type WorkflowStatusCheckerInput = {
+    workflowName: string;
+    runId: string;
+}
+export type WorkflowStatusStreamFullInput = {
+    workflowName: string;
+    runId: string;
+}
+export type WorkflowStatusStreamInput = {
+    workflowName: string;
+    runId: string;
+}
+export type WriteAuditEventInput = {
+    entityType: string;
+    entityId: string;
+    action: string;
+    actorId?: string | undefined;
+    payload?: {
+        [key: string]: unknown;
+    } | undefined;
+}
 
 // Addon package Workflow maps
 import type { WorkflowMap as ConsoleWorkflowMap } from '@pikku/addon-console/.pikku/workflow/pikku-workflow-map.gen.d.js'
@@ -237,6 +497,10 @@ interface GraphNodeHandler<I> {
 
 export type WorkflowMap = {
   readonly "sessionHealthScenario": WorkflowHandler<void, SessionHealthScenarioOutput>,
+  readonly "checkoutWorkflow": WorkflowHandler<CheckoutWorkflowInput, CheckoutWorkflowOutput>,
+  readonly "refundWorkflow": WorkflowHandler<RefundWorkflowInput, RefundWorkflowOutput>,
+  readonly "shopperBuysAnItem": WorkflowHandler<void, ShopperBuysAnItemOutput>,
+  readonly "shopperAsksTheAssistant": WorkflowHandler<void, ShopperAsksTheAssistantOutput>,
   readonly "signedInActorReachesTheAppScenario": WorkflowHandler<void, SignedInActorReachesTheAppScenarioOutput>,
   readonly "everyPageLoadsScenario": WorkflowHandler<void, EveryPageLoadsScenarioOutput>,
 };
@@ -244,6 +508,26 @@ export type WorkflowMap = {
 export type GraphsMap = {
   readonly "sessionHealthScenario": {
     readonly "an actor signs in and reads their session": GraphNodeHandler<GetSessionInput>,
+  },
+  readonly "checkoutWorkflow": {
+    readonly "Validate basket": GraphNodeHandler<ValidateBasketInput>,
+    readonly "Create order": GraphNodeHandler<CreateOrderRecordInput>,
+    readonly "Process payment": GraphNodeHandler<ChargeCardInput>,
+    readonly "Finalize": GraphNodeHandler<FinalizeOrderInput>,
+  },
+  readonly "refundWorkflow": {
+    readonly "Check order": GraphNodeHandler<CheckOrderRefundableInput>,
+    readonly "Issue refund": GraphNodeHandler<IssueRefundInput>,
+  },
+  readonly "shopperBuysAnItem": {
+    readonly "Shopper opens their basket": GraphNodeHandler<GetBasketInput>,
+    readonly "Shopper browses the catalogue": GraphNodeHandler<ListItemsInput>,
+    readonly "Shopper adds a mug to the basket": GraphNodeHandler<AddToBasketInput>,
+    readonly "Shopper checks out": GraphNodeHandler<CreateOrderInput>,
+    readonly "Order is paid": GraphNodeHandler<GetOrderInput>,
+  },
+  readonly "shopperAsksTheAssistant": {
+    readonly "Basket really has the mug": GraphNodeHandler<GetBasketInput>,
   },
   readonly "signedInActorReachesTheAppScenario": {
     readonly "opens the app": GraphNodeHandler<OpensPageInput>,

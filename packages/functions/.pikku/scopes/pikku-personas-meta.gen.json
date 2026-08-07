@@ -11,8 +11,8 @@
     "personality": "Signs in and checks their own session — proves auth end to end",
     "account": {}
   },
-  "susan": {
-    "id": "susan",
+  "shopper": {
+    "id": "shopper",
     "name": "Susan",
     "roles": [
       "customer"

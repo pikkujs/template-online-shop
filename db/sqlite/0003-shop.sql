@@ -25,6 +25,9 @@ CREATE TABLE IF NOT EXISTS item (
   -- than briefly over-reserving.
   stock        INTEGER NOT NULL DEFAULT 0,
   image_url    TEXT,
+  -- Withdrawn items stay in the table: an order line references them, and
+  -- deleting the row would make old orders unreadable.
+  is_active    INTEGER NOT NULL DEFAULT 1,
   created_at   TEXT NOT NULL DEFAULT (datetime('now')),
   updated_at   TEXT NOT NULL DEFAULT (datetime('now'))
 );
@@ -33,12 +36,15 @@ CREATE INDEX IF NOT EXISTS item_category_idx ON item(category_id);
 
 CREATE TABLE IF NOT EXISTS basket (
   basket_id    TEXT PRIMARY KEY,
-  user_id      TEXT NOT NULL,
+  -- One of these is set. A basket exists before anyone signs in, so an
+  -- anonymous shopper gets a session-keyed basket that is claimed at sign-in.
+  user_id      TEXT,
+  session_id   TEXT,
   created_at   TEXT NOT NULL DEFAULT (datetime('now')),
   updated_at   TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
-CREATE UNIQUE INDEX IF NOT EXISTS basket_user_idx ON basket(user_id);
+CREATE UNIQUE INDEX IF NOT EXISTS basket_user_idx ON basket(user_id) WHERE user_id IS NOT NULL;
 
 CREATE TABLE IF NOT EXISTS basket_item (
   basket_item_id TEXT PRIMARY KEY,
@@ -55,6 +61,7 @@ CREATE TABLE IF NOT EXISTS "order" (
   -- 'pending' | 'paid' | 'shipped' | 'cancelled'
   status       TEXT NOT NULL DEFAULT 'pending',
   total_cents  INTEGER NOT NULL,
+  shipping_address TEXT,
   created_at   TEXT NOT NULL DEFAULT (datetime('now')),
   updated_at   TEXT NOT NULL DEFAULT (datetime('now'))
 );
@@ -73,3 +80,37 @@ CREATE TABLE IF NOT EXISTS order_item (
 );
 
 CREATE INDEX IF NOT EXISTS order_item_order_idx ON order_item(order_id);
+
+-- The shop's own profile row, distinct from Better Auth's `user`: auth owns
+-- credentials, the shop owns everything it wants to know about a customer.
+CREATE TABLE IF NOT EXISTS app_user (
+  user_id     TEXT PRIMARY KEY,
+  email       TEXT NOT NULL,
+  name        TEXT,
+  role        TEXT NOT NULL DEFAULT 'customer',
+  created_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS payment (
+  payment_id   TEXT PRIMARY KEY,
+  order_id     TEXT NOT NULL REFERENCES "order"(order_id),
+  amount_cents INTEGER NOT NULL,
+  -- 'succeeded' | 'failed'
+  status       TEXT NOT NULL,
+  provider     TEXT,
+  provider_ref TEXT,
+  reason       TEXT,
+  created_at   TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS audit_log (
+  audit_id     TEXT PRIMARY KEY,
+  entity_type  TEXT NOT NULL,
+  entity_id    TEXT NOT NULL,
+  action       TEXT NOT NULL,
+  actor_id     TEXT,
+  payload      TEXT,
+  created_at   TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE INDEX IF NOT EXISTS audit_entity_idx ON audit_log(entity_type, entity_id);

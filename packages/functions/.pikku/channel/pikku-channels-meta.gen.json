@@ -21,9 +21,9 @@
       "pikku:realtime"
     ]
   },
-  "orders": {
-    "name": "orders",
-    "route": "/orders",
+  "order-status": {
+    "name": "order-status",
+    "route": "/orders/status",
     "input": null,
     "connect": {
       "pikkuFuncId": "onConnect"
@@ -33,9 +33,12 @@
     },
     "message": null,
     "messageWirings": {
-      "action": {
-        "watchOrder": {
-          "pikkuFuncId": "watchOrder"
+      "type": {
+        "subscribe": {
+          "pikkuFuncId": "subscribeToOrder"
+        },
+        "unsubscribe": {
+          "pikkuFuncId": "unsubscribeFromOrder"
         }
       }
     },

@@ -7,11 +7,15 @@ import '../workflow/pikku-workflow-wirings-meta.gen.js'
 
 import everyPageLoadsScenarioMeta from './meta/everyPageLoadsScenario.gen.json' with { type: 'json' }
 import sessionHealthScenarioMeta from './meta/sessionHealthScenario.gen.json' with { type: 'json' }
+import shopperAsksTheAssistantMeta from './meta/shopperAsksTheAssistant.gen.json' with { type: 'json' }
+import shopperBuysAnItemMeta from './meta/shopperBuysAnItem.gen.json' with { type: 'json' }
 import signedInActorReachesTheAppScenarioMeta from './meta/signedInActorReachesTheAppScenario.gen.json' with { type: 'json' }
 
 const scenariosMeta = {
   'everyPageLoadsScenario': everyPageLoadsScenarioMeta,
   'sessionHealthScenario': sessionHealthScenarioMeta,
+  'shopperAsksTheAssistant': shopperAsksTheAssistantMeta,
+  'shopperBuysAnItem': shopperBuysAnItemMeta,
   'signedInActorReachesTheAppScenario': signedInActorReachesTheAppScenarioMeta,
 } as WorkflowsRuntimeMeta
 

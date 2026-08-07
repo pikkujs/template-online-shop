@@ -3,34 +3,78 @@
  */
 /* Import and register functions used by RPCs */
 import { addFunction } from '@pikku/core/function'
-import { addToBasket } from '../../src/functions/add-to-basket.function.js'
-import { cancelOrder } from '../../src/functions/cancel-order.function.js'
-import { cancelOrderTool } from '../../src/wires/shop.mcp.js'
+import { addToBasket } from '../../src/functions/basket/add-to-basket.function.js'
+import { cancelOrder } from '../../src/functions/orders/cancel-order.function.js'
+import { chargeCard } from '../../src/wirings/checkout.workflow.js'
+import { checkItemAvailability } from '../../src/wirings/shop.rpc.js'
+import { checkOrderRefundable } from '../../src/wirings/checkout.workflow.js'
+import { createCategory } from '../../src/functions/categories/create-category.function.js'
+import { createItem } from '../../src/functions/items/create-item.function.js'
+import { createOrder } from '../../src/functions/orders/create-order.function.js'
+import { createOrderRecord } from '../../src/wirings/checkout.workflow.js'
 import { deleteAgentThread } from '../../src/scaffold/agent/agent.gen.js'
+import { finalizeOrder } from '../../src/wirings/checkout.workflow.js'
 import { getAgentThreadMessages } from '../../src/scaffold/agent/agent.gen.js'
 import { getAgentThreadRuns } from '../../src/scaffold/agent/agent.gen.js'
 import { getAgentThreads } from '../../src/scaffold/agent/agent.gen.js'
+import { getBasket } from '../../src/functions/basket/get-basket.function.js'
+import { getItemV1 as getItem_v1 } from '../../src/functions/items/get-item.function.js'
+import { getItemV2 as getItem_v2 } from '../../src/functions/items/get-item.function.js'
+import { getItem as getItem_v3 } from '../../src/functions/items/get-item.function.js'
+import { getItemForAI } from '../../src/wirings/shop.mcp.js'
+import { getItemTool } from '../../src/wirings/shop.mcp.js'
+import { getOrder } from '../../src/functions/orders/get-order.function.js'
 import { getSession } from '../../src/functions/get-session.function.js'
-import { listItems } from '../../src/functions/list-items.function.js'
-import { listItemsTool } from '../../src/wires/shop.mcp.js'
+import { issueRefund } from '../../src/wirings/checkout.workflow.js'
+import { listCategories } from '../../src/functions/categories/list-categories.function.js'
+import { listCategoriesTool } from '../../src/wirings/shop.mcp.js'
+import { listItems } from '../../src/functions/items/list-items.function.js'
+import { listItemsTool } from '../../src/wirings/shop.mcp.js'
+import { listOrders } from '../../src/functions/orders/list-orders.function.js'
 import { pikkuConsoleGetSecret } from '../../src/scaffold/console/console.gen.js'
 import { pikkuConsoleGetVariable } from '../../src/scaffold/console/console.gen.js'
 import { pikkuConsoleHasSecret } from '../../src/scaffold/console/console.gen.js'
 import { pikkuConsoleSetSecret } from '../../src/scaffold/console/console.gen.js'
 import { pikkuConsoleSetVariable } from '../../src/scaffold/console/console.gen.js'
+import { removeFromBasket } from '../../src/functions/basket/remove-from-basket.function.js'
+import { updateItem } from '../../src/functions/items/update-item.function.js'
+import { updateStockTool } from '../../src/wirings/shop.mcp.js'
+import { validateBasket } from '../../src/wirings/checkout.workflow.js'
 
 addFunction('addToBasket', addToBasket)
 addFunction('cancelOrder', cancelOrder)
-addFunction('cancelOrderTool', cancelOrderTool)
+addFunction('chargeCard', chargeCard)
+addFunction('checkItemAvailability', checkItemAvailability)
+addFunction('checkOrderRefundable', checkOrderRefundable)
+addFunction('createCategory', createCategory)
+addFunction('createItem', createItem)
+addFunction('createOrder', createOrder)
+addFunction('createOrderRecord', createOrderRecord)
 addFunction('deleteAgentThread', deleteAgentThread)
+addFunction('finalizeOrder', finalizeOrder)
 addFunction('getAgentThreadMessages', getAgentThreadMessages)
 addFunction('getAgentThreadRuns', getAgentThreadRuns)
 addFunction('getAgentThreads', getAgentThreads)
+addFunction('getBasket', getBasket)
+addFunction('getItem@v1', getItem_v1)
+addFunction('getItem@v2', getItem_v2)
+addFunction('getItem@v3', getItem_v3)
+addFunction('getItemForAI', getItemForAI)
+addFunction('getItemTool', getItemTool)
+addFunction('getOrder', getOrder)
 addFunction('getSession', getSession)
+addFunction('issueRefund', issueRefund)
+addFunction('listCategories', listCategories)
+addFunction('listCategoriesTool', listCategoriesTool)
 addFunction('listItems', listItems)
 addFunction('listItemsTool', listItemsTool)
+addFunction('listOrders', listOrders)
 addFunction('pikkuConsoleGetSecret', pikkuConsoleGetSecret)
 addFunction('pikkuConsoleGetVariable', pikkuConsoleGetVariable)
 addFunction('pikkuConsoleHasSecret', pikkuConsoleHasSecret)
 addFunction('pikkuConsoleSetSecret', pikkuConsoleSetSecret)
 addFunction('pikkuConsoleSetVariable', pikkuConsoleSetVariable)
+addFunction('removeFromBasket', removeFromBasket)
+addFunction('updateItem', updateItem)
+addFunction('updateStockTool', updateStockTool)
+addFunction('validateBasket', validateBasket)

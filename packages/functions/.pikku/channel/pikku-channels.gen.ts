@@ -3,4 +3,4 @@
  */
 /* The files with an addChannel function call */
 import '../../src/scaffold/realtime/events.gen.js'
-import '../../src/wires/shop.channel.js'
+import '../../src/wirings/shop.channel.js'

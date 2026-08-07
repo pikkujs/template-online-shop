@@ -161,16 +161,58 @@ export const AiWorkingMemoryInsertZ = z.object({
 
 export const AiWorkingMemoryPatchZ = AiWorkingMemoryZ.partial()
 
+export const AppUserZ = z.object({
+  userId: z.string(),
+  email: z.string(),
+  name: z.string().nullable(),
+  role: z.string(),
+  createdAt: z.string(),
+})
+
+export const AppUserInsertZ = z.object({
+  userId: z.string(),
+  email: z.string(),
+  name: z.string().nullable(),
+  role: z.string().optional(),
+  createdAt: z.string().optional(),
+})
+
+export const AppUserPatchZ = AppUserZ.partial()
+
+export const AuditLogZ = z.object({
+  auditId: z.string(),
+  entityType: z.string(),
+  entityId: z.string(),
+  action: z.string(),
+  actorId: z.string().nullable(),
+  payload: z.string().nullable(),
+  createdAt: z.string(),
+})
+
+export const AuditLogInsertZ = z.object({
+  auditId: z.string(),
+  entityType: z.string(),
+  entityId: z.string(),
+  action: z.string(),
+  actorId: z.string().nullable(),
+  payload: z.string().nullable(),
+  createdAt: z.string().optional(),
+})
+
+export const AuditLogPatchZ = AuditLogZ.partial()
+
 export const BasketZ = z.object({
   basketId: z.string(),
-  userId: z.string(),
+  userId: z.string().nullable(),
+  sessionId: z.string().nullable(),
   createdAt: z.string(),
   updatedAt: z.string(),
 })
 
 export const BasketInsertZ = z.object({
   basketId: z.string(),
-  userId: z.string(),
+  userId: z.string().nullable(),
+  sessionId: z.string().nullable(),
   createdAt: z.string().optional(),
   updatedAt: z.string().optional(),
 })
@@ -294,6 +336,7 @@ export const ItemZ = z.object({
   priceCents: z.number(),
   stock: z.number(),
   imageUrl: z.string().nullable(),
+  isActive: z.number(),
   createdAt: z.string(),
   updatedAt: z.string(),
 })
@@ -307,6 +350,7 @@ export const ItemInsertZ = z.object({
   priceCents: z.number(),
   stock: z.number().optional(),
   imageUrl: z.string().nullable(),
+  isActive: z.number().optional(),
   createdAt: z.string().optional(),
   updatedAt: z.string().optional(),
 })
@@ -318,6 +362,7 @@ export const OrderZ = z.object({
   userId: z.string(),
   status: z.string(),
   totalCents: z.number(),
+  shippingAddress: z.string().nullable(),
   createdAt: z.string(),
   updatedAt: z.string(),
 })
@@ -327,6 +372,7 @@ export const OrderInsertZ = z.object({
   userId: z.string(),
   status: z.string().optional(),
   totalCents: z.number(),
+  shippingAddress: z.string().nullable(),
   createdAt: z.string().optional(),
   updatedAt: z.string().optional(),
 })
@@ -350,6 +396,30 @@ export const OrderItemInsertZ = z.object({
 })
 
 export const OrderItemPatchZ = OrderItemZ.partial()
+
+export const PaymentZ = z.object({
+  paymentId: z.string(),
+  orderId: z.string(),
+  amountCents: z.number(),
+  status: z.string(),
+  provider: z.string().nullable(),
+  providerRef: z.string().nullable(),
+  reason: z.string().nullable(),
+  createdAt: z.string(),
+})
+
+export const PaymentInsertZ = z.object({
+  paymentId: z.string(),
+  orderId: z.string(),
+  amountCents: z.number(),
+  status: z.string(),
+  provider: z.string().nullable(),
+  providerRef: z.string().nullable(),
+  reason: z.string().nullable(),
+  createdAt: z.string().optional(),
+})
+
+export const PaymentPatchZ = PaymentZ.partial()
 
 export const PikkuDeploymentFunctionsZ = z.object({
   deploymentId: z.string(),

@@ -13,7 +13,7 @@ import definitions from './pikku-personas-meta.gen.json' with { type: 'json' }
 export type PersonaId =
   | 'alex'
   | 'priya'
-  | 'susan'
+  | 'shopper'
   | 'visitor'
 
 /**
@@ -26,7 +26,7 @@ export type PersonaId =
 export type RunnablePersonaId =
   | 'alex'
   | 'priya'
-  | 'susan'
+  | 'shopper'
   | 'visitor'
 
 /** Every environment configured in pikku.config.json. */

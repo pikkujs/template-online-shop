@@ -37,14 +37,31 @@
       "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/middleware/cors.middleware.ts",
       "position": 679,
       "exportedName": null
+    },
+    "timingMiddleware": {
+      "services": {
+        "optimized": true,
+        "services": [
+          "logger"
+        ]
+      },
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.cron.ts",
+      "position": 464,
+      "exportedName": null
     }
   },
   "instances": {
     "http:*:0": {
-      "definitionId": "corsMiddleware",
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/middleware/cors.middleware.ts",
-      "position": 1244,
-      "isFactoryCall": false
+      "definitionId": "betterAuthStatelessSession",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/auth/auth-middleware.gen.ts",
+      "position": 291,
+      "isFactoryCall": true
+    },
+    "http:*:1": {
+      "definitionId": "authBearer",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/auth/auth-middleware.gen.ts",
+      "position": 291,
+      "isFactoryCall": true
     }
   },
   "httpGroups": {
@@ -59,10 +76,38 @@
           "services"
         ]
       },
-      "count": 1,
+      "count": 3,
       "instanceIds": [
-        "http:*:0"
+        "http:*:0",
+        "http:*:0",
+        "http:*:1"
       ],
+      "isFactory": false,
+      "additionalRegistrations": [
+        {
+          "exportName": null,
+          "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/auth/auth-middleware.gen.ts",
+          "position": 291,
+          "isFactory": false
+        },
+        {
+          "exportName": null,
+          "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
+          "position": 3047,
+          "isFactory": false
+        }
+      ]
+    },
+    "/orders": {
+      "exportName": null,
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
+      "position": 3292,
+      "services": {
+        "optimized": false,
+        "services": []
+      },
+      "count": 0,
+      "instanceIds": [],
       "isFactory": false
     }
   },

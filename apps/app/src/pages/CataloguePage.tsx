@@ -44,12 +44,20 @@ export const CataloguePage: FC = () => {
   const [search, setSearch] = useState('')
 
   const catalogue = usePikkuQuery('listItems', { search: search || undefined, limit: 24 })
+  // The basket is fetched rather than assumed: it exists before sign-in, so the
+  // id comes from the server rather than being derived from a session here.
+  const basket = usePikkuQuery('getBasket', {})
   const addToBasket = usePikkuMutation('addToBasket')
 
   const [added, setAdded] = useState<string | null>(null)
 
   const add = useMutation({
-    mutationFn: (itemId: string) => addToBasket.mutateAsync({ itemId, quantity: 1 }),
+    mutationFn: (itemId: string) =>
+      addToBasket.mutateAsync({
+        basketId: basket.data!.basketId,
+        itemId,
+        quantity: 1,
+      }),
     onSuccess: (_result, itemId) => {
       setAdded(itemId)
       // Confirm in place rather than with a toast: the shopper's eyes are on
@@ -106,7 +114,7 @@ export const CataloguePage: FC = () => {
                     {stockBadge(item.stock)}
                   </Group>
                   <Text c="dimmed" size="xs" tt="uppercase" fw={600} lts="0.04em">
-                    {asI18n(item.category)}
+                    {asI18n(item.category.name)}
                   </Text>
                 </Stack>
 
@@ -118,7 +126,7 @@ export const CataloguePage: FC = () => {
                     size="xs"
                     variant={added === item.itemId ? 'light' : 'filled'}
                     color={added === item.itemId ? 'teal' : undefined}
-                    disabled={item.stock === 0}
+                    disabled={item.stock === 0 || !basket.data}
                     loading={add.isPending && add.variables === item.itemId}
                     onClick={() => add.mutate(item.itemId)}
                   >

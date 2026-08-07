@@ -1,20 +1,59 @@
 {
-  "resourcesMeta": {},
+  "resourcesMeta": {
+    "shop://items/{itemId}": {
+      "pikkuFuncId": "mcp:resource:shop://items/{itemId}",
+      "uri": "shop://items/{itemId}",
+      "title": "Shop Item",
+      "description": "Retrieve a single shop item by ID",
+      "inputSchema": null,
+      "outputSchema": null
+    }
+  },
   "toolsMeta": {
+    "listCategoriesTool": {
+      "pikkuFuncId": "listCategoriesTool",
+      "name": "listCategoriesTool",
+      "description": "List all product categories in the shop",
+      "inputSchema": null,
+      "outputSchema": "MCPToolResponse"
+    },
     "listItemsTool": {
       "pikkuFuncId": "listItemsTool",
       "name": "listItemsTool",
-      "description": "Browse the shop catalogue, optionally filtered by category or search",
+      "description": "List shop items, optionally filtered by category or search query",
       "inputSchema": "ListItemsToolInput",
       "outputSchema": "MCPToolResponse"
     },
-    "cancelOrderTool": {
-      "pikkuFuncId": "cancelOrderTool",
-      "name": "cancelOrderTool",
-      "description": "Cancel a pending or paid order and restore its stock",
-      "inputSchema": "CancelOrderToolInput",
+    "getItemTool": {
+      "pikkuFuncId": "getItemTool",
+      "name": "getItemTool",
+      "description": "Get full details for a specific shop item by ID",
+      "inputSchema": "GetItemToolInput",
+      "outputSchema": "MCPToolResponse"
+    },
+    "getItemForAI": {
+      "pikkuFuncId": "getItemForAI",
+      "name": "getItemForAI",
+      "description": "Retrieve a shop item by its ID",
+      "inputSchema": "GetItemForAIInput",
+      "outputSchema": "MCPToolResponse"
+    },
+    "updateStockTool": {
+      "pikkuFuncId": "updateStockTool",
+      "name": "updateStockTool",
+      "description": "Update stock level for a shop item",
+      "inputSchema": "UpdateStockToolInput",
       "outputSchema": "MCPToolResponse"
     }
   },
-  "promptsMeta": {}
+  "promptsMeta": {
+    "product_recommendation": {
+      "pikkuFuncId": "mcp:prompt:product_recommendation",
+      "name": "product_recommendation",
+      "description": "Generate a product recommendation prompt for a given category and budget",
+      "inputSchema": null,
+      "outputSchema": null,
+      "arguments": []
+    }
+  }
 }

@@ -7,11 +7,11 @@ import type { Services } from '../src/application-types.d.js'
 // Singleton services map: true if required, false if available but unused
 export const requiredSingletonServices = {
   'agentRunService': true,
-  'aiAgentRunner': false,
+  'aiAgentRunner': true,
   'aiEmbedding': false,
-  'aiRunState': false,
-  'aiStorage': false,
-  'audit': false,
+  'aiRunState': true,
+  'aiStorage': true,
+  'audit': true,
   'auditLog': false,
   'auth': true,
   'config': true,
@@ -25,6 +25,7 @@ export const requiredSingletonServices = {
   'kysely': true,
   'logger': true,
   'metaService': false,
+  'paymentService': true,
   'queueService': true,
   'schedulerService': true,
   'schema': true,
@@ -43,6 +44,6 @@ export const requiredWireServices = {
 } as const
 
 // Type exports
-export type RequiredSingletonServices = Required<Pick<SingletonServices, 'agentRunService' | 'auth' | 'config' | 'emailService' | 'eventHub' | 'kysely' | 'logger' | 'queueService' | 'schedulerService' | 'schema' | 'secrets' | 'variables' | 'workflowRunService' | 'workflowService'>> & Partial<Omit<SingletonServices, 'agentRunService' | 'auth' | 'config' | 'emailService' | 'eventHub' | 'kysely' | 'logger' | 'queueService' | 'schedulerService' | 'schema' | 'secrets' | 'variables' | 'workflowRunService' | 'workflowService'>>
+export type RequiredSingletonServices = Required<Pick<SingletonServices, 'agentRunService' | 'aiAgentRunner' | 'aiRunState' | 'aiStorage' | 'audit' | 'auth' | 'config' | 'emailService' | 'eventHub' | 'kysely' | 'logger' | 'paymentService' | 'queueService' | 'schedulerService' | 'schema' | 'secrets' | 'variables' | 'workflowRunService' | 'workflowService'>> & Partial<Omit<SingletonServices, 'agentRunService' | 'aiAgentRunner' | 'aiRunState' | 'aiStorage' | 'audit' | 'auth' | 'config' | 'emailService' | 'eventHub' | 'kysely' | 'logger' | 'paymentService' | 'queueService' | 'schedulerService' | 'schema' | 'secrets' | 'variables' | 'workflowRunService' | 'workflowService'>>
 
 export type RequiredWireServices = Partial<Services>

@@ -25,8 +25,8 @@ export const personaConfigs = {
     "account": {},
     "email": "visitor@actors.local"
   },
-  "susan": {
-    "id": "susan",
+  "shopper": {
+    "id": "shopper",
     "name": "Susan",
     "roles": [
       "customer"
@@ -42,7 +42,7 @@ export const personaConfigs = {
     "personality": "Hunts cheap deals. Tries three coupon codes before giving up, and abandons a basket if checkout asks for anything unexpected.",
     "disposition": "careless",
     "account": {},
-    "email": "susan@actors.local"
+    "email": "shopper@actors.local"
   },
   "priya": {
     "id": "priya",

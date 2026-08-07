@@ -92,9 +92,26 @@ export type DbClassificationMap = {
     "data": ColumnEntry
     "updated_at": ColumnEntry
   }
+  "app_user": {
+    "user_id": ColumnEntry
+    "email": ColumnEntry
+    "name": ColumnEntry
+    "role": ColumnEntry
+    "created_at": ColumnEntry
+  }
+  "audit_log": {
+    "audit_id": ColumnEntry
+    "entity_type": ColumnEntry
+    "entity_id": ColumnEntry
+    "action": ColumnEntry
+    "actor_id": ColumnEntry
+    "payload": ColumnEntry
+    "created_at": ColumnEntry
+  }
   "basket": {
     "basket_id": ColumnEntry
     "user_id": ColumnEntry
+    "session_id": ColumnEntry
     "created_at": ColumnEntry
     "updated_at": ColumnEntry
   }
@@ -149,6 +166,7 @@ export type DbClassificationMap = {
     "price_cents": ColumnEntry
     "stock": ColumnEntry
     "image_url": ColumnEntry
+    "is_active": ColumnEntry
     "created_at": ColumnEntry
     "updated_at": ColumnEntry
   }
@@ -157,6 +175,7 @@ export type DbClassificationMap = {
     "user_id": ColumnEntry
     "status": ColumnEntry
     "total_cents": ColumnEntry
+    "shipping_address": ColumnEntry
     "created_at": ColumnEntry
     "updated_at": ColumnEntry
   }
@@ -166,6 +185,16 @@ export type DbClassificationMap = {
     "item_id": ColumnEntry
     "quantity": ColumnEntry
     "unit_price_cents": ColumnEntry
+  }
+  "payment": {
+    "payment_id": ColumnEntry
+    "order_id": ColumnEntry
+    "amount_cents": ColumnEntry
+    "status": ColumnEntry
+    "provider": ColumnEntry
+    "provider_ref": ColumnEntry
+    "reason": ColumnEntry
+    "created_at": ColumnEntry
   }
   "pikku_deployment_functions": {
     "deployment_id": ColumnEntry

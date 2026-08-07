@@ -126,12 +126,98 @@
       "sse": true,
       "requiresSession": false
     },
+    "/webhooks/payment": {
+      "pikkuFuncId": "gateway__payment-webhook__verify",
+      "route": "/webhooks/payment",
+      "method": "get",
+      "requiresSession": false
+    },
+    "/categories": {
+      "pikkuFuncId": "listCategories",
+      "route": "/categories",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
+      "method": "get",
+      "auth": false,
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        }
+      ],
+      "requiresSession": false
+    },
     "/items": {
       "pikkuFuncId": "listItems",
       "route": "/items",
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wires/http/shop.http.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
+      "method": "get",
+      "auth": false,
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        }
+      ],
+      "requiresSession": false
+    },
+    "/items/:itemId": {
+      "pikkuFuncId": "getItem@v3",
+      "route": "/items/:itemId",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
+      "method": "get",
+      "auth": false,
+      "params": [
+        "itemId"
+      ],
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        }
+      ],
+      "requiresSession": false
+    },
+    "/basket": {
+      "pikkuFuncId": "getBasket",
+      "route": "/basket",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
+      "method": "get",
+      "auth": false,
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        }
+      ],
+      "requiresSession": false
+    },
+    "/orders": {
+      "pikkuFuncId": "listOrders",
+      "route": "/orders",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "get",
       "auth": true,
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        },
+        {
+          "type": "http",
+          "route": "/orders"
+        }
+      ],
+      "requiresSession": true
+    },
+    "/orders/:orderId": {
+      "pikkuFuncId": "getOrder",
+      "route": "/orders/:orderId",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
+      "method": "get",
+      "auth": true,
+      "params": [
+        "orderId"
+      ],
       "middleware": [
         {
           "type": "http",
@@ -362,10 +448,10 @@
       ],
       "requiresSession": false
     },
-    "/basket/items": {
-      "pikkuFuncId": "addToBasket",
-      "route": "/basket/items",
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wires/http/shop.http.ts",
+    "/checkout": {
+      "pikkuFuncId": "startCheckout",
+      "route": "/checkout",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
       "method": "post",
       "auth": true,
       "middleware": [
@@ -376,10 +462,104 @@
       ],
       "requiresSession": true
     },
+    "/agents/shop": {
+      "pikkuFuncId": "http:post:/agents/shop",
+      "route": "/agents/shop",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.bot.ts",
+      "method": "post",
+      "auth": true,
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        }
+      ],
+      "requiresSession": true
+    },
+    "/agents/shop/stream": {
+      "pikkuFuncId": "http:post:/agents/shop/stream",
+      "route": "/agents/shop/stream",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.bot.ts",
+      "method": "post",
+      "auth": true,
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        }
+      ],
+      "requiresSession": true
+    },
+    "/webhooks/payment": {
+      "pikkuFuncId": "gateway__payment-webhook__post",
+      "route": "/webhooks/payment",
+      "method": "post",
+      "requiresSession": false
+    },
+    "/categories": {
+      "pikkuFuncId": "createCategory",
+      "route": "/categories",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
+      "method": "post",
+      "auth": true,
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        }
+      ],
+      "requiresSession": true
+    },
+    "/items": {
+      "pikkuFuncId": "createItem",
+      "route": "/items",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
+      "method": "post",
+      "auth": true,
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        }
+      ],
+      "requiresSession": true
+    },
+    "/basket/items": {
+      "pikkuFuncId": "addToBasket",
+      "route": "/basket/items",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
+      "method": "post",
+      "auth": false,
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        }
+      ],
+      "requiresSession": false
+    },
+    "/orders": {
+      "pikkuFuncId": "createOrder",
+      "route": "/orders",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
+      "method": "post",
+      "auth": true,
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        },
+        {
+          "type": "http",
+          "route": "/orders"
+        }
+      ],
+      "requiresSession": true
+    },
     "/orders/:orderId/cancel": {
       "pikkuFuncId": "cancelOrder",
       "route": "/orders/:orderId/cancel",
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wires/http/shop.http.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "post",
       "auth": true,
       "params": [
@@ -395,8 +575,61 @@
     }
   },
   "put": {},
-  "delete": {},
+  "delete": {
+    "/basket/items/:itemId": {
+      "pikkuFuncId": "removeFromBasket",
+      "route": "/basket/items/:itemId",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
+      "method": "delete",
+      "auth": false,
+      "params": [
+        "itemId"
+      ],
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        }
+      ],
+      "requiresSession": false
+    },
+    "/orders/:orderId": {
+      "pikkuFuncId": "deleteOrder",
+      "route": "/orders/:orderId",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.security.ts",
+      "method": "delete",
+      "auth": true,
+      "params": [
+        "orderId"
+      ],
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        }
+      ],
+      "requiresSession": true
+    }
+  },
   "head": {},
-  "patch": {},
+  "patch": {
+    "/items/:itemId": {
+      "pikkuFuncId": "updateItem",
+      "route": "/items/:itemId",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
+      "method": "patch",
+      "auth": true,
+      "params": [
+        "itemId"
+      ],
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        }
+      ],
+      "requiresSession": true
+    }
+  },
   "options": {}
 }

@@ -5,12 +5,16 @@ import { addWorkflow, addFeature } from '@pikku/core/workflow'
 import './pikku-scenario-wirings-meta.gen.js'
 import { everyPageLoadsScenario } from '../../test/scenarios/pages.scenario.js'
 import { sessionHealthScenario } from '../../src/functions/session-health.scenario.js'
+import { shopperAsksTheAssistant } from '../../src/wirings/shop.scenario.js'
+import { shopperBuysAnItem } from '../../src/wirings/shop.scenario.js'
 import { signedInActorReachesTheAppScenario } from '../../test/scenarios/auth.scenario.js'
 import { authFeature } from '../../test/scenarios/auth.scenario.js'
 import { pagesFeature } from '../../test/scenarios/pages.scenario.js'
 
 addWorkflow('everyPageLoadsScenario', everyPageLoadsScenario)
 addWorkflow('sessionHealthScenario', sessionHealthScenario)
+addWorkflow('shopperAsksTheAssistant', shopperAsksTheAssistant)
+addWorkflow('shopperBuysAnItem', shopperBuysAnItem)
 addWorkflow('signedInActorReachesTheAppScenario', signedInActorReachesTheAppScenario)
 addFeature('authFeature', authFeature)
 addFeature('pagesFeature', pagesFeature)

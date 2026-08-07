@@ -8,6 +8,7 @@ import {
 } from '@pikku/core/services'
 import { createAuditedKysely } from '@pikku/kysely'
 import { pikkuServices, pikkuWireServices } from '../.pikku/pikku-types.gen.js'
+import { FakePaymentService } from './services/fake-payment.js'
 import { TypedSecretService } from '../.pikku/secrets/pikku-secrets.gen.js'
 import { TypedVariablesService } from '../.pikku/variables/pikku-variables.gen.js'
 import { CFWorkerSchemaService } from '@pikku/schema-cfworker'
@@ -84,6 +85,11 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
     emailService,
     audit,
     kysely,
+    // Constructed once here rather than read per call: the payment provider's
+    // credentials belong to service construction, and functions cannot reach
+    // `secrets` at all (every function-facing services type is bounded by
+    // SecretlessServices).
+    paymentService: existingServices?.paymentService ?? new FakePaymentService(),
     ...(credentialService ? { credentialService } : {}),
     ...(aiAgentRunner ? { aiAgentRunner } : {}),
   }

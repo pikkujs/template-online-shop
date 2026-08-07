@@ -3,21 +3,37 @@
     "shop": {
       "program": "shop",
       "commands": {
-        "items": {
-          "pikkuFuncId": "listItems",
-          "positionals": [],
-          "options": {},
-          "description": "List the catalogue"
-        },
         "report": {
           "pikkuFuncId": "dailySalesReport",
           "positionals": [],
           "options": {},
-          "description": "Compute yesterday's sales"
+          "description": "Generate the daily sales report"
+        },
+        "cleanup": {
+          "pikkuFuncId": "cleanupAbandonedBaskets",
+          "positionals": [],
+          "options": {},
+          "description": "Remove baskets abandoned for more than 24 h"
+        },
+        "items": {
+          "pikkuFuncId": "listItems",
+          "positionals": [],
+          "options": {},
+          "description": "List all items in the catalogue"
         }
       },
       "options": {}
     }
   },
-  "renderers": {}
+  "renderers": {
+    "itemRenderer": {
+      "name": "itemRenderer",
+      "exportedName": "itemRenderer",
+      "services": {
+        "optimized": true,
+        "services": []
+      },
+      "filePath": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.cli.ts"
+    }
+  }
 }
