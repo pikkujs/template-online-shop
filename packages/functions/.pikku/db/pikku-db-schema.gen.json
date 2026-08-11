@@ -393,42 +393,6 @@
       ]
     },
     {
-      "name": "app_user",
-      "source": "app",
-      "columns": [
-        {
-          "name": "user_id",
-          "type": "TEXT",
-          "nullable": false,
-          "isPrimaryKey": true
-        },
-        {
-          "name": "email",
-          "type": "TEXT",
-          "nullable": false,
-          "isPrimaryKey": false
-        },
-        {
-          "name": "name",
-          "type": "TEXT",
-          "nullable": true,
-          "isPrimaryKey": false
-        },
-        {
-          "name": "role",
-          "type": "TEXT",
-          "nullable": false,
-          "isPrimaryKey": false
-        },
-        {
-          "name": "created_at",
-          "type": "TEXT",
-          "nullable": false,
-          "isPrimaryKey": false
-        }
-      ]
-    },
-    {
       "name": "audit_log",
       "source": "app",
       "columns": [
@@ -1071,6 +1035,18 @@
         {
           "name": "created_at",
           "type": "timestamp",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "system",
+          "type": "boolean",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "declared",
+          "type": "boolean",
           "nullable": false,
           "isPrimaryKey": false
         }

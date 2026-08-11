@@ -92,13 +92,6 @@ export type DbClassificationMap = {
     "data": ColumnEntry
     "updated_at": ColumnEntry
   }
-  "app_user": {
-    "user_id": ColumnEntry
-    "email": ColumnEntry
-    "name": ColumnEntry
-    "role": ColumnEntry
-    "created_at": ColumnEntry
-  }
   "audit_log": {
     "audit_id": ColumnEntry
     "entity_type": ColumnEntry
@@ -214,6 +207,8 @@ export type DbClassificationMap = {
     "name": ColumnEntry
     "description": ColumnEntry
     "created_at": ColumnEntry
+    "system": ColumnEntry
+    "declared": ColumnEntry
   }
   "pikku_scopes": {
     "name": ColumnEntry

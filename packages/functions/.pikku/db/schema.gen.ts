@@ -85,14 +85,6 @@ export interface AiWorkingMemory {
   updatedAt: ColumnType<Private<string>, string | undefined, string>
 }
 
-export interface AppUser {
-  userId: ColumnType<Private<string>, string, string>
-  email: ColumnType<Private<string>, string, string>
-  name: ColumnType<Private<string> | null, string | null, string | null>
-  role: ColumnType<Private<string>, string | undefined, string>
-  createdAt: ColumnType<Private<string>, string | undefined, string>
-}
-
 export interface AuditLog {
   auditId: ColumnType<Private<string>, string, string>
   entityType: ColumnType<Private<string>, string, string>
@@ -223,6 +215,8 @@ export interface PikkuRoles {
   name: ColumnType<Private<string>, string, string>
   description: ColumnType<Private<string> | null, string | null, string | null>
   createdAt: ColumnType<Private<string>, string | undefined, string>
+  system: ColumnType<Private<boolean>, boolean | undefined, boolean>
+  declared: ColumnType<Private<boolean>, boolean | undefined, boolean>
 }
 
 export interface PikkuScopes {
@@ -391,7 +385,6 @@ export interface DB {
   aiThreads: AiThreads
   aiToolCall: AiToolCall
   aiWorkingMemory: AiWorkingMemory
-  appUser: AppUser
   auditLog: AuditLog
   basket: Basket
   basketItem: BasketItem

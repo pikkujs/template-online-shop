@@ -161,24 +161,6 @@ export const AiWorkingMemoryInsertZ = z.object({
 
 export const AiWorkingMemoryPatchZ = AiWorkingMemoryZ.partial()
 
-export const AppUserZ = z.object({
-  userId: z.string(),
-  email: z.string(),
-  name: z.string().nullable(),
-  role: z.string(),
-  createdAt: z.string(),
-})
-
-export const AppUserInsertZ = z.object({
-  userId: z.string(),
-  email: z.string(),
-  name: z.string().nullable(),
-  role: z.string().optional(),
-  createdAt: z.string().optional(),
-})
-
-export const AppUserPatchZ = AppUserZ.partial()
-
 export const AuditLogZ = z.object({
   auditId: z.string(),
   entityType: z.string(),
@@ -465,12 +447,16 @@ export const PikkuRolesZ = z.object({
   name: z.string(),
   description: z.string().nullable(),
   createdAt: z.string(),
+  system: z.boolean(),
+  declared: z.boolean(),
 })
 
 export const PikkuRolesInsertZ = z.object({
   name: z.string(),
   description: z.string().nullable(),
   createdAt: z.string().optional(),
+  system: z.boolean().optional(),
+  declared: z.boolean().optional(),
 })
 
 export const PikkuRolesPatchZ = PikkuRolesZ.partial()

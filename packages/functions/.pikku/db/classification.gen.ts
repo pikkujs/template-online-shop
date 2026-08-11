@@ -71,13 +71,6 @@ export const classificationManifest = {
       "data": { classification: 'private', anonymize_strategy: null },
       "updated_at": { classification: 'private', anonymize_strategy: null }
     },
-    "app_user": {
-      "user_id": { classification: 'private', anonymize_strategy: null },
-      "email": { classification: 'private', anonymize_strategy: null },
-      "name": { classification: 'private', anonymize_strategy: null },
-      "role": { classification: 'private', anonymize_strategy: null },
-      "created_at": { classification: 'private', anonymize_strategy: null }
-    },
     "audit_log": {
       "audit_id": { classification: 'private', anonymize_strategy: null },
       "entity_type": { classification: 'private', anonymize_strategy: null },
@@ -192,7 +185,9 @@ export const classificationManifest = {
     "pikku_roles": {
       "name": { classification: 'private', anonymize_strategy: null },
       "description": { classification: 'private', anonymize_strategy: null },
-      "created_at": { classification: 'private', anonymize_strategy: null }
+      "created_at": { classification: 'private', anonymize_strategy: null },
+      "system": { classification: 'private', anonymize_strategy: null },
+      "declared": { classification: 'private', anonymize_strategy: null }
     },
     "pikku_scopes": {
       "name": { classification: 'private', anonymize_strategy: null },

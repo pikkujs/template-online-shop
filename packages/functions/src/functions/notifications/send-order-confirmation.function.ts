@@ -20,9 +20,9 @@ export const sendOrderConfirmation = pikkuSessionlessFunc({
         .where('orderId', '=', orderId)
         .executeTakeFirst(),
       kysely
-        .selectFrom('appUser')
+        .selectFrom('user')
         .select(['email', 'name'])
-        .where('userId', '=', userId)
+        .where('id', '=', userId)
         .executeTakeFirst(),
     ])
 

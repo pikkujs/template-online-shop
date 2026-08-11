@@ -58,10 +58,9 @@ CREATE UNIQUE INDEX IF NOT EXISTS basket_item_unique ON basket_item(basket_id, i
 CREATE TABLE IF NOT EXISTS "order" (
   order_id     TEXT PRIMARY KEY,
   user_id      TEXT NOT NULL,
-  -- The full set the code actually writes. Adding the CHECK constraint is what
-  -- surfaced `payment_failed` and `refunded`: both were written by the checkout
-  -- workflow and neither was in the original comment, so the database would
-  -- have rejected them at runtime. A constraint turns that into a type error.
+  -- The CHECK is the source of truth for the status set: widen it here and the
+  -- generated union widens with it, so writing a status nobody declared is a
+  -- type error rather than a runtime constraint violation.
   status       TEXT NOT NULL DEFAULT 'pending'
     CHECK (status IN ('pending','paid','payment_failed','shipped','cancelled','refunded')),
   total_cents  INTEGER NOT NULL,
@@ -84,16 +83,6 @@ CREATE TABLE IF NOT EXISTS order_item (
 );
 
 CREATE INDEX IF NOT EXISTS order_item_order_idx ON order_item(order_id);
-
--- The shop's own profile row, distinct from Better Auth's `user`: auth owns
--- credentials, the shop owns everything it wants to know about a customer.
-CREATE TABLE IF NOT EXISTS app_user (
-  user_id     TEXT PRIMARY KEY,
-  email       TEXT NOT NULL,
-  name        TEXT,
-  role        TEXT NOT NULL DEFAULT 'customer',
-  created_at  TEXT NOT NULL DEFAULT (datetime('now'))
-);
 
 CREATE TABLE IF NOT EXISTS payment (
   payment_id   TEXT PRIMARY KEY,
