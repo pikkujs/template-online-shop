@@ -85,6 +85,7 @@ CREATE TABLE IF NOT EXISTS order_item (
 
 CREATE INDEX IF NOT EXISTS order_item_order_idx ON order_item(order_id);
 
+-- @snippet start appUserTable
 -- The shop's own profile row, distinct from Better Auth's `user`: auth owns
 -- credentials, the shop owns everything it wants to know about a customer.
 CREATE TABLE IF NOT EXISTS app_user (
@@ -94,6 +95,7 @@ CREATE TABLE IF NOT EXISTS app_user (
   role        TEXT NOT NULL DEFAULT 'customer',
   created_at  TEXT NOT NULL DEFAULT (datetime('now'))
 );
+-- @snippet end appUserTable
 
 CREATE TABLE IF NOT EXISTS payment (
   payment_id   TEXT PRIMARY KEY,
