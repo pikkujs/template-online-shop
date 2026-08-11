@@ -5,7 +5,7 @@
       "description": "Helps customers browse the catalogue and manage their basket.",
       "goal": "Help users find products, manage their basket, and answer questions about shop items.",
       "model": "openai/gpt-4o-mini",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.bot.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.bot.ts",
       "exportedName": "shopAssistant",
       "maxSteps": 10,
       "tools": [
@@ -25,7 +25,7 @@
       "description": "Manages orders; automates repeat ops tasks.",
       "goal": "Manage orders and automate recurring ops as durable workflows.",
       "model": "openai/gpt-4o-mini",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.bot.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.bot.ts",
       "exportedName": "opsAgent",
       "maxSteps": 8,
       "tools": [
@@ -42,7 +42,7 @@
       "description": "Guides authenticated users through checkout.",
       "goal": "Help users review their basket and complete their purchase. Delegate product questions to the shop assistant.",
       "model": "openai/gpt-4o-mini",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.bot.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.bot.ts",
       "exportedName": "checkoutAssistant",
       "maxSteps": 5,
       "tools": [

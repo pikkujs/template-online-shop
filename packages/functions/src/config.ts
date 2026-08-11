@@ -1,9 +1,6 @@
 import { pikkuConfig } from '../.pikku/pikku-types.gen.js'
 
-// @snippet start shopConfig
-// Wrapping the factory in pikkuConfig is what lets the CLI find it — the dev
-// server, `pikku db` and the deploy manifest all resolve config through here.
-export const createConfig = pikkuConfig(async () => {
-  return {}
-})
-// @snippet end shopConfig
+export const createConfig = pikkuConfig(async () => ({
+  port: parseInt(process.env.API_PORT || '4003', 10),
+  hostname: process.env.HOST || '0.0.0.0',
+}))

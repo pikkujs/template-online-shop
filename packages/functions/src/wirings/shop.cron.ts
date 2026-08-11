@@ -13,6 +13,7 @@ const timingMiddleware = pikkuMiddleware(async ({ logger }, _data, next) => {
 })
 
 // @snippet start cronWirings
+// @snippet start wireScheduler
 wireScheduler({
   name: 'dailySalesReport',
   schedule: '0 6 * * *',   // 06:00 UTC every day
@@ -26,11 +27,16 @@ wireScheduler({
   schedule: '0 3 * * *',   // 03:00 UTC every day
   func: cleanupAbandonedBaskets,
 })
+// @snippet end wireScheduler
 // @snippet end cronWirings
 
 // @snippet start cronSkip
 // A scheduled task can skip its own execution by calling wire.scheduledTask.skip().
 export const conditionalReport = pikkuVoidFunc({
+  // Exposed so an operator can run it on demand. A scheduled task that skips
+  // itself under some condition is exactly the one you want to be able to
+  // trigger by hand, to find out whether it skipped for the right reason.
+  expose: true,
   func: async ({ kysely, logger }, _, { scheduledTask }) => {
     const count = await kysely
       .selectFrom('order')

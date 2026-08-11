@@ -164,7 +164,7 @@ export const AiWorkingMemoryPatchZ = AiWorkingMemoryZ.partial()
 export const AppUserZ = z.object({
   userId: z.string(),
   email: z.string(),
-  name: z.string(),
+  name: z.string().nullable(),
   role: z.string(),
   createdAt: z.string(),
 })
@@ -172,7 +172,7 @@ export const AppUserZ = z.object({
 export const AppUserInsertZ = z.object({
   userId: z.string(),
   email: z.string(),
-  name: z.string(),
+  name: z.string().nullable(),
   role: z.string().optional(),
   createdAt: z.string().optional(),
 })
@@ -360,9 +360,9 @@ export const ItemPatchZ = ItemZ.partial()
 export const OrderZ = z.object({
   orderId: z.string(),
   userId: z.string(),
-  status: z.string(),
+  status: z.enum(['pending', 'paid', 'payment_failed', 'shipped', 'cancelled', 'refunded']),
   totalCents: z.number(),
-  shippingAddress: z.string(),
+  shippingAddress: z.string().nullable(),
   createdAt: z.string(),
   updatedAt: z.string(),
 })
@@ -370,9 +370,9 @@ export const OrderZ = z.object({
 export const OrderInsertZ = z.object({
   orderId: z.string(),
   userId: z.string(),
-  status: z.string().optional(),
+  status: z.enum(['pending', 'paid', 'payment_failed', 'shipped', 'cancelled', 'refunded']).optional(),
   totalCents: z.number(),
-  shippingAddress: z.string(),
+  shippingAddress: z.string().nullable(),
   createdAt: z.string().optional(),
   updatedAt: z.string().optional(),
 })
@@ -401,9 +401,10 @@ export const PaymentZ = z.object({
   paymentId: z.string(),
   orderId: z.string(),
   amountCents: z.number(),
-  provider: z.string(),
   status: z.string(),
+  provider: z.string().nullable(),
   providerRef: z.string().nullable(),
+  reason: z.string().nullable(),
   createdAt: z.string(),
 })
 
@@ -411,9 +412,10 @@ export const PaymentInsertZ = z.object({
   paymentId: z.string(),
   orderId: z.string(),
   amountCents: z.number(),
-  provider: z.string().optional(),
-  status: z.string().optional(),
+  status: z.string(),
+  provider: z.string().nullable(),
   providerRef: z.string().nullable(),
+  reason: z.string().nullable(),
   createdAt: z.string().optional(),
 })
 
@@ -580,6 +582,7 @@ export const SessionZ = z.object({
   ipAddress: z.string().nullable(),
   userAgent: z.string().nullable(),
   userId: z.string(),
+  impersonatedBy: z.string().nullable(),
 })
 
 export const SessionInsertZ = z.object({
@@ -591,6 +594,7 @@ export const SessionInsertZ = z.object({
   ipAddress: z.string().nullable(),
   userAgent: z.string().nullable(),
   userId: z.string(),
+  impersonatedBy: z.string().nullable(),
 })
 
 export const SessionPatchZ = SessionZ.partial()
@@ -604,6 +608,11 @@ export const UserZ = z.object({
   createdAt: z.string(),
   updatedAt: z.string(),
   actor: z.number().nullable(),
+  role: z.string().nullable(),
+  banned: z.number().nullable(),
+  banReason: z.string().nullable(),
+  banExpires: z.string().nullable(),
+  fabric: z.number().nullable(),
 })
 
 export const UserInsertZ = z.object({
@@ -615,6 +624,11 @@ export const UserInsertZ = z.object({
   createdAt: z.string(),
   updatedAt: z.string(),
   actor: z.number().nullable(),
+  role: z.string().nullable(),
+  banned: z.number().nullable(),
+  banReason: z.string().nullable(),
+  banExpires: z.string().nullable(),
+  fabric: z.number().nullable(),
 })
 
 export const UserPatchZ = UserZ.partial()
@@ -737,7 +751,6 @@ export const WorkflowStepZ = z.object({
   retries: z.number().nullable(),
   retryDelay: z.string().nullable(),
   fromStepName: z.string().nullable(),
-  currentAttempt: z.number().nullable(),
   createdAt: z.string(),
   updatedAt: z.string(),
 })
@@ -756,7 +769,6 @@ export const WorkflowStepInsertZ = z.object({
   retries: z.number().nullable(),
   retryDelay: z.string().nullable(),
   fromStepName: z.string().nullable(),
-  currentAttempt: z.number().nullable(),
   createdAt: z.string().optional(),
   updatedAt: z.string().optional(),
 })
@@ -769,7 +781,6 @@ export const WorkflowStepHistoryZ = z.object({
   status: z.string(),
   result: z.string().nullable(),
   error: z.string().nullable(),
-  attempt: z.number().nullable(),
   createdAt: z.string(),
   runningAt: z.string().nullable(),
   scheduledAt: z.string().nullable(),
@@ -783,7 +794,6 @@ export const WorkflowStepHistoryInsertZ = z.object({
   status: z.string(),
   result: z.string().nullable(),
   error: z.string().nullable(),
-  attempt: z.number().nullable(),
   createdAt: z.string().optional(),
   runningAt: z.string().nullable(),
   scheduledAt: z.string().nullable(),

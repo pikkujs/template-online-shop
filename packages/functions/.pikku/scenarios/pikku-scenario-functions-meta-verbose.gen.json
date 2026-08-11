@@ -1,4 +1,44 @@
 {
+  "sessionHealthScenario": {
+    "pikkuFuncId": "sessionHealthScenario",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenario",
+    "sessionless": true,
+    "name": "sessionHealthScenario",
+    "services": {
+      "optimized": true,
+      "services": [
+        "logger"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "scenario",
+        "actors"
+      ]
+    },
+    "inputSchemaName": null,
+    "outputSchemaName": "SessionHealthScenarioOutput",
+    "inputs": [],
+    "outputs": [
+      "SessionHealthScenarioOutput"
+    ],
+    "scenario": true,
+    "implementationHash": "17f0bbd4dde1ce02",
+    "title": "Session health (scenario)",
+    "tags": [
+      "scenario"
+    ],
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/session-health.scenario.ts",
+    "exportedName": "sessionHealthScenario",
+    "bodyStart": 28,
+    "bodyEnd": 41,
+    "contractHash": "b28a58eb62a2c6fd",
+    "inputHash": "bd605e05",
+    "outputHash": "a130cbe6"
+  },
   "shopperBuysAnItem": {
     "pikkuFuncId": "shopperBuysAnItem",
     "functionType": "user",
@@ -32,7 +72,7 @@
     ],
     "description": "Browse the catalogue, fill a basket and pay for an order.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.scenario.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.scenario.ts",
     "exportedName": "shopperBuysAnItem",
     "bodyStart": 13,
     "bodyEnd": 66,
@@ -73,12 +113,254 @@
     ],
     "description": "The shop assistant finds a product and adds it to the basket.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.scenario.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.scenario.ts",
     "exportedName": "shopperAsksTheAssistant",
     "bodyStart": 80,
     "bodyEnd": 104,
     "contractHash": "5bae8309c7cafd6e",
     "inputHash": "db130ce1",
     "outputHash": "2d895abd"
+  },
+  "signedInActorReachesTheAppScenario": {
+    "pikkuFuncId": "signedInActorReachesTheAppScenario",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenario",
+    "sessionless": true,
+    "name": "signedInActorReachesTheAppScenario",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "scenario",
+        "actors"
+      ]
+    },
+    "inputSchemaName": null,
+    "outputSchemaName": "SignedInActorReachesTheAppScenarioOutput",
+    "inputs": [],
+    "outputs": [
+      "SignedInActorReachesTheAppScenarioOutput"
+    ],
+    "scenario": true,
+    "implementationHash": "74ca80dca8d35477",
+    "title": "A signed-in user reaches the app",
+    "tags": [
+      "scenario",
+      "auth",
+      "smoke"
+    ],
+    "description": "The session cookie carries into the browser and the route guard admits it",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/test/scenarios/auth.scenario.ts",
+    "exportedName": "signedInActorReachesTheAppScenario",
+    "bodyStart": 30,
+    "bodyEnd": 68,
+    "contractHash": "bcac1c5e71fc7071",
+    "inputHash": "bea55478",
+    "outputHash": "5e03efd8"
+  },
+  "opensPage": {
+    "pikkuFuncId": "opensPage",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenarioStep",
+    "sessionless": true,
+    "name": "opensPage",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "browser"
+      ]
+    },
+    "inputSchemaName": "OpensPageInput",
+    "outputSchemaName": "OpensPageOutput",
+    "inputs": [
+      "OpensPageInput"
+    ],
+    "outputs": [
+      "OpensPageOutput"
+    ],
+    "scenarioStep": true,
+    "scenarioStepSurfaces": [
+      "browser"
+    ],
+    "scenarioStepTemplate": "opens {path}",
+    "implementationHash": "7bf881d02774d9c2",
+    "description": "opens an app page as the signed-in actor",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/test/scenarios/browser.steps.ts",
+    "exportedName": "opensPage",
+    "bodyStart": 52,
+    "bodyEnd": 61,
+    "contractHash": "edb740c50579fb63",
+    "inputHash": "6ef318ba",
+    "outputHash": "cde56954"
+  },
+  "seesText": {
+    "pikkuFuncId": "seesText",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenarioStep",
+    "sessionless": true,
+    "name": "seesText",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "browser"
+      ]
+    },
+    "inputSchemaName": "SeesTextInput",
+    "outputSchemaName": "SeesTextOutput",
+    "inputs": [
+      "SeesTextInput"
+    ],
+    "outputs": [
+      "SeesTextOutput"
+    ],
+    "scenarioStep": true,
+    "scenarioStepSurfaces": [
+      "browser"
+    ],
+    "scenarioStepTemplate": "sees {text}",
+    "implementationHash": "0502fc8fedaa333c",
+    "description": "waits for text to appear on the current page",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/test/scenarios/browser.steps.ts",
+    "exportedName": "seesText",
+    "bodyStart": 81,
+    "bodyEnd": 82,
+    "contractHash": "2ecfd4a1af1eed76",
+    "inputHash": "cadae61c",
+    "outputHash": "f12765f0"
+  },
+  "restsOnPath": {
+    "pikkuFuncId": "restsOnPath",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenarioStep",
+    "sessionless": true,
+    "name": "restsOnPath",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "browser"
+      ]
+    },
+    "inputSchemaName": "RestsOnPathInput",
+    "outputSchemaName": "RestsOnPathOutput",
+    "inputs": [
+      "RestsOnPathInput"
+    ],
+    "outputs": [
+      "RestsOnPathOutput"
+    ],
+    "scenarioStep": true,
+    "scenarioStepSurfaces": [
+      "browser"
+    ],
+    "scenarioStepTemplate": "is on {path}",
+    "implementationHash": "93160648033a41e0",
+    "description": "asserts the browser came to rest on an app path",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/test/scenarios/browser.steps.ts",
+    "exportedName": "restsOnPath",
+    "bodyStart": 120,
+    "bodyEnd": 128,
+    "contractHash": "31caec930ea7e893",
+    "inputHash": "76a2ed38",
+    "outputHash": "b28b5f54"
+  },
+  "sweepsAllPages": {
+    "pikkuFuncId": "sweepsAllPages",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenarioStep",
+    "sessionless": true,
+    "name": "sweepsAllPages",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "browser"
+      ]
+    },
+    "inputSchemaName": "SweepsAllPagesInput",
+    "outputSchemaName": "SweepsAllPagesOutput",
+    "inputs": [
+      "SweepsAllPagesInput"
+    ],
+    "outputs": [
+      "SweepsAllPagesOutput"
+    ],
+    "scenarioStep": true,
+    "scenarioStepSurfaces": [
+      "browser"
+    ],
+    "scenarioStepTemplate": "every page loads without errors",
+    "implementationHash": "112cd4ec21d00210",
+    "description": "visits every static route and fails on any runtime error",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/test/scenarios/browser.steps.ts",
+    "exportedName": "sweepsAllPages",
+    "bodyStart": 164,
+    "bodyEnd": 167,
+    "contractHash": "b9775d597942be0b",
+    "inputHash": "7012a113",
+    "outputHash": "87f44271"
+  },
+  "everyPageLoadsScenario": {
+    "pikkuFuncId": "everyPageLoadsScenario",
+    "functionType": "user",
+    "funcWrapper": "pikkuScenario",
+    "sessionless": true,
+    "name": "everyPageLoadsScenario",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "scenario",
+        "actors"
+      ]
+    },
+    "inputSchemaName": null,
+    "outputSchemaName": "EveryPageLoadsScenarioOutput",
+    "inputs": [],
+    "outputs": [
+      "EveryPageLoadsScenarioOutput"
+    ],
+    "scenario": true,
+    "implementationHash": "b014c1731cbf2972",
+    "title": "Every page loads cleanly when signed in",
+    "tags": [
+      "scenario",
+      "pages",
+      "smoke"
+    ],
+    "description": "The baseline reliability gate — no page errors for a signed-in user",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/test/scenarios/pages.scenario.ts",
+    "exportedName": "everyPageLoadsScenario",
+    "bodyStart": 21,
+    "bodyEnd": 34,
+    "contractHash": "c9ed3a193312a2f6",
+    "inputHash": "8db7c3cf",
+    "outputHash": "b5aed092"
   }
 }

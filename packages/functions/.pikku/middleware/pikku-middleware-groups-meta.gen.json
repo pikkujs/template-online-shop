@@ -1,5 +1,43 @@
 {
   "definitions": {
+    "analyticsOriginMiddleware": {
+      "services": {
+        "optimized": true,
+        "services": [
+          "variables"
+        ]
+      },
+      "wires": {
+        "optimized": true,
+        "wires": [
+          "http"
+        ]
+      },
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/middleware/analytics-origin.middleware.ts",
+      "position": 2718,
+      "exportedName": "analyticsOriginMiddleware",
+      "name": "analyticsOrigin",
+      "description": "Rejects analytics beacons that did not come from this app."
+    },
+    "corsMiddleware": {
+      "services": {
+        "optimized": true,
+        "services": [
+          "variables",
+          "services"
+        ]
+      },
+      "wires": {
+        "optimized": true,
+        "wires": [
+          "http",
+          "wire"
+        ]
+      },
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/middleware/cors.middleware.ts",
+      "position": 679,
+      "exportedName": null
+    },
     "timingMiddleware": {
       "services": {
         "optimized": true,
@@ -7,7 +45,7 @@
           "logger"
         ]
       },
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.cron.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.cron.ts",
       "position": 464,
       "exportedName": null
     }
@@ -15,13 +53,13 @@
   "instances": {
     "http:*:0": {
       "definitionId": "betterAuthStatelessSession",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/auth/auth-middleware.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/auth/auth-middleware.gen.ts",
       "position": 291,
       "isFactoryCall": true
     },
     "http:*:1": {
       "definitionId": "authBearer",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/auth/auth-middleware.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/auth/auth-middleware.gen.ts",
       "position": 291,
       "isFactoryCall": true
     }
@@ -29,20 +67,41 @@
   "httpGroups": {
     "*": {
       "exportName": null,
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
-      "position": 3047,
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/middleware/cors.middleware.ts",
+      "position": 1244,
       "services": {
         "optimized": false,
-        "services": []
+        "services": [
+          "variables",
+          "services"
+        ]
       },
-      "count": 0,
-      "instanceIds": [],
-      "isFactory": false
+      "count": 3,
+      "instanceIds": [
+        "http:*:0",
+        "http:*:0",
+        "http:*:1"
+      ],
+      "isFactory": false,
+      "additionalRegistrations": [
+        {
+          "exportName": null,
+          "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/auth/auth-middleware.gen.ts",
+          "position": 291,
+          "isFactory": false
+        },
+        {
+          "exportName": null,
+          "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
+          "position": 3099,
+          "isFactory": false
+        }
+      ]
     },
     "/orders": {
       "exportName": null,
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
-      "position": 3292,
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
+      "position": 3344,
       "services": {
         "optimized": false,
         "services": []

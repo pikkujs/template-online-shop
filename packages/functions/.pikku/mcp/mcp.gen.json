@@ -46,8 +46,7 @@
                 ],
                 "additionalProperties": false
               }
-            ],
-            "description": "Standard response type for MCP prompts - array of messages"
+            ]
           }
         }
       }
@@ -118,8 +117,7 @@
                 ],
                 "additionalProperties": false
               }
-            ],
-            "description": "Standard response type for MCP prompts - array of messages"
+            ]
           }
         }
       }
@@ -184,8 +182,7 @@
                 ],
                 "additionalProperties": false
               }
-            ],
-            "description": "Standard response type for MCP prompts - array of messages"
+            ]
           }
         }
       }
@@ -250,8 +247,7 @@
                 ],
                 "additionalProperties": false
               }
-            ],
-            "description": "Standard response type for MCP prompts - array of messages"
+            ]
           }
         }
       }
@@ -320,8 +316,7 @@
                 ],
                 "additionalProperties": false
               }
-            ],
-            "description": "Standard response type for MCP prompts - array of messages"
+            ]
           }
         }
       }

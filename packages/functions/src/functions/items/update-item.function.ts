@@ -15,6 +15,11 @@ export const UpdateItemInput = z.object({
 export const updateItem = pikkuFunc({
   expose: true,
   description: 'Update an item. Admin only.',
+  // "Admin only" was a sentence in a description, not a rule. The route carried
+  // `auth: true`, which means signed in — so any shopper with an account could
+  // edit the catalogue. `catalogue:write` was already declared in scopes.ts and
+  // already granted to the admin role; nothing was checking it.
+  scopes: ['catalogue:write'],
   input: UpdateItemInput,
   func: async ({ kysely }, { itemId, ...patch }) => {
     const updates: Record<string, unknown> = {

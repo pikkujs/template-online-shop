@@ -21,10 +21,10 @@
     "implementationHash": "626b6eed5a44701b",
     "description": "Add an item to a basket, or increase its quantity if already present.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/basket/add-to-basket.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/basket/add-to-basket.function.ts",
     "exportedName": "addToBasket",
-    "bodyStart": 17,
-    "bodyEnd": 52,
+    "bodyStart": 18,
+    "bodyEnd": 53,
     "contractHash": "f5f36d6618c1be48",
     "inputHash": "a8ce2291",
     "outputHash": "2f28f3c9"
@@ -59,7 +59,7 @@
     "implementationHash": "c76e53818fbb2528",
     "description": "Get basket for the current user or session. Creates one if it does not exist.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/basket/get-basket.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/basket/get-basket.function.ts",
     "exportedName": "getBasket",
     "bodyStart": 34,
     "bodyEnd": 80,
@@ -89,7 +89,7 @@
     "implementationHash": "c6100c113a0ccaa0",
     "description": "Remove an item from a basket entirely.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/basket/remove-from-basket.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/basket/remove-from-basket.function.ts",
     "exportedName": "removeFromBasket",
     "bodyStart": 15,
     "bodyEnd": 25,
@@ -121,7 +121,7 @@
     "implementationHash": "d64503f712674da8",
     "description": "Create a new product category. Admin only.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/categories/create-category.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/categories/create-category.function.ts",
     "exportedName": "createCategory",
     "bodyStart": 24,
     "bodyEnd": 29,
@@ -151,13 +151,53 @@
     "implementationHash": "487283eb6098b31f",
     "description": "List all product categories.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/categories/list-categories.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/categories/list-categories.function.ts",
     "exportedName": "listCategories",
     "bodyStart": 19,
     "bodyEnd": 23,
     "contractHash": "e4e6b1464c738680",
     "inputHash": "10457de4",
     "outputHash": "dbc43cfd"
+  },
+  "getSession": {
+    "pikkuFuncId": "getSession",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "getSession",
+    "services": {
+      "optimized": true,
+      "services": [
+        "kysely"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "session"
+      ]
+    },
+    "inputSchemaName": "GetSessionInput",
+    "outputSchemaName": "GetSessionOutput",
+    "inputs": [
+      "GetSessionInput"
+    ],
+    "outputs": [
+      "GetSessionOutput"
+    ],
+    "expose": true,
+    "auth": true,
+    "readonly": true,
+    "implementationHash": "2ed4f21ea016c7e3",
+    "description": "Returns the current signed-in user.",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/get-session.function.ts",
+    "exportedName": "getSession",
+    "bodyStart": 20,
+    "bodyEnd": 30,
+    "contractHash": "493320ce1e00cb69",
+    "inputHash": "ba4ab2e7",
+    "outputHash": "386fe409"
   },
   "createItem": {
     "pikkuFuncId": "createItem",
@@ -184,7 +224,7 @@
     "implementationHash": "444ba8250a280296",
     "description": "Create a new product. Admin only.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/items/create-item.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/items/create-item.function.ts",
     "exportedName": "createItem",
     "bodyStart": 30,
     "bodyEnd": 55,
@@ -216,7 +256,7 @@
     "implementationHash": "1fe1500e2dafd5e8",
     "version": 1,
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/items/get-item.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/items/get-item.function.ts",
     "exportedName": "getItemV1",
     "bodyStart": 33,
     "bodyEnd": 38,
@@ -248,7 +288,7 @@
     "implementationHash": "a597128525865267",
     "version": 2,
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/items/get-item.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/items/get-item.function.ts",
     "exportedName": "getItemV2",
     "bodyStart": 49,
     "bodyEnd": 63,
@@ -280,10 +320,10 @@
     "implementationHash": "d3b6b3d33ce43c19",
     "description": "List items, optionally filtered by category or search query.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/items/list-items.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/items/list-items.function.ts",
     "exportedName": "listItems",
-    "bodyStart": 36,
-    "bodyEnd": 75,
+    "bodyStart": 37,
+    "bodyEnd": 76,
     "contractHash": "f91b782f1222d52d",
     "inputHash": "34c12795",
     "outputHash": "8a9a177c"
@@ -310,7 +350,7 @@
     "implementationHash": "842359d19c8e516c",
     "description": "Update an item. Admin only.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/items/update-item.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/items/update-item.function.ts",
     "exportedName": "updateItem",
     "bodyStart": 20,
     "bodyEnd": 30,
@@ -340,10 +380,10 @@
     "implementationHash": "39428c7594fd622d",
     "description": "Queue consumer: send order confirmation email after a successful payment.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/notifications/send-order-confirmation.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/notifications/send-order-confirmation.function.ts",
     "exportedName": "sendOrderConfirmation",
-    "bodyStart": 15,
-    "bodyEnd": 40,
+    "bodyStart": 16,
+    "bodyEnd": 41,
     "contractHash": "581f58f9f3563094",
     "inputHash": "ff4c9138",
     "outputHash": "5027f276"
@@ -369,7 +409,7 @@
     "implementationHash": "c6ad1d2aaf9bc28a",
     "description": "Queue consumer: persist an audit log entry.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/notifications/write-audit-event.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/notifications/write-audit-event.function.ts",
     "exportedName": "writeAuditEvent",
     "bodyStart": 19,
     "bodyEnd": 30,
@@ -403,13 +443,23 @@
     ],
     "outputs": [],
     "expose": true,
-    "implementationHash": "9ffd586d2857bec9",
+    "scopes": [
+      "orders:cancel"
+    ],
+    "implementationHash": "597bfed434c3a75c",
     "description": "Cancel a pending order and restore stock.",
+    "permissions": [
+      {
+        "type": "wire",
+        "name": "isOrderOwner",
+        "inline": false
+      }
+    ],
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/orders/cancel-order.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/orders/cancel-order.function.ts",
     "exportedName": "cancelOrder",
-    "bodyStart": 12,
-    "bodyEnd": 50,
+    "bodyStart": 34,
+    "bodyEnd": 69,
     "contractHash": "f381569738a90b20",
     "inputHash": "1ab7f089",
     "outputHash": "27dc45ee"
@@ -447,7 +497,7 @@
     "implementationHash": "7c5b939c2cbf9e24",
     "description": "Create an order from a basket and charge via the fake payment provider.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/orders/create-order.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/orders/create-order.function.ts",
     "exportedName": "createOrder",
     "bodyStart": 34,
     "bodyEnd": 130,
@@ -484,13 +534,13 @@
     ],
     "implementationHash": "baa5d148e12411ca",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/orders/get-order.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/orders/get-order.function.ts",
     "exportedName": "getOrderThreeParams",
     "bodyStart": 28,
     "bodyEnd": 34,
-    "contractHash": "7a545332f615a384",
+    "contractHash": "35508707710d9799",
     "inputHash": "df0a0541",
-    "outputHash": "8f257e2c"
+    "outputHash": "b7e5247f"
   },
   "getOrder": {
     "pikkuFuncId": "getOrder",
@@ -519,13 +569,13 @@
       "GetOrderOutput"
     ],
     "expose": true,
-    "implementationHash": "f443cb5aa2e7ed80",
+    "implementationHash": "1f7245100ba9d2a8",
     "description": "Get a single order. Users can only access their own orders.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/orders/get-order.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/orders/get-order.function.ts",
     "exportedName": "getOrder",
     "bodyStart": 46,
-    "bodyEnd": 74,
+    "bodyEnd": 78,
     "contractHash": "185e20c90cea12ab",
     "inputHash": "20ab47d1",
     "outputHash": "b4ab02c0"
@@ -560,13 +610,54 @@
     "implementationHash": "e879dd2ee4391606",
     "description": "List orders for the current user.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/orders/list-orders.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/orders/list-orders.function.ts",
     "exportedName": "listOrders",
     "bodyStart": 15,
     "bodyEnd": 22,
-    "contractHash": "b965fa3ee95eb1c6",
+    "contractHash": "4b83b6a294f35460",
     "inputHash": "4a70189d",
-    "outputHash": "70b80524"
+    "outputHash": "0c72b8bc"
+  },
+  "recordAnalyticsEvents": {
+    "pikkuFuncId": "recordAnalyticsEvents",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "recordAnalyticsEvents",
+    "services": {
+      "optimized": true,
+      "services": [
+        "variables",
+        "queueService"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "session"
+      ]
+    },
+    "inputSchemaName": "RecordAnalyticsEventsInput",
+    "outputSchemaName": "RecordAnalyticsEventsOutput",
+    "inputs": [
+      "RecordAnalyticsEventsInput"
+    ],
+    "outputs": [
+      "RecordAnalyticsEventsOutput"
+    ],
+    "implementationHash": "9d9165f0b52dd16c",
+    "tags": [
+      "analytics"
+    ],
+    "description": "Records product-analytics events from the browser.",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/record-analytics-events.function.ts",
+    "exportedName": "recordAnalyticsEvents",
+    "bodyStart": 44,
+    "bodyEnd": 53,
+    "contractHash": "72e0ba8d189e8018",
+    "inputHash": "792b8885",
+    "outputHash": "0aad28eb"
   },
   "cleanupAbandonedBaskets": {
     "pikkuFuncId": "cleanupAbandonedBaskets",
@@ -588,10 +679,10 @@
     "implementationHash": "aa34c28a3e12ce96",
     "description": "Cron job: remove anonymous baskets older than 7 days.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/reports/cleanup-abandoned-baskets.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/reports/cleanup-abandoned-baskets.function.ts",
     "exportedName": "cleanupAbandonedBaskets",
-    "bodyStart": 8,
-    "bodyEnd": 17,
+    "bodyStart": 9,
+    "bodyEnd": 18,
     "contractHash": "bfd266803f3c472e",
     "inputHash": "008b046d",
     "outputHash": "1d49c1b8"
@@ -616,10 +707,10 @@
     "implementationHash": "84881d83abd7a9e3",
     "description": "Cron job: compute and log a daily sales summary.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/reports/daily-sales-report.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/reports/daily-sales-report.function.ts",
     "exportedName": "dailySalesReport",
-    "bodyStart": 8,
-    "bodyEnd": 51,
+    "bodyStart": 9,
+    "bodyEnd": 52,
     "contractHash": "757e4681fc30dc55",
     "inputHash": "b3a8987e",
     "outputHash": "468747d0"
@@ -648,15 +739,16 @@
     "outputs": [
       "AgentCallerOutput"
     ],
-    "implementationHash": "676bd74addc3f9a3",
+    "implementationHash": "a772e4ff5b2ea83c",
     "tags": [
       "pikku"
     ],
+    "description": "Run a named AI agent with a message and return its reply",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/agent/agent.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
     "exportedName": "agentCaller",
-    "bodyStart": 35,
-    "bodyEnd": 43,
+    "bodyStart": 36,
+    "bodyEnd": 44,
     "contractHash": "37551e5ed7eab8ce",
     "inputHash": "b7250306",
     "outputHash": "5fb07a82"
@@ -688,10 +780,10 @@
       "pikku"
     ],
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/agent/agent.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
     "exportedName": "agentStreamCaller",
-    "bodyStart": 52,
-    "bodyEnd": 60,
+    "bodyStart": 53,
+    "bodyEnd": 61,
     "contractHash": "cbee447908b3884f",
     "inputHash": "8ce997b4",
     "outputHash": "641a263e"
@@ -723,10 +815,10 @@
       "pikku"
     ],
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/agent/agent.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
     "exportedName": "agentApproveCaller",
-    "bodyStart": 69,
-    "bodyEnd": 69,
+    "bodyStart": 70,
+    "bodyEnd": 70,
     "contractHash": "dac7ab155be9f5f9",
     "inputHash": "5492770b",
     "outputHash": "ef71f08a"
@@ -758,10 +850,10 @@
       "pikku"
     ],
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/agent/agent.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
     "exportedName": "agentResumeCaller",
-    "bodyStart": 78,
-    "bodyEnd": 81,
+    "bodyStart": 79,
+    "bodyEnd": 82,
     "contractHash": "e1f0e61706b653c2",
     "inputHash": "88f39100",
     "outputHash": "ee89e454"
@@ -801,10 +893,10 @@
     ],
     "description": "Returns the caller's AI agent threads from storage. Accepts optional filters: agentName, resourceId, limit, and offset for pagination.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/agent/agent.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
     "exportedName": "getAgentThreads",
-    "bodyStart": 96,
-    "bodyEnd": 102,
+    "bodyStart": 97,
+    "bodyEnd": 103,
     "contractHash": "9e99c6a25a15abd4",
     "inputHash": "92d13c90",
     "outputHash": "57175ae4"
@@ -845,13 +937,13 @@
       }
     ],
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/agent/agent.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
     "exportedName": "getAgentThreadMessages",
-    "bodyStart": 116,
-    "bodyEnd": 116,
-    "contractHash": "0cfb0e2bdc2410b1",
+    "bodyStart": 117,
+    "bodyEnd": 117,
+    "contractHash": "f56a759da8e08dbb",
     "inputHash": "4e30fe21",
-    "outputHash": "4be7241d"
+    "outputHash": "2f56dd14"
   },
   "getAgentThreadRuns": {
     "pikkuFuncId": "getAgentThreadRuns",
@@ -889,10 +981,10 @@
       }
     ],
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/agent/agent.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
     "exportedName": "getAgentThreadRuns",
-    "bodyStart": 130,
-    "bodyEnd": 130,
+    "bodyStart": 131,
+    "bodyEnd": 131,
     "contractHash": "0c560ded2ce4755a",
     "inputHash": "df3cdce9",
     "outputHash": "feff89e7"
@@ -933,10 +1025,10 @@
       }
     ],
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/agent/agent.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
     "exportedName": "deleteAgentThread",
-    "bodyStart": 145,
-    "bodyEnd": 146,
+    "bodyStart": 146,
+    "bodyEnd": 147,
     "contractHash": "a394477bbe43212f",
     "inputHash": "080e0438",
     "outputHash": "fc86f2f3"
@@ -950,9 +1042,10 @@
     "services": {
       "optimized": true,
       "services": [
+        "kysely",
         "secrets",
         "variables",
-        "kysely"
+        "emailService"
       ]
     },
     "wires": {
@@ -970,7 +1063,7 @@
       "pikku"
     ],
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/auth/auth.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/auth/auth.gen.ts",
     "exportedName": "authHandler",
     "bodyStart": 14,
     "bodyEnd": 14,
@@ -999,19 +1092,20 @@
       "PikkuConsoleSetSecretOutput"
     ],
     "expose": true,
-    "implementationHash": "8ac7fc2817078836",
+    "implementationHash": "25c2768329d96615",
     "tags": [
       "pikku"
     ],
     "description": "Set the value of a secret",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/console/console.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/console/console.gen.ts",
     "exportedName": "pikkuConsoleSetSecret",
-    "bodyStart": 22,
-    "bodyEnd": 23,
+    "bodyStart": 23,
+    "bodyEnd": 24,
     "contractHash": "31a378744c4059bd",
     "inputHash": "852750a1",
-    "outputHash": "79f3fba7"
+    "outputHash": "79f3fba7",
+    "secretBroker": true
   },
   "pikkuConsoleGetVariable": {
     "pikkuFuncId": "pikkuConsoleGetVariable",
@@ -1040,10 +1134,10 @@
     ],
     "description": "Get the current value of a variable",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/console/console.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/console/console.gen.ts",
     "exportedName": "pikkuConsoleGetVariable",
-    "bodyStart": 34,
-    "bodyEnd": 44,
+    "bodyStart": 35,
+    "bodyEnd": 45,
     "contractHash": "2848c3e22b23fe00",
     "inputHash": "38f93644",
     "outputHash": "dc35791b"
@@ -1075,10 +1169,10 @@
     ],
     "description": "Set the value of a variable",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/console/console.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/console/console.gen.ts",
     "exportedName": "pikkuConsoleSetVariable",
-    "bodyStart": 55,
-    "bodyEnd": 60,
+    "bodyStart": 56,
+    "bodyEnd": 61,
     "contractHash": "cb14a60d90a58c6b",
     "inputHash": "f2e64dab",
     "outputHash": "ef85132e"
@@ -1104,19 +1198,20 @@
       "PikkuConsoleHasSecretOutput"
     ],
     "expose": true,
-    "implementationHash": "572d471fca34830b",
+    "implementationHash": "3c4e4c20a5d8935f",
     "tags": [
       "pikku"
     ],
     "description": "Check if a secret exists without reading its value",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/console/console.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/console/console.gen.ts",
     "exportedName": "pikkuConsoleHasSecret",
-    "bodyStart": 71,
-    "bodyEnd": 72,
+    "bodyStart": 73,
+    "bodyEnd": 74,
     "contractHash": "3f98e403f715c50b",
     "inputHash": "653ba026",
-    "outputHash": "4b1a2834"
+    "outputHash": "4b1a2834",
+    "secretBroker": true
   },
   "pikkuConsoleGetSecret": {
     "pikkuFuncId": "pikkuConsoleGetSecret",
@@ -1139,19 +1234,123 @@
       "PikkuConsoleGetSecretOutput"
     ],
     "expose": true,
-    "implementationHash": "ae47c7eae2386f7a",
+    "implementationHash": "355bd5732aa7018f",
     "tags": [
       "pikku"
     ],
     "description": "Get the current value of a secret",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/console/console.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/console/console.gen.ts",
     "exportedName": "pikkuConsoleGetSecret",
-    "bodyStart": 83,
-    "bodyEnd": 88,
+    "bodyStart": 86,
+    "bodyEnd": 91,
     "contractHash": "3b85e09aaf8ed51c",
     "inputHash": "42277e15",
-    "outputHash": "1610a354"
+    "outputHash": "1610a354",
+    "secretBroker": true
+  },
+  "realtimeSubscribe": {
+    "pikkuFuncId": "realtimeSubscribe",
+    "functionType": "user",
+    "funcWrapper": "pikkuChannelFunc",
+    "sessionless": true,
+    "name": "realtimeSubscribe",
+    "services": {
+      "optimized": true,
+      "services": [
+        "eventHub"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "channel"
+      ]
+    },
+    "inputSchemaName": "RealtimeSubscribeInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "RealtimeSubscribeInput"
+    ],
+    "outputs": [],
+    "implementationHash": "1857667479118a95",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/realtime/events.gen.ts",
+    "exportedName": "realtimeSubscribe",
+    "bodyStart": 26,
+    "bodyEnd": 26,
+    "contractHash": "bc5e1561fda444bd",
+    "inputHash": "9e8c21ea",
+    "outputHash": "4a97e651"
+  },
+  "realtimeUnsubscribe": {
+    "pikkuFuncId": "realtimeUnsubscribe",
+    "functionType": "user",
+    "funcWrapper": "pikkuChannelFunc",
+    "sessionless": true,
+    "name": "realtimeUnsubscribe",
+    "services": {
+      "optimized": true,
+      "services": [
+        "eventHub"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "channel"
+      ]
+    },
+    "inputSchemaName": "RealtimeUnsubscribeInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "RealtimeUnsubscribeInput"
+    ],
+    "outputs": [],
+    "implementationHash": "f1414854056624fe",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/realtime/events.gen.ts",
+    "exportedName": "realtimeUnsubscribe",
+    "bodyStart": 33,
+    "bodyEnd": 33,
+    "contractHash": "63d0658de9b01f24",
+    "inputHash": "bd6266c1",
+    "outputHash": "460c0c66"
+  },
+  "realtimeEventStream": {
+    "pikkuFuncId": "realtimeEventStream",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "realtimeEventStream",
+    "services": {
+      "optimized": true,
+      "services": [
+        "eventHub"
+      ]
+    },
+    "wires": {
+      "optimized": true,
+      "wires": [
+        "channel"
+      ]
+    },
+    "inputSchemaName": "RealtimeEventStreamInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "RealtimeEventStreamInput"
+    ],
+    "outputs": [],
+    "implementationHash": "14f2a75366d274a3",
+    "description": "Auto-generated SSE stream for a single event-hub topic",
+    "isDirectFunction": false,
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/realtime/events.gen.ts",
+    "exportedName": "realtimeEventStream",
+    "bodyStart": 63,
+    "bodyEnd": 66,
+    "contractHash": "c12792757a387726",
+    "inputHash": "0e03de1d",
+    "outputHash": "d6679eb5"
   },
   "rpcCaller": {
     "pikkuFuncId": "rpcCaller",
@@ -1175,12 +1374,13 @@
       "RpcCallerInput"
     ],
     "outputs": [],
-    "implementationHash": "1be6e1c1e2f95190",
+    "auth": true,
+    "implementationHash": "3e180cf9ef99e3e0",
     "tags": [
       "pikku"
     ],
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/rpc/rpc-public.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/rpc/rpc-public.gen.ts",
     "exportedName": "rpcCaller",
     "bodyStart": 16,
     "bodyEnd": 16,
@@ -1219,7 +1419,7 @@
       "pikku"
     ],
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
     "exportedName": "workflowStarter",
     "bodyStart": 36,
     "bodyEnd": 37,
@@ -1256,7 +1456,7 @@
       "pikku"
     ],
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
     "exportedName": "workflowRunner",
     "bodyStart": 46,
     "bodyEnd": 47,
@@ -1289,13 +1489,13 @@
       "pikku"
     ],
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
     "exportedName": "workflowStatusChecker",
     "bodyStart": 56,
     "bodyEnd": 59,
-    "contractHash": "4636e30893929858",
+    "contractHash": "4d68a0e13e05c878",
     "inputHash": "8b76388a",
-    "outputHash": "a7c56435"
+    "outputHash": "402bbecf"
   },
   "workflowStatusStream": {
     "pikkuFuncId": "workflowStatusStream",
@@ -1326,7 +1526,7 @@
       "pikku"
     ],
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
     "exportedName": "workflowStatusStream",
     "bodyStart": 72,
     "bodyEnd": 144,
@@ -1363,7 +1563,7 @@
       "pikku"
     ],
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
     "exportedName": "workflowStatusStreamFull",
     "bodyStart": 157,
     "bodyEnd": 233,
@@ -1402,7 +1602,7 @@
       "pikku"
     ],
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
     "exportedName": "graphStarter",
     "bodyStart": 245,
     "bodyEnd": 246,
@@ -1435,7 +1635,7 @@
       "pikku"
     ],
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
     "exportedName": "workflowApprover",
     "bodyStart": 267,
     "bodyEnd": 269,
@@ -1466,7 +1666,7 @@
     "implementationHash": "6e86805cf7f38a9c",
     "description": "Confirm the basket has items and enough stock to sell.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/checkout.workflow.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "validateBasket",
     "bodyStart": 19,
     "bodyEnd": 34,
@@ -1497,7 +1697,7 @@
     "implementationHash": "d70e6f0f1d1a7bab",
     "description": "Persist the order and its line items.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/checkout.workflow.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "createOrderRecord",
     "bodyStart": 50,
     "bodyEnd": 66,
@@ -1528,7 +1728,7 @@
     "implementationHash": "329a8171248df678",
     "description": "Charge the card through the payment provider.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/checkout.workflow.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "chargeCard",
     "bodyStart": 76,
     "bodyEnd": 80,
@@ -1558,7 +1758,7 @@
     "implementationHash": "ec78e1fbb4b1c607",
     "description": "Record the outcome, and on success clear the basket and queue the receipt.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/checkout.workflow.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "finalizeOrder",
     "bodyStart": 90,
     "bodyEnd": 99,
@@ -1593,10 +1793,10 @@
     "expose": true,
     "implementationHash": "cce5bf73455f3283",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/checkout.workflow.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "checkoutWorkflow",
-    "bodyStart": 114,
-    "bodyEnd": 141,
+    "bodyStart": 115,
+    "bodyEnd": 142,
     "contractHash": "33fc3db1aeda33af",
     "inputHash": "6129b387",
     "outputHash": "cbd83fab"
@@ -1627,10 +1827,10 @@
     ],
     "implementationHash": "85543ad95551dd5d",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/checkout.workflow.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "startCheckout",
-    "bodyStart": 157,
-    "bodyEnd": 157,
+    "bodyStart": 159,
+    "bodyEnd": 159,
     "contractHash": "b437127d364f1c5a",
     "inputHash": "e324754d",
     "outputHash": "10b494ca"
@@ -1658,10 +1858,10 @@
     "implementationHash": "1043d5994414f969",
     "description": "Report whether an order is in a state that can be refunded.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/checkout.workflow.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "checkOrderRefundable",
-    "bodyStart": 172,
-    "bodyEnd": 175,
+    "bodyStart": 174,
+    "bodyEnd": 177,
     "contractHash": "e9fad2745ecb4443",
     "inputHash": "29349325",
     "outputHash": "5da5da14"
@@ -1687,10 +1887,10 @@
     "implementationHash": "1886b27bd8cc9431",
     "description": "Mark an order refunded.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/checkout.workflow.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "issueRefund",
-    "bodyStart": 182,
-    "bodyEnd": 186,
+    "bodyStart": 184,
+    "bodyEnd": 188,
     "contractHash": "3e47cde276bcb9c8",
     "inputHash": "35c6cd52",
     "outputHash": "a7d40b02"
@@ -1721,10 +1921,10 @@
     ],
     "implementationHash": "9f7906acf6b486c2",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/checkout.workflow.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "refundWorkflow",
-    "bodyStart": 198,
-    "bodyEnd": 216,
+    "bodyStart": 200,
+    "bodyEnd": 218,
     "contractHash": "05d9be905688f7f8",
     "inputHash": "2076ac67",
     "outputHash": "51d8e912"
@@ -1753,7 +1953,7 @@
     "outputs": [],
     "implementationHash": "4e14ba4f944cea01",
     "isDirectFunction": true,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.channel.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.channel.ts",
     "exportedName": "onConnect",
     "bodyStart": 6,
     "bodyEnd": 6,
@@ -1785,7 +1985,7 @@
     "outputs": [],
     "implementationHash": "5909c731551d98d9",
     "isDirectFunction": true,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.channel.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.channel.ts",
     "exportedName": "onDisconnect",
     "bodyStart": 12,
     "bodyEnd": 12,
@@ -1819,10 +2019,10 @@
     "outputs": [],
     "implementationHash": "9da729f2ccd19137",
     "isDirectFunction": true,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.channel.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.channel.ts",
     "exportedName": "subscribeToOrder",
-    "bodyStart": 19,
-    "bodyEnd": 19,
+    "bodyStart": 20,
+    "bodyEnd": 20,
     "contractHash": "adce351da05a3b51",
     "inputHash": "e6f7c708",
     "outputHash": "83679a05"
@@ -1853,10 +2053,10 @@
     "outputs": [],
     "implementationHash": "fec9cba5636b3fef",
     "isDirectFunction": true,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.channel.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.channel.ts",
     "exportedName": "unsubscribeFromOrder",
-    "bodyStart": 25,
-    "bodyEnd": 25,
+    "bodyStart": 26,
+    "bodyEnd": 26,
     "contractHash": "bcb9d84db342ef81",
     "inputHash": "cc993948",
     "outputHash": "a2205913"
@@ -1882,10 +2082,10 @@
     "outputs": [],
     "implementationHash": "46ed4e087233c4ba",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.channel.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.channel.ts",
     "exportedName": "notifyOrderShipped",
-    "bodyStart": 50,
-    "bodyEnd": 56,
+    "bodyStart": 52,
+    "bodyEnd": 58,
     "contractHash": "577e6d7e156d1c65",
     "inputHash": "606cab48",
     "outputHash": "4094c392"
@@ -1915,10 +2115,10 @@
     "outputs": [],
     "implementationHash": "f82940b2bd668225",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.cron.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.cron.ts",
     "exportedName": "conditionalReport",
-    "bodyStart": 35,
-    "bodyEnd": 46,
+    "bodyStart": 37,
+    "bodyEnd": 48,
     "contractHash": "f29b6e139f77f5fa",
     "inputHash": "05eaeca0",
     "outputHash": "bed14a05"
@@ -1947,7 +2147,7 @@
     "implementationHash": "b21f093b1a970f21",
     "description": "Process payment webhook events from the payment provider.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.gateway.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.gateway.ts",
     "exportedName": "handlePaymentWebhook",
     "bodyStart": 11,
     "bodyEnd": 28,
@@ -1981,13 +2181,13 @@
     "implementationHash": "5a4d73de07c99c23",
     "description": "List all product categories in the shop",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.mcp.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.mcp.ts",
     "exportedName": "listCategoriesTool",
     "bodyStart": 8,
     "bodyEnd": 9,
-    "contractHash": "b4b808c4ce56458d",
+    "contractHash": "7db1eaad49f2bc7a",
     "inputHash": "c185f20c",
-    "outputHash": "679e6adc"
+    "outputHash": "e7d453f3"
   },
   "listItemsTool": {
     "pikkuFuncId": "listItemsTool",
@@ -2017,13 +2217,13 @@
     "implementationHash": "57e921a52fb39270",
     "description": "List shop items, optionally filtered by category or search query",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.mcp.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.mcp.ts",
     "exportedName": "listItemsTool",
     "bodyStart": 16,
     "bodyEnd": 17,
-    "contractHash": "0ee5241dfcc0ca82",
+    "contractHash": "1d72354caf263b6e",
     "inputHash": "b2b8291d",
-    "outputHash": "6b202b92"
+    "outputHash": "9c435ce6"
   },
   "getItemTool": {
     "pikkuFuncId": "getItemTool",
@@ -2053,13 +2253,13 @@
     "implementationHash": "b65efd7a53a5fa65",
     "description": "Get full details for a specific shop item by ID",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.mcp.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.mcp.ts",
     "exportedName": "getItemTool",
     "bodyStart": 24,
     "bodyEnd": 25,
-    "contractHash": "5310019ccba95ec2",
+    "contractHash": "cf645ca80e8d36dd",
     "inputHash": "2cd66ef0",
-    "outputHash": "4197bf7d"
+    "outputHash": "7a04d710"
   },
   "getItemForAI": {
     "pikkuFuncId": "getItemForAI",
@@ -2089,13 +2289,13 @@
     "implementationHash": "65520e4d64c3e42b",
     "description": "Retrieve a shop item by its ID",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.mcp.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.mcp.ts",
     "exportedName": "getItemForAI",
     "bodyStart": 35,
     "bodyEnd": 36,
-    "contractHash": "449ab161d1dc9efb",
+    "contractHash": "73b9e17b31c0176f",
     "inputHash": "b190b9cd",
-    "outputHash": "b83ba310"
+    "outputHash": "f1b68dee"
   },
   "updateStockTool": {
     "pikkuFuncId": "updateStockTool",
@@ -2127,13 +2327,13 @@
     "implementationHash": "a11e573e468d8602",
     "description": "Update stock level for a shop item",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.mcp.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.mcp.ts",
     "exportedName": "updateStockTool",
     "bodyStart": 89,
     "bodyEnd": 98,
-    "contractHash": "20c77caf8982bab7",
+    "contractHash": "6e656190de0abcd9",
     "inputHash": "5acef028",
-    "outputHash": "0ede70fc"
+    "outputHash": "b01af4f7"
   },
   "placeOrder": {
     "pikkuFuncId": "placeOrder",
@@ -2164,10 +2364,10 @@
     ],
     "implementationHash": "b2debce8c6f2776f",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.queue.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.queue.ts",
     "exportedName": "placeOrder",
-    "bodyStart": 40,
-    "bodyEnd": 55,
+    "bodyStart": 42,
+    "bodyEnd": 57,
     "contractHash": "3da69a809c422bc1",
     "inputHash": "6ea57c13",
     "outputHash": "57326851"
@@ -2199,10 +2399,10 @@
     "outputs": [],
     "implementationHash": "2c97cdd8f517b2b2",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.queue.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.queue.ts",
     "exportedName": "processExport",
-    "bodyStart": 65,
-    "bodyEnd": 78,
+    "bodyStart": 67,
+    "bodyEnd": 80,
     "contractHash": "76b125af7fb001e4",
     "inputHash": "2023710f",
     "outputHash": "11138aa5"
@@ -2231,7 +2431,7 @@
     "implementationHash": "443c2076cfea4f28",
     "description": "Check whether an item is in stock and return available quantity.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.rpc.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.rpc.ts",
     "exportedName": "checkItemAvailability",
     "bodyStart": 11,
     "bodyEnd": 18,
@@ -2267,7 +2467,7 @@
     ],
     "implementationHash": "62c8c0e1a88f2f51",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.rpc.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.rpc.ts",
     "exportedName": "createOrderWithValidation",
     "bodyStart": 27,
     "bodyEnd": 29,
@@ -2284,7 +2484,6 @@
     "services": {
       "optimized": true,
       "services": [
-        "secrets",
         "paymentService"
       ]
     },
@@ -2296,12 +2495,12 @@
     "outputs": [
       "ProcessPaymentOutput"
     ],
-    "implementationHash": "f766471907d09533",
+    "implementationHash": "7267f9a0d457eae9",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.secret.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.secret.ts",
     "exportedName": "processPayment",
-    "bodyStart": 23,
-    "bodyEnd": 36,
+    "bodyStart": 34,
+    "bodyEnd": 44,
     "contractHash": "14bbdb647da96d16",
     "inputHash": "ff315407",
     "outputHash": "add24027"
@@ -2324,29 +2523,15 @@
       "DeleteOrderInput"
     ],
     "outputs": [],
-    "implementationHash": "903a219915758253",
-    "permissions": [
-      {
-        "type": "wire",
-        "name": "isAdmin",
-        "inline": false
-      },
-      {
-        "type": "wire",
-        "name": "isAuthenticated",
-        "inline": false
-      },
-      {
-        "type": "wire",
-        "name": "isOrderOwner",
-        "inline": false
-      }
+    "scopes": [
+      "orders"
     ],
+    "implementationHash": "87306d90ef4e0a19",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.security.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.security.ts",
     "exportedName": "deleteOrder",
-    "bodyStart": 33,
-    "bodyEnd": 33,
+    "bodyStart": 49,
+    "bodyEnd": 49,
     "contractHash": "c8c9c16009473756",
     "inputHash": "63015468",
     "outputHash": "95998d10"
@@ -2377,13 +2562,13 @@
     ],
     "implementationHash": "29158f7ef86c2d08",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.security.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.security.ts",
     "exportedName": "getProfile",
-    "bodyStart": 46,
-    "bodyEnd": 50,
-    "contractHash": "b6256212174700cf",
+    "bodyStart": 58,
+    "bodyEnd": 62,
+    "contractHash": "f039ecc5b1c35d1a",
     "inputHash": "3bae9870",
-    "outputHash": "7361d2d0"
+    "outputHash": "294a7b92"
   },
   "onLowStock": {
     "pikkuFuncId": "onLowStock",
@@ -2406,10 +2591,10 @@
     "implementationHash": "023dc7214ac56995",
     "description": "Trigger: fires when an item stock drops below the configured threshold.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.trigger.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.trigger.ts",
     "exportedName": "onLowStock",
-    "bodyStart": 17,
-    "bodyEnd": 17,
+    "bodyStart": 18,
+    "bodyEnd": 18,
     "contractHash": "879f6560661514bf",
     "inputHash": "6f78dfe5",
     "outputHash": "d6ebbb69"
@@ -2443,10 +2628,10 @@
     ],
     "implementationHash": "e416d7df8f989299",
     "isDirectFunction": true,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.trigger.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.trigger.ts",
     "exportedName": "stockPollTrigger",
-    "bodyStart": 35,
-    "bodyEnd": 50,
+    "bodyStart": 37,
+    "bodyEnd": 52,
     "contractHash": "f4ed4a1e2864309e",
     "inputHash": "875cbefe",
     "outputHash": "a5ea3138"
@@ -2587,7 +2772,7 @@
     "version": 3,
     "description": "Get a single item by ID.",
     "isDirectFunction": false,
-    "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/functions/items/get-item.function.ts",
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/functions/items/get-item.function.ts",
     "exportedName": "getItem",
     "bodyStart": 75,
     "bodyEnd": 92,

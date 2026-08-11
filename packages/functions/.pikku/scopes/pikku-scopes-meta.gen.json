@@ -56,8 +56,61 @@
             "description": "Create and delete roles, change their scopes, and grant roles to users"
           }
         }
+      },
+      "audit": {
+        "description": "The audit trail",
+        "scopes": {
+          "read": {
+            "description": "Read the audit trail — every recorded action, and which user took it"
+          }
+        }
       }
     },
     "sourceFile": "/home/runner/work/pikku/pikku/packages/addon/pikku-console/src/scopes.ts"
+  },
+  "catalogue": {
+    "name": "catalogue",
+    "displayName": "Catalogue",
+    "description": "Browse and manage what is for sale",
+    "scopes": {
+      "read": {
+        "description": "Browse items and categories"
+      },
+      "write": {
+        "description": "Create, edit and withdraw items"
+      }
+    },
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scopes.ts"
+  },
+  "orders": {
+    "name": "orders",
+    "displayName": "Orders",
+    "description": "Placing and handling orders",
+    "scopes": {
+      "read": {
+        "description": "Read orders"
+      },
+      "create": {
+        "description": "Place an order"
+      },
+      "cancel": {
+        "description": "Cancel an order before it ships"
+      },
+      "refund": {
+        "description": "Refund a paid order"
+      }
+    },
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scopes.ts"
+  },
+  "reports": {
+    "name": "reports",
+    "displayName": "Reports",
+    "description": "Sales and stock reporting",
+    "scopes": {
+      "read": {
+        "description": "Read sales and stock reports"
+      }
+    },
+    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scopes.ts"
   }
 }

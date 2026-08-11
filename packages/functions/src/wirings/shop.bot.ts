@@ -61,3 +61,20 @@ export const checkoutAssistant = pikkuAIAgent({
   agents: [shopAssistant],
   maxSteps: 5,
 })
+
+// The other two agents, wired the same way. They existed as declarations with no
+// route and no screen — an ops agent that could cancel orders and a checkout
+// assistant that delegates to the shop assistant, neither reachable by anything.
+wireHTTP({
+  method: 'post',
+  route: '/agents/ops',
+  func: agent('opsAgent'),
+  auth: true,
+})
+
+wireHTTP({
+  method: 'post',
+  route: '/agents/checkout',
+  func: agent('checkoutAssistant'),
+  auth: true,
+})

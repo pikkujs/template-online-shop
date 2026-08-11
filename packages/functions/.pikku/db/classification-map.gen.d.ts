@@ -5,8 +5,14 @@
 //   export const classifications = { ... } satisfies DbClassificationMap
 
 export type ColumnEntry = {
-  /** Privacy level. Defaults to 'private' when omitted. */
+  /** Privacy level — can the value leave the process? Defaults to 'private'.
+   *  'encrypted' is the legacy spelling of `security: 'secret', form: 'wrapped'`. */
   security?: 'public' | 'private' | 'pii' | 'secret' | 'encrypted'
+  /** How the value is held at rest, independent of `security`. A form other
+   *  than 'plain' makes the column's INSERT/UPDATE type nominal, so only a
+   *  real encrypt/seal/hash result can be written to it. Defaults to 'plain',
+   *  which on a `secret` column is warned about (PKU483) until stated here. */
+  form?: 'plain' | 'hashed' | 'wrapped' | 'sealed'
   /** Anonymize strategy used by `pikku db anonymize`. */
   classification?: 'fake:email' | 'fake:name' | 'hash' | 'keep'
   /** Column kind override for codegen coercion + typing. */
@@ -184,9 +190,10 @@ export type DbClassificationMap = {
     "payment_id": ColumnEntry
     "order_id": ColumnEntry
     "amount_cents": ColumnEntry
-    "provider": ColumnEntry
     "status": ColumnEntry
+    "provider": ColumnEntry
     "provider_ref": ColumnEntry
+    "reason": ColumnEntry
     "created_at": ColumnEntry
   }
   "pikku_deployment_functions": {
@@ -254,6 +261,7 @@ export type DbClassificationMap = {
     "ip_address": ColumnEntry
     "user_agent": ColumnEntry
     "user_id": ColumnEntry
+    "impersonated_by": ColumnEntry
   }
   "user": {
     "id": ColumnEntry
@@ -264,6 +272,11 @@ export type DbClassificationMap = {
     "created_at": ColumnEntry
     "updated_at": ColumnEntry
     "actor": ColumnEntry
+    "role": ColumnEntry
+    "banned": ColumnEntry
+    "ban_reason": ColumnEntry
+    "ban_expires": ColumnEntry
+    "fabric": ColumnEntry
   }
   "verification": {
     "id": ColumnEntry
@@ -323,7 +336,6 @@ export type DbClassificationMap = {
     "retries": ColumnEntry
     "retry_delay": ColumnEntry
     "from_step_name": ColumnEntry
-    "current_attempt": ColumnEntry
     "created_at": ColumnEntry
     "updated_at": ColumnEntry
   }
@@ -333,7 +345,6 @@ export type DbClassificationMap = {
     "status": ColumnEntry
     "result": ColumnEntry
     "error": ColumnEntry
-    "attempt": ColumnEntry
     "created_at": ColumnEntry
     "running_at": ColumnEntry
     "scheduled_at": ColumnEntry

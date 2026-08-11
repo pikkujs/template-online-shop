@@ -169,9 +169,10 @@ export const classificationManifest = {
       "payment_id": { classification: 'private', anonymize_strategy: null },
       "order_id": { classification: 'private', anonymize_strategy: null },
       "amount_cents": { classification: 'private', anonymize_strategy: null },
-      "provider": { classification: 'private', anonymize_strategy: null },
       "status": { classification: 'private', anonymize_strategy: null },
+      "provider": { classification: 'private', anonymize_strategy: null },
       "provider_ref": { classification: 'private', anonymize_strategy: null },
+      "reason": { classification: 'private', anonymize_strategy: null },
       "created_at": { classification: 'private', anonymize_strategy: null }
     },
     "pikku_deployment_functions": {
@@ -238,7 +239,8 @@ export const classificationManifest = {
       "updated_at": { classification: 'private', anonymize_strategy: null },
       "ip_address": { classification: 'private', anonymize_strategy: null },
       "user_agent": { classification: 'private', anonymize_strategy: null },
-      "user_id": { classification: 'private', anonymize_strategy: null }
+      "user_id": { classification: 'private', anonymize_strategy: null },
+      "impersonated_by": { classification: 'private', anonymize_strategy: null }
     },
     "user": {
       "id": { classification: 'private', anonymize_strategy: null },
@@ -248,7 +250,12 @@ export const classificationManifest = {
       "image": { classification: 'private', anonymize_strategy: null },
       "created_at": { classification: 'private', anonymize_strategy: null },
       "updated_at": { classification: 'private', anonymize_strategy: null },
-      "actor": { classification: 'private', anonymize_strategy: null }
+      "actor": { classification: 'private', anonymize_strategy: null },
+      "role": { classification: 'private', anonymize_strategy: null },
+      "banned": { classification: 'private', anonymize_strategy: null },
+      "ban_reason": { classification: 'private', anonymize_strategy: null },
+      "ban_expires": { classification: 'private', anonymize_strategy: null },
+      "fabric": { classification: 'private', anonymize_strategy: null }
     },
     "verification": {
       "id": { classification: 'private', anonymize_strategy: null },
@@ -308,7 +315,6 @@ export const classificationManifest = {
       "retries": { classification: 'private', anonymize_strategy: null },
       "retry_delay": { classification: 'private', anonymize_strategy: null },
       "from_step_name": { classification: 'private', anonymize_strategy: null },
-      "current_attempt": { classification: 'private', anonymize_strategy: null },
       "created_at": { classification: 'private', anonymize_strategy: null },
       "updated_at": { classification: 'private', anonymize_strategy: null }
     },
@@ -318,7 +324,6 @@ export const classificationManifest = {
       "status": { classification: 'private', anonymize_strategy: null },
       "result": { classification: 'private', anonymize_strategy: null },
       "error": { classification: 'private', anonymize_strategy: null },
-      "attempt": { classification: 'private', anonymize_strategy: null },
       "created_at": { classification: 'private', anonymize_strategy: null },
       "running_at": { classification: 'private', anonymize_strategy: null },
       "scheduled_at": { classification: 'private', anonymize_strategy: null },

@@ -88,7 +88,7 @@ export interface AiWorkingMemory {
 export interface AppUser {
   userId: ColumnType<Private<string>, string, string>
   email: ColumnType<Private<string>, string, string>
-  name: ColumnType<Private<string>, string, string>
+  name: ColumnType<Private<string> | null, string | null, string | null>
   role: ColumnType<Private<string>, string | undefined, string>
   createdAt: ColumnType<Private<string>, string | undefined, string>
 }
@@ -176,9 +176,9 @@ export interface Item {
 export interface Order {
   orderId: ColumnType<Private<string>, string, string>
   userId: ColumnType<Private<string>, string, string>
-  status: ColumnType<Private<string>, string | undefined, string>
+  status: ColumnType<Private<'pending' | 'paid' | 'payment_failed' | 'shipped' | 'cancelled' | 'refunded'>, 'pending' | 'paid' | 'payment_failed' | 'shipped' | 'cancelled' | 'refunded' | undefined, 'pending' | 'paid' | 'payment_failed' | 'shipped' | 'cancelled' | 'refunded'>
   totalCents: ColumnType<Private<number>, number, number>
-  shippingAddress: ColumnType<Private<string>, string, string>
+  shippingAddress: ColumnType<Private<string> | null, string | null, string | null>
   createdAt: ColumnType<Private<string>, string | undefined, string>
   updatedAt: ColumnType<Private<string>, string | undefined, string>
 }
@@ -195,9 +195,10 @@ export interface Payment {
   paymentId: ColumnType<Private<string>, string, string>
   orderId: ColumnType<Private<string>, string, string>
   amountCents: ColumnType<Private<number>, number, number>
-  provider: ColumnType<Private<string>, string | undefined, string>
-  status: ColumnType<Private<string>, string | undefined, string>
+  status: ColumnType<Private<string>, string, string>
+  provider: ColumnType<Private<string> | null, string | null, string | null>
   providerRef: ColumnType<Private<string> | null, string | null, string | null>
+  reason: ColumnType<Private<string> | null, string | null, string | null>
   createdAt: ColumnType<Private<string>, string | undefined, string>
 }
 
@@ -276,6 +277,7 @@ export interface Session {
   ipAddress: ColumnType<Private<string> | null, string | null, string | null>
   userAgent: ColumnType<Private<string> | null, string | null, string | null>
   userId: ColumnType<Private<string>, string, string>
+  impersonatedBy: ColumnType<Private<string> | null, string | null, string | null>
 }
 
 export interface User {
@@ -287,6 +289,11 @@ export interface User {
   createdAt: ColumnType<Private<string>, string, string>
   updatedAt: ColumnType<Private<string>, string, string>
   actor: ColumnType<Private<number> | null, number | null, number | null>
+  role: ColumnType<Private<string> | null, string | null, string | null>
+  banned: ColumnType<Private<number> | null, number | null, number | null>
+  banReason: ColumnType<Private<string> | null, string | null, string | null>
+  banExpires: ColumnType<Private<string> | null, string | null, string | null>
+  fabric: ColumnType<Private<number> | null, number | null, number | null>
 }
 
 export interface Verification {
@@ -351,7 +358,6 @@ export interface WorkflowStep {
   retries: ColumnType<Private<number> | null, number | null, number | null>
   retryDelay: ColumnType<Private<string> | null, string | null, string | null>
   fromStepName: ColumnType<Private<string> | null, string | null, string | null>
-  currentAttempt: ColumnType<Private<number> | null, number | null, number | null>
   createdAt: ColumnType<Private<string>, string | undefined, string>
   updatedAt: ColumnType<Private<string>, string | undefined, string>
 }
@@ -362,7 +368,6 @@ export interface WorkflowStepHistory {
   status: ColumnType<Private<string>, string, string>
   result: ColumnType<Private<string> | null, string | null, string | null>
   error: ColumnType<Private<string> | null, string | null, string | null>
-  attempt: ColumnType<Private<number> | null, number | null, number | null>
   createdAt: ColumnType<Private<string>, string | undefined, string>
   runningAt: ColumnType<Private<string> | null, string | null, string | null>
   scheduledAt: ColumnType<Private<string> | null, string | null, string | null>

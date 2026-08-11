@@ -6,6 +6,14 @@
     {
       "id": "actor",
       "displayName": "Actor"
+    },
+    {
+      "id": "admin",
+      "displayName": "Admin"
+    },
+    {
+      "id": "fabric",
+      "displayName": "Fabric"
     }
   ]
 }

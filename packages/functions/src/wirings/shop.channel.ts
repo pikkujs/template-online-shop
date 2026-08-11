@@ -14,6 +14,7 @@ export const onDisconnect = pikkuChannelDisconnectionFunc(
 )
 
 // @snippet start orderStatusChannel
+// @snippet start wireChannel
 export const subscribeToOrder = pikkuChannelFunc<{ orderId: string }, void>(
   async ({ eventHub }, { orderId }, { channel }) => {
     await eventHub?.subscribe(`order:${orderId}`, channel.channelId)
@@ -25,6 +26,7 @@ export const unsubscribeFromOrder = pikkuChannelFunc<{ orderId: string }, void>(
     await eventHub?.unsubscribe(`order:${orderId}`, channel.channelId)
   }
 )
+// @snippet end wireChannel
 // @snippet end orderStatusChannel
 
 // @snippet start channelWiring
@@ -45,6 +47,7 @@ wireChannel({
 
 // @snippet start channelPubSub
 // Publish from any HTTP handler to all WebSocket clients subscribed to that order.
+// @coverage-unreachable the server-side push half of the order channel; it runs when the app pushes, not when anything calls it
 export const notifyOrderShipped = pikkuFunc<{ orderId: string }, void>({
   func: async ({ eventHub, kysely }, { orderId }) => {
     await kysely

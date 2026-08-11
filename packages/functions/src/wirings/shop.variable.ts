@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { wireVariable } from '#pikku/variables/pikku-variable-types.gen.js'
+import { defineVariable } from '#pikku/variables/pikku-variable-types.gen.js'
 
 // @snippet start variables
 export const DatabaseUrlSchema = z.string()
@@ -7,7 +7,7 @@ export const LowStockThresholdSchema = z.number().int().positive()
 export const ScenarioActorSecretSchema = z.string()
 export const BetterAuthUrlSchema = z.string().url()
 
-wireVariable({
+defineVariable({
   name: 'databaseUrl',
   displayName: 'Database URL',
   description: 'Primary database connection string (Postgres or libsql URL)',
@@ -15,7 +15,7 @@ wireVariable({
   schema: DatabaseUrlSchema,
 })
 
-wireVariable({
+defineVariable({
   name: 'lowStockThreshold',
   displayName: 'Low Stock Threshold',
   description: 'Item stock level that triggers a low-stock alert',
@@ -23,7 +23,7 @@ wireVariable({
   schema: LowStockThresholdSchema,
 })
 
-wireVariable({
+defineVariable({
   name: 'scenarioActorSecret',
   displayName: 'Scenario Actor Secret',
   description: 'Impersonation secret for `pikku scenario run` actors. Leave unset to disable actor sign-in',
@@ -31,7 +31,7 @@ wireVariable({
   schema: ScenarioActorSecretSchema,
 })
 
-wireVariable({
+defineVariable({
   name: 'betterAuthUrl',
   displayName: 'Better Auth Base URL',
   description: 'Public origin the API is served from, used for auth callbacks and redirects',

@@ -4,6 +4,7 @@ import { cleanupAbandonedBaskets } from '../functions/reports/cleanup-abandoned-
 import { listItems } from '../functions/items/list-items.function.js'
 
 // @snippet start cliSubcommands
+// @snippet start wireCli
 wireCLI({
   program: 'shop',
   commands: {
@@ -12,6 +13,7 @@ wireCLI({
     items:   pikkuCLICommand({ description: 'List all items in the catalogue',              func: listItems }),
   },
 })
+// @snippet end wireCli
 // @snippet end cliSubcommands
 
 // @snippet start cliWiring

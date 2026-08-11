@@ -1,58 +1,28 @@
-import { z } from 'zod'
-import { wireTrigger, wireTriggerSource } from '#pikku/trigger/pikku-trigger-types.gen.js'
-import { pikkuSessionlessFunc, pikkuTriggerFunc } from '#pikku'
+import { wireTrigger } from '#pikku/trigger/pikku-trigger-types.gen.js'
+import { wireScheduler } from '#pikku/pikku-types.gen.js'
+import { onLowStock } from '../functions/on-low-stock.function.js'
+import { sweepLowStock } from '../functions/sweep-low-stock.function.js'
 
-export const LowStockPayload = z.object({
-  itemId: z.string(),
-  name: z.string(),
-  stock: z.number(),
-})
-
-// @snippet start lowStockTrigger
-export const onLowStock = pikkuSessionlessFunc({
-  expose: false,
-  description: 'Trigger: fires when an item stock drops below the configured threshold.',
-  input: LowStockPayload,
-  func: async ({ logger }, { itemId, name, stock }) => {
-    logger.warn({ event: 'low_stock_alert', itemId, name, stock })
-    // In production: send Slack notification, create restocking ticket, etc.
-  },
-})
-
+// @snippet start wireTrigger
 wireTrigger({
   name: 'low-stock',
   func: onLowStock,
 })
-// @snippet end lowStockTrigger
+// @snippet end wireTrigger
 
 // @snippet start triggerSource
-// A trigger SOURCE defines how Pikku subscribes to external events.
-// It receives typed input and calls trigger.invoke() to fire the handler.
-export const stockPollTrigger = pikkuTriggerFunc<
-  { thresholdStock: number },
-  { itemId: string; name: string; stock: number }
->(async ({ kysely, logger }, { thresholdStock }, { trigger }) => {
-  const interval = setInterval(async () => {
-    const items = await kysely
-      .selectFrom('item')
-      .select(['itemId', 'name', 'stock'])
-      .where('stock', '<=', thresholdStock)
-      .where('isActive', '=', 1)
-      .execute()
-
-    for (const item of items) {
-      trigger.invoke({ itemId: item.itemId, name: item.name, stock: item.stock })
-    }
-  }, 60_000)
-
-  logger.info({ event: 'stock_poll_started', thresholdStock })
-
-  return () => clearInterval(interval)
-})
-
-wireTriggerSource({
-  name: 'stock-poll',
-  func: stockPollTrigger,
-  input: { thresholdStock: 5 },
+/**
+ * A scheduled task, not a trigger source spinning its own `setInterval`.
+ *
+ * Noticing that stock has run low is the clock passing rather than an event
+ * anybody emits, so something has to look. The original looked by starting a
+ * timer inside a trigger source, which reimplemented `wireScheduler` badly: it
+ * could not be invoked once, so nothing could test it, an operator had no way
+ * to force a pass, and any call would have leaked an interval.
+ */
+wireScheduler({
+  name: 'sweepLowStock',
+  schedule: '*/5 * * * *',
+  func: sweepLowStock,
 })
 // @snippet end triggerSource

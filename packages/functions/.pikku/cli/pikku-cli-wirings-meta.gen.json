@@ -33,7 +33,7 @@
         "optimized": true,
         "services": []
       },
-      "filePath": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.cli.ts"
+      "filePath": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.cli.ts"
     }
   }
 }

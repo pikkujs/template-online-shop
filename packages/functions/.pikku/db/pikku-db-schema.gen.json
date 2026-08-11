@@ -411,7 +411,7 @@
         {
           "name": "name",
           "type": "TEXT",
-          "nullable": false,
+          "nullable": true,
           "isPrimaryKey": false
         },
         {
@@ -490,11 +490,7 @@
           "name": "user_id",
           "type": "TEXT",
           "nullable": true,
-          "isPrimaryKey": false,
-          "foreignKey": {
-            "table": "app_user",
-            "column": "user_id"
-          }
+          "isPrimaryKey": false
         },
         {
           "name": "session_id",
@@ -838,11 +834,7 @@
           "name": "user_id",
           "type": "TEXT",
           "nullable": false,
-          "isPrimaryKey": false,
-          "foreignKey": {
-            "table": "app_user",
-            "column": "user_id"
-          }
+          "isPrimaryKey": false
         },
         {
           "name": "status",
@@ -859,7 +851,7 @@
         {
           "name": "shipping_address",
           "type": "TEXT",
-          "nullable": false,
+          "nullable": true,
           "isPrimaryKey": false
         },
         {
@@ -947,19 +939,25 @@
           "isPrimaryKey": false
         },
         {
-          "name": "provider",
-          "type": "TEXT",
-          "nullable": false,
-          "isPrimaryKey": false
-        },
-        {
           "name": "status",
           "type": "TEXT",
           "nullable": false,
           "isPrimaryKey": false
         },
         {
+          "name": "provider",
+          "type": "TEXT",
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
           "name": "provider_ref",
+          "type": "TEXT",
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "reason",
           "type": "TEXT",
           "nullable": true,
           "isPrimaryKey": false
@@ -1342,6 +1340,12 @@
             "table": "user",
             "column": "id"
           }
+        },
+        {
+          "name": "impersonated_by",
+          "type": "TEXT",
+          "nullable": true,
+          "isPrimaryKey": false
         }
       ]
     },
@@ -1394,6 +1398,36 @@
         },
         {
           "name": "actor",
+          "type": "INTEGER",
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "role",
+          "type": "TEXT",
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "banned",
+          "type": "INTEGER",
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "ban_reason",
+          "type": "TEXT",
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "ban_expires",
+          "type": "date",
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "fabric",
           "type": "INTEGER",
           "nullable": true,
           "isPrimaryKey": false
@@ -1736,12 +1770,6 @@
           "isPrimaryKey": false
         },
         {
-          "name": "current_attempt",
-          "type": "INTEGER",
-          "nullable": true,
-          "isPrimaryKey": false
-        },
-        {
           "name": "created_at",
           "type": "timestamp",
           "nullable": false,
@@ -1791,12 +1819,6 @@
         {
           "name": "error",
           "type": "TEXT",
-          "nullable": true,
-          "isPrimaryKey": false
-        },
-        {
-          "name": "attempt",
-          "type": "INTEGER",
           "nullable": true,
           "isPrimaryKey": false
         },

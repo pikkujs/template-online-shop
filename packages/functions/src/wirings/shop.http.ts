@@ -1,10 +1,13 @@
 import { defineHTTPRoutes, wireHTTPRoutes, wireHTTP, addHTTPMiddleware } from '#pikku'
+import { startExport } from './shop.queue.js'
+import { conditionalReport } from './shop.cron.js'
 import { listCategories } from '../functions/categories/list-categories.function.js'
 import { createCategory } from '../functions/categories/create-category.function.js'
 import { listItems } from '../functions/items/list-items.function.js'
 import { getItem } from '../functions/items/get-item.function.js'
 import { createItem } from '../functions/items/create-item.function.js'
 import { updateItem } from '../functions/items/update-item.function.js'
+import { getProfile } from '../functions/get-profile.function.js'
 import { getBasket } from '../functions/basket/get-basket.function.js'
 import { addToBasket } from '../functions/basket/add-to-basket.function.js'
 import { removeFromBasket } from '../functions/basket/remove-from-basket.function.js'
@@ -14,6 +17,7 @@ import { listOrders } from '../functions/orders/list-orders.function.js'
 import { cancelOrder } from '../functions/orders/cancel-order.function.js'
 
 // @snippet start shopRoutes
+// @snippet start wireHttp
 export const shopRoutes = defineHTTPRoutes({
   auth: false,
   routes: {
@@ -27,6 +31,9 @@ export const shopRoutes = defineHTTPRoutes({
     createItem: { method: 'post', route: '/items', func: createItem, auth: true },
     updateItem: { method: 'patch', route: '/items/:itemId', func: updateItem, auth: true },
 
+    // Account
+    getProfile: { method: 'get', route: '/profile', func: getProfile, auth: true },
+
     // Basket (sessionless — works for guests too)
     getBasket: { method: 'get', route: '/basket', func: getBasket },
     addToBasket: { method: 'post', route: '/basket/items', func: addToBasket },
@@ -39,6 +46,7 @@ export const shopRoutes = defineHTTPRoutes({
     cancelOrder: { method: 'post', route: '/orders/:orderId/cancel', func: cancelOrder, auth: true },
   },
 })
+// @snippet end wireHttp
 // @snippet end shopRoutes
 
 wireHTTPRoutes({ routes: { shop: shopRoutes } })
@@ -86,3 +94,5 @@ addHTTPMiddleware('/orders', [
 wireHTTP({ method: 'get', route: '/items/:itemId', func: getItem, auth: false })
 // @snippet end funcMultiWire
 
+wireHTTP({ method: 'post', route: '/exports', func: startExport, auth: true })
+wireHTTP({ method: 'post', route: '/reports/conditional', func: conditionalReport, auth: true })

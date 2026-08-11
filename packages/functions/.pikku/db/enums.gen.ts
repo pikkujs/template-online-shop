@@ -3,4 +3,4 @@
 //
 // Bare enum unions from Postgres enums and SQLite CHECK (col IN (…)) constraints.
 
-export {}
+export type OrderStatus = 'pending' | 'paid' | 'payment_failed' | 'shipped' | 'cancelled' | 'refunded'

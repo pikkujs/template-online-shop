@@ -3,8 +3,9 @@
     "/api/auth{/*splat}": {
       "pikkuFuncId": "authHandler",
       "route": "/api/auth{/*splat}",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/auth/auth.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/auth/auth.gen.ts",
       "method": "get",
+      "auth": false,
       "tags": [
         "pikku"
       ],
@@ -13,14 +14,16 @@
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": false
     },
     "/workflow-run/:runId/stream": {
       "pikkuFuncId": "http:get:/workflow-run/:runId/stream",
       "refTarget": "console:streamWorkflowRun",
       "route": "/workflow-run/:runId/stream",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/console/console.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/console/console.gen.ts",
       "method": "get",
+      "auth": false,
       "params": [
         "runId"
       ],
@@ -33,13 +36,37 @@
           "route": "*"
         }
       ],
-      "sse": true
+      "sse": true,
+      "requiresSession": false
+    },
+    "/events/:topic": {
+      "pikkuFuncId": "realtimeEventStream",
+      "route": "/events/:topic",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/realtime/events.gen.ts",
+      "method": "get",
+      "auth": false,
+      "params": [
+        "topic"
+      ],
+      "tags": [
+        "pikku:realtime",
+        "sse"
+      ],
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        }
+      ],
+      "sse": true,
+      "requiresSession": false
     },
     "/workflow/:workflowName/status/:runId": {
       "pikkuFuncId": "workflowStatusChecker",
       "route": "/workflow/:workflowName/status/:runId",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
       "method": "get",
+      "auth": false,
       "params": [
         "workflowName",
         "runId"
@@ -52,13 +79,15 @@
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": false
     },
     "/workflow/:workflowName/status/:runId/stream": {
       "pikkuFuncId": "workflowStatusStream",
       "route": "/workflow/:workflowName/status/:runId/stream",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
       "method": "get",
+      "auth": false,
       "params": [
         "workflowName",
         "runId"
@@ -72,13 +101,15 @@
           "route": "*"
         }
       ],
-      "sse": true
+      "sse": true,
+      "requiresSession": false
     },
     "/workflow/:workflowName/status/:runId/stream/full": {
       "pikkuFuncId": "workflowStatusStreamFull",
       "route": "/workflow/:workflowName/status/:runId/stream/full",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
       "method": "get",
+      "auth": false,
       "params": [
         "workflowName",
         "runId"
@@ -92,42 +123,49 @@
           "route": "*"
         }
       ],
-      "sse": true
+      "sse": true,
+      "requiresSession": false
     },
     "/webhooks/payment": {
       "pikkuFuncId": "gateway__payment-webhook__verify",
       "route": "/webhooks/payment",
-      "method": "get"
+      "method": "get",
+      "requiresSession": false
     },
     "/categories": {
       "pikkuFuncId": "listCategories",
       "route": "/categories",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "get",
+      "auth": false,
       "middleware": [
         {
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": false
     },
     "/items": {
       "pikkuFuncId": "listItems",
       "route": "/items",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "get",
+      "auth": false,
       "middleware": [
         {
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": false
     },
     "/items/:itemId": {
       "pikkuFuncId": "getItem@v3",
       "route": "/items/:itemId",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "get",
+      "auth": false,
       "params": [
         "itemId"
       ],
@@ -136,25 +174,29 @@
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": false
     },
     "/basket": {
       "pikkuFuncId": "getBasket",
       "route": "/basket",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "get",
+      "auth": false,
       "middleware": [
         {
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": false
     },
     "/orders": {
       "pikkuFuncId": "listOrders",
       "route": "/orders",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "get",
+      "auth": true,
       "middleware": [
         {
           "type": "http",
@@ -164,13 +206,15 @@
           "type": "http",
           "route": "/orders"
         }
-      ]
+      ],
+      "requiresSession": true
     },
     "/orders/:orderId": {
       "pikkuFuncId": "getOrder",
       "route": "/orders/:orderId",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "get",
+      "auth": true,
       "params": [
         "orderId"
       ],
@@ -179,15 +223,17 @@
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": true
     }
   },
   "post": {
     "/rpc/agent/:agentName": {
       "pikkuFuncId": "agentCaller",
       "route": "/rpc/agent/:agentName",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/agent/agent.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
       "method": "post",
+      "auth": false,
       "params": [
         "agentName"
       ],
@@ -199,13 +245,15 @@
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": false
     },
     "/rpc/agent/:agentName/stream": {
       "pikkuFuncId": "agentStreamCaller",
       "route": "/rpc/agent/:agentName/stream",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/agent/agent.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
       "method": "post",
+      "auth": false,
       "params": [
         "agentName"
       ],
@@ -218,13 +266,15 @@
           "route": "*"
         }
       ],
-      "sse": true
+      "sse": true,
+      "requiresSession": false
     },
     "/rpc/agent/:agentName/approve": {
       "pikkuFuncId": "agentApproveCaller",
       "route": "/rpc/agent/:agentName/approve",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/agent/agent.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
       "method": "post",
+      "auth": false,
       "params": [
         "agentName"
       ],
@@ -236,13 +286,15 @@
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": false
     },
     "/rpc/agent/:agentName/resume": {
       "pikkuFuncId": "agentResumeCaller",
       "route": "/rpc/agent/:agentName/resume",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/agent/agent.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
       "method": "post",
+      "auth": false,
       "params": [
         "agentName"
       ],
@@ -255,13 +307,15 @@
           "route": "*"
         }
       ],
-      "sse": true
+      "sse": true,
+      "requiresSession": false
     },
     "/api/auth{/*splat}": {
       "pikkuFuncId": "authHandler",
       "route": "/api/auth{/*splat}",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/auth/auth.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/auth/auth.gen.ts",
       "method": "post",
+      "auth": false,
       "tags": [
         "pikku"
       ],
@@ -270,13 +324,15 @@
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": false
     },
     "/rpc/:rpcName": {
       "pikkuFuncId": "rpcCaller",
       "route": "/rpc/:rpcName",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/rpc/rpc-public.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/rpc/rpc-public.gen.ts",
       "method": "post",
+      "auth": true,
       "params": [
         "rpcName"
       ],
@@ -288,13 +344,15 @@
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": true
     },
     "/workflow/:workflowName/start": {
       "pikkuFuncId": "workflowStarter",
       "route": "/workflow/:workflowName/start",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
       "method": "post",
+      "auth": false,
       "params": [
         "workflowName"
       ],
@@ -306,13 +364,15 @@
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": false
     },
     "/workflow/:workflowName/approve/:runId": {
       "pikkuFuncId": "workflowApprover",
       "route": "/workflow/:workflowName/approve/:runId",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
       "method": "post",
+      "auth": false,
       "params": [
         "workflowName",
         "runId"
@@ -325,13 +385,15 @@
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": false
     },
     "/workflow/:workflowName/run": {
       "pikkuFuncId": "workflowRunner",
       "route": "/workflow/:workflowName/run",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
       "method": "post",
+      "auth": false,
       "params": [
         "workflowName"
       ],
@@ -343,13 +405,15 @@
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": false
     },
     "/workflow/:workflowName/graph/:nodeId": {
       "pikkuFuncId": "graphStarter",
       "route": "/workflow/:workflowName/graph/:nodeId",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
       "method": "post",
+      "auth": false,
       "params": [
         "workflowName",
         "nodeId"
@@ -362,90 +426,124 @@
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": false
+    },
+    "/analytics": {
+      "pikkuFuncId": "recordAnalyticsEvents",
+      "route": "/analytics",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wires/http/analytics.http.ts",
+      "method": "post",
+      "auth": false,
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        },
+        {
+          "type": "wire",
+          "name": "analyticsOriginMiddleware",
+          "inline": false
+        }
+      ],
+      "requiresSession": false
     },
     "/checkout": {
       "pikkuFuncId": "startCheckout",
       "route": "/checkout",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/checkout.workflow.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
       "method": "post",
+      "auth": true,
       "middleware": [
         {
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": true
     },
     "/agents/shop": {
       "pikkuFuncId": "http:post:/agents/shop",
       "route": "/agents/shop",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.bot.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.bot.ts",
       "method": "post",
+      "auth": true,
       "middleware": [
         {
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": true
     },
     "/agents/shop/stream": {
       "pikkuFuncId": "http:post:/agents/shop/stream",
       "route": "/agents/shop/stream",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.bot.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.bot.ts",
       "method": "post",
+      "auth": true,
       "middleware": [
         {
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": true
     },
     "/webhooks/payment": {
       "pikkuFuncId": "gateway__payment-webhook__post",
       "route": "/webhooks/payment",
-      "method": "post"
+      "method": "post",
+      "requiresSession": false
     },
     "/categories": {
       "pikkuFuncId": "createCategory",
       "route": "/categories",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "post",
+      "auth": true,
       "middleware": [
         {
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": true
     },
     "/items": {
       "pikkuFuncId": "createItem",
       "route": "/items",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "post",
+      "auth": true,
       "middleware": [
         {
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": true
     },
     "/basket/items": {
       "pikkuFuncId": "addToBasket",
       "route": "/basket/items",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "post",
+      "auth": false,
       "middleware": [
         {
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": false
     },
     "/orders": {
       "pikkuFuncId": "createOrder",
       "route": "/orders",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "post",
+      "auth": true,
       "middleware": [
         {
           "type": "http",
@@ -455,13 +553,15 @@
           "type": "http",
           "route": "/orders"
         }
-      ]
+      ],
+      "requiresSession": true
     },
     "/orders/:orderId/cancel": {
       "pikkuFuncId": "cancelOrder",
       "route": "/orders/:orderId/cancel",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "post",
+      "auth": true,
       "params": [
         "orderId"
       ],
@@ -470,7 +570,8 @@
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": true
     }
   },
   "put": {},
@@ -478,8 +579,9 @@
     "/basket/items/:itemId": {
       "pikkuFuncId": "removeFromBasket",
       "route": "/basket/items/:itemId",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "delete",
+      "auth": false,
       "params": [
         "itemId"
       ],
@@ -488,13 +590,15 @@
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": false
     },
     "/orders/:orderId": {
       "pikkuFuncId": "deleteOrder",
       "route": "/orders/:orderId",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.security.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.security.ts",
       "method": "delete",
+      "auth": true,
       "params": [
         "orderId"
       ],
@@ -503,7 +607,8 @@
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": true
     }
   },
   "head": {},
@@ -511,8 +616,9 @@
     "/items/:itemId": {
       "pikkuFuncId": "updateItem",
       "route": "/items/:itemId",
-      "sourceFile": "/private/tmp/claude-501/-Users-yasser-git-pikku/826f30f1-670b-4be2-be0c-b0ea1529b795/scratchpad/tpl/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "patch",
+      "auth": true,
       "params": [
         "itemId"
       ],
@@ -521,7 +627,8 @@
           "type": "http",
           "route": "*"
         }
-      ]
+      ],
+      "requiresSession": true
     }
   },
   "options": {}
