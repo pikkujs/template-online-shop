@@ -30,7 +30,10 @@ export type RunnablePersonaId =
   | 'visitor'
 
 /** Every environment configured in pikku.config.json. */
-export type EnvironmentName = never
+export type EnvironmentName =
+  | 'coverage'
+  | 'local'
+  | 'sandbox'
 
 /**
  * A persona whose roles are checked against `defineSystemRole` and whose

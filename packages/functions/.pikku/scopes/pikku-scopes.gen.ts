@@ -40,6 +40,10 @@ export type ScopeId =
   | 'orders:create'
   | 'orders:read'
   | 'orders:refund'
+  | 'payments'
+  | 'payments:*'
+  | 'payments:charge'
+  | 'payments:manage'
   | 'pikku'
   | 'pikku:*'
   | 'pikku:audit'
@@ -79,6 +83,7 @@ const DISPLAY_NAMES: Record<string, string> = {
   'admin': 'Administration',
   'catalogue': 'Catalogue',
   'orders': 'Orders',
+  'payments': 'Payments',
   'pikku': 'Pikku Console',
   'reports': 'Reports',
 }

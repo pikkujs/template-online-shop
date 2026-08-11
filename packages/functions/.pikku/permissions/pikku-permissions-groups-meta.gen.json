@@ -13,7 +13,7 @@
           "session"
         ]
       },
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
+      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
       "position": 622,
       "exportedName": "isThreadOwner"
     },
@@ -22,8 +22,8 @@
         "optimized": true,
         "services": []
       },
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.security.ts",
-      "position": 143,
+      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.security.ts",
+      "position": 122,
       "exportedName": "isAuthenticated",
       "requiresData": false
     },
@@ -40,8 +40,8 @@
           "session"
         ]
       },
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.security.ts",
-      "position": 335,
+      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.security.ts",
+      "position": 314,
       "exportedName": "isOrderOwner"
     }
   }

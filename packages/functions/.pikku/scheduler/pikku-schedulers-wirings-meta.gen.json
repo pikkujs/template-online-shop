@@ -20,5 +20,10 @@
     "pikkuFuncId": "conditionalReport",
     "name": "conditionalReport",
     "schedule": "0 7 * * *"
+  },
+  "sweepLowStock": {
+    "pikkuFuncId": "sweepLowStock",
+    "name": "sweepLowStock",
+    "schedule": "*/5 * * * *"
   }
 }

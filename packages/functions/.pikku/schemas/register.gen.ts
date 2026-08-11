@@ -31,6 +31,14 @@ import * as AgentStreamCallerInput from './schemas/AgentStreamCallerInput.schema
 addSchema('AgentStreamCallerInput', AgentStreamCallerInput)
 
 
+import * as ApplyStripeEventInput from './schemas/ApplyStripeEventInput.schema.json' with { type: 'json' }
+addSchema('ApplyStripeEventInput', ApplyStripeEventInput)
+
+
+import * as ApplyStripeEventOutput from './schemas/ApplyStripeEventOutput.schema.json' with { type: 'json' }
+addSchema('ApplyStripeEventOutput', ApplyStripeEventOutput)
+
+
 import * as AuthHandlerOutput from './schemas/AuthHandlerOutput.schema.json' with { type: 'json' }
 addSchema('AuthHandlerOutput', AuthHandlerOutput)
 
@@ -101,14 +109,6 @@ addSchema('CreateOrderRecordInput', CreateOrderRecordInput)
 
 import * as CreateOrderRecordOutput from './schemas/CreateOrderRecordOutput.schema.json' with { type: 'json' }
 addSchema('CreateOrderRecordOutput', CreateOrderRecordOutput)
-
-
-import * as CreateOrderWithValidationInput from './schemas/CreateOrderWithValidationInput.schema.json' with { type: 'json' }
-addSchema('CreateOrderWithValidationInput', CreateOrderWithValidationInput)
-
-
-import * as CreateOrderWithValidationOutput from './schemas/CreateOrderWithValidationOutput.schema.json' with { type: 'json' }
-addSchema('CreateOrderWithValidationOutput', CreateOrderWithValidationOutput)
 
 
 import * as CredentialSchema_shipping_provider from './schemas/CredentialSchema_shipping-provider.schema.json' with { type: 'json' }
@@ -211,14 +211,6 @@ import * as GetOrderOutput from './schemas/GetOrderOutput.schema.json' with { ty
 addSchema('GetOrderOutput', GetOrderOutput)
 
 
-import * as GetOrderThreeParamsInput from './schemas/GetOrderThreeParamsInput.schema.json' with { type: 'json' }
-addSchema('GetOrderThreeParamsInput', GetOrderThreeParamsInput)
-
-
-import * as GetOrderThreeParamsOutput from './schemas/GetOrderThreeParamsOutput.schema.json' with { type: 'json' }
-addSchema('GetOrderThreeParamsOutput', GetOrderThreeParamsOutput)
-
-
 import * as GetProfileOutput from './schemas/GetProfileOutput.schema.json' with { type: 'json' }
 addSchema('GetProfileOutput', GetProfileOutput)
 
@@ -239,12 +231,20 @@ import * as GraphStarterOutput from './schemas/GraphStarterOutput.schema.json' w
 addSchema('GraphStarterOutput', GraphStarterOutput)
 
 
-import * as HandlePaymentWebhookInput from './schemas/HandlePaymentWebhookInput.schema.json' with { type: 'json' }
-addSchema('HandlePaymentWebhookInput', HandlePaymentWebhookInput)
+import * as HandleChatMessageInput from './schemas/HandleChatMessageInput.schema.json' with { type: 'json' }
+addSchema('HandleChatMessageInput', HandleChatMessageInput)
 
 
-import * as HandlePaymentWebhookOutput from './schemas/HandlePaymentWebhookOutput.schema.json' with { type: 'json' }
-addSchema('HandlePaymentWebhookOutput', HandlePaymentWebhookOutput)
+import * as HandleChatMessageOutput from './schemas/HandleChatMessageOutput.schema.json' with { type: 'json' }
+addSchema('HandleChatMessageOutput', HandleChatMessageOutput)
+
+
+import * as HttpPostAgentsCheckoutOutput from './schemas/HttpPostAgentsCheckoutOutput.schema.json' with { type: 'json' }
+addSchema('HttpPostAgentsCheckoutOutput', HttpPostAgentsCheckoutOutput)
+
+
+import * as HttpPostAgentsOpsOutput from './schemas/HttpPostAgentsOpsOutput.schema.json' with { type: 'json' }
+addSchema('HttpPostAgentsOpsOutput', HttpPostAgentsOpsOutput)
 
 
 import * as HttpPostAgentsShopOutput from './schemas/HttpPostAgentsShopOutput.schema.json' with { type: 'json' }
@@ -253,6 +253,10 @@ addSchema('HttpPostAgentsShopOutput', HttpPostAgentsShopOutput)
 
 import * as HttpPostAgentsShopStreamInput from './schemas/HttpPostAgentsShopStreamInput.schema.json' with { type: 'json' }
 addSchema('HttpPostAgentsShopStreamInput', HttpPostAgentsShopStreamInput)
+
+
+import * as HttpPostWebhooksStripeOutput from './schemas/HttpPostWebhooksStripeOutput.schema.json' with { type: 'json' }
+addSchema('HttpPostWebhooksStripeOutput', HttpPostWebhooksStripeOutput)
 
 
 import * as IssueRefundInput from './schemas/IssueRefundInput.schema.json' with { type: 'json' }
@@ -343,24 +347,8 @@ import * as PikkuConsoleSetVariableOutput from './schemas/PikkuConsoleSetVariabl
 addSchema('PikkuConsoleSetVariableOutput', PikkuConsoleSetVariableOutput)
 
 
-import * as PlaceOrderInput from './schemas/PlaceOrderInput.schema.json' with { type: 'json' }
-addSchema('PlaceOrderInput', PlaceOrderInput)
-
-
-import * as PlaceOrderOutput from './schemas/PlaceOrderOutput.schema.json' with { type: 'json' }
-addSchema('PlaceOrderOutput', PlaceOrderOutput)
-
-
 import * as ProcessExportInput from './schemas/ProcessExportInput.schema.json' with { type: 'json' }
 addSchema('ProcessExportInput', ProcessExportInput)
-
-
-import * as ProcessPaymentInput from './schemas/ProcessPaymentInput.schema.json' with { type: 'json' }
-addSchema('ProcessPaymentInput', ProcessPaymentInput)
-
-
-import * as ProcessPaymentOutput from './schemas/ProcessPaymentOutput.schema.json' with { type: 'json' }
-addSchema('ProcessPaymentOutput', ProcessPaymentOutput)
 
 
 import * as RealtimeEventStreamInput from './schemas/RealtimeEventStreamInput.schema.json' with { type: 'json' }
@@ -423,16 +411,24 @@ import * as StartCheckoutOutput from './schemas/StartCheckoutOutput.schema.json'
 addSchema('StartCheckoutOutput', StartCheckoutOutput)
 
 
-import * as StockPollTriggerInput from './schemas/StockPollTriggerInput.schema.json' with { type: 'json' }
-addSchema('StockPollTriggerInput', StockPollTriggerInput)
+import * as StartExportOutput from './schemas/StartExportOutput.schema.json' with { type: 'json' }
+addSchema('StartExportOutput', StartExportOutput)
 
 
-import * as StockPollTriggerOutput from './schemas/StockPollTriggerOutput.schema.json' with { type: 'json' }
-addSchema('StockPollTriggerOutput', StockPollTriggerOutput)
+import * as StartRefundInput from './schemas/StartRefundInput.schema.json' with { type: 'json' }
+addSchema('StartRefundInput', StartRefundInput)
+
+
+import * as StartRefundOutput from './schemas/StartRefundOutput.schema.json' with { type: 'json' }
+addSchema('StartRefundOutput', StartRefundOutput)
 
 
 import * as StreamWorkflowRunInput from './schemas/StreamWorkflowRunInput.schema.json' with { type: 'json' }
 addSchema('StreamWorkflowRunInput', StreamWorkflowRunInput)
+
+
+import * as StripeWebhookHandlerInput from './schemas/StripeWebhookHandlerInput.schema.json' with { type: 'json' }
+addSchema('StripeWebhookHandlerInput', StripeWebhookHandlerInput)
 
 
 import * as SubscribeToOrderInput from './schemas/SubscribeToOrderInput.schema.json' with { type: 'json' }

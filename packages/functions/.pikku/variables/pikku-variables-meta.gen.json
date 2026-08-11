@@ -5,7 +5,7 @@
     "description": "Comma-separated list of origins allowed to call this API from a browser, e.g. \"https://app.example.com\". Also the allowlist the analytics ingest enforces server-side. Unset falls back to FRONTEND_URL plus localhost.",
     "variableId": "CORS_ORIGINS",
     "schema": "VariableSchema_corsOrigins",
-    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/lib/cors-origins.ts"
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/lib/cors-origins.ts"
   },
   "frontendUrl": {
     "name": "frontendUrl",
@@ -13,7 +13,7 @@
     "description": "This app's own web origin. Used as the single-entry CORS allowlist when CORS_ORIGINS is not set.",
     "variableId": "FRONTEND_URL",
     "schema": "VariableSchema_frontendUrl",
-    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/lib/cors-origins.ts"
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/lib/cors-origins.ts"
   },
   "databaseUrl": {
     "name": "databaseUrl",
@@ -21,7 +21,7 @@
     "description": "Primary database connection string (Postgres or libsql URL)",
     "variableId": "DATABASE_URL",
     "schema": "VariableSchema_databaseUrl",
-    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.variable.ts"
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.variable.ts"
   },
   "lowStockThreshold": {
     "name": "lowStockThreshold",
@@ -29,7 +29,7 @@
     "description": "Item stock level that triggers a low-stock alert",
     "variableId": "LOW_STOCK_THRESHOLD",
     "schema": "VariableSchema_lowStockThreshold",
-    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.variable.ts"
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.variable.ts"
   },
   "scenarioActorSecret": {
     "name": "scenarioActorSecret",
@@ -37,7 +37,7 @@
     "description": "Impersonation secret for `pikku scenario run` actors. Leave unset to disable actor sign-in",
     "variableId": "SCENARIO_ACTOR_SECRET",
     "schema": "VariableSchema_scenarioActorSecret",
-    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.variable.ts"
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.variable.ts"
   },
   "betterAuthUrl": {
     "name": "betterAuthUrl",
@@ -45,6 +45,6 @@
     "description": "Public origin the API is served from, used for auth callbacks and redirects",
     "variableId": "BETTER_AUTH_URL",
     "schema": "VariableSchema_betterAuthUrl",
-    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.variable.ts"
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.variable.ts"
   }
 }

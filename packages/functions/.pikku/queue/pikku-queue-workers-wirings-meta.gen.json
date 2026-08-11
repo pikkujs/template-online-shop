@@ -1,4 +1,8 @@
 {
+  "stripe-webhook-event": {
+    "pikkuFuncId": "applyStripeEvent",
+    "name": "stripe-webhook-event"
+  },
   "send-order-confirmation": {
     "pikkuFuncId": "sendOrderConfirmation",
     "name": "send-order-confirmation"

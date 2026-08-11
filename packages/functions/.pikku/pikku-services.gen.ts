@@ -16,25 +16,24 @@ export const requiredSingletonServices = {
   'auth': true,
   'config': true,
   'content': false,
-  'coverageService': false,
-  'credentialService': false,
-  'deploymentService': false,
+  'coverageService': true,
+  'credentialService': true,
+  'deploymentService': true,
   'emailService': true,
   'eventHub': true,
   'jwt': false,
   'kysely': true,
   'logger': true,
-  'metaService': false,
-  'paymentService': true,
+  'metaService': true,
   'queueService': true,
   'schedulerService': true,
   'schema': true,
-  'scopeService': false,
+  'scopeService': true,
   'secrets': true,
   'sessionStore': false,
   'variables': true,
   'virtualUserRunStore': false,
-  'webhookService': false,
+  'webhookService': true,
   'workflowRunService': true,
   'workflowService': true,
 } as const
@@ -44,6 +43,6 @@ export const requiredWireServices = {
 } as const
 
 // Type exports
-export type RequiredSingletonServices = Required<Pick<SingletonServices, 'agentRunService' | 'aiAgentRunner' | 'aiRunState' | 'aiStorage' | 'audit' | 'auth' | 'config' | 'emailService' | 'eventHub' | 'kysely' | 'logger' | 'paymentService' | 'queueService' | 'schedulerService' | 'schema' | 'secrets' | 'variables' | 'workflowRunService' | 'workflowService'>> & Partial<Omit<SingletonServices, 'agentRunService' | 'aiAgentRunner' | 'aiRunState' | 'aiStorage' | 'audit' | 'auth' | 'config' | 'emailService' | 'eventHub' | 'kysely' | 'logger' | 'paymentService' | 'queueService' | 'schedulerService' | 'schema' | 'secrets' | 'variables' | 'workflowRunService' | 'workflowService'>>
+export type RequiredSingletonServices = Required<Pick<SingletonServices, 'agentRunService' | 'aiAgentRunner' | 'aiRunState' | 'aiStorage' | 'audit' | 'auth' | 'config' | 'coverageService' | 'credentialService' | 'deploymentService' | 'emailService' | 'eventHub' | 'kysely' | 'logger' | 'metaService' | 'queueService' | 'schedulerService' | 'schema' | 'scopeService' | 'secrets' | 'variables' | 'webhookService' | 'workflowRunService' | 'workflowService'>> & Partial<Omit<SingletonServices, 'agentRunService' | 'aiAgentRunner' | 'aiRunState' | 'aiStorage' | 'audit' | 'auth' | 'config' | 'coverageService' | 'credentialService' | 'deploymentService' | 'emailService' | 'eventHub' | 'kysely' | 'logger' | 'metaService' | 'queueService' | 'schedulerService' | 'schema' | 'scopeService' | 'secrets' | 'variables' | 'webhookService' | 'workflowRunService' | 'workflowService'>>
 
 export type RequiredWireServices = Partial<Services>

@@ -13,13 +13,29 @@
     }
   },
   "secrets": {
+    "secret_key": {
+      "name": "secret_key",
+      "displayName": "Stripe Secret Key",
+      "description": "Stripe API secret key",
+      "secretId": "STRIPE_SECRET_KEY",
+      "schema": "SecretSchema_secret_key",
+      "sourceFile": "/home/runner/work/addons/addons/packages/payments/stripe/src/stripe.secret.ts"
+    },
+    "webhook_secret": {
+      "name": "webhook_secret",
+      "displayName": "Stripe Webhook Signing Secret",
+      "description": "Signing secret used to verify inbound Stripe webhook signatures",
+      "secretId": "STRIPE_WEBHOOK_SECRET",
+      "schema": "SecretSchema_webhook_secret",
+      "sourceFile": "/home/runner/work/addons/addons/packages/payments/stripe/src/stripe.secret.ts"
+    },
     "scenarioActorSecret": {
       "name": "scenarioActorSecret",
       "displayName": "Scenario Actor Secret",
       "description": "Signing secret that lets scenarios and virtual users sign in as a declared persona",
       "secretId": "SCENARIO_ACTOR_SECRET",
       "schema": "SecretSchema_scenarioActorSecret",
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/.pikku/scopes/pikku-personas-secrets.gen.ts"
+      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/.pikku/scopes/pikku-personas-secrets.gen.ts"
     },
     "betterAuthSecret": {
       "name": "betterAuthSecret",
@@ -27,7 +43,7 @@
       "description": "Signing secret for better-auth sessions",
       "secretId": "BETTER_AUTH_SECRET",
       "schema": "SecretSchema_betterAuthSecret",
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/auth/auth-secrets.gen.ts"
+      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/auth/auth-secrets.gen.ts"
     },
     "stripeSecretKey": {
       "name": "stripeSecretKey",
@@ -35,7 +51,7 @@
       "description": "Stripe secret key (optional — only needed for real payments)",
       "secretId": "STRIPE_SECRET_KEY",
       "schema": "SecretSchema_stripeSecretKey",
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.secret.ts"
+      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.secret.ts"
     }
   },
   "package": {},
@@ -55,6 +71,8 @@
     "scopeService",
     "webhookService",
     "audit",
-    "auth"
+    "auth",
+    "secrets",
+    "variables"
   ]
 }

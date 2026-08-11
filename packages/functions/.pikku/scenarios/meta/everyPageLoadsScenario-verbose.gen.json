@@ -27,7 +27,7 @@
       "next": "step_2",
       "actor": "visitor",
       "input": {
-        "repoRoot": "."
+        "repoRoot": "../.."
       },
       "outputVar": "swept",
       "stepHash": "e5f9c60e8679"
@@ -47,5 +47,5 @@
   "entryNodeIds": [
     "step_0"
   ],
-  "graphHash": "0862406adb97"
+  "graphHash": "b2b9adc34290"
 }

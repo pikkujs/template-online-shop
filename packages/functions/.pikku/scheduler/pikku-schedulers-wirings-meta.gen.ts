@@ -7,4 +7,4 @@ import metaData from './pikku-schedulers-wirings-meta.gen.json' with { type: 'js
 
 pikkuState(null, 'scheduler', 'meta', metaData as ScheduledTasksMeta)
 
-export type ScheduledTaskNames = 'dailySalesReport' | 'cleanupAbandonedBaskets' | 'conditionalReport'
+export type ScheduledTaskNames = 'dailySalesReport' | 'cleanupAbandonedBaskets' | 'conditionalReport' | 'sweepLowStock'

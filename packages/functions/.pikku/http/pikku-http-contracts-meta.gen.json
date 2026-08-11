@@ -144,6 +144,17 @@
           "pikkuFuncId": "updateItem"
         }
       },
+      "getProfile": {
+        "auth": true,
+        "contentType": null,
+        "method": "get",
+        "route": "/profile",
+        "sse": null,
+        "timeout": null,
+        "func": {
+          "pikkuFuncId": "getProfile"
+        }
+      },
       "getBasket": {
         "auth": null,
         "contentType": null,

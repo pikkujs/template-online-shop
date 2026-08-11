@@ -1,5 +1,5 @@
 {
-  "src": "/root/pikku-templates/online-shop/emails",
+  "src": "/Users/yasser/git/pikku/website/.template-online-shop/emails",
   "themeHash": "2f05b4c018a552f96e8b4fc6162e77e4e875415b6fdc452f916db2b854d169c1",
   "templates": {
     "confirm-email": {

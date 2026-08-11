@@ -3,18 +3,30 @@
  */
 import { addWorkflow, addFeature } from '@pikku/core/workflow'
 import './pikku-scenario-wirings-meta.gen.js'
+import { capturesEveryPageScenario } from '../../test/scenarios/screenshots.scenario.js'
+import { everyFunctionRuns } from '../../test/scenarios/coverage.scenario.js'
 import { everyPageLoadsScenario } from '../../test/scenarios/pages.scenario.js'
 import { sessionHealthScenario } from '../../src/functions/session-health.scenario.js'
 import { shopperAsksTheAssistant } from '../../src/wirings/shop.scenario.js'
 import { shopperBuysAnItem } from '../../src/wirings/shop.scenario.js'
+import { shopperBuysAnItemInTheBrowser } from '../../test/scenarios/journey.scenario.js'
 import { signedInActorReachesTheAppScenario } from '../../test/scenarios/auth.scenario.js'
 import { authFeature } from '../../test/scenarios/auth.scenario.js'
+import { coverageFeature } from '../../test/scenarios/coverage.scenario.js'
+import { journeyFeature } from '../../test/scenarios/journey.scenario.js'
 import { pagesFeature } from '../../test/scenarios/pages.scenario.js'
+import { screenshotsFeature } from '../../test/scenarios/screenshots.scenario.js'
 
+addWorkflow('capturesEveryPageScenario', capturesEveryPageScenario)
+addWorkflow('everyFunctionRuns', everyFunctionRuns)
 addWorkflow('everyPageLoadsScenario', everyPageLoadsScenario)
 addWorkflow('sessionHealthScenario', sessionHealthScenario)
 addWorkflow('shopperAsksTheAssistant', shopperAsksTheAssistant)
 addWorkflow('shopperBuysAnItem', shopperBuysAnItem)
+addWorkflow('shopperBuysAnItemInTheBrowser', shopperBuysAnItemInTheBrowser)
 addWorkflow('signedInActorReachesTheAppScenario', signedInActorReachesTheAppScenario)
 addFeature('authFeature', authFeature)
+addFeature('coverageFeature', coverageFeature)
+addFeature('journeyFeature', journeyFeature)
 addFeature('pagesFeature', pagesFeature)
+addFeature('screenshotsFeature', screenshotsFeature)

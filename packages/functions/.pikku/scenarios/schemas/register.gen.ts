@@ -3,6 +3,54 @@
  */
 import { addSchema } from '@pikku/core/schema'
 
+import * as CallsMcpToolInput from './schemas/CallsMcpToolInput.schema.json' with { type: 'json' }
+addSchema('CallsMcpToolInput', CallsMcpToolInput)
+
+
+import * as CallsMcpToolOutput from './schemas/CallsMcpToolOutput.schema.json' with { type: 'json' }
+addSchema('CallsMcpToolOutput', CallsMcpToolOutput)
+
+
+import * as CapturesEveryPageScenarioOutput from './schemas/CapturesEveryPageScenarioOutput.schema.json' with { type: 'json' }
+addSchema('CapturesEveryPageScenarioOutput', CapturesEveryPageScenarioOutput)
+
+
+import * as CapturesPageInput from './schemas/CapturesPageInput.schema.json' with { type: 'json' }
+addSchema('CapturesPageInput', CapturesPageInput)
+
+
+import * as CapturesPageOutput from './schemas/CapturesPageOutput.schema.json' with { type: 'json' }
+addSchema('CapturesPageOutput', CapturesPageOutput)
+
+
+import * as ClicksInput from './schemas/ClicksInput.schema.json' with { type: 'json' }
+addSchema('ClicksInput', ClicksInput)
+
+
+import * as ClicksNearInput from './schemas/ClicksNearInput.schema.json' with { type: 'json' }
+addSchema('ClicksNearInput', ClicksNearInput)
+
+
+import * as ClicksNearOutput from './schemas/ClicksNearOutput.schema.json' with { type: 'json' }
+addSchema('ClicksNearOutput', ClicksNearOutput)
+
+
+import * as ClicksOutput from './schemas/ClicksOutput.schema.json' with { type: 'json' }
+addSchema('ClicksOutput', ClicksOutput)
+
+
+import * as DoesNotSeeTextInput from './schemas/DoesNotSeeTextInput.schema.json' with { type: 'json' }
+addSchema('DoesNotSeeTextInput', DoesNotSeeTextInput)
+
+
+import * as DoesNotSeeTextOutput from './schemas/DoesNotSeeTextOutput.schema.json' with { type: 'json' }
+addSchema('DoesNotSeeTextOutput', DoesNotSeeTextOutput)
+
+
+import * as EveryFunctionRunsOutput from './schemas/EveryFunctionRunsOutput.schema.json' with { type: 'json' }
+addSchema('EveryFunctionRunsOutput', EveryFunctionRunsOutput)
+
+
 import * as EveryPageLoadsScenarioOutput from './schemas/EveryPageLoadsScenarioOutput.schema.json' with { type: 'json' }
 addSchema('EveryPageLoadsScenarioOutput', EveryPageLoadsScenarioOutput)
 
@@ -13,6 +61,14 @@ addSchema('OpensPageInput', OpensPageInput)
 
 import * as OpensPageOutput from './schemas/OpensPageOutput.schema.json' with { type: 'json' }
 addSchema('OpensPageOutput', OpensPageOutput)
+
+
+import * as PostsToInput from './schemas/PostsToInput.schema.json' with { type: 'json' }
+addSchema('PostsToInput', PostsToInput)
+
+
+import * as PostsToOutput from './schemas/PostsToOutput.schema.json' with { type: 'json' }
+addSchema('PostsToOutput', PostsToOutput)
 
 
 import * as RestsOnPathInput from './schemas/RestsOnPathInput.schema.json' with { type: 'json' }
@@ -39,6 +95,10 @@ import * as ShopperAsksTheAssistantOutput from './schemas/ShopperAsksTheAssistan
 addSchema('ShopperAsksTheAssistantOutput', ShopperAsksTheAssistantOutput)
 
 
+import * as ShopperBuysAnItemInTheBrowserOutput from './schemas/ShopperBuysAnItemInTheBrowserOutput.schema.json' with { type: 'json' }
+addSchema('ShopperBuysAnItemInTheBrowserOutput', ShopperBuysAnItemInTheBrowserOutput)
+
+
 import * as ShopperBuysAnItemOutput from './schemas/ShopperBuysAnItemOutput.schema.json' with { type: 'json' }
 addSchema('ShopperBuysAnItemOutput', ShopperBuysAnItemOutput)
 
@@ -47,9 +107,25 @@ import * as SignedInActorReachesTheAppScenarioOutput from './schemas/SignedInAct
 addSchema('SignedInActorReachesTheAppScenarioOutput', SignedInActorReachesTheAppScenarioOutput)
 
 
+import * as SubscribesToChannelInput from './schemas/SubscribesToChannelInput.schema.json' with { type: 'json' }
+addSchema('SubscribesToChannelInput', SubscribesToChannelInput)
+
+
+import * as SubscribesToChannelOutput from './schemas/SubscribesToChannelOutput.schema.json' with { type: 'json' }
+addSchema('SubscribesToChannelOutput', SubscribesToChannelOutput)
+
+
 import * as SweepsAllPagesInput from './schemas/SweepsAllPagesInput.schema.json' with { type: 'json' }
 addSchema('SweepsAllPagesInput', SweepsAllPagesInput)
 
 
 import * as SweepsAllPagesOutput from './schemas/SweepsAllPagesOutput.schema.json' with { type: 'json' }
 addSchema('SweepsAllPagesOutput', SweepsAllPagesOutput)
+
+
+import * as TypesIntoInput from './schemas/TypesIntoInput.schema.json' with { type: 'json' }
+addSchema('TypesIntoInput', TypesIntoInput)
+
+
+import * as TypesIntoOutput from './schemas/TypesIntoOutput.schema.json' with { type: 'json' }
+addSchema('TypesIntoOutput', TypesIntoOutput)

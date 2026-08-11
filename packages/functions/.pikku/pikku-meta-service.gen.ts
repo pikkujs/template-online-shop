@@ -5,6 +5,6 @@ import { LocalMetaService } from '@pikku/core/services/local-meta'
 
 export class PikkuMetaService extends LocalMetaService {
   constructor() {
-    super('/root/pikku-templates/online-shop/packages/functions/.pikku')
+    super('/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/.pikku')
   }
 }

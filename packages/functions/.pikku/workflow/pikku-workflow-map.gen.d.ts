@@ -7,6 +7,7 @@
 
 import type { ShippingAddress } from '../../src/wirings/checkout.workflow.js'
 import type { AIMessage, AgentRunRow, AIThread } from '.bun/@pikku+core@0.12.79/node_modules/@pikku/core/dist/wirings/ai-agent/ai-agent.types'
+import type { StreamWorkflowRunInput } from '.bun/@pikku+addon-console@0.12.38+772ba8e58e84dbc2/node_modules/@pikku/addon-console/dist/.pikku/rpc/pikku-rpc-wirings-map.internal.gen'
 
 export type AddToBasketInput = {
     basketId: string;
@@ -60,18 +61,61 @@ export type AgentStreamCallerInput = {
     temperature?: number | undefined;
     context?: string | undefined;
 }
+export type ApplyStripeEventInput = { type: string; data: { object: Record<string, any>; }; }
+export type ApplyStripeEventOutput = { applied: boolean; }
 export type AuthHandlerOutput = Promise<void> | Promise<any>
+export type CallsMcpToolInput = {
+    tool: string;
+    args: string;
+}
+export type CallsMcpToolOutput = {
+    text: string;
+    advertised: string[];
+}
 export type CancelOrderInput = {
     orderId: string;
 }
+export type CapturesEveryPageScenarioOutput = { files: string[]; clean: boolean; }
+export type CapturesPageInput = {
+    path: string;
+    name: string;
+    outDir: string;
+    width: number;
+    height: number;
+    scheme: "light" | "dark";
+}
+export type CapturesPageOutput = {
+    file: string;
+    pathname: string;
+    status: number | null;
+    consoleErrors: string[];
+    pageErrors: string[];
+    failedRequests: string[];
+    apiErrors: string[];
+}
 export type ChargeCardInput = { orderId: string; totalCents: number; cardToken?: string | undefined; }
-export type ChargeCardOutput = { status: "succeeded"; providerRef: string; } | { status: "failed"; reason: string; }
+export type ChargeCardOutput = { status: "succeeded"; providerRef: any; reason?: undefined; } | { status: "failed"; reason: any; providerRef?: undefined; }
 export type CheckItemAvailabilityInput = { itemId: string; }
 export type CheckItemAvailabilityOutput = { available: boolean; stock: number; name: string; }
 export type CheckOrderRefundableInput = { orderId: string; }
 export type CheckOrderRefundableOutput = { eligible: boolean; totalCents: number | number; }
 export type CheckoutWorkflowInput = { basketId: string; userId: string; shippingAddress: ShippingAddress; cardToken?: string | undefined; }
 export type CheckoutWorkflowOutput = { orderId: string; status: "paid" | "payment_failed"; totalCents: number; }
+export type ClicksInput = {
+    name: string;
+}
+export type ClicksNearInput = {
+    near: string;
+    name: string;
+}
+export type ClicksNearOutput = {
+    near: string;
+    name: string;
+}
+export type ClicksOutput = {
+    name: string;
+    pathname: string;
+}
 export type CreateCategoryInput = {
     name: string;
     slug: string;
@@ -116,8 +160,6 @@ export type CreateOrderOutput = {
 }
 export type CreateOrderRecordInput = { userId: string; totalCents: number; shippingAddress: ShippingAddress; items: { itemId: string; quantity: number; priceCents: number; }[]; }
 export type CreateOrderRecordOutput = { orderId: any; }
-export type CreateOrderWithValidationInput = { sessionId: string; }
-export type CreateOrderWithValidationOutput = { valid: boolean; itemCount: number; sessionId: string; }
 export type CredentialSchema_shipping_provider = {
     accessToken: string;
     refreshToken?: string | undefined;
@@ -130,6 +172,13 @@ export type DeleteAgentThreadOutput = {
     deleted: boolean;
 }
 export type DeleteOrderInput = { orderId: string; }
+export type DoesNotSeeTextInput = {
+    text: string;
+}
+export type DoesNotSeeTextOutput = {
+    text: string;
+}
+export type EveryFunctionRunsOutput = { checked: number; }
 export type EveryPageLoadsScenarioOutput = { routes: string[]; }
 export type FinalizeOrderInput = { orderId: string; basketId: string; userId: string; status: "paid" | "payment_failed"; }
 export type GetAgentThreadMessagesInput = {
@@ -238,9 +287,7 @@ export type GetOrderOutput = {
     }[];
     createdAt: string;
 }
-export type GetOrderThreeParamsInput = { orderId: any; }
-export type GetOrderThreeParamsOutput = { order: { userId: string; orderId: string; status: "paid" | "payment_failed" | "refunded" | "pending" | "shipped" | "cancelled"; totalCents: number; shippingAddress: string | null; createdAt: string; updatedAt: string; }; viewer: string; }
-export type GetProfileOutput = { name: string | null; email: string; userId: string; role: string; }
+export type GetProfileOutput = { name: string; email: string; id: string; role: string | null; }
 export type GetSessionInput = {}
 export type GetSessionOutput = {
     userId: string;
@@ -255,10 +302,13 @@ export type GraphStarterInput = {
 export type GraphStarterOutput = {
     runId: string;
 }
-export type HandlePaymentWebhookInput = { text: string; raw: unknown; }
-export type HandlePaymentWebhookOutput = { received: boolean; }
+export type HandleChatMessageInput = { text: string; raw: unknown; }
+export type HandleChatMessageOutput = { received: boolean; }
+export type HttpPostAgentsCheckoutOutput = { runId: string; result: string; usage: { inputTokens: number; outputTokens: number; }; }
+export type HttpPostAgentsOpsOutput = { runId: string; result: string; usage: { inputTokens: number; outputTokens: number; }; }
 export type HttpPostAgentsShopOutput = { runId: string; result: string; usage: { inputTokens: number; outputTokens: number; }; }
 export type HttpPostAgentsShopStreamInput = { agentName?: string | undefined; message: string; threadId: string; resourceId: string; }
+export type HttpPostWebhooksStripeInput = GetSessionInput | import("/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/.pikku/rpc/pikku-rpc-wirings-map.internal.gen", { with: { "resolution-mode": "import" } }).DeleteAgentThreadInput | import("/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/.pikku/rpc/pikku-rpc-wirings-map.internal.gen", { with: { "resolution-mode": "import" } }).GetAgentThreadMessagesInput | import("/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/.pikku/rpc/pikku-rpc-wirings-map.internal.gen", { with: { "resolution-mode": "import" } }).GetAgentThreadRunsInput | import("/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/.pikku/rpc/pikku-rpc-wirings-map.internal.gen", { with: { "resolution-mode": "import" } }).GetAgentThreadsInput | AgentCredentialCheckInput | CredentialDeleteInput | CredentialGetInput | CredentialSetInput | CredentialStatusInput | CredentialUsersInput | import("/Users/yasser/git/pikku/website/.template-online-shop/node_modules/.bun/@pikku+addon-console@0.12.38+772ba8e58e84dbc2/node_modules/@pikku/addon-console/dist/.pikku/rpc/pikku-rpc-wirings-map.internal.gen", { with: { "resolution-mode": "import" } }).DeleteAgentThreadInput | DeleteWorkflowRunInput | GetAddonIconInput | GetAddonInstancesInput | AddonMetaQuery | GetAddonCommunityPackageInput | import("/Users/yasser/git/pikku/website/.template-online-shop/node_modules/.bun/@pikku+addon-console@0.12.38+772ba8e58e84dbc2/node_modules/@pikku/addon-console/dist/.pikku/rpc/pikku-rpc-wirings-map.internal.gen", { with: { "resolution-mode": "import" } }).GetAgentThreadMessagesInput | import("/Users/yasser/git/pikku/website/.template-online-shop/node_modules/.bun/@pikku+addon-console@0.12.38+772ba8e58e84dbc2/node_modules/@pikku/addon-console/dist/.pikku/rpc/pikku-rpc-wirings-map.internal.gen", { with: { "resolution-mode": "import" } }).GetAgentThreadRunsInput | import("/Users/yasser/git/pikku/website/.template-online-shop/node_modules/.bun/@pikku+addon-console@0.12.38+772ba8e58e84dbc2/node_modules/@pikku/addon-console/dist/.pikku/rpc/pikku-rpc-wirings-map.internal.gen", { with: { "resolution-mode": "import" } }).GetAgentThreadsInput | GetAuditsInput | GetChannelSnippetsInput | GetAddonInstalledPackageInput | GetOpenapiDetailInput | GetOpenapisInput | GetSchemaInput | GetStateDiffInput | GetWebhookDeliveryInput | GetWorkflowMetaByIdInput | GetWorkflowRunHistoryInput | GetWorkflowRunStepsInput | GetWorkflowRunInput | GetWorkflowRunsInput | GetWorkflowVersionInput | InstallAddonInput | InstallOpenapiAddonInput | ListWebhookDeliveriesInput | ReadAgentSourceInput | ReadFunctionBodyInput | ReadFunctionSourceInput | RenderEmailPreviewInput | ScopeAddScopeToUserInput | ScopeAddUserToRoleInput | ScopeCreateRoleInput | ScopeDeleteRoleInput | ScopeListUserRolesInput | ScopeRemoveScopeFromUserInput | ScopeRemoveUserFromRoleInput | ScopeSetRoleScopesInput | StreamWorkflowRunInput | UpdateAgentConfigInput | UpdateDependencyInput | UpdateEmailTemplateInput | UpdateFunctionBodyInput | UpdateFunctionConfigInput | AddToBasketInput | GetBasketInput | RemoveFromBasketInput | CreateCategoryInput | CreateItemInput | GetItemV1Input | GetItemV2Input | GetItemInput | ListItemsInput | UpdateItemInput | SendOrderConfirmationInput | WriteAuditEventInput | CancelOrderInput | CreateOrderInput | GetOrderThreeParamsInput | GetOrderInput | ListOrdersInput | RecordAnalyticsEventsInput | AgentCallerInput | AgentStreamCallerInput | AgentApproveCallerInput | AgentResumeCallerInput | PikkuConsoleSetSecretInput | PikkuConsoleGetVariableInput | PikkuConsoleSetVariableInput | PikkuConsoleHasSecretInput | PikkuConsoleGetSecretInput | RealtimeSubscribeInput | RealtimeUnsubscribeInput | RealtimeEventStreamInput | RpcCallerInput | WorkflowStarterInput | WorkflowRunnerInput | WorkflowStatusCheckerInput | WorkflowStatusStreamInput | WorkflowStatusStreamFullInput | GraphStarterInput | WorkflowApproverInput | ValidateBasketInput | CreateOrderRecordInput | ChargeCardInput | FinalizeOrderInput | StartCheckoutInput | CheckOrderRefundableInput | IssueRefundInput | SubscribeToOrderInput | UnsubscribeFromOrderInput | NotifyOrderShippedInput | HandlePaymentWebhookInput | ListItemsToolInput | GetItemToolInput | GetItemForAIInput | UpdateStockToolInput | PlaceOrderInput | ProcessExportInput | CheckItemAvailabilityInput | CreateOrderWithValidationInput | ProcessPaymentInput | DeleteOrderInput | OnLowStockInput | null
 export type IssueRefundInput = { orderId: string; }
 export type ListCategoriesOutput = {
     categoryId: string;
@@ -344,11 +394,18 @@ export type PikkuConsoleSetVariableInput = {
 export type PikkuConsoleSetVariableOutput = {
     success: boolean;
 }
-export type PlaceOrderInput = { basketId: string; }
-export type PlaceOrderOutput = { orderId: any; }
+export type PostsToInput = {
+    path: string;
+    body: string;
+    maxStatus: number;
+    minStatus: number;
+    expectBody?: string | undefined;
+}
+export type PostsToOutput = {
+    status: number;
+    body: string;
+}
 export type ProcessExportInput = { exportId: string; }
-export type ProcessPaymentInput = { orderId: string; amountCents: number; }
-export type ProcessPaymentOutput = { providerRef: string; status: "succeeded"; }
 export type RealtimeEventStreamInput = {
     topic: string;
 }
@@ -407,18 +464,35 @@ export type SendOrderConfirmationInput = {
 }
 export type SessionHealthScenarioOutput = { email: string; userId: string; }
 export type ShopperAsksTheAssistantOutput = { itemCount: number; }
+export type ShopperBuysAnItemInTheBrowserOutput = { landed: string; }
 export type ShopperBuysAnItemOutput = { orderId: string; totalCents: number; }
 export type SignedInActorReachesTheAppScenarioOutput = { pathname: string; email: string; }
 export type StartCheckoutInput = { basketId: string; userId: string; shippingAddress: ShippingAddress; cardToken?: string | undefined; }
 export type StartCheckoutOutput = { runId: string; }
-export type StockPollTriggerInput = { thresholdStock: number; }
-export type StockPollTriggerOutput = { itemId: string; name: string; stock: number; }
+export type StartExportOutput = { exportId: any; requestedBy: string; }
+export type StartRefundInput = { orderId: string; reason: string; }
+export type StartRefundOutput = { runId: string; }
+export type SubscribesToChannelInput = {
+    route: string;
+    action: string;
+    unsubscribeAction?: string | undefined;
+}
+export type SubscribesToChannelOutput = {
+    connected: boolean;
+}
 export type SubscribeToOrderInput = { orderId: string; }
 export type SweepsAllPagesInput = {
     repoRoot: string;
 }
 export type SweepsAllPagesOutput = {
     routes: string[];
+}
+export type TypesIntoInput = {
+    label: string;
+    text: string;
+}
+export type TypesIntoOutput = {
+    label: string;
 }
 export type UnsubscribeFromOrderInput = { orderId: string; }
 export type UpdateItemInput = {
@@ -484,6 +558,7 @@ export type WriteAuditEventInput = {
 
 // Addon package Workflow maps
 import type { WorkflowMap as ConsoleWorkflowMap } from '@pikku/addon-console/.pikku/workflow/pikku-workflow-map.gen.d.js'
+import type { WorkflowMap as StripeWorkflowMap } from '@pikku/addon-stripe/.pikku/workflow/pikku-workflow-map.gen.d.js'
 
 
 interface WorkflowHandler<I, O> {
@@ -502,7 +577,10 @@ export type WorkflowMap = {
   readonly "shopperBuysAnItem": WorkflowHandler<void, ShopperBuysAnItemOutput>,
   readonly "shopperAsksTheAssistant": WorkflowHandler<void, ShopperAsksTheAssistantOutput>,
   readonly "signedInActorReachesTheAppScenario": WorkflowHandler<void, SignedInActorReachesTheAppScenarioOutput>,
+  readonly "everyFunctionRuns": WorkflowHandler<void, EveryFunctionRunsOutput>,
+  readonly "shopperBuysAnItemInTheBrowser": WorkflowHandler<void, ShopperBuysAnItemInTheBrowserOutput>,
   readonly "everyPageLoadsScenario": WorkflowHandler<void, EveryPageLoadsScenarioOutput>,
+  readonly "capturesEveryPageScenario": WorkflowHandler<void, CapturesEveryPageScenarioOutput>,
 };
 
 export type GraphsMap = {
@@ -534,8 +612,52 @@ export type GraphsMap = {
     readonly "stays in the app": GraphNodeHandler<RestsOnPathInput>,
     readonly "reads their own session": GraphNodeHandler<GetSessionInput>,
   },
+  readonly "everyFunctionRuns": {
+    readonly "reads the session": GraphNodeHandler<GetSessionInput>,
+    readonly "creates a category": GraphNodeHandler<CreateCategoryInput>,
+    readonly "adds an item": GraphNodeHandler<CreateItemInput>,
+    readonly "edits it": GraphNodeHandler<UpdateItemInput>,
+    readonly "lists categories": GraphNodeHandler<void>,
+    readonly "checks availability": GraphNodeHandler<CheckItemAvailabilityInput>,
+    readonly "opens a basket": GraphNodeHandler<GetBasketInput>,
+    readonly "fills it": GraphNodeHandler<AddToBasketInput>,
+    readonly "starts the checkout workflow": GraphNodeHandler<StartCheckoutInput>,
+    readonly "lists orders": GraphNodeHandler<ListOrdersInput>,
+    readonly "runs the sales report": GraphNodeHandler<void>,
+    readonly "queues an order export": GraphNodeHandler<void>,
+    readonly "runs the conditional report": GraphNodeHandler<void>,
+    readonly "sweeps abandoned baskets": GraphNodeHandler<void>,
+    readonly "applies a verified stripe event": GraphNodeHandler<ApplyStripeEventInput>,
+    readonly "refunds an order": GraphNodeHandler<StartRefundInput>,
+    readonly "runs the scheduled sweep": GraphNodeHandler<void>,
+    readonly "reads the stored profile": GraphNodeHandler<void>,
+    readonly "calls listCategoriesTool": GraphNodeHandler<CallsMcpToolInput>,
+    readonly "calls listItemsTool": GraphNodeHandler<CallsMcpToolInput>,
+    readonly "calls getItemTool": GraphNodeHandler<CallsMcpToolInput>,
+    readonly "calls getItemForAI": GraphNodeHandler<CallsMcpToolInput>,
+    readonly "calls updateStockTool": GraphNodeHandler<CallsMcpToolInput>,
+  },
+  readonly "shopperBuysAnItemInTheBrowser": {
+    readonly "opens the app": GraphNodeHandler<OpensPageInput>,
+    readonly "clicks through to the catalogue": GraphNodeHandler<ClicksInput>,
+    readonly "is on the catalogue": GraphNodeHandler<RestsOnPathInput>,
+    readonly "sees a mug for sale": GraphNodeHandler<SeesTextInput>,
+    readonly "adds it to the basket": GraphNodeHandler<ClicksNearInput>,
+    readonly "opens the basket": GraphNodeHandler<ClicksInput>,
+    readonly "sees the mug in it": GraphNodeHandler<SeesTextInput>,
+    readonly "checks out": GraphNodeHandler<ClicksInput>,
+    readonly "sees the order confirmed": GraphNodeHandler<SeesTextInput>,
+    readonly "opens operations": GraphNodeHandler<ClicksInput>,
+    readonly "sees the live panel": GraphNodeHandler<SeesTextInput>,
+    readonly "is refused an unsigned payment webhook": GraphNodeHandler<PostsToInput>,
+    readonly "posts to /api/analytics": GraphNodeHandler<PostsToInput>,
+    readonly "subscribes to the channel": GraphNodeHandler<SubscribesToChannelInput>,
+  },
   readonly "everyPageLoadsScenario": {
     readonly "every page loads without errors": GraphNodeHandler<SweepsAllPagesInput>,
+  },
+  readonly "capturesEveryPageScenario": {
+    readonly "captures ${capture.name}": GraphNodeHandler<CapturesPageInput>,
   },
 };
 
@@ -544,7 +666,7 @@ type PrefixWorkflowKeys<T, Prefix extends string> = unknown extends T ? {} : {
 }
 
 export type FlattenedWorkflowMap =
-  WorkflowMap & PrefixWorkflowKeys<ConsoleWorkflowMap, 'console'>
+  WorkflowMap & PrefixWorkflowKeys<ConsoleWorkflowMap, 'console'> & PrefixWorkflowKeys<StripeWorkflowMap, 'stripe'>
 
 
 export type WorkflowClient<Name extends keyof FlattenedWorkflowMap> = {

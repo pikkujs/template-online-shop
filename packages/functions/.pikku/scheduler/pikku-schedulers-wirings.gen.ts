@@ -3,3 +3,4 @@
  */
 /* The files with an addScheduledTasks function call */
 import '../../src/wirings/shop.cron.js'
+import '../../src/wirings/shop.trigger.js'

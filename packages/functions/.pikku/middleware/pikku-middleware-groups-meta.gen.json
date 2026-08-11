@@ -13,7 +13,7 @@
           "http"
         ]
       },
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/middleware/analytics-origin.middleware.ts",
+      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/middleware/analytics-origin.middleware.ts",
       "position": 2718,
       "exportedName": "analyticsOriginMiddleware",
       "name": "analyticsOrigin",
@@ -34,7 +34,7 @@
           "wire"
         ]
       },
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/middleware/cors.middleware.ts",
+      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/middleware/cors.middleware.ts",
       "position": 679,
       "exportedName": null
     },
@@ -45,29 +45,35 @@
           "logger"
         ]
       },
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.cron.ts",
+      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.cron.ts",
       "position": 464,
       "exportedName": null
     }
   },
   "instances": {
     "http:*:0": {
+      "definitionId": "corsMiddleware",
+      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/middleware/cors.middleware.ts",
+      "position": 1244,
+      "isFactoryCall": false
+    },
+    "global:middleware:0": {
       "definitionId": "betterAuthStatelessSession",
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/auth/auth-middleware.gen.ts",
-      "position": 291,
+      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/auth/auth-middleware.gen.ts",
+      "position": 281,
       "isFactoryCall": true
     },
-    "http:*:1": {
+    "global:middleware:1": {
       "definitionId": "authBearer",
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/auth/auth-middleware.gen.ts",
-      "position": 291,
+      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/auth/auth-middleware.gen.ts",
+      "position": 281,
       "isFactoryCall": true
     }
   },
   "httpGroups": {
     "*": {
       "exportName": null,
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/middleware/cors.middleware.ts",
+      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/middleware/cors.middleware.ts",
       "position": 1244,
       "services": {
         "optimized": false,
@@ -76,32 +82,24 @@
           "services"
         ]
       },
-      "count": 3,
+      "count": 1,
       "instanceIds": [
-        "http:*:0",
-        "http:*:0",
-        "http:*:1"
+        "http:*:0"
       ],
       "isFactory": false,
       "additionalRegistrations": [
         {
           "exportName": null,
-          "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scaffold/auth/auth-middleware.gen.ts",
-          "position": 291,
-          "isFactory": false
-        },
-        {
-          "exportName": null,
-          "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
-          "position": 3099,
+          "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+          "position": 3362,
           "isFactory": false
         }
       ]
     },
     "/orders": {
       "exportName": null,
-      "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/wirings/shop.http.ts",
-      "position": 3344,
+      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "position": 3607,
       "services": {
         "optimized": false,
         "services": []

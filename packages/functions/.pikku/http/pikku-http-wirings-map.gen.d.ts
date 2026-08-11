@@ -8,6 +8,7 @@
 import type { ShippingAddress } from '../../src/wirings/checkout.workflow.js'
 import type { AIMessage, AgentRunRow, AIThread, AIAgentInput } from '.bun/@pikku+core@0.12.79/node_modules/@pikku/core/dist/wirings/ai-agent/ai-agent.types'
 import type { StreamWorkflowRunInput } from '.bun/@pikku+addon-console@0.12.38+772ba8e58e84dbc2/node_modules/@pikku/addon-console/dist/.pikku/rpc/pikku-rpc-wirings-map.internal.gen'
+import type { StripeWebhookHandlerInput } from '.bun/@pikku+addon-stripe@0.1.5+628e4fbaeccdd6be/node_modules/@pikku/addon-stripe/dist/.pikku/rpc/pikku-rpc-wirings-map.internal.gen'
 import type { WorkflowRunStatus } from '.bun/@pikku+core@0.12.79/node_modules/@pikku/core/dist/wirings/workflow/workflow.types'
 
 
@@ -63,18 +64,61 @@ export type AgentStreamCallerInput = {
     temperature?: number | undefined;
     context?: string | undefined;
 }
+export type ApplyStripeEventInput = { type: string; data: { object: Record<string, any>; }; }
+export type ApplyStripeEventOutput = { applied: boolean; }
 export type AuthHandlerOutput = Promise<void> | Promise<any>
+export type CallsMcpToolInput = {
+    tool: string;
+    args: string;
+}
+export type CallsMcpToolOutput = {
+    text: string;
+    advertised: string[];
+}
 export type CancelOrderInput = {
     orderId: string;
 }
+export type CapturesEveryPageScenarioOutput = { files: string[]; clean: boolean; }
+export type CapturesPageInput = {
+    path: string;
+    name: string;
+    outDir: string;
+    width: number;
+    height: number;
+    scheme: "light" | "dark";
+}
+export type CapturesPageOutput = {
+    file: string;
+    pathname: string;
+    status: number | null;
+    consoleErrors: string[];
+    pageErrors: string[];
+    failedRequests: string[];
+    apiErrors: string[];
+}
 export type ChargeCardInput = { orderId: string; totalCents: number; cardToken?: string | undefined; }
-export type ChargeCardOutput = { status: "succeeded"; providerRef: string; } | { status: "failed"; reason: string; }
+export type ChargeCardOutput = { status: "succeeded"; providerRef: string; reason?: undefined; } | { status: "failed"; reason: string; providerRef?: undefined; }
 export type CheckItemAvailabilityInput = { itemId: string; }
 export type CheckItemAvailabilityOutput = { available: boolean; stock: number; name: string; }
 export type CheckOrderRefundableInput = { orderId: string; }
 export type CheckOrderRefundableOutput = { eligible: boolean; totalCents: number | number; }
 export type CheckoutWorkflowInput = { basketId: string; userId: string; shippingAddress: ShippingAddress; cardToken?: string | undefined; }
 export type CheckoutWorkflowOutput = { orderId: string; status: "paid" | "payment_failed"; totalCents: number; }
+export type ClicksInput = {
+    name: string;
+}
+export type ClicksNearInput = {
+    near: string;
+    name: string;
+}
+export type ClicksNearOutput = {
+    near: string;
+    name: string;
+}
+export type ClicksOutput = {
+    name: string;
+    pathname: string;
+}
 export type CreateCategoryInput = {
     name: string;
     slug: string;
@@ -119,8 +163,6 @@ export type CreateOrderOutput = {
 }
 export type CreateOrderRecordInput = { userId: string; totalCents: number; shippingAddress: ShippingAddress; items: { itemId: string; quantity: number; priceCents: number; }[]; }
 export type CreateOrderRecordOutput = { orderId: any; }
-export type CreateOrderWithValidationInput = { sessionId: string; }
-export type CreateOrderWithValidationOutput = { valid: boolean; itemCount: number; sessionId: string; }
 export type CredentialSchema_shipping_provider = {
     accessToken: string;
     refreshToken?: string | undefined;
@@ -133,6 +175,13 @@ export type DeleteAgentThreadOutput = {
     deleted: boolean;
 }
 export type DeleteOrderInput = { orderId: string; }
+export type DoesNotSeeTextInput = {
+    text: string;
+}
+export type DoesNotSeeTextOutput = {
+    text: string;
+}
+export type EveryFunctionRunsOutput = { checked: number; }
 export type EveryPageLoadsScenarioOutput = { routes: string[]; }
 export type FinalizeOrderInput = { orderId: string; basketId: string; userId: string; status: "paid" | "payment_failed"; }
 export type GetAgentThreadMessagesInput = {
@@ -241,9 +290,7 @@ export type GetOrderOutput = {
     }[];
     createdAt: string;
 }
-export type GetOrderThreeParamsInput = { orderId: any; }
-export type GetOrderThreeParamsOutput = { order: { userId: string; orderId: string; status: "paid" | "payment_failed" | "refunded" | "pending" | "shipped" | "cancelled"; totalCents: number; shippingAddress: string | null; createdAt: string; updatedAt: string; }; viewer: string; }
-export type GetProfileOutput = { name: string | null; email: string; userId: string; role: string; }
+export type GetProfileOutput = { name: string; email: string; id: string; role: string | null; }
 export type GetSessionInput = {}
 export type GetSessionOutput = {
     userId: string;
@@ -258,10 +305,13 @@ export type GraphStarterInput = {
 export type GraphStarterOutput = {
     runId: string;
 }
-export type HandlePaymentWebhookInput = { text: string; raw: unknown; }
-export type HandlePaymentWebhookOutput = { received: boolean; }
+export type HandleChatMessageInput = { text: string; raw: unknown; }
+export type HandleChatMessageOutput = { received: boolean; }
+export type HttpPostAgentsCheckoutOutput = { runId: string; result: string; usage: { inputTokens: number; outputTokens: number; }; }
+export type HttpPostAgentsOpsOutput = { runId: string; result: string; usage: { inputTokens: number; outputTokens: number; }; }
 export type HttpPostAgentsShopOutput = { runId: string; result: string; usage: { inputTokens: number; outputTokens: number; }; }
 export type HttpPostAgentsShopStreamInput = { agentName?: string | undefined; message: string; threadId: string; resourceId: string; }
+export type HttpPostWebhooksStripeOutput = { received: boolean; eventId: string; type: string; jobId: string; }
 export type IssueRefundInput = { orderId: string; }
 export type ListCategoriesOutput = {
     categoryId: string;
@@ -347,11 +397,18 @@ export type PikkuConsoleSetVariableInput = {
 export type PikkuConsoleSetVariableOutput = {
     success: boolean;
 }
-export type PlaceOrderInput = { basketId: string; }
-export type PlaceOrderOutput = { orderId: any; }
+export type PostsToInput = {
+    path: string;
+    body: string;
+    maxStatus: number;
+    minStatus: number;
+    expectBody?: string | undefined;
+}
+export type PostsToOutput = {
+    status: number;
+    body: string;
+}
 export type ProcessExportInput = { exportId: string; }
-export type ProcessPaymentInput = { orderId: string; amountCents: number; }
-export type ProcessPaymentOutput = { providerRef: string; status: "succeeded"; }
 export type RealtimeEventStreamInput = {
     topic: string;
 }
@@ -410,18 +467,35 @@ export type SendOrderConfirmationInput = {
 }
 export type SessionHealthScenarioOutput = { email: string; userId: string; }
 export type ShopperAsksTheAssistantOutput = { itemCount: number; }
+export type ShopperBuysAnItemInTheBrowserOutput = { landed: string; }
 export type ShopperBuysAnItemOutput = { orderId: string; totalCents: number; }
 export type SignedInActorReachesTheAppScenarioOutput = { pathname: string; email: string; }
 export type StartCheckoutInput = { basketId: string; userId: string; shippingAddress: ShippingAddress; cardToken?: string | undefined; }
 export type StartCheckoutOutput = { runId: string; }
-export type StockPollTriggerInput = { thresholdStock: number; }
-export type StockPollTriggerOutput = { itemId: string; name: string; stock: number; }
+export type StartExportOutput = { exportId: any; requestedBy: string; }
+export type StartRefundInput = { orderId: string; reason: string; }
+export type StartRefundOutput = { runId: string; }
+export type SubscribesToChannelInput = {
+    route: string;
+    action: string;
+    unsubscribeAction?: string | undefined;
+}
+export type SubscribesToChannelOutput = {
+    connected: boolean;
+}
 export type SubscribeToOrderInput = { orderId: string; }
 export type SweepsAllPagesInput = {
     repoRoot: string;
 }
 export type SweepsAllPagesOutput = {
     routes: string[];
+}
+export type TypesIntoInput = {
+    label: string;
+    text: string;
+}
+export type TypesIntoOutput = {
+    label: string;
 }
 export type UnsubscribeFromOrderInput = { orderId: string; }
 export type UpdateItemInput = {
@@ -516,8 +590,12 @@ export type GraphStarterInputParams = Pick<GraphStarterInput, 'workflowName' | '
 export type GraphStarterInputBody = Omit<GraphStarterInput, 'workflowName' | 'nodeId'> & {}
 export type RecordAnalyticsEventsInputBody = RecordAnalyticsEventsInput & {}
 export type StartCheckoutInputBody = StartCheckoutInput & {}
+export type StartRefundInputParams = Pick<StartRefundInput, 'orderId'> & {}
+export type StartRefundInputBody = Omit<StartRefundInput, 'orderId'> & {}
 export type AIAgentInputBody = AIAgentInput & {}
 export type HttpPostAgentsShopStreamInputBody = HttpPostAgentsShopStreamInput & {}
+export type DeleteOrderInputParams = Pick<DeleteOrderInput, 'orderId'> & {}
+export type DeleteOrderInputBody = Omit<DeleteOrderInput, 'orderId'> & {}
 export type CreateCategoryInputBody = CreateCategoryInput & {}
 export type ListItemsInputBody = ListItemsInput & {}
 export type GetItemInputParams = Pick<GetItemInput, 'itemId'> & {}
@@ -535,8 +613,7 @@ export type GetOrderInputParams = Pick<GetOrderInput, 'orderId'> & {}
 export type GetOrderInputBody = Omit<GetOrderInput, 'orderId'> & {}
 export type CancelOrderInputParams = Pick<CancelOrderInput, 'orderId'> & {}
 export type CancelOrderInputBody = Omit<CancelOrderInput, 'orderId'> & {}
-export type DeleteOrderInputParams = Pick<DeleteOrderInput, 'orderId'> & {}
-export type DeleteOrderInputBody = Omit<DeleteOrderInput, 'orderId'> & {}
+export type StripeWebhookHandlerInputBody = StripeWebhookHandlerInput & {}
 
 interface HTTPWiringHandler<I, O> {
     input: I;
@@ -563,10 +640,6 @@ export type HTTPWiringsMap = {
   readonly '/workflow/:workflowName/status/:runId/stream/full': {
     readonly GET: HTTPWiringHandler<WorkflowStatusStreamFullInput, null>,
   },
-  readonly '/webhooks/payment': {
-    readonly GET: HTTPWiringHandler<null, null>,
-    readonly POST: HTTPWiringHandler<null, null>,
-  },
   readonly '/categories': {
     readonly GET: HTTPWiringHandler<null, ListCategoriesOutput>,
     readonly POST: HTTPWiringHandler<CreateCategoryInput, CreateCategoryOutput>,
@@ -578,6 +651,9 @@ export type HTTPWiringsMap = {
   readonly '/items/:itemId': {
     readonly GET: HTTPWiringHandler<GetItemInput, GetItemOutput>,
     readonly PATCH: HTTPWiringHandler<UpdateItemInput, null>,
+  },
+  readonly '/profile': {
+    readonly GET: HTTPWiringHandler<null, GetProfileOutput>,
   },
   readonly '/basket': {
     readonly GET: HTTPWiringHandler<GetBasketInput, GetBasketOutput>,
@@ -623,17 +699,35 @@ export type HTTPWiringsMap = {
   readonly '/checkout': {
     readonly POST: HTTPWiringHandler<StartCheckoutInput, StartCheckoutOutput>,
   },
+  readonly '/orders/:orderId/refund': {
+    readonly POST: HTTPWiringHandler<StartRefundInput, StartRefundOutput>,
+  },
   readonly '/agents/shop': {
     readonly POST: HTTPWiringHandler<AIAgentInput, HttpPostAgentsShopOutput>,
   },
   readonly '/agents/shop/stream': {
     readonly POST: HTTPWiringHandler<HttpPostAgentsShopStreamInput, null>,
   },
+  readonly '/agents/ops': {
+    readonly POST: HTTPWiringHandler<AIAgentInput, HttpPostAgentsOpsOutput>,
+  },
+  readonly '/agents/checkout': {
+    readonly POST: HTTPWiringHandler<AIAgentInput, HttpPostAgentsCheckoutOutput>,
+  },
   readonly '/basket/items': {
     readonly POST: HTTPWiringHandler<AddToBasketInput, null>,
   },
   readonly '/orders/:orderId/cancel': {
     readonly POST: HTTPWiringHandler<CancelOrderInput, null>,
+  },
+  readonly '/exports': {
+    readonly POST: HTTPWiringHandler<null, StartExportOutput>,
+  },
+  readonly '/reports/conditional': {
+    readonly POST: HTTPWiringHandler<null, null>,
+  },
+  readonly '/webhooks/stripe': {
+    readonly POST: HTTPWiringHandler<StripeWebhookHandlerInput, HttpPostWebhooksStripeOutput>,
   },
   readonly '/basket/items/:itemId': {
     readonly DELETE: HTTPWiringHandler<RemoveFromBasketInput, null>,

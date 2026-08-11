@@ -6,9 +6,10 @@
     "scopes": [
       "catalogue:read",
       "orders:create",
-      "orders:read"
+      "orders:read",
+      "payments:charge"
     ],
-    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/roles.ts"
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/roles.ts"
   },
   "support": {
     "name": "support",
@@ -18,9 +19,10 @@
       "catalogue:read",
       "orders:read",
       "orders:cancel",
-      "orders:refund"
+      "orders:refund",
+      "payments:manage"
     ],
-    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/roles.ts"
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/roles.ts"
   },
   "admin": {
     "name": "admin",
@@ -29,9 +31,10 @@
     "scopes": [
       "catalogue",
       "orders",
+      "payments",
       "reports",
       "admin"
     ],
-    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/roles.ts"
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/roles.ts"
   }
 }

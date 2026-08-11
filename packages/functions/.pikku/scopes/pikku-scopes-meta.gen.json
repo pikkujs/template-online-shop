@@ -80,7 +80,7 @@
         "description": "Create, edit and withdraw items"
       }
     },
-    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scopes.ts"
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scopes.ts"
   },
   "orders": {
     "name": "orders",
@@ -100,7 +100,21 @@
         "description": "Refund a paid order"
       }
     },
-    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scopes.ts"
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scopes.ts"
+  },
+  "payments": {
+    "name": "payments",
+    "displayName": "Payments",
+    "description": "Reaching the payment provider",
+    "scopes": {
+      "charge": {
+        "description": "Create a payment intent for your own order"
+      },
+      "manage": {
+        "description": "Refunds, customers and everything else Stripe offers"
+      }
+    },
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scopes.ts"
   },
   "reports": {
     "name": "reports",
@@ -111,6 +125,6 @@
         "description": "Read sales and stock reports"
       }
     },
-    "sourceFile": "/root/pikku-templates/online-shop/packages/functions/src/scopes.ts"
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scopes.ts"
   }
 }
