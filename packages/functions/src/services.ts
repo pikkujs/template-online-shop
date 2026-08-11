@@ -17,6 +17,7 @@ import type { VercelAIAgentRunner } from '@pikku/ai-vercel'
 import { GeneratedTemplateEmailService } from './lib/email-service.js'
 import type { DB } from '#pikku/db/schema.gen.js'
 
+// @snippet start shopServices
 export const createSingletonServices = pikkuServices(async (config, existingServices) => {
   const variables =
     existingServices?.variables ?? new TypedVariablesService(new LocalVariablesService())
@@ -111,7 +112,9 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
     ...(aiAgentRunner ? { aiAgentRunner } : {}),
   }
 })
+// @snippet end shopServices
 
+// @snippet start shopWireServices
 export const createWireServices = pikkuWireServices(async (singletonServices, wire) => {
   if (!singletonServices.audit) {
     return {}
@@ -131,3 +134,4 @@ export const createWireServices = pikkuWireServices(async (singletonServices, wi
     kysely: createAuditedKysely(singletonServices.kysely, { audit: auditLog }),
   }
 })
+// @snippet end shopWireServices
