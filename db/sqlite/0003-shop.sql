@@ -84,6 +84,7 @@ CREATE TABLE IF NOT EXISTS order_item (
 
 CREATE INDEX IF NOT EXISTS order_item_order_idx ON order_item(order_id);
 
+-- @snippet start paymentTable
 CREATE TABLE IF NOT EXISTS payment (
   payment_id   TEXT PRIMARY KEY,
   order_id     TEXT NOT NULL REFERENCES "order"(order_id),
@@ -95,6 +96,7 @@ CREATE TABLE IF NOT EXISTS payment (
   reason       TEXT,
   created_at   TEXT NOT NULL DEFAULT (datetime('now'))
 );
+-- @snippet end paymentTable
 
 CREATE TABLE IF NOT EXISTS audit_log (
   audit_id     TEXT PRIMARY KEY,
