@@ -19,15 +19,3 @@ export const checkItemAvailability = pikkuSessionlessFunc({
   },
 })
 // @snippet end rpcFunc
-
-// @snippet start rpcInternalCall
-// Call other Pikku functions by name from within any function — fully typed.
-export const createOrderWithValidation = pikkuFunc({
-  func: async ({ logger }, { sessionId }: { sessionId: string }, { rpc }) => {
-    const basket = await rpc.invoke('getBasket', { sessionId })
-    logger.info({ event: 'order_validation', itemCount: basket.items?.length ?? 0 })
-    return { valid: true, itemCount: basket.items?.length ?? 0, sessionId }
-  },
-})
-// @snippet end rpcInternalCall
-

@@ -12,8 +12,9 @@ import { apiUrl } from '@/lib/env'
  *
  * The unload flush is the one that matters. The last events before someone
  * leaves are the abandon point — the most valuable rows in any funnel — and a
- * plain `fetch()` fired during unload is cancelled. `sendBeacon` is queued by
- * the browser and survives the page.
+ * plain `fetch()` fired during unload is cancelled. `fetch(..., { keepalive:
+ * true })` is not: the request outlives the document, and unlike `sendBeacon` it
+ * still carries the origin and the session cookie the ingest checks for.
  */
 
 /** Payload of an event, i.e. everything the registry declares except its name. */
@@ -46,14 +47,19 @@ function flush(): void {
 
   const body = JSON.stringify({ events })
   try {
-    if (typeof navigator !== 'undefined' && typeof navigator.sendBeacon === 'function') {
-      // A Blob with an explicit type is what makes the beacon arrive as JSON;
-      // a bare string is sent as text/plain and the ingest would reject it.
-      const queued = navigator.sendBeacon(endpoint(), new Blob([body], { type: 'application/json' }))
-      if (queued) return
-      // The beacon queue is full or the payload is over the browser's cap —
-      // fall through to keepalive rather than silently dropping the batch.
-    }
+    // `fetch` with `keepalive`, not `navigator.sendBeacon`.
+    //
+    // sendBeacon looks like the right tool and is the wrong one here. It gives
+    // the caller no control over headers or credentials, and a beacon queued as
+    // the document goes away can reach the server with neither `Origin` nor
+    // `Referer` — which is precisely what the ingest's origin lock rejects, so
+    // the unload flush this whole module exists for was answered with a 403 and
+    // logged as a console error on the next page. `keepalive` survives unload
+    // for the same reason sendBeacon does (the request outlives the document),
+    // while still sending the origin and the session cookie.
+    //
+    // The cost is the 64KB keepalive body cap, which a batch of at most 25
+    // events is nowhere near.
     void fetch(endpoint(), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

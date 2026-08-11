@@ -18,6 +18,11 @@ export const CreateCategoryOutput = z.object({
 export const createCategory = pikkuFunc({
   expose: true,
   description: 'Create a new product category. Admin only.',
+  // "Admin only" was a sentence in a description, not a rule. The route carried
+  // `auth: true`, which means signed in — so any shopper with an account could
+  // edit the catalogue. `catalogue:write` was already declared in scopes.ts and
+  // already granted to the admin role; nothing was checking it.
+  scopes: ['catalogue:write'],
   input: CreateCategoryInput,
   output: CreateCategoryOutput,
   func: async ({ kysely }, { name, slug, description }) => {

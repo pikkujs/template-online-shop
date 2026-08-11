@@ -37,6 +37,11 @@ export const AccountPage: FC = () => {
   useLocale()
 
   const session = usePikkuQuery('getSession', {})
+  // The stored row, not the session claims. `getSession` reports who the
+  // request is authenticated as; this reports what the account record actually
+  // says — which is the thing an account page is for, and which nothing could
+  // read because the function was never wired.
+  const profile = usePikkuQuery('getProfile', null)
 
   const passwordMutation = useMutation({
     mutationFn: ({ currentPassword, newPassword }: PasswordFormValues) =>
@@ -54,15 +59,18 @@ export const AccountPage: FC = () => {
   })
 
   return (
-    <Box maw={520} w="100%" mx="auto">
-      <Title order={1} fz={24} fw={650} style={{ letterSpacing: '-0.025em' }}>
+    <Box w="100%">
+      <Title order={1} fz={30} fw={650} style={{ letterSpacing: '-0.02em' }}>
         {m.account__title()}
       </Title>
       <Text c="dimmed" size="sm" mt={6} mb="lg" style={{ lineHeight: 1.55 }}>
         {m.account__description()}
       </Text>
 
-      <Card withBorder radius="lg" shadow="sm" padding="xl">
+      {/* The narrow measure belongs to the form, not the page. Applied to the
+          wrapper it also centred the heading, so Account was the one screen
+          whose h1 sat somewhere different from every other screen's. */}
+      <Card withBorder radius="lg" shadow="sm" padding="xl" maw={520}>
         <Stack gap="md">
           <Stack gap={6}>
             <Text size="sm" fw={550}>
@@ -82,10 +90,25 @@ export const AccountPage: FC = () => {
                   background: 'var(--mantine-color-default-hover)',
                 }}
               >
-                <Avatar size={24} radius="xl">
+                <Avatar size={24} radius="xl" style={{ flexShrink: 0 }}>
                   {asI18n(initials(session.data.name, session.data.email))}
                 </Avatar>
-                <Text size="sm">{asI18n(session.data.email)}</Text>
+                {/* `truncate` and a shrinkable box, because the seeded persona
+                    flatters this. `visitor@actors.local` is 20 characters and at
+                    320px the box holds 23, so a real
+                    `firstname.lastname@company.com` overruns it — and without
+                    these the overrun is silent: the Group has `overflow: visible`
+                    and the Text does not wrap, so the address simply runs past
+                    the border with no ellipsis to admit it. The title attribute
+                    keeps the full address reachable. */}
+                <Text size="sm" truncate="end" style={{ minWidth: 0 }} title={asI18n(session.data.email)}>
+                  {asI18n(session.data.email)}
+                </Text>
+                {profile.data?.role && (
+                  <Text size="sm" c="dimmed" style={{ flexShrink: 0 }}>
+                    {m.account__role({ role: profile.data.role })}
+                  </Text>
+                )}
               </Group>
             ) : (
               <Text c="red" size="sm">

@@ -78,14 +78,28 @@ export const analyticsOriginMiddleware = pikkuMiddleware({
 
     // The app and its API share an origin in a deployed stage, so the request's
     // own Host is the allowlist in the common case and needs no configuration.
+    //
+    // The scheme cannot be assumed. Behind a proxy `x-forwarded-proto` states
+    // it; with no proxy there is nothing to state it, and defaulting to `https`
+    // compared `https://localhost:5173` against an `http://localhost:5173`
+    // beacon and rejected every single one in local dev. So when the header is
+    // absent the scheme is genuinely unknown and both are accepted — which
+    // concedes nothing, because an attacker who controls the scheme of their own
+    // page could send either anyway. The host and port still have to match
+    // exactly, and that is the part doing the work.
     const hostHeader = request.header('host')
     const forwardedProto = request.header('x-forwarded-proto')
-    const hostOrigin = hostHeader
-      ? toOrigin(`${forwardedProto ?? 'https'}://${hostHeader}`)
-      : null
+    const hostOrigins = hostHeader
+      ? (forwardedProto ? [forwardedProto] : ['https', 'http']).map((proto) =>
+          toOrigin(`${proto}://${hostHeader}`),
+        )
+      : [null]
 
     const configured = await allowedOrigins(variables)
-    if (!isAllowedAnalyticsOrigin(requestOrigin, hostOrigin, configured)) {
+    const allowed = hostOrigins.some((hostOrigin) =>
+      isAllowedAnalyticsOrigin(requestOrigin, hostOrigin, configured),
+    )
+    if (!allowed) {
       throw new InvalidOriginError(
         `Analytics ingest rejected origin ${requestOrigin ?? '(none)'}`,
       )

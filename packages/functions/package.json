@@ -28,6 +28,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
     "@pikku/deploy-standalone": "^0.12.8",
     "@pikku/playwright": "^0.12.72",
     "@playwright/test": "^1.50.0",

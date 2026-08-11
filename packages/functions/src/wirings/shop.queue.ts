@@ -32,32 +32,6 @@ wireQueueWorker({
 })
 // @snippet end queueConfig
 
-// @snippet start queuePublish
-export const placeOrder = pikkuFunc({
-  func: async (
-    { queueService, kysely },
-    { basketId }: { basketId: string },
-    { session }
-  ) => {
-    const orderId = randomUUID()
-    const now = new Date().toISOString()
-
-    await kysely.insertInto('order').values({
-      orderId, userId: session.userId,
-      status: 'pending', totalCents: 0,
-      shippingAddress: '{}',
-      createdAt: now, updatedAt: now,
-    }).execute()
-
-    // Typed — PikkuQueue knows 'send-order-confirmation' payload shape
-    await queueService?.add('send-order-confirmation', {
-      orderId, userId: session.userId,
-    })
-
-    return { orderId }
-  },
-})
-// @snippet end queuePublish
 
 // @snippet start queueJobControl
 // The wire object every queue worker is handed: discard the job, or report
@@ -85,4 +59,22 @@ export const processExport = pikkuSessionlessFunc({
 wireQueueWorker({
   name: 'process-export',
   func: processExport,
+})
+
+/**
+ * The export queue's missing producer.
+ *
+ * `processExport` is a fully written worker — it pages through orders, reports
+ * progress and discards itself when there is nothing to do — wired to a queue
+ * that nothing ever pushed to. A worker with no producer is a job that has
+ * never run.
+ */
+export const startExport = pikkuFunc({
+  expose: true,
+  description: 'Queue an export of every order.',
+  func: async ({ queueService }, _data: null, { session }) => {
+    const exportId = randomUUID()
+    await queueService?.add('process-export', { exportId })
+    return { exportId, requestedBy: session.userId }
+  },
 })

@@ -5,7 +5,6 @@ import type { DB } from '#pikku/db/schema.gen.js'
 import type { TypedSecretService } from '../.pikku/secrets/pikku-secrets.gen.js'
 import type { TypedVariablesService } from '../.pikku/variables/pikku-variables.gen.js'
 import type { auth } from './auth.js'
-import type { FakePaymentService } from './services/fake-payment.js'
 
 export interface UserSession extends CoreUserSession {
   userId: string
@@ -26,7 +25,6 @@ export interface SingletonServices extends CoreSingletonServices<Config> {
   variables: TypedVariablesService
   secrets: TypedSecretService
   kysely: Kysely<DB>
-  paymentService: FakePaymentService
   // Lazy Better Auth factory, injected by the generated pikkuServices wrapper.
   // MUST be the factory shape `() => Promise<AuthInstance>` to satisfy
   // CoreSingletonServices['auth'] — call it (`await services.auth()`) to get

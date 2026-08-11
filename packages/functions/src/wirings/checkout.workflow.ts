@@ -67,20 +67,65 @@ export const createOrderRecord = pikkuSessionlessFunc({
   },
 })
 
+// @snippet start shopSecretUsage
+// Note what is *absent* here: `secrets`.
+//
+// Every function-, permission- and auth-facing services type in pikku is
+// bounded by `SecretlessServices`, which omits `secrets` outright. A function
+// cannot read one, so a secret cannot leak through a return value, a log line
+// or an error thrown from business logic — the class of bug you only find in
+// somebody else's incident report.
+//
+// Secrets are read once, where they are needed. `chargeCard` asks the Stripe
+// addon to create a payment intent; `STRIPE_SECRET_KEY` is the addon's secret
+// and never crosses into this function, so it cannot be logged here, returned
+// here, or attached to an error thrown here.
+//
+// This is the step the checkout workflow actually runs. The point used to be
+// made by a second, unwired copy of the same call that existed only to be
+// quoted — so the documented example was the one piece of payment code no
+// shopper ever reached.
 export const chargeCard = pikkuSessionlessFunc({
-  description: 'Charge the card through the payment provider.',
+  // Invoked by name from `createOrder` as well as by the workflow, so one
+  // charge path exists rather than two that can drift.
+  expose: true,
+  description: 'Charge the card through Stripe.',
   func: async (
-    { paymentService },
-    data: { orderId: string; totalCents: number; cardToken?: string }
+    { logger },
+    data: { orderId: string; totalCents: number; cardToken?: string },
+    { rpc }
   ) => {
-    return paymentService.charge({
-      amountCents: data.totalCents,
-      cardToken: data.cardToken,
-      orderId: data.orderId,
+    // The order id goes in the payment intent's metadata because that is the
+    // only way it comes back: `applyStripeEvent` reads it off the verified
+    // webhook event to decide which order was paid. Stripe knows nothing about
+    // our ids otherwise.
+    const intent = await rpc.invoke('stripe:paymentIntentCreate', {
+      amount: data.totalCents,
+      currency: 'gbp',
+      ...(data.cardToken ? { paymentMethod: data.cardToken, confirm: true } : {}),
+      metadata: { orderId: data.orderId },
+      // Charging twice for one order is the expensive failure here, and a
+      // workflow step is retried by design.
+      idempotencyKey: `order_${data.orderId}`,
+      description: `Order ${data.orderId}`,
     })
+
+    logger.info({ event: 'payment_intent_created', orderId: data.orderId, status: intent.status })
+
+    return intent.status === 'succeeded'
+      ? { status: 'succeeded' as const, providerRef: intent.id }
+      : { status: 'failed' as const, reason: intent.status }
   },
 })
+// @snippet end shopSecretUsage
 
+// @snippet start queuePublish
+// Publishing to a queue: `queueService.add(name, payload)`, typed against the
+// queue's declared payload shape.
+//
+// This is the step that actually sends a receipt. The example used to be
+// `placeOrder`, which inserted an order with a zero total and an empty address
+// purely to have something to queue about, and which nothing ever called.
 export const finalizeOrder = pikkuSessionlessFunc({
   description: 'Record the outcome, and on success clear the basket and queue the receipt.',
   func: async (
@@ -99,6 +144,7 @@ export const finalizeOrder = pikkuSessionlessFunc({
     }
   },
 })
+// @snippet end queuePublish
 
 // @snippet start checkoutWorkflow
 // @snippet start wireWorkflow
@@ -150,6 +196,10 @@ export const checkoutWorkflow = pikkuWorkflowFunc<
 // immediately — the workflow runs async in the background.
 // Pikku also auto-generates /workflow/:name/start and /workflow/:name/status/:id routes.
 export const startCheckout = pikkuFunc({
+  // Exposed like every other entry point. Without this the checkout is
+  // reachable over HTTP and by nothing else — no scenario, no agent, no
+  // internal caller — which is how eight workflow steps went untested.
+  expose: true,
   func: async ({}, { basketId, userId, shippingAddress, cardToken }: {
     basketId: string
     userId: string
@@ -191,6 +241,25 @@ export const issueRefund = pikkuSessionlessFunc({
 
 // @snippet start workflowPatterns
 // A refund workflow demonstrating conditional branching and a built-in sleep step.
+/**
+ * The way in to the refund workflow.
+ *
+ * A workflow cannot be invoked over RPC — `workflow.do` is undefined outside a
+ * workflow run — so a complete refund path sat here with `checkOrderRefundable`
+ * and `issueRefund` behind it and nothing able to start any of it. Same shape as
+ * `startCheckout`: a plain function whose whole job is `rpc.startWorkflow`.
+ */
+export const startRefund = pikkuFunc({
+  expose: true,
+  description: 'Start the refund workflow for an order.',
+  // `orders:refund` is already declared and already granted to support staff —
+  // it was simply never demanded by anything.
+  scopes: ['orders:refund'],
+  func: async ({}, { orderId, reason }: { orderId: string; reason: string }, { rpc }) => {
+    return rpc.startWorkflow('refundWorkflow', { orderId, reason })
+  },
+})
+
 export const refundWorkflow = pikkuWorkflowFunc<
   { orderId: string; reason: string },
   { orderId: string; refunded: boolean; message: string }
@@ -219,3 +288,10 @@ export const refundWorkflow = pikkuWorkflowFunc<
   },
 })
 // @snippet end workflowPatterns
+
+wireHTTP({
+  method: 'post',
+  route: '/orders/:orderId/refund',
+  func: startRefund,
+  auth: true,
+})

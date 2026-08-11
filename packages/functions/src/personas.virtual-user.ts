@@ -16,8 +16,12 @@ import { definePersonas } from '#pikku/scopes/pikku-personas.gen.js'
 // @snippet start definePersonas
 definePersonas({
   visitor: {
+    // A customer, like the people this app is for. The catalogue happens to be
+    // readable without a session, so this is not what makes the smoke gate
+    // pass — it is what stops the gate depending on that staying true.
     name: 'Visitor',
     jobTitle: 'Synthetic health-check user',
+    roles: ['customer'],
     personality: 'Signs in and checks their own session — proves auth end to end',
     account: {},
   },

@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "prebuild": "cd packages/functions && bunx --bun pikku all",
+    "test": "cd packages/functions && node --import tsx --test \"test/**/*.test.ts\"",
     "build": "bun run --filter '*' --if-present build",
     "dev": "bun scripts/dev.mjs",
     "tsc": "bun run --filter '*' tsc",
@@ -20,6 +21,7 @@
   "dependencies": {
     "@ai-sdk/openai-compatible": "^2.0.48",
     "@pikku/addon-console": "^0.12.38",
+    "@pikku/addon-stripe": "^0.1.5",
     "@pikku/ai-vercel": "^0.12.8",
     "@pikku/assistant-ui": "^0.12.9",
     "@pikku/better-auth": "^0.12.21",

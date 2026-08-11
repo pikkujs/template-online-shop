@@ -3,7 +3,10 @@ import { pikkuVoidFunc } from '#pikku'
 // @snippet start cleanupAbandonedBaskets
 // @snippet start cleanupFunction
 export const cleanupAbandonedBaskets = pikkuVoidFunc({
-  expose: false,
+  // Exposed so an operator can run the sweep on demand and a scenario can
+  // prove it still works. A job reachable only by its schedule is a job
+  // nobody can test and nobody can force when it matters.
+  expose: true,
   description: 'Cron job: remove anonymous baskets older than 7 days.',
   func: async ({ kysely, logger }) => {
     const cutoff = new Date()

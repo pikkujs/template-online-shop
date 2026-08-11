@@ -1,4 +1,4 @@
-import { pikkuAuth, pikkuPermission, pikkuFunc, wireHTTP } from '#pikku'
+import { pikkuAuth, pikkuPermission } from '#pikku'
 
 // @snippet start shopIsAuthenticated
 export const isAuthenticated = pikkuAuth(
@@ -38,43 +38,3 @@ export const isOrderOwner = pikkuPermission(
 //
 // A scope can only narrow access — it cannot grant what a permission refuses.
 // See cancel-order.function.ts for the pair used together on a real function.
-
-// @snippet start scopedFunction
-// Administration is a scope, not a string comparison against a column. The old
-// `session.role === 'admin'` shape could not be checked at build time, could
-// not be granted through the console, and said nothing about *which* admin
-// capability was needed.
-export const deleteOrder = pikkuFunc({
-  func: async ({ kysely }, { orderId }: { orderId: string }) => {
-    await kysely.deleteFrom('order').where('orderId', '=', orderId).execute()
-  },
-  scopes: ['orders'],
-})
-// @snippet end scopedFunction
-
-// @snippet start shopGetProfile
-export const getProfile = pikkuFunc({
-  func: async ({ kysely }, _data, { session }) => {
-    return kysely
-      .selectFrom('appUser')
-      .select(['userId', 'name', 'email', 'role'])
-      .where('userId', '=', session.userId)
-      .executeTakeFirstOrThrow()
-  },
-})
-// @snippet end shopGetProfile
-
-// @snippet start shopAuthScope
-// Sessions arrive from Better Auth — the CLI generates the session-bridge
-// middleware from src/wirings/auth.wiring.ts, so nothing here has to read a
-// cookie or a bearer header itself.
-//
-// `auth: true` is the baseline: no session, no call. Authorization lives on
-// the function (see deleteOrder above); the wiring only maps the route to it.
-wireHTTP({
-  method: 'delete',
-  route: '/orders/:orderId',
-  func: deleteOrder,
-  auth: true,
-})
-// @snippet end shopAuthScope

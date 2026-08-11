@@ -33,6 +33,14 @@ defineScope({
       refund: { description: 'Refund a paid order' },
     },
   },
+  payments: {
+    displayName: 'Payments',
+    description: 'Reaching the payment provider',
+    scopes: {
+      charge: { description: 'Create a payment intent for your own order' },
+      manage: { description: 'Refunds, customers and everything else Stripe offers' },
+    },
+  },
   reports: {
     displayName: 'Reports',
     description: 'Sales and stock reporting',

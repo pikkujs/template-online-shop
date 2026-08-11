@@ -25,10 +25,15 @@ export const everyPageLoadsScenario = pikkuScenario<void, { routes: string[] }>(
     }
     // `repoRoot` is passed even though the schema defaults it: a step's input
     // type is the schema's OUTPUT, so a defaulted field is still required here.
+    //
+    // '../..' and not '.': scenarios run with the cwd at packages/functions, and
+    // `staticRoutes` looks for `<repoRoot>/apps/*/src/routeTree.gen.ts`. Pointed
+    // at the wrong root it finds no route tree, falls back to ['/'] and passes —
+    // a green gate that swept one page and claimed to have swept them all.
     const swept = await scenario.then(
       'every page loads without errors',
       'sweepsAllPages',
-      { repoRoot: '.' },
+      { repoRoot: '../..' },
       { actor: actors.visitor },
     )
     return { routes: swept.routes }

@@ -1,91 +1,53 @@
 import type { GatewayAdapter, GatewayInboundMessage, GatewayOutboundMessage } from '@pikku/core/gateway'
 import { wireGateway } from '@pikku/core/gateway'
-import { pikkuSessionlessFunc } from '#pikku'
+import { handleChatMessage } from '../functions/gateway/handle-chat-message.function.js'
 
-// @snippet start gatewayHandler
-// A gateway handler receives a normalized GatewayInboundMessage regardless of platform.
-export const handlePaymentWebhook = pikkuSessionlessFunc({
-  expose: false,
-  description: 'Process payment webhook events from the payment provider.',
-  func: async ({ kysely, logger }, { text, raw }: { text: string; raw: unknown }) => {
-    const payload = raw as { event: string; data: { orderId: string } }
-    logger.info({ event: 'payment_webhook', type: payload.event })
-
-    if (payload.event === 'payment.succeeded') {
-      await kysely
-        .updateTable('order')
-        .set({ status: 'paid', updatedAt: new Date().toISOString() })
-        .where('orderId', '=', payload.data.orderId)
-        .execute()
-    } else if (payload.event === 'payment.failed') {
-      await kysely
-        .updateTable('order')
-        .set({ status: 'payment_failed', updatedAt: new Date().toISOString() })
-        .where('orderId', '=', payload.data.orderId)
-        .execute()
-    }
-
-    return { received: true }
-  },
-})
-// @snippet end gatewayHandler
+/**
+ * Gateways are for conversational transports — Slack, WhatsApp, a web chat
+ * widget. The adapter's job is to turn one platform's messages into the shape
+ * every handler sees, and to send a reply back the way it came.
+ *
+ * That is the whole test of whether something belongs here: is there a sender,
+ * and can you answer them? The payment webhook used to be wired as a gateway and
+ * failed both — it now lives in `functions/orders/handle-payment-webhook` behind
+ * an ordinary HTTP route, which is what a webhook is.
+ */
 
 // @snippet start gatewayAdapter
 // A gateway adapter normalizes platform-specific payloads into GatewayInboundMessage.
-const paymentWebhookAdapter: GatewayAdapter = {
-  name: 'payment-webhook',
+const webChatAdapter: GatewayAdapter = {
+  name: 'webchat',
   parse(data: unknown): GatewayInboundMessage | null {
-    const body = data as Record<string, unknown>
-    if (!body.event) return null
+    const msg = data as Record<string, unknown>
+    if (!msg.text) return null
     return {
-      senderId: String(body.merchant_id ?? 'unknown'),
-      text: String(body.event),
+      senderId: String(msg.clientId ?? 'anon'),
+      text: String(msg.text),
       raw: data,
     }
   },
   async send(_senderId: string, _message: GatewayOutboundMessage) {
-    // Webhooks are one-way — payment provider does not expect a reply
+    // Where a real adapter answers the visitor — over the socket for a web chat,
+    // via the platform's API for Slack or WhatsApp.
   },
   async init(_onMessage: (msg: GatewayInboundMessage) => Promise<void>) {
-    // Webhook transport: incoming messages arrive via the POST route below
+    // Where a real adapter subscribes to the platform and calls `onMessage` for
+    // each inbound message. Empty here, which is why nothing yet reaches the
+    // handler: this is the seam to fill in per platform.
   },
   async close() {},
 }
 // @snippet end gatewayAdapter
 
-// @snippet start gatewayWiring
-// Wire the gateway — Pikku routes POST /webhooks/payment through the adapter and into your handler.
-wireGateway({
-  name: 'payment-webhook',
-  type: 'webhook',
-  route: '/webhooks/payment',
-  adapter: paymentWebhookAdapter,
-  func: handlePaymentWebhook,
-  auth: false,
-})
-// @snippet end gatewayWiring
-
 // @snippet start gatewayWebsocket
 // WebSocket transport — browser clients connect directly.
 // The adapter handles upgrade handshake and binary framing.
-const webChatAdapter: GatewayAdapter = {
-  name: 'webchat',
-  parse: (data) => {
-    const msg = data as Record<string, unknown>
-    if (!msg.text) return null
-    return { senderId: String(msg.clientId ?? 'anon'), text: String(msg.text), raw: data }
-  },
-  async send(_senderId: string, _message: GatewayOutboundMessage) {},
-  async init(_onMessage: (msg: GatewayInboundMessage) => Promise<void>) {},
-  async close() {},
-}
-
 wireGateway({
   name: 'webchat',
   type: 'websocket',
   route: '/chat',
   adapter: webChatAdapter,
-  func: handlePaymentWebhook,
+  func: handleChatMessage,
   auth: false,
 })
 // @snippet end gatewayWebsocket

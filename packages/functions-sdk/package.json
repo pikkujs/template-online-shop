@@ -10,6 +10,7 @@
     "./pikku/pikku-rpc.gen": "./src/pikku/pikku-rpc.gen.ts",
     "./pikku/rpc-map.gen": "./src/pikku/rpc-map.gen.d.ts",
     "./pikku/http-map.gen": "./src/pikku/http-map.gen.d.ts",
+    "./pikku/pikku-websocket.gen": "./src/pikku/pikku-websocket.gen.ts",
     "./pikku/*": "./src/pikku/*"
   },
   "dependencies": {

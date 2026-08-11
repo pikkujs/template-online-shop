@@ -13,7 +13,16 @@ export const listCategoriesTool = pikkuMCPToolFunc({
 export const listItemsTool = pikkuMCPToolFunc<{ categorySlug?: string; search?: string; limit?: number; offset?: number }>({
   description: 'List shop items, optionally filtered by category or search query',
   func: async (_services, { categorySlug, search, limit = 20, offset = 0 }, { rpc }) => {
-    const result = await rpc.invoke('listItems', { categorySlug, search, limit, offset })
+    // Spread the optional filters in only when they were supplied. Passing them
+    // as explicit `undefined` fails validation with `Instances of "undefined"
+    // type are not supported`, so calling this tool without a filter — the
+    // ordinary case — was an internal error.
+    const result = await rpc.invoke('listItems', {
+      ...(categorySlug === undefined ? {} : { categorySlug }),
+      ...(search === undefined ? {} : { search }),
+      limit,
+      offset,
+    })
     return [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }]
   },
 })
@@ -82,15 +91,23 @@ wireMCPPrompt({
 
 // @snippet start mcpWireObject
 // Inside an MCP tool function, use the mcp wire object for dynamic control.
+/**
+ * A mutating tool, and a scope-gated one.
+ *
+ * It goes through `updateItem` rather than writing to the table directly. That
+ * is what makes it safe: `updateItem` requires `catalogue:write`, and since MCP
+ * carries the caller's request the scope is checked against the caller's real
+ * session — an agent gets exactly the authority the person driving it has.
+ *
+ * Writing through `kysely` here instead would bypass that check, which is what
+ * this tool used to do, back when nothing could authenticate an MCP call and a
+ * scope had no session to be checked against.
+ */
 export const updateStockTool = pikkuMCPToolFunc<{ itemId: string; stock: number }>({
   name: 'update_stock',
   description: 'Update stock level for a shop item',
-  func: async ({ kysely }, { itemId, stock }, { mcp }) => {
-    await kysely
-      .updateTable('item')
-      .set({ stock })
-      .where('itemId', '=', itemId)
-      .execute()
+  func: async (_services, { itemId, stock }, { mcp, rpc }) => {
+    await rpc.invoke('updateItem', { itemId, stock })
 
     mcp.sendResourceUpdated(`shop://items/${itemId}`)
     await mcp.enableTools({ add_to_basket: stock > 0 } as any)

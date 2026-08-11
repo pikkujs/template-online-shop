@@ -53,6 +53,11 @@ export default defineConfig({
         target: process.env.VITE_API_PROXY ?? 'http://localhost:3000',
         changeOrigin: false,
         rewrite: (path) => path.replace(/^\/api/, ''),
+        // `ws: true` or channels simply do not work in dev. Vite does not
+        // forward the upgrade request without it, so every websocket dies at the
+        // handshake — which looks exactly like a channel nobody is publishing
+        // to, and is why the realtime surface went unnoticed as broken.
+        ws: true,
       },
       // File content: the pikku dev server serves uploads (PUT) and assets (GET)
       // AT these prefixes (pikku.config.json content.uploadUrlPrefix/assetUrlPrefix),

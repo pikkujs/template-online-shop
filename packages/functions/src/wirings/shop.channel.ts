@@ -47,6 +47,7 @@ wireChannel({
 
 // @snippet start channelPubSub
 // Publish from any HTTP handler to all WebSocket clients subscribed to that order.
+// @coverage-unreachable the server-side push half of the order channel; it runs when the app pushes, not when anything calls it
 export const notifyOrderShipped = pikkuFunc<{ orderId: string }, void>({
   func: async ({ eventHub, kysely }, { orderId }) => {
     await kysely

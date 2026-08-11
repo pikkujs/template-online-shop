@@ -27,9 +27,9 @@ export const createOrder = pikkuFunc({
   input: CreateOrderInput,
   output: CreateOrderOutput,
   func: async (
-    { kysely, paymentService, queueService, audit },
+    { kysely, queueService, audit },
     { basketId, shippingAddress, cardToken },
-    { session }
+    { session, rpc }
   ) => {
     const userId = session.userId
 
@@ -89,9 +89,15 @@ export const createOrder = pikkuFunc({
         .execute()
     }
 
-    // Process payment
+    // Process payment through Stripe, the same way the checkout workflow does.
+    // Both used to call a fake service that succeeded unless the card token
+    // ended in '0000', so neither path had ever met a payment provider.
     const paymentId = randomUUID()
-    const paymentResult = await paymentService.charge({ amountCents: totalCents, cardToken, orderId })
+    const paymentResult = await rpc.invoke('chargeCard', {
+      orderId,
+      totalCents,
+      ...(cardToken ? { cardToken } : {}),
+    })
 
     await kysely
       .insertInto('payment')

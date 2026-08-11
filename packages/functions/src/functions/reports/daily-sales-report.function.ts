@@ -3,7 +3,10 @@ import { pikkuVoidFunc } from '#pikku'
 // @snippet start dailySalesReport
 // @snippet start scheduledFunction
 export const dailySalesReport = pikkuVoidFunc({
-  expose: false,
+  // Exposed so an operator can run the sweep on demand and a scenario can
+  // prove it still works. A job reachable only by its schedule is a job
+  // nobody can test and nobody can force when it matters.
+  expose: true,
   description: 'Cron job: compute and log a daily sales summary.',
   func: async ({ kysely, logger }) => {
     const yesterday = new Date()

@@ -18,25 +18,17 @@ export const GetOrderOutput = z.object({
   createdAt: z.string(),
 })
 
-// @snippet start funcThreeParams
-export const getOrderThreeParams = pikkuFunc({
-  func: async (
-    { kysely, logger },     // services — your toolbox
-    { orderId },            // data — typed input
-    { session }             // wire — protocol context
-  ) => {
-    logger.info(`Fetching order ${orderId}`)
-    const order = await kysely
-      .selectFrom('order')
-      .selectAll()
-      .where('orderId', '=', orderId)
-      .executeTakeFirstOrThrow()
-    return { order, viewer: session.userId }
-  },
-})
-// @snippet end funcThreeParams
 
 // @snippet start getOrder
+// @snippet start funcThreeParams
+// Three parameters, always: services, data, wire.
+//   services — your toolbox (db, logger, queues)
+//   data     — the typed input, wherever it arrived from
+//   wire     — the protocol context (session, http, channel, rpc)
+//
+// This is the order the shop actually serves. The example used to be a second
+// copy of it called `getOrderThreeParams`, wired to nothing — so the signature
+// was documented by the one function in the file that no request ever reached.
 export const getOrder = pikkuFunc({
   expose: true,
   description: 'Get a single order. Users can only access their own orders.',

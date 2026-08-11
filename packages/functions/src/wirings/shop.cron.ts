@@ -33,6 +33,10 @@ wireScheduler({
 // @snippet start cronSkip
 // A scheduled task can skip its own execution by calling wire.scheduledTask.skip().
 export const conditionalReport = pikkuVoidFunc({
+  // Exposed so an operator can run it on demand. A scheduled task that skips
+  // itself under some condition is exactly the one you want to be able to
+  // trigger by hand, to find out whether it skipped for the right reason.
+  expose: true,
   func: async ({ kysely, logger }, _, { scheduledTask }) => {
     const count = await kysely
       .selectFrom('order')

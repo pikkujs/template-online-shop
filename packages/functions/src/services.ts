@@ -6,9 +6,9 @@ import {
   NoopAuditService,
   createInvocationAudit,
 } from '@pikku/core/services'
-import { createAuditedKysely } from '@pikku/kysely'
+import { createAuditedKysely, KyselyScopeService } from '@pikku/kysely'
+import type { KyselyPikkuDB } from '@pikku/kysely'
 import { pikkuServices, pikkuWireServices } from '../.pikku/pikku-types.gen.js'
-import { FakePaymentService } from './services/fake-payment.js'
 import { TypedSecretService } from '../.pikku/secrets/pikku-secrets.gen.js'
 import { TypedVariablesService } from '../.pikku/variables/pikku-variables.gen.js'
 import { CFWorkerSchemaService } from '@pikku/schema-cfworker'
@@ -75,9 +75,27 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
     }
   }
 
+  // Without a ScopeService no user can hold any scope, so every function that
+  // requires one denies everybody — `defineScope`, `defineSystemRole` and the
+  // role grants `pikku persona sync` writes all exist and none of them reach a
+  // request. It resolves userId -> roles -> scopes out of the four pikku_* tables.
+  //
+  // Built as the concrete class rather than the `ScopeService` interface because
+  // `init()` (which creates those tables if they are absent) is the
+  // implementation's, not the contract's. The cast is the app's own `DB` — which
+  // includes the pikku_* tables — against the narrower shape the service
+  // declares; the two differ only in kysely's internal builder generics.
+  let scopeService = existingServices?.scopeService
+  if (!scopeService) {
+    const kyselyScopes = new KyselyScopeService(kysely as unknown as Kysely<KyselyPikkuDB>)
+    await kyselyScopes.init()
+    scopeService = kyselyScopes
+  }
+
   return {
     ...(existingServices ?? {}),
     config,
+    scopeService,
     variables,
     secrets,
     schema,
@@ -89,7 +107,6 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
     // credentials belong to service construction, and functions cannot reach
     // `secrets` at all (every function-facing services type is bounded by
     // SecretlessServices).
-    paymentService: existingServices?.paymentService ?? new FakePaymentService(),
     ...(credentialService ? { credentialService } : {}),
     ...(aiAgentRunner ? { aiAgentRunner } : {}),
   }

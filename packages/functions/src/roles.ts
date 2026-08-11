@@ -19,7 +19,7 @@ defineSystemRole({
   customer: {
     displayName: 'Customer',
     description: 'Browse the catalogue, place and track their own orders',
-    scopes: ['catalogue:read', 'orders:create', 'orders:read'],
+    scopes: ['catalogue:read', 'orders:create', 'orders:read', 'payments:charge'],
   },
   /**
    * Handles orders but cannot change what is for sale. `orders:refund` without
@@ -30,7 +30,7 @@ defineSystemRole({
   support: {
     displayName: 'Support',
     description: 'Handle customer orders, including refunds',
-    scopes: ['catalogue:read', 'orders:read', 'orders:cancel', 'orders:refund'],
+    scopes: ['catalogue:read', 'orders:read', 'orders:cancel', 'orders:refund', 'payments:manage'],
   },
   /**
    * Names the parents rather than enumerating their children — pikku's
@@ -45,7 +45,7 @@ defineSystemRole({
   admin: {
     displayName: 'Administrator',
     description: 'Everything the shop can do, plus console administration',
-    scopes: ['catalogue', 'orders', 'reports', 'admin'],
+    scopes: ['catalogue', 'orders', 'payments', 'reports', 'admin'],
   },
 })
 // @snippet end defineRoles
