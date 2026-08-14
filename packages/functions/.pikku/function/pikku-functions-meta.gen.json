@@ -621,9 +621,9 @@
         "inline": false
       }
     ],
-    "contractHash": "f56a759da8e08dbb",
+    "contractHash": "37cb08852fa78b46",
     "inputHash": "4e30fe21",
-    "outputHash": "2f56dd14"
+    "outputHash": "81000916"
   },
   "getAgentThreadRuns": {
     "pikkuFuncId": "getAgentThreadRuns",
@@ -696,27 +696,6 @@
     "inputHash": "3db46710",
     "outputHash": "5b0d193e"
   },
-  "pikkuConsoleSetSecret": {
-    "pikkuFuncId": "pikkuConsoleSetSecret",
-    "functionType": "user",
-    "funcWrapper": "pikkuFunc",
-    "sessionless": false,
-    "name": "pikkuConsoleSetSecret",
-    "inputSchemaName": "PikkuConsoleSetSecretInput",
-    "outputSchemaName": "PikkuConsoleSetSecretOutput",
-    "inputs": [
-      "PikkuConsoleSetSecretInput"
-    ],
-    "outputs": [
-      "PikkuConsoleSetSecretOutput"
-    ],
-    "expose": true,
-    "implementationHash": "25c2768329d96615",
-    "contractHash": "31a378744c4059bd",
-    "inputHash": "852750a1",
-    "outputHash": "79f3fba7",
-    "secretBroker": true
-  },
   "pikkuConsoleGetVariable": {
     "pikkuFuncId": "pikkuConsoleGetVariable",
     "functionType": "user",
@@ -756,48 +735,6 @@
     "contractHash": "cb14a60d90a58c6b",
     "inputHash": "f2e64dab",
     "outputHash": "ef85132e"
-  },
-  "pikkuConsoleHasSecret": {
-    "pikkuFuncId": "pikkuConsoleHasSecret",
-    "functionType": "user",
-    "funcWrapper": "pikkuFunc",
-    "sessionless": false,
-    "name": "pikkuConsoleHasSecret",
-    "inputSchemaName": "PikkuConsoleHasSecretInput",
-    "outputSchemaName": "PikkuConsoleHasSecretOutput",
-    "inputs": [
-      "PikkuConsoleHasSecretInput"
-    ],
-    "outputs": [
-      "PikkuConsoleHasSecretOutput"
-    ],
-    "expose": true,
-    "implementationHash": "3c4e4c20a5d8935f",
-    "contractHash": "3f98e403f715c50b",
-    "inputHash": "653ba026",
-    "outputHash": "4b1a2834",
-    "secretBroker": true
-  },
-  "pikkuConsoleGetSecret": {
-    "pikkuFuncId": "pikkuConsoleGetSecret",
-    "functionType": "user",
-    "funcWrapper": "pikkuFunc",
-    "sessionless": false,
-    "name": "pikkuConsoleGetSecret",
-    "inputSchemaName": "PikkuConsoleGetSecretInput",
-    "outputSchemaName": "PikkuConsoleGetSecretOutput",
-    "inputs": [
-      "PikkuConsoleGetSecretInput"
-    ],
-    "outputs": [
-      "PikkuConsoleGetSecretOutput"
-    ],
-    "expose": true,
-    "implementationHash": "355bd5732aa7018f",
-    "contractHash": "3b85e09aaf8ed51c",
-    "inputHash": "42277e15",
-    "outputHash": "1610a354",
-    "secretBroker": true
   },
   "realtimeSubscribe": {
     "pikkuFuncId": "realtimeSubscribe",
@@ -918,7 +855,7 @@
     "outputs": [
       "WorkflowRunStatus"
     ],
-    "implementationHash": "54dacd6172c76082",
+    "implementationHash": "9fcf800dece37eec",
     "contractHash": "4d68a0e13e05c878",
     "inputHash": "8b76388a",
     "outputHash": "402bbecf"
@@ -935,7 +872,7 @@
       "WorkflowStatusStreamInput"
     ],
     "outputs": [],
-    "implementationHash": "1d9ca10fa89d77fa",
+    "implementationHash": "a4de28ea46ece3af",
     "contractHash": "c80642eaef991622",
     "inputHash": "1ffa4b0a",
     "outputHash": "6180f124"
@@ -952,29 +889,10 @@
       "WorkflowStatusStreamFullInput"
     ],
     "outputs": [],
-    "implementationHash": "21171dd08fadae79",
+    "implementationHash": "1869e1c5f0a5d10b",
     "contractHash": "cfa22ced3946bfb4",
     "inputHash": "901e07ab",
     "outputHash": "dcd02549"
-  },
-  "graphStarter": {
-    "pikkuFuncId": "graphStarter",
-    "functionType": "user",
-    "funcWrapper": "pikkuSessionlessFunc",
-    "sessionless": true,
-    "name": "graphStarter",
-    "inputSchemaName": "GraphStarterInput",
-    "outputSchemaName": "GraphStarterOutput",
-    "inputs": [
-      "GraphStarterInput"
-    ],
-    "outputs": [
-      "GraphStarterOutput"
-    ],
-    "implementationHash": "60e38318ef11d70f",
-    "contractHash": "d46a162dd754ccc6",
-    "inputHash": "f55748c4",
-    "outputHash": "ceb3e46e"
   },
   "workflowApprover": {
     "pikkuFuncId": "workflowApprover",
@@ -990,7 +908,7 @@
     "outputs": [
       "WorkflowApproverOutput"
     ],
-    "implementationHash": "1d4ba66a29b8293e",
+    "implementationHash": "4897aa0edae99d7f",
     "contractHash": "743929fad4bbaf60",
     "inputHash": "b37eecda",
     "outputHash": "330cba2c"

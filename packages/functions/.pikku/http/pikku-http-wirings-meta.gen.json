@@ -416,27 +416,6 @@
       ],
       "requiresSession": false
     },
-    "/workflow/:workflowName/graph/:nodeId": {
-      "pikkuFuncId": "graphStarter",
-      "route": "/workflow/:workflowName/graph/:nodeId",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
-      "method": "post",
-      "auth": false,
-      "params": [
-        "workflowName",
-        "nodeId"
-      ],
-      "tags": [
-        "pikku"
-      ],
-      "middleware": [
-        {
-          "type": "http",
-          "route": "*"
-        }
-      ],
-      "requiresSession": false
-    },
     "/analytics": {
       "pikkuFuncId": "recordAnalyticsEvents",
       "route": "/analytics",

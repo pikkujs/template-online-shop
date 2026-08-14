@@ -20,33 +20,33 @@
   },
   "dependencies": {
     "@ai-sdk/openai-compatible": "^2.0.48",
-    "@pikku/addon-console": "^0.12.38",
+    "@pikku/addon-console": "^0.12.40",
     "@pikku/addon-stripe": "^0.1.5",
-    "@pikku/ai-vercel": "^0.12.8",
-    "@pikku/assistant-ui": "^0.12.9",
-    "@pikku/better-auth": "^0.12.21",
+    "@pikku/ai-vercel": "^0.12.10",
+    "@pikku/assistant-ui": "^0.12.10",
+    "@pikku/better-auth": "^0.12.23",
     "@pikku/cloudflare": "^0.12.19",
-    "@pikku/core": "0.12.79",
-    "@pikku/deploy-standalone": "^0.12.8",
-    "@pikku/fetch": "0.12.8",
-    "@pikku/kysely": "^0.13.10",
-    "@pikku/kysely-node-sqlite": "^0.12.4",
-    "@pikku/kysely-sqlite": "^0.12.10",
+    "@pikku/core": "0.12.82",
+    "@pikku/deploy-standalone": "^0.12.10",
+    "@pikku/fetch": "0.12.9",
+    "@pikku/kysely": "^0.13.15",
+    "@pikku/kysely-node-sqlite": "^0.12.5",
+    "@pikku/kysely-sqlite": "^0.12.11",
     "@pikku/mantine": "^0.12.8",
     "@pikku/react": "^0.12.5",
     "@pikku/schema-cfworker": "^0.12.5",
     "ai": "^6.0.0"
   },
   "devDependencies": {
-    "@pikku/cli": "0.12.99",
+    "@pikku/cli": "0.12.102",
     "@types/node": "^22",
     "oxfmt": "^0.53.0",
     "oxlint": "^1.71.0"
   },
   "overrides": {
-    "@pikku/cli": "0.12.99",
-    "@pikku/core": "0.12.79",
-    "@pikku/fetch": "0.12.8"
+    "@pikku/cli": "0.12.102",
+    "@pikku/core": "0.12.82",
+    "@pikku/fetch": "0.12.9"
   },
   "packageManager": "bun@1.3.14"
 }

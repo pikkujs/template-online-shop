@@ -57,6 +57,7 @@
   "package": {},
   "requiredParentServices": [
     "variables",
+    "secrets",
     "metaService",
     "aiAgentRunner",
     "schedulerService",

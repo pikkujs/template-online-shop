@@ -15,7 +15,7 @@
     "@mantine/core": "^9.2.1",
     "@mantine/dates": "^9.2.1",
     "@mantine/hooks": "^9.2.1",
-    "@pikku/assistant-ui": "^0.12.9",
+    "@pikku/assistant-ui": "^0.12.10",
     "@pikku/mantine": "^0.12.8",
     "@pikku/react": "^0.12.5",
     "@project/functions-sdk": "workspace:*",
@@ -43,6 +43,6 @@
     "@vitejs/plugin-react": "^4.5.2",
     "typescript": "^5.9",
     "vite": "^7.0.0",
-    "@pikku/paraglide": "^0.12.2"
+    "@pikku/paraglide": "^0.12.3"
   }
 }
