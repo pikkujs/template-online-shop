@@ -1,6 +1,6 @@
 import { defineVariable } from '@pikku/core/variable'
 import { z } from 'zod'
-import type { SingletonServices } from '#pikku'
+import type { SingletonServices } from '../application-types.d.js'
 
 // The CLI requires `schema` to be a named export, not an inline `z.string()`.
 export const CorsOriginsSchema = z.string()

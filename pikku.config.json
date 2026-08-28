@@ -35,18 +35,11 @@
     "pikkuDir": "packages/functions/src/scaffold",
     "console": true,
     "rpc": true,
-    "agent": {
-      "auth": false
-    },
-    "workflow": {
-      "auth": false
-    },
-    "scenarios": {
-      "auth": false
-    },
-    "events": {
-      "auth": false
-    }
+    "agent": true,
+    "workflow": true,
+    "scenarios": true,
+    "events": true,
+    "virtualUser": true
   },
   "scenarios": {
     "emailDomain": "actors.local",

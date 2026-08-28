@@ -11,7 +11,7 @@
  * the runtime serves only `expose: true`. They wrap functions called directly
  * here, so nothing is lost.
  */
-import { pikkuFeature, pikkuScenario } from '#pikku/workflow/pikku-workflow-types.gen.js'
+import { pikkuFeature, pikkuScenario } from '#pikku/scenarios'
 
 export const everyFunctionRuns = pikkuScenario<void, { checked: number }>({
   title: 'Every callable function runs',

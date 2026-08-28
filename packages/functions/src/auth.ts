@@ -1,7 +1,6 @@
 import { betterAuth } from 'better-auth'
-import { admin } from 'better-auth/plugins'
-import { actor, fabric } from '@pikku/better-auth'
-import { pikkuBetterAuth } from '#pikku'
+import { actor, ban, fabric } from '@pikku/better-auth'
+import { pikkuBetterAuth } from '#pikku/auth'
 
 /**
  * Better Auth configuration — email + password sign-in.
@@ -36,7 +35,7 @@ export const auth = pikkuBetterAuth(async ({ kysely, secrets, variables, emailSe
   // without it.
   const SCENARIO_ACTOR_SECRET = await secrets
     .getSecret('SCENARIO_ACTOR_SECRET')
-    .then((value) => value.reveal())
+    .then((value) => value?.reveal())
     .catch(() => undefined)
   // Fabric operator admin: the RSA public key the control plane's token is
   // verified against. The Fabric deployer pushes FABRIC_AUTH_PUBLIC_KEY onto
@@ -72,22 +71,20 @@ export const auth = pikkuBetterAuth(async ({ kysely, secrets, variables, emailSe
     // db/sqlite/0002-user-actor.sql) signed in by pikkuScenario via
     // POST /api/auth/sign-in/actor { email, secret }. Never signs in real users.
     //
-    // admin(): exposes /api/auth/admin/* (listUsers, setRole, impersonateUser,
-    // …) so an app admin can list and "view as" their end-users — this is what
-    // the Fabric console's Users tab drives. Adds role/banned/impersonatedBy
-    // columns (see db/sqlite/0003-admin.sql). No user is an admin by default:
-    // grant it by setting a user's `role` to 'admin' (or pass
-    // `adminUserIds: [...]` here) — the admin API refuses non-admins.
+    // ban(): adds the `banned`/`banReason`/`banExpires` columns (see
+    // db/sqlite/0003-admin.sql) and the checks that refuse a banned user's
+    // sign-in. The listUsers/setRole/impersonate RPCs the Fabric console's
+    // Users tab drives live in @pikku/addon-admin, not in a better-auth plugin.
     //
     // fabric(): exposes /api/auth/sign-in/fabric — the Fabric control plane
     // mints a short-lived RS256 token and signs in as a synthetic `fabric: true`
     // admin operator (db/sqlite/0004-fabric.sql), so the console Users tab can
     // list/impersonate real users without the operator being one of them. It
-    // pairs with admin() and verifies against FABRIC_AUTH_PUBLIC_KEY; missing
-    // key disables the endpoint.
+    // verifies against FABRIC_AUTH_PUBLIC_KEY; a missing key disables the
+    // endpoint.
     plugins: [
       actor({ secret: SCENARIO_ACTOR_SECRET }),
-      admin(),
+      ban(),
       fabric({ publicKey: FABRIC_AUTH_PUBLIC_KEY }),
     ],
   })

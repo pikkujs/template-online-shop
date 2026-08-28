@@ -3,7 +3,7 @@
     "/api/auth{/*splat}": {
       "pikkuFuncId": "authHandler",
       "route": "/api/auth{/*splat}",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/auth/auth.gen.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/scaffold/auth/auth.gen.ts",
       "method": "get",
       "auth": false,
       "tags": [
@@ -18,10 +18,9 @@
       "requiresSession": false
     },
     "/workflow-run/:runId/stream": {
-      "pikkuFuncId": "http:get:/workflow-run/:runId/stream",
-      "refTarget": "console:streamWorkflowRun",
+      "pikkuFuncId": "console:streamWorkflowRun",
       "route": "/workflow-run/:runId/stream",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/console/console.gen.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/scaffold/console/console.gen.ts",
       "method": "get",
       "auth": false,
       "params": [
@@ -39,10 +38,30 @@
       "sse": true,
       "requiresSession": false
     },
+    "/scenario-run/:runId/artifact": {
+      "pikkuFuncId": "console:getScenarioArtifact",
+      "route": "/scenario-run/:runId/artifact",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/scaffold/console/console.gen.ts",
+      "method": "get",
+      "auth": true,
+      "params": [
+        "runId"
+      ],
+      "tags": [
+        "pikku"
+      ],
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        }
+      ],
+      "requiresSession": true
+    },
     "/events/:topic": {
       "pikkuFuncId": "realtimeEventStream",
       "route": "/events/:topic",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/realtime/events.gen.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/scaffold/realtime/events.gen.ts",
       "method": "get",
       "auth": false,
       "params": [
@@ -64,7 +83,7 @@
     "/workflow/:workflowName/status/:runId": {
       "pikkuFuncId": "workflowStatusChecker",
       "route": "/workflow/:workflowName/status/:runId",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
       "method": "get",
       "auth": false,
       "params": [
@@ -85,7 +104,7 @@
     "/workflow/:workflowName/status/:runId/stream": {
       "pikkuFuncId": "workflowStatusStream",
       "route": "/workflow/:workflowName/status/:runId/stream",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
       "method": "get",
       "auth": false,
       "params": [
@@ -107,7 +126,7 @@
     "/workflow/:workflowName/status/:runId/stream/full": {
       "pikkuFuncId": "workflowStatusStreamFull",
       "route": "/workflow/:workflowName/status/:runId/stream/full",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
       "method": "get",
       "auth": false,
       "params": [
@@ -129,7 +148,7 @@
     "/categories": {
       "pikkuFuncId": "listCategories",
       "route": "/categories",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "get",
       "auth": false,
       "middleware": [
@@ -143,7 +162,7 @@
     "/items": {
       "pikkuFuncId": "listItems",
       "route": "/items",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "get",
       "auth": false,
       "middleware": [
@@ -157,7 +176,7 @@
     "/items/:itemId": {
       "pikkuFuncId": "getItem@v3",
       "route": "/items/:itemId",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "get",
       "auth": false,
       "params": [
@@ -174,7 +193,7 @@
     "/profile": {
       "pikkuFuncId": "getProfile",
       "route": "/profile",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "get",
       "auth": true,
       "middleware": [
@@ -188,7 +207,7 @@
     "/basket": {
       "pikkuFuncId": "getBasket",
       "route": "/basket",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "get",
       "auth": false,
       "middleware": [
@@ -202,7 +221,7 @@
     "/orders": {
       "pikkuFuncId": "listOrders",
       "route": "/orders",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "get",
       "auth": true,
       "middleware": [
@@ -220,7 +239,7 @@
     "/orders/:orderId": {
       "pikkuFuncId": "getOrder",
       "route": "/orders/:orderId",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "get",
       "auth": true,
       "params": [
@@ -239,7 +258,7 @@
     "/rpc/agent/:agentName": {
       "pikkuFuncId": "agentCaller",
       "route": "/rpc/agent/:agentName",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
       "method": "post",
       "auth": false,
       "params": [
@@ -259,7 +278,7 @@
     "/rpc/agent/:agentName/stream": {
       "pikkuFuncId": "agentStreamCaller",
       "route": "/rpc/agent/:agentName/stream",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
       "method": "post",
       "auth": false,
       "params": [
@@ -280,7 +299,7 @@
     "/rpc/agent/:agentName/approve": {
       "pikkuFuncId": "agentApproveCaller",
       "route": "/rpc/agent/:agentName/approve",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
       "method": "post",
       "auth": false,
       "params": [
@@ -300,7 +319,7 @@
     "/rpc/agent/:agentName/resume": {
       "pikkuFuncId": "agentResumeCaller",
       "route": "/rpc/agent/:agentName/resume",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/scaffold/agent/agent.gen.ts",
       "method": "post",
       "auth": false,
       "params": [
@@ -321,7 +340,7 @@
     "/api/auth{/*splat}": {
       "pikkuFuncId": "authHandler",
       "route": "/api/auth{/*splat}",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/auth/auth.gen.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/scaffold/auth/auth.gen.ts",
       "method": "post",
       "auth": false,
       "tags": [
@@ -338,9 +357,9 @@
     "/rpc/:rpcName": {
       "pikkuFuncId": "rpcCaller",
       "route": "/rpc/:rpcName",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/rpc/rpc-public.gen.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/scaffold/rpc/rpc-public.gen.ts",
       "method": "post",
-      "auth": true,
+      "auth": false,
       "params": [
         "rpcName"
       ],
@@ -353,12 +372,12 @@
           "route": "*"
         }
       ],
-      "requiresSession": true
+      "requiresSession": false
     },
     "/workflow/:workflowName/start": {
       "pikkuFuncId": "workflowStarter",
       "route": "/workflow/:workflowName/start",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
       "method": "post",
       "auth": false,
       "params": [
@@ -378,7 +397,7 @@
     "/workflow/:workflowName/approve/:runId": {
       "pikkuFuncId": "workflowApprover",
       "route": "/workflow/:workflowName/approve/:runId",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
       "method": "post",
       "auth": false,
       "params": [
@@ -399,7 +418,7 @@
     "/workflow/:workflowName/run": {
       "pikkuFuncId": "workflowRunner",
       "route": "/workflow/:workflowName/run",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/scaffold/workflow/workflow-routes.gen.ts",
       "method": "post",
       "auth": false,
       "params": [
@@ -419,7 +438,7 @@
     "/analytics": {
       "pikkuFuncId": "recordAnalyticsEvents",
       "route": "/analytics",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wires/http/analytics.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wires/http/analytics.http.ts",
       "method": "post",
       "auth": false,
       "middleware": [
@@ -438,7 +457,7 @@
     "/checkout": {
       "pikkuFuncId": "startCheckout",
       "route": "/checkout",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/checkout.workflow.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
       "method": "post",
       "auth": true,
       "middleware": [
@@ -452,7 +471,7 @@
     "/orders/:orderId/refund": {
       "pikkuFuncId": "startRefund",
       "route": "/orders/:orderId/refund",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/checkout.workflow.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/checkout.workflow.ts",
       "method": "post",
       "auth": true,
       "params": [
@@ -469,7 +488,7 @@
     "/agents/shop": {
       "pikkuFuncId": "http:post:/agents/shop",
       "route": "/agents/shop",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.bot.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.bot.ts",
       "method": "post",
       "auth": true,
       "middleware": [
@@ -483,7 +502,7 @@
     "/agents/shop/stream": {
       "pikkuFuncId": "http:post:/agents/shop/stream",
       "route": "/agents/shop/stream",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.bot.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.bot.ts",
       "method": "post",
       "auth": true,
       "middleware": [
@@ -497,7 +516,7 @@
     "/agents/ops": {
       "pikkuFuncId": "http:post:/agents/ops",
       "route": "/agents/ops",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.bot.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.bot.ts",
       "method": "post",
       "auth": true,
       "middleware": [
@@ -511,7 +530,7 @@
     "/agents/checkout": {
       "pikkuFuncId": "http:post:/agents/checkout",
       "route": "/agents/checkout",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.bot.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.bot.ts",
       "method": "post",
       "auth": true,
       "middleware": [
@@ -525,7 +544,7 @@
     "/categories": {
       "pikkuFuncId": "createCategory",
       "route": "/categories",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "post",
       "auth": true,
       "middleware": [
@@ -539,7 +558,7 @@
     "/items": {
       "pikkuFuncId": "createItem",
       "route": "/items",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "post",
       "auth": true,
       "middleware": [
@@ -553,7 +572,7 @@
     "/basket/items": {
       "pikkuFuncId": "addToBasket",
       "route": "/basket/items",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "post",
       "auth": false,
       "middleware": [
@@ -567,7 +586,7 @@
     "/orders": {
       "pikkuFuncId": "createOrder",
       "route": "/orders",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "post",
       "auth": true,
       "middleware": [
@@ -585,7 +604,7 @@
     "/orders/:orderId/cancel": {
       "pikkuFuncId": "cancelOrder",
       "route": "/orders/:orderId/cancel",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "post",
       "auth": true,
       "params": [
@@ -602,7 +621,7 @@
     "/exports": {
       "pikkuFuncId": "startExport",
       "route": "/exports",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "post",
       "auth": true,
       "middleware": [
@@ -616,7 +635,7 @@
     "/reports/conditional": {
       "pikkuFuncId": "conditionalReport",
       "route": "/reports/conditional",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "post",
       "auth": true,
       "middleware": [
@@ -628,10 +647,9 @@
       "requiresSession": true
     },
     "/webhooks/stripe": {
-      "pikkuFuncId": "http:post:/webhooks/stripe",
-      "refTarget": "stripe:stripeWebhookHandler",
+      "pikkuFuncId": "stripe:stripeWebhookHandler",
       "route": "/webhooks/stripe",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.payments.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.payments.ts",
       "method": "post",
       "auth": false,
       "middleware": [
@@ -648,7 +666,7 @@
     "/orders/:orderId": {
       "pikkuFuncId": "deleteOrder",
       "route": "/orders/:orderId",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.delete-order.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.delete-order.http.ts",
       "method": "delete",
       "auth": true,
       "params": [
@@ -665,7 +683,7 @@
     "/basket/items/:itemId": {
       "pikkuFuncId": "removeFromBasket",
       "route": "/basket/items/:itemId",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "delete",
       "auth": false,
       "params": [
@@ -685,7 +703,7 @@
     "/items/:itemId": {
       "pikkuFuncId": "updateItem",
       "route": "/items/:itemId",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
+      "sourceFile": "/Users/yasser/git/pikku/templates/online-shop/packages/functions/src/wirings/shop.http.ts",
       "method": "patch",
       "auth": true,
       "params": [

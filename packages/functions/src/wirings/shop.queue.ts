@@ -1,5 +1,5 @@
 import { wireQueueWorker } from '#pikku/queue/pikku-queue-types.gen.js'
-import { pikkuSessionlessFunc, pikkuFunc } from '#pikku'
+import { pikkuSessionlessFunc, pikkuFunc } from '#pikku/function'
 import { sendOrderConfirmation } from '../functions/notifications/send-order-confirmation.function.js'
 import { writeAuditEvent } from '../functions/notifications/write-audit-event.function.js'
 import { randomUUID } from 'node:crypto'

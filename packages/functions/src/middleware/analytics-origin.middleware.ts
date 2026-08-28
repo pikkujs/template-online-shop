@@ -2,7 +2,7 @@
 // is already bound to this app's SingletonServices, while the core one is typed
 // against CoreSingletonServices and will not accept a handler that reads app
 // services.
-import { pikkuMiddleware } from '#pikku'
+import { pikkuMiddleware } from '#pikku/middleware'
 import { InvalidOriginError } from '@pikku/core/errors'
 import { allowedOrigins } from '../lib/cors-origins.js'
 

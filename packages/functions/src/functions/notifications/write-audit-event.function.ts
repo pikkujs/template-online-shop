@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { randomUUID } from 'node:crypto'
-import { pikkuSessionlessFunc } from '#pikku'
+import { pikkuSessionlessFunc } from '#pikku/function'
 
 export const AuditEventInput = z.object({
   entityType: z.string(),

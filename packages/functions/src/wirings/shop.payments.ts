@@ -1,4 +1,6 @@
-import { wireAddon, wireHTTP, ref } from '#pikku'
+import { wireAddon } from '#pikku/addon'
+import { ref } from '#pikku/function'
+import { wireHTTP } from '#pikku/http'
 import { wireQueueWorker } from '#pikku/queue/pikku-queue-types.gen.js'
 import { STRIPE_WEBHOOK_QUEUE } from '@pikku/addon-stripe'
 import { applyStripeEvent } from '../functions/orders/apply-stripe-event.function.js'

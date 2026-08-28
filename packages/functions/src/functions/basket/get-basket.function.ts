@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { randomUUID } from 'node:crypto'
-import { pikkuSessionlessFunc } from '#pikku'
+import { pikkuSessionlessFunc } from '#pikku/function'
 
 export const GetBasketInput = z.object({
   sessionId: z.string().optional(),

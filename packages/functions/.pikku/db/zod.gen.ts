@@ -37,6 +37,152 @@ export const AccountInsertZ = z.object({
 
 export const AccountPatchZ = AccountZ.partial()
 
+export const AgentMessageZ = z.object({
+  id: z.string(),
+  threadId: z.string(),
+  role: z.string(),
+  content: z.string().nullable(),
+  createdAt: z.string(),
+})
+
+export const AgentMessageInsertZ = z.object({
+  id: z.string(),
+  threadId: z.string(),
+  role: z.string(),
+  content: z.string().nullable(),
+  createdAt: z.string().optional(),
+})
+
+export const AgentMessagePatchZ = AgentMessageZ.partial()
+
+export const AgentRunZ = z.object({
+  runId: z.string(),
+  agentName: z.string(),
+  threadId: z.string(),
+  resourceId: z.string(),
+  status: z.string(),
+  errorMessage: z.string().nullable(),
+  suspendReason: z.string().nullable(),
+  missingRpcs: z.string().nullable(),
+  pendingApprovals: z.string().nullable(),
+  usageInputTokens: z.number(),
+  usageOutputTokens: z.number(),
+  usageModel: z.string(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+})
+
+export const AgentRunInsertZ = z.object({
+  runId: z.string(),
+  agentName: z.string(),
+  threadId: z.string(),
+  resourceId: z.string(),
+  status: z.string().optional(),
+  errorMessage: z.string().nullable(),
+  suspendReason: z.string().nullable(),
+  missingRpcs: z.string().nullable(),
+  pendingApprovals: z.string().nullable(),
+  usageInputTokens: z.number().optional(),
+  usageOutputTokens: z.number().optional(),
+  usageModel: z.string().optional(),
+  createdAt: z.string().optional(),
+  updatedAt: z.string().optional(),
+})
+
+export const AgentRunPatchZ = AgentRunZ.partial()
+
+export const AgentRunScoreZ = z.object({
+  id: z.string(),
+  runId: z.string(),
+  scorerName: z.string(),
+  score: z.number(),
+  reason: z.string().nullable(),
+  metadata: z.string().nullable(),
+  createdAt: z.string(),
+})
+
+export const AgentRunScoreInsertZ = z.object({
+  id: z.string(),
+  runId: z.string(),
+  scorerName: z.string(),
+  score: z.number(),
+  reason: z.string().nullable(),
+  metadata: z.string().nullable(),
+  createdAt: z.string().optional(),
+})
+
+export const AgentRunScorePatchZ = AgentRunScoreZ.partial()
+
+export const AgentThreadsZ = z.object({
+  id: z.string(),
+  resourceId: z.string(),
+  title: z.string().nullable(),
+  metadata: z.string().nullable(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+})
+
+export const AgentThreadsInsertZ = z.object({
+  id: z.string(),
+  resourceId: z.string(),
+  title: z.string().nullable(),
+  metadata: z.string().nullable(),
+  createdAt: z.string().optional(),
+  updatedAt: z.string().optional(),
+})
+
+export const AgentThreadsPatchZ = AgentThreadsZ.partial()
+
+export const AgentToolCallZ = z.object({
+  id: z.string(),
+  threadId: z.string(),
+  messageId: z.string(),
+  runId: z.string().nullable(),
+  toolName: z.string(),
+  args: z.string(),
+  result: z.string().nullable(),
+  approvalStatus: z.string().nullable(),
+  approvalType: z.string().nullable(),
+  agentRunId: z.string().nullable(),
+  displayToolName: z.string().nullable(),
+  displayArgs: z.string().nullable(),
+  createdAt: z.string(),
+})
+
+export const AgentToolCallInsertZ = z.object({
+  id: z.string(),
+  threadId: z.string(),
+  messageId: z.string(),
+  runId: z.string().nullable(),
+  toolName: z.string(),
+  args: z.string(),
+  result: z.string().nullable(),
+  approvalStatus: z.string().nullable(),
+  approvalType: z.string().nullable(),
+  agentRunId: z.string().nullable(),
+  displayToolName: z.string().nullable(),
+  displayArgs: z.string().nullable(),
+  createdAt: z.string().optional(),
+})
+
+export const AgentToolCallPatchZ = AgentToolCallZ.partial()
+
+export const AgentWorkingMemoryZ = z.object({
+  id: z.string(),
+  scope: z.string(),
+  data: z.string(),
+  updatedAt: z.string(),
+})
+
+export const AgentWorkingMemoryInsertZ = z.object({
+  id: z.string(),
+  scope: z.string(),
+  data: z.string(),
+  updatedAt: z.string().optional(),
+})
+
+export const AgentWorkingMemoryPatchZ = AgentWorkingMemoryZ.partial()
+
 export const AiMessageZ = z.object({
   id: z.string(),
   threadId: z.string(),
@@ -161,6 +307,50 @@ export const AiWorkingMemoryInsertZ = z.object({
 
 export const AiWorkingMemoryPatchZ = AiWorkingMemoryZ.partial()
 
+export const AuditZ = z.object({
+  auditId: z.string(),
+  occurredAt: z.string(),
+  type: z.string(),
+  source: z.string(),
+  outcome: z.string().nullable(),
+  functionId: z.string().nullable(),
+  wireType: z.string().nullable(),
+  traceId: z.string().nullable(),
+  transactionId: z.string().nullable(),
+  queryId: z.string().nullable(),
+  userId: z.string().nullable(),
+  orgId: z.string().nullable(),
+  pikkuUserId: z.string().nullable(),
+  tables: z.string().nullable(),
+  changedCols: z.string().nullable(),
+  event: z.string().nullable(),
+  old: z.string().nullable(),
+  data: z.string().nullable(),
+})
+
+export const AuditInsertZ = z.object({
+  auditId: z.string(),
+  occurredAt: z.string(),
+  type: z.string(),
+  source: z.string().optional(),
+  outcome: z.string().nullable(),
+  functionId: z.string().nullable(),
+  wireType: z.string().nullable(),
+  traceId: z.string().nullable(),
+  transactionId: z.string().nullable(),
+  queryId: z.string().nullable(),
+  userId: z.string().nullable(),
+  orgId: z.string().nullable(),
+  pikkuUserId: z.string().nullable(),
+  tables: z.string().nullable(),
+  changedCols: z.string().nullable(),
+  event: z.string().nullable(),
+  old: z.string().nullable(),
+  data: z.string().nullable(),
+})
+
+export const AuditPatchZ = AuditZ.partial()
+
 export const AuditLogZ = z.object({
   auditId: z.string(),
   entityType: z.string(),
@@ -268,6 +458,20 @@ export const ChannelsInsertZ = z.object({
 })
 
 export const ChannelsPatchZ = ChannelsZ.partial()
+
+export const CredentialKekSaltsZ = z.object({
+  keyVersion: z.number(),
+  salt: z.string(),
+  createdAt: z.string(),
+})
+
+export const CredentialKekSaltsInsertZ = z.object({
+  keyVersion: z.number().optional(),
+  salt: z.string(),
+  createdAt: z.string().optional(),
+})
+
+export const CredentialKekSaltsPatchZ = CredentialKekSaltsZ.partial()
 
 export const CredentialsZ = z.object({
   name: z.string(),
@@ -523,6 +727,20 @@ export const PikkuUserSessionsInsertZ = z.object({
 
 export const PikkuUserSessionsPatchZ = PikkuUserSessionsZ.partial()
 
+export const SecretKekSaltsZ = z.object({
+  keyVersion: z.number(),
+  salt: z.string(),
+  createdAt: z.string(),
+})
+
+export const SecretKekSaltsInsertZ = z.object({
+  keyVersion: z.number().optional(),
+  salt: z.string(),
+  createdAt: z.string().optional(),
+})
+
+export const SecretKekSaltsPatchZ = SecretKekSaltsZ.partial()
+
 export const SecretsZ = z.object({
   key: z.string(),
   ciphertext: z.string(),
@@ -639,6 +857,100 @@ export const VerificationInsertZ = z.object({
 
 export const VerificationPatchZ = VerificationZ.partial()
 
+export const VirtualUserRunZ = z.object({
+  runId: z.string(),
+  persona: z.string(),
+  disposition: z.string(),
+  seed: z.number(),
+  status: z.string(),
+  goals: z.string(),
+  memory: z.string(),
+  findings: z.string(),
+  intents: z.string(),
+  tally: z.string().nullable(),
+  stoppedBy: z.string().nullable(),
+  error: z.string().nullable(),
+  startedBy: z.string().nullable(),
+  createdAt: z.string(),
+  finishedAt: z.string().nullable(),
+})
+
+export const VirtualUserRunInsertZ = z.object({
+  runId: z.string(),
+  persona: z.string(),
+  disposition: z.string(),
+  seed: z.number(),
+  status: z.string().optional(),
+  goals: z.string().optional(),
+  memory: z.string().optional(),
+  findings: z.string().optional(),
+  intents: z.string().optional(),
+  tally: z.string().nullable(),
+  stoppedBy: z.string().nullable(),
+  error: z.string().nullable(),
+  startedBy: z.string().nullable(),
+  createdAt: z.string().optional(),
+  finishedAt: z.string().nullable(),
+})
+
+export const VirtualUserRunPatchZ = VirtualUserRunZ.partial()
+
+export const VirtualUserRunStepZ = z.object({
+  runId: z.string(),
+  stepIndex: z.number(),
+  intentId: z.string().nullable(),
+  action: z.string(),
+  status: z.number().nullable(),
+  ok: z.number().nullable(),
+  response: z.string().nullable(),
+  findingKinds: z.string().nullable(),
+  tokensIn: z.number(),
+  tokensOut: z.number(),
+})
+
+export const VirtualUserRunStepInsertZ = z.object({
+  runId: z.string(),
+  stepIndex: z.number().optional(),
+  intentId: z.string().nullable(),
+  action: z.string(),
+  status: z.number().nullable(),
+  ok: z.number().nullable(),
+  response: z.string().nullable(),
+  findingKinds: z.string().nullable(),
+  tokensIn: z.number().optional(),
+  tokensOut: z.number().optional(),
+})
+
+export const VirtualUserRunStepPatchZ = VirtualUserRunStepZ.partial()
+
+export const VirtualUserScheduleZ = z.object({
+  persona: z.string(),
+  enabled: z.number(),
+  disposition: z.string(),
+  goals: z.string(),
+  budget: z.string().nullable(),
+  minIntervalMs: z.number(),
+  maxIntervalMs: z.number(),
+  nextRunAt: z.string(),
+  lastRunId: z.string().nullable(),
+  lastRunAt: z.string().nullable(),
+})
+
+export const VirtualUserScheduleInsertZ = z.object({
+  persona: z.string(),
+  enabled: z.number().optional(),
+  disposition: z.string(),
+  goals: z.string().optional(),
+  budget: z.string().nullable(),
+  minIntervalMs: z.number(),
+  maxIntervalMs: z.number(),
+  nextRunAt: z.string(),
+  lastRunId: z.string().nullable(),
+  lastRunAt: z.string().nullable(),
+})
+
+export const VirtualUserSchedulePatchZ = VirtualUserScheduleZ.partial()
+
 export const WebhookDeliveryZ = z.object({
   deliveryId: z.string(),
   organizationId: z.string().nullable(),
@@ -739,6 +1051,7 @@ export const WorkflowStepZ = z.object({
   fromStepName: z.string().nullable(),
   createdAt: z.string(),
   updatedAt: z.string(),
+  currentAttempt: z.number().nullable(),
 })
 
 export const WorkflowStepInsertZ = z.object({
@@ -757,6 +1070,7 @@ export const WorkflowStepInsertZ = z.object({
   fromStepName: z.string().nullable(),
   createdAt: z.string().optional(),
   updatedAt: z.string().optional(),
+  currentAttempt: z.number().nullable(),
 })
 
 export const WorkflowStepPatchZ = WorkflowStepZ.partial()
@@ -772,6 +1086,7 @@ export const WorkflowStepHistoryZ = z.object({
   scheduledAt: z.string().nullable(),
   succeededAt: z.string().nullable(),
   failedAt: z.string().nullable(),
+  attempt: z.number().nullable(),
 })
 
 export const WorkflowStepHistoryInsertZ = z.object({
@@ -785,6 +1100,7 @@ export const WorkflowStepHistoryInsertZ = z.object({
   scheduledAt: z.string().nullable(),
   succeededAt: z.string().nullable(),
   failedAt: z.string().nullable(),
+  attempt: z.number().nullable(),
 })
 
 export const WorkflowStepHistoryPatchZ = WorkflowStepHistoryZ.partial()

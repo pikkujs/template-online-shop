@@ -14,7 +14,7 @@
  * Do not weaken this scenario to make it pass. It should stay red until the
  * basket and order screens exist, then pass without being touched.
  */
-import { pikkuFeature, pikkuScenario } from '#pikku/workflow/pikku-workflow-types.gen.js'
+import { pikkuFeature, pikkuScenario } from '#pikku/scenarios'
 
 export const shopperBuysAnItemInTheBrowser = pikkuScenario<void, { landed: string }>({
   title: 'A shopper fills a basket and checks out',

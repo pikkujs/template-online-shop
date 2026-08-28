@@ -522,7 +522,7 @@
     "outputs": [
       "AgentCallerOutput"
     ],
-    "implementationHash": "a772e4ff5b2ea83c",
+    "implementationHash": "53ff00a5c5e608f9",
     "contractHash": "37551e5ed7eab8ce",
     "inputHash": "b7250306",
     "outputHash": "5fb07a82"
@@ -539,7 +539,7 @@
       "AgentStreamCallerInput"
     ],
     "outputs": [],
-    "implementationHash": "e0a175491da15948",
+    "implementationHash": "db7a79fb3d5c8f4c",
     "contractHash": "cbee447908b3884f",
     "inputHash": "8ce997b4",
     "outputHash": "641a263e"
@@ -593,10 +593,11 @@
       "GetAgentThreadsOutput"
     ],
     "expose": true,
-    "implementationHash": "78fe873b8e7e08f8",
-    "contractHash": "9e99c6a25a15abd4",
+    "auth": true,
+    "implementationHash": "f8ab408c1989d90d",
+    "contractHash": "85b4ebdde3a957e4",
     "inputHash": "92d13c90",
-    "outputHash": "57175ae4"
+    "outputHash": "8f00b4d1"
   },
   "getAgentThreadMessages": {
     "pikkuFuncId": "getAgentThreadMessages",
@@ -621,9 +622,9 @@
         "inline": false
       }
     ],
-    "contractHash": "37cb08852fa78b46",
+    "contractHash": "bdc9b69edcc668fc",
     "inputHash": "4e30fe21",
-    "outputHash": "81000916"
+    "outputHash": "5a543720"
   },
   "getAgentThreadRuns": {
     "pikkuFuncId": "getAgentThreadRuns",
@@ -711,7 +712,7 @@
       "PikkuConsoleGetVariableOutput"
     ],
     "expose": true,
-    "implementationHash": "b8b7862cf456701a",
+    "implementationHash": "57ca891e80c241dd",
     "contractHash": "2848c3e22b23fe00",
     "inputHash": "38f93644",
     "outputHash": "dc35791b"
@@ -731,7 +732,7 @@
       "PikkuConsoleSetVariableOutput"
     ],
     "expose": true,
-    "implementationHash": "491f805b98a3d622",
+    "implementationHash": "8a0b387c7187e677",
     "contractHash": "cb14a60d90a58c6b",
     "inputHash": "f2e64dab",
     "outputHash": "ef85132e"
@@ -799,11 +800,180 @@
       "RpcCallerInput"
     ],
     "outputs": [],
-    "auth": true,
-    "implementationHash": "3e180cf9ef99e3e0",
+    "implementationHash": "1be6e1c1e2f95190",
     "contractHash": "634bbf0fea9ae7d2",
     "inputHash": "255f53e2",
     "outputHash": "629e0b5a"
+  },
+  "runVirtualUser": {
+    "pikkuFuncId": "runVirtualUser",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "runVirtualUser",
+    "inputSchemaName": "RunVirtualUserInput",
+    "outputSchemaName": "RunVirtualUserOutput",
+    "inputs": [
+      "RunVirtualUserInput"
+    ],
+    "outputs": [
+      "RunVirtualUserOutput"
+    ],
+    "expose": true,
+    "scopes": [
+      "virtualUser:run"
+    ],
+    "implementationHash": "5db5e748d4f1023f",
+    "contractHash": "8e4038bc02085975",
+    "inputHash": "3bc28000",
+    "outputHash": "4d9bf767"
+  },
+  "getVirtualUserRun": {
+    "pikkuFuncId": "getVirtualUserRun",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "getVirtualUserRun",
+    "inputSchemaName": "GetVirtualUserRunInput",
+    "outputSchemaName": "GetVirtualUserRunOutput",
+    "inputs": [
+      "GetVirtualUserRunInput"
+    ],
+    "outputs": [
+      "GetVirtualUserRunOutput"
+    ],
+    "expose": true,
+    "scopes": [
+      "virtualUser:read"
+    ],
+    "implementationHash": "9034f10c4844da81",
+    "contractHash": "aad2164ff8988462",
+    "inputHash": "369b4c8c",
+    "outputHash": "1665d703"
+  },
+  "listVirtualUserRuns": {
+    "pikkuFuncId": "listVirtualUserRuns",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "listVirtualUserRuns",
+    "inputSchemaName": "ListVirtualUserRunsInput",
+    "outputSchemaName": "ListVirtualUserRunsOutput",
+    "inputs": [
+      "ListVirtualUserRunsInput"
+    ],
+    "outputs": [
+      "ListVirtualUserRunsOutput"
+    ],
+    "expose": true,
+    "scopes": [
+      "virtualUser:read"
+    ],
+    "implementationHash": "d0cf7e1b3f896ab5",
+    "contractHash": "ea48fa66331ba0f4",
+    "inputHash": "7cbccac9",
+    "outputHash": "5fafe14d"
+  },
+  "getVirtualUserRunSteps": {
+    "pikkuFuncId": "getVirtualUserRunSteps",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "getVirtualUserRunSteps",
+    "inputSchemaName": "GetVirtualUserRunStepsInput",
+    "outputSchemaName": "GetVirtualUserRunStepsOutput",
+    "inputs": [
+      "GetVirtualUserRunStepsInput"
+    ],
+    "outputs": [
+      "GetVirtualUserRunStepsOutput"
+    ],
+    "expose": true,
+    "scopes": [
+      "virtualUser:read"
+    ],
+    "implementationHash": "1ee36f400cc2494b",
+    "contractHash": "543832b28ea27a25",
+    "inputHash": "57b03b61",
+    "outputHash": "45411245"
+  },
+  "setVirtualUserSchedule": {
+    "pikkuFuncId": "setVirtualUserSchedule",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "setVirtualUserSchedule",
+    "inputSchemaName": "SetVirtualUserScheduleInput",
+    "outputSchemaName": "SetVirtualUserScheduleOutput",
+    "inputs": [
+      "SetVirtualUserScheduleInput"
+    ],
+    "outputs": [
+      "SetVirtualUserScheduleOutput"
+    ],
+    "expose": true,
+    "scopes": [
+      "virtualUser:schedule"
+    ],
+    "implementationHash": "be8ec0fbef7fa54e",
+    "contractHash": "fa118435a0d1ce06",
+    "inputHash": "e2e48287",
+    "outputHash": "7a4019cc"
+  },
+  "listVirtualUserSchedules": {
+    "pikkuFuncId": "listVirtualUserSchedules",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "listVirtualUserSchedules",
+    "inputSchemaName": null,
+    "outputSchemaName": "ListVirtualUserSchedulesOutput",
+    "inputs": [],
+    "outputs": [
+      "ListVirtualUserSchedulesOutput"
+    ],
+    "expose": true,
+    "scopes": [
+      "virtualUser:read"
+    ],
+    "implementationHash": "3c28c9e6dc7bbe01",
+    "contractHash": "d05f02d540587d6c",
+    "inputHash": "cd2c2ea7",
+    "outputHash": "a33d94e1"
+  },
+  "tickVirtualUserSchedules": {
+    "pikkuFuncId": "tickVirtualUserSchedules",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "tickVirtualUserSchedules",
+    "inputSchemaName": null,
+    "outputSchemaName": null,
+    "inputs": [],
+    "outputs": [],
+    "implementationHash": "aacb80c8f1f180a3",
+    "contractHash": "ec44d69a11649866",
+    "inputHash": "44a8b5a8",
+    "outputHash": "2ea61ea2"
+  },
+  "executeVirtualUserRun": {
+    "pikkuFuncId": "executeVirtualUserRun",
+    "functionType": "user",
+    "funcWrapper": "pikkuSessionlessFunc",
+    "sessionless": true,
+    "name": "executeVirtualUserRun",
+    "inputSchemaName": "ExecuteVirtualUserRunInput",
+    "outputSchemaName": "ExecuteVirtualUserRunOutput",
+    "inputs": [
+      "ExecuteVirtualUserRunInput"
+    ],
+    "outputs": [
+      "ExecuteVirtualUserRunOutput"
+    ],
+    "implementationHash": "40b860aba5d551f8",
+    "contractHash": "5dc1ddc01a4cfdd6",
+    "inputHash": "7207b057",
+    "outputHash": "d3e108a4"
   },
   "workflowStarter": {
     "pikkuFuncId": "workflowStarter",
@@ -872,7 +1042,7 @@
       "WorkflowStatusStreamInput"
     ],
     "outputs": [],
-    "implementationHash": "a4de28ea46ece3af",
+    "implementationHash": "a57a952f67d46bb6",
     "contractHash": "c80642eaef991622",
     "inputHash": "1ffa4b0a",
     "outputHash": "6180f124"
@@ -889,7 +1059,7 @@
       "WorkflowStatusStreamFullInput"
     ],
     "outputs": [],
-    "implementationHash": "1869e1c5f0a5d10b",
+    "implementationHash": "8dec97ec4183a745",
     "contractHash": "cfa22ced3946bfb4",
     "inputHash": "901e07ab",
     "outputHash": "dcd02549"
@@ -947,9 +1117,9 @@
       "CreateOrderRecordOutput"
     ],
     "implementationHash": "d70e6f0f1d1a7bab",
-    "contractHash": "1e4d45637ab9c638",
+    "contractHash": "87f363bd1ab88c25",
     "inputHash": "299de8ca",
-    "outputHash": "27b949e4"
+    "outputHash": "ce239a25"
   },
   "chargeCard": {
     "pikkuFuncId": "chargeCard",
@@ -1332,9 +1502,9 @@
     ],
     "expose": true,
     "implementationHash": "59e1596d3612018b",
-    "contractHash": "4a2997b13622e177",
+    "contractHash": "29b90994173e416a",
     "inputHash": "f88edcf0",
-    "outputHash": "2a7517dd"
+    "outputHash": "a6c0b160"
   },
   "checkItemAvailability": {
     "pikkuFuncId": "checkItemAvailability",
@@ -1356,35 +1526,20 @@
     "inputHash": "4538ab88",
     "outputHash": "e698c31e"
   },
-  "http:get:/workflow-run/:runId/stream": {
-    "pikkuFuncId": "http:get:/workflow-run/:runId/stream",
-    "functionType": "inline",
-    "name": "/workflow-run/:runId/stream",
-    "inputSchemaName": "StreamWorkflowRunInput",
-    "outputSchemaName": null,
-    "inputs": [
-      "StreamWorkflowRunInput"
-    ],
-    "outputs": [],
-    "sessionless": true,
-    "contractHash": "b693c43c3c0f10d5",
-    "inputHash": "e0a18a17",
-    "outputHash": "fc2fd4a0"
-  },
   "http:post:/agents/shop": {
     "pikkuFuncId": "http:post:/agents/shop",
     "functionType": "inline",
     "name": "/agents/shop",
-    "inputSchemaName": "AIAgentInput",
+    "inputSchemaName": "AgentInput",
     "outputSchemaName": "HttpPostAgentsShopOutput",
     "inputs": [
-      "AIAgentInput"
+      "AgentInput"
     ],
     "outputs": [
       "HttpPostAgentsShopOutput"
     ],
-    "contractHash": "fe533aa02ee89bce",
-    "inputHash": "41e0ec9b",
+    "contractHash": "df3263c022ad8272",
+    "inputHash": "a5d7bb7d",
     "outputHash": "a27dab8e"
   },
   "http:post:/agents/shop/stream": {
@@ -1405,32 +1560,32 @@
     "pikkuFuncId": "http:post:/agents/ops",
     "functionType": "inline",
     "name": "/agents/ops",
-    "inputSchemaName": "AIAgentInput",
+    "inputSchemaName": "AgentInput",
     "outputSchemaName": "HttpPostAgentsOpsOutput",
     "inputs": [
-      "AIAgentInput"
+      "AgentInput"
     ],
     "outputs": [
       "HttpPostAgentsOpsOutput"
     ],
-    "contractHash": "2305b46d46507a69",
-    "inputHash": "be07b4cf",
+    "contractHash": "0ab22bbd79092eb7",
+    "inputHash": "410100be",
     "outputHash": "9d890812"
   },
   "http:post:/agents/checkout": {
     "pikkuFuncId": "http:post:/agents/checkout",
     "functionType": "inline",
     "name": "/agents/checkout",
-    "inputSchemaName": "AIAgentInput",
+    "inputSchemaName": "AgentInput",
     "outputSchemaName": "HttpPostAgentsCheckoutOutput",
     "inputs": [
-      "AIAgentInput"
+      "AgentInput"
     ],
     "outputs": [
       "HttpPostAgentsCheckoutOutput"
     ],
-    "contractHash": "6cb126eb5c1037a0",
-    "inputHash": "03309ad1",
+    "contractHash": "e099551f5281264d",
+    "inputHash": "930a831f",
     "outputHash": "fb2ad3c2"
   },
   "mcp:resource:shop://items/{itemId}": {
@@ -1460,23 +1615,6 @@
     "contractHash": "f7f832b5faeca97b",
     "inputHash": "d5f9aa98",
     "outputHash": "c4c5caa0"
-  },
-  "http:post:/webhooks/stripe": {
-    "pikkuFuncId": "http:post:/webhooks/stripe",
-    "functionType": "inline",
-    "name": "/webhooks/stripe",
-    "inputSchemaName": "StripeWebhookHandlerInput",
-    "outputSchemaName": "HttpPostWebhooksStripeOutput",
-    "inputs": [
-      "StripeWebhookHandlerInput"
-    ],
-    "outputs": [
-      "HttpPostWebhooksStripeOutput"
-    ],
-    "sessionless": true,
-    "contractHash": "7cb0ad8b82ec8364",
-    "inputHash": "715384bb",
-    "outputHash": "613cfb70"
   },
   "getItem@v3": {
     "pikkuFuncId": "getItem@v3",

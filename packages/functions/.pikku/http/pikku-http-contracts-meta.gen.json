@@ -70,6 +70,18 @@
           "pikkuFuncId": "console:streamWorkflowRun",
           "packageName": "@pikku/addon-console"
         }
+      },
+      "scenarioArtifact": {
+        "auth": true,
+        "contentType": null,
+        "method": "get",
+        "route": "/scenario-run/:runId/artifact",
+        "sse": null,
+        "timeout": null,
+        "func": {
+          "pikkuFuncId": "console:getScenarioArtifact",
+          "packageName": "@pikku/addon-console"
+        }
       }
     }
   },

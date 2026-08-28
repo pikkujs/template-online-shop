@@ -1,6 +1,7 @@
-import type { CoreServices, CoreSingletonServices, CoreConfig, CoreUserSession } from '@pikku/core'
+import type { CoreServices, CoreSingletonServices, CoreConfig, CoreUserSession } from '@pikku/core/types'
 import type { AuditLog, EmailService } from '@pikku/core/services'
 import type { Kysely } from 'kysely'
+import type { SQLiteKyselyWorkflowService } from '@pikku/kysely-sqlite'
 import type { DB } from '#pikku/db/schema.gen.js'
 import type { TypedSecretService } from '../.pikku/secrets/pikku-secrets.gen.js'
 import type { TypedVariablesService } from '../.pikku/variables/pikku-variables.gen.js'
@@ -25,6 +26,10 @@ export interface SingletonServices extends CoreSingletonServices<Config> {
   variables: TypedVariablesService
   secrets: TypedSecretService
   kysely: Kysely<DB>
+  // Declared here, not just returned from services.ts: the CLI resolves this
+  // interface to decide whether workflows have somewhere to keep their state,
+  // and refuses to generate without it (PKU600).
+  workflowService: SQLiteKyselyWorkflowService
   // Lazy Better Auth factory, injected by the generated pikkuServices wrapper.
   // MUST be the factory shape `() => Promise<AuthInstance>` to satisfy
   // CoreSingletonServices['auth'] — call it (`await services.auth()`) to get

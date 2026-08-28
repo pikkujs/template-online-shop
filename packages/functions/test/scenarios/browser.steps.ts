@@ -4,7 +4,7 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js'
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js'
 import { z } from 'zod'
 import { staticRoutes, sweepAllPages, type ActorSession } from '@pikku/playwright'
-import { pikkuScenarioStep } from '#pikku/workflow/pikku-workflow-types.gen.js'
+import { pikkuScenarioStep } from '#pikku/scenarios'
 
 /**
  * The generic browser vocabulary, the scenario equivalent of what

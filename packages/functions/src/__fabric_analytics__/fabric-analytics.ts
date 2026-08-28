@@ -19,7 +19,7 @@
  * no-ops, so nothing has to branch on the environment at the call site.
  */
 
-import type { SingletonServices } from '#pikku'
+import type { SingletonServices } from '../application-types.d.js'
 
 /**
  * The stream every analytics row is written to. This is a *stream name*, not a

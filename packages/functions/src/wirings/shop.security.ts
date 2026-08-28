@@ -1,4 +1,4 @@
-import { pikkuAuth, pikkuPermission } from '#pikku'
+import { pikkuAuth, pikkuPermission } from '#pikku/auth'
 
 // @snippet start shopIsAuthenticated
 export const isAuthenticated = pikkuAuth(

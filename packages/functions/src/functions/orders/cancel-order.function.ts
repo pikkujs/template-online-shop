@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { pikkuFunc } from '#pikku'
+import { pikkuFunc } from '#pikku/function'
 import { isOrderOwner } from '../../wirings/shop.security.js'
 
 export const CancelOrderInput = z.object({ orderId: z.string() })

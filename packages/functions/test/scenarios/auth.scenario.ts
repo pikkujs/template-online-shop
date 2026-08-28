@@ -14,7 +14,7 @@
  * it as an API scenario against `/api/auth/sign-in/email`, which is where a
  * wrong password is actually refused.
  */
-import { pikkuFeature, pikkuScenario } from '#pikku/workflow/pikku-workflow-types.gen.js'
+import { pikkuFeature, pikkuScenario } from '#pikku/scenarios'
 
 /** The gated area. `staticRoutes` skips /app/login, so only this scenario asserts the guard. */
 const APP_HOME = '/app'

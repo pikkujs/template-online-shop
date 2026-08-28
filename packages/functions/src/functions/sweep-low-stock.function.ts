@@ -1,4 +1,4 @@
-import { pikkuVoidFunc } from '#pikku'
+import { pikkuVoidFunc } from '#pikku/function'
 
 /**
  * One pass over the items that need attention, firing the handler for each.

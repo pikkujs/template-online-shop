@@ -28,6 +28,73 @@ export interface Account {
   updatedAt: ColumnType<Private<string>, string, string>
 }
 
+export interface AgentMessage {
+  id: ColumnType<Private<string>, string, string>
+  threadId: ColumnType<Private<string>, string, string>
+  role: ColumnType<Private<string>, string, string>
+  content: ColumnType<Private<string> | null, string | null, string | null>
+  createdAt: ColumnType<Private<string>, string | undefined, string>
+}
+
+export interface AgentRun {
+  runId: ColumnType<Private<string>, string, string>
+  agentName: ColumnType<Private<string>, string, string>
+  threadId: ColumnType<Private<string>, string, string>
+  resourceId: ColumnType<Private<string>, string, string>
+  status: ColumnType<Private<string>, string | undefined, string>
+  errorMessage: ColumnType<Private<string> | null, string | null, string | null>
+  suspendReason: ColumnType<Private<string> | null, string | null, string | null>
+  missingRpcs: ColumnType<Private<string> | null, string | null, string | null>
+  pendingApprovals: ColumnType<Private<string> | null, string | null, string | null>
+  usageInputTokens: ColumnType<Private<number>, number | undefined, number>
+  usageOutputTokens: ColumnType<Private<number>, number | undefined, number>
+  usageModel: ColumnType<Private<string>, string | undefined, string>
+  createdAt: ColumnType<Private<string>, string | undefined, string>
+  updatedAt: ColumnType<Private<string>, string | undefined, string>
+}
+
+export interface AgentRunScore {
+  id: ColumnType<Private<string>, string, string>
+  runId: ColumnType<Private<string>, string, string>
+  scorerName: ColumnType<Private<string>, string, string>
+  score: ColumnType<Private<number>, number, number>
+  reason: ColumnType<Private<string> | null, string | null, string | null>
+  metadata: ColumnType<Private<string> | null, string | null, string | null>
+  createdAt: ColumnType<Private<string>, string | undefined, string>
+}
+
+export interface AgentThreads {
+  id: ColumnType<Private<string>, string, string>
+  resourceId: ColumnType<Private<string>, string, string>
+  title: ColumnType<Private<string> | null, string | null, string | null>
+  metadata: ColumnType<Private<string> | null, string | null, string | null>
+  createdAt: ColumnType<Private<string>, string | undefined, string>
+  updatedAt: ColumnType<Private<string>, string | undefined, string>
+}
+
+export interface AgentToolCall {
+  id: ColumnType<Private<string>, string, string>
+  threadId: ColumnType<Private<string>, string, string>
+  messageId: ColumnType<Private<string>, string, string>
+  runId: ColumnType<Private<string> | null, string | null, string | null>
+  toolName: ColumnType<Private<string>, string, string>
+  args: ColumnType<Private<string>, string, string>
+  result: ColumnType<Private<string> | null, string | null, string | null>
+  approvalStatus: ColumnType<Private<string> | null, string | null, string | null>
+  approvalType: ColumnType<Private<string> | null, string | null, string | null>
+  agentRunId: ColumnType<Private<string> | null, string | null, string | null>
+  displayToolName: ColumnType<Private<string> | null, string | null, string | null>
+  displayArgs: ColumnType<Private<string> | null, string | null, string | null>
+  createdAt: ColumnType<Private<string>, string | undefined, string>
+}
+
+export interface AgentWorkingMemory {
+  id: ColumnType<Private<string>, string, string>
+  scope: ColumnType<Private<string>, string, string>
+  data: ColumnType<Private<string>, string, string>
+  updatedAt: ColumnType<Private<string>, string | undefined, string>
+}
+
 export interface AiMessage {
   id: ColumnType<Private<string>, string, string>
   threadId: ColumnType<Private<string>, string, string>
@@ -85,6 +152,27 @@ export interface AiWorkingMemory {
   updatedAt: ColumnType<Private<string>, string | undefined, string>
 }
 
+export interface Audit {
+  auditId: ColumnType<Private<string>, string, string>
+  occurredAt: ColumnType<Private<string>, string, string>
+  type: ColumnType<Private<string>, string, string>
+  source: ColumnType<Private<string>, string | undefined, string>
+  outcome: ColumnType<Private<string> | null, string | null, string | null>
+  functionId: ColumnType<Private<string> | null, string | null, string | null>
+  wireType: ColumnType<Private<string> | null, string | null, string | null>
+  traceId: ColumnType<Private<string> | null, string | null, string | null>
+  transactionId: ColumnType<Private<string> | null, string | null, string | null>
+  queryId: ColumnType<Private<string> | null, string | null, string | null>
+  userId: ColumnType<Private<string> | null, string | null, string | null>
+  orgId: ColumnType<Private<string> | null, string | null, string | null>
+  pikkuUserId: ColumnType<Private<string> | null, string | null, string | null>
+  tables: ColumnType<Private<string> | null, string | null, string | null>
+  changedCols: ColumnType<Private<string> | null, string | null, string | null>
+  event: ColumnType<Private<string> | null, string | null, string | null>
+  old: ColumnType<Private<string> | null, string | null, string | null>
+  data: ColumnType<Private<string> | null, string | null, string | null>
+}
+
 export interface AuditLog {
   auditId: ColumnType<Private<string>, string, string>
   entityType: ColumnType<Private<string>, string, string>
@@ -131,6 +219,12 @@ export interface Channels {
   pikkuUserId: ColumnType<Private<string> | null, string | null, string | null>
   state: ColumnType<Private<string> | null, string | null, string | null>
   lastWire: ColumnType<Private<string>, string | undefined, string>
+}
+
+export interface CredentialKekSalts {
+  keyVersion: ColumnType<Private<number>, number | undefined, number>
+  salt: ColumnType<Private<string>, string, string>
+  createdAt: ColumnType<Private<string>, string | undefined, string>
 }
 
 export interface Credentials {
@@ -246,6 +340,12 @@ export interface PikkuUserSessions {
   updatedAt: ColumnType<Private<string>, string | undefined, string>
 }
 
+export interface SecretKekSalts {
+  keyVersion: ColumnType<Private<number>, number | undefined, number>
+  salt: ColumnType<Private<string>, string, string>
+  createdAt: ColumnType<Private<string>, string | undefined, string>
+}
+
 export interface Secrets {
   key: ColumnType<Private<string>, string, string>
   ciphertext: ColumnType<Private<string>, string, string>
@@ -297,6 +397,50 @@ export interface Verification {
   expiresAt: ColumnType<Private<string>, string, string>
   createdAt: ColumnType<Private<string>, string, string>
   updatedAt: ColumnType<Private<string>, string, string>
+}
+
+export interface VirtualUserRun {
+  runId: ColumnType<Private<string>, string, string>
+  persona: ColumnType<Private<string>, string, string>
+  disposition: ColumnType<Private<string>, string, string>
+  seed: ColumnType<Private<number>, number, number>
+  status: ColumnType<Private<string>, string | undefined, string>
+  goals: ColumnType<Private<string>, string | undefined, string>
+  memory: ColumnType<Private<string>, string | undefined, string>
+  findings: ColumnType<Private<string>, string | undefined, string>
+  intents: ColumnType<Private<string>, string | undefined, string>
+  tally: ColumnType<Private<string> | null, string | null, string | null>
+  stoppedBy: ColumnType<Private<string> | null, string | null, string | null>
+  error: ColumnType<Private<string> | null, string | null, string | null>
+  startedBy: ColumnType<Private<string> | null, string | null, string | null>
+  createdAt: ColumnType<Private<string>, string | undefined, string>
+  finishedAt: ColumnType<Private<string> | null, string | null, string | null>
+}
+
+export interface VirtualUserRunStep {
+  runId: ColumnType<Private<string>, string, string>
+  stepIndex: ColumnType<Private<number>, number | undefined, number>
+  intentId: ColumnType<Private<string> | null, string | null, string | null>
+  action: ColumnType<Private<string>, string, string>
+  status: ColumnType<Private<number> | null, number | null, number | null>
+  ok: ColumnType<Private<number> | null, number | null, number | null>
+  response: ColumnType<Private<string> | null, string | null, string | null>
+  findingKinds: ColumnType<Private<string> | null, string | null, string | null>
+  tokensIn: ColumnType<Private<number>, number | undefined, number>
+  tokensOut: ColumnType<Private<number>, number | undefined, number>
+}
+
+export interface VirtualUserSchedule {
+  persona: ColumnType<Private<string>, string, string>
+  enabled: ColumnType<Private<number>, number | undefined, number>
+  disposition: ColumnType<Private<string>, string, string>
+  goals: ColumnType<Private<string>, string | undefined, string>
+  budget: ColumnType<Private<string> | null, string | null, string | null>
+  minIntervalMs: ColumnType<Private<number>, number, number>
+  maxIntervalMs: ColumnType<Private<number>, number, number>
+  nextRunAt: ColumnType<Private<string>, string, string>
+  lastRunId: ColumnType<Private<string> | null, string | null, string | null>
+  lastRunAt: ColumnType<Private<string> | null, string | null, string | null>
 }
 
 export interface WebhookDelivery {
@@ -354,6 +498,7 @@ export interface WorkflowStep {
   fromStepName: ColumnType<Private<string> | null, string | null, string | null>
   createdAt: ColumnType<Private<string>, string | undefined, string>
   updatedAt: ColumnType<Private<string>, string | undefined, string>
+  currentAttempt: ColumnType<Private<number> | null, number | null, number | null>
 }
 
 export interface WorkflowStepHistory {
@@ -367,6 +512,7 @@ export interface WorkflowStepHistory {
   scheduledAt: ColumnType<Private<string> | null, string | null, string | null>
   succeededAt: ColumnType<Private<string> | null, string | null, string | null>
   failedAt: ColumnType<Private<string> | null, string | null, string | null>
+  attempt: ColumnType<Private<number> | null, number | null, number | null>
 }
 
 export interface WorkflowVersions {
@@ -380,17 +526,25 @@ export interface WorkflowVersions {
 
 export interface DB {
   account: Account
+  agentMessage: AgentMessage
+  agentRun: AgentRun
+  agentRunScore: AgentRunScore
+  agentThreads: AgentThreads
+  agentToolCall: AgentToolCall
+  agentWorkingMemory: AgentWorkingMemory
   aiMessage: AiMessage
   aiRun: AiRun
   aiThreads: AiThreads
   aiToolCall: AiToolCall
   aiWorkingMemory: AiWorkingMemory
+  audit: Audit
   auditLog: AuditLog
   basket: Basket
   basketItem: BasketItem
   category: Category
   channelSubscriptions: ChannelSubscriptions
   channels: Channels
+  credentialKekSalts: CredentialKekSalts
   credentials: Credentials
   credentialsAudit: CredentialsAudit
   item: Item
@@ -405,11 +559,15 @@ export interface DB {
   pikkuUserRole: PikkuUserRole
   pikkuUserScope: PikkuUserScope
   pikkuUserSessions: PikkuUserSessions
+  secretKekSalts: SecretKekSalts
   secrets: Secrets
   secretsAudit: SecretsAudit
   session: Session
   user: User
   verification: Verification
+  virtualUserRun: VirtualUserRun
+  virtualUserRunStep: VirtualUserRunStep
+  virtualUserSchedule: VirtualUserSchedule
   webhookDelivery: WebhookDelivery
   webhookDeliveryAttempt: WebhookDeliveryAttempt
   workflowRuns: WorkflowRuns

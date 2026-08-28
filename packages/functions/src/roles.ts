@@ -45,7 +45,7 @@ defineSystemRole({
   admin: {
     displayName: 'Administrator',
     description: 'Everything the shop can do, plus console administration',
-    scopes: ['catalogue', 'orders', 'payments', 'reports', 'admin'],
+    scopes: ['catalogue', 'orders', 'payments', 'reports', 'pikku:console', 'virtualUser'],
   },
 })
 // @snippet end defineRoles

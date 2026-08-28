@@ -7,13 +7,16 @@ import {
   createInvocationAudit,
 } from '@pikku/core/services'
 import { createAuditedKysely, KyselyScopeService } from '@pikku/kysely'
+import { SQLiteKyselyWorkflowService } from '@pikku/kysely-sqlite'
 import type { KyselyPikkuDB } from '@pikku/kysely'
-import { pikkuServices, pikkuWireServices } from '../.pikku/pikku-types.gen.js'
+import { pikkuServices, pikkuWireServices } from '#pikku/setup'
+import { SCOPES } from '#pikku/scopes/pikku-scopes.gen.js'
+import { SYSTEM_ROLES } from '#pikku/scopes/pikku-roles.gen.js'
 import { TypedSecretService } from '../.pikku/secrets/pikku-secrets.gen.js'
 import { TypedVariablesService } from '../.pikku/variables/pikku-variables.gen.js'
 import { CFWorkerSchemaService } from '@pikku/schema-cfworker'
 import type { Kysely } from 'kysely'
-import type { VercelAIAgentRunner } from '@pikku/ai-vercel'
+import type { VercelAgentRunner } from '@pikku/ai-vercel'
 import { GeneratedTemplateEmailService } from './lib/email-service.js'
 import type { DB } from '#pikku/db/schema.gen.js'
 
@@ -53,7 +56,7 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
 
   const litellmProxyUrl = process.env.LITELLM_PROXY_URL ?? null
   const litellmApiKey = process.env.LITELLM_API_KEY ?? null
-  let aiAgentRunner: VercelAIAgentRunner | undefined
+  let aiAgentRunner: VercelAgentRunner | undefined
   if (litellmProxyUrl && litellmApiKey) {
     // The AI SDKs (~3MB) are stubbed out of non-agent units at bundle time —
     // only units with the `ai-model` capability keep them. So import them
@@ -61,13 +64,13 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
     // stubbed unit the import yields `{}` and the runner is simply not built.
     const aiVercel = await import('@pikku/ai-vercel')
     const aiSdk = await import('@ai-sdk/openai-compatible')
-    if (aiVercel.VercelAIAgentRunner && aiSdk.createOpenAICompatible) {
+    if (aiVercel.VercelAgentRunner && aiSdk.createOpenAICompatible) {
       const litellmProvider = aiSdk.createOpenAICompatible({
         name: 'litellm',
         baseURL: litellmProxyUrl,
         apiKey: litellmApiKey,
       })
-      aiAgentRunner = new aiVercel.VercelAIAgentRunner({
+      aiAgentRunner = new aiVercel.VercelAgentRunner({
         openai: (modelId: string) => litellmProvider.chatModel(modelId),
         anthropic: (modelId: string) => litellmProvider.chatModel(modelId),
         google: (modelId: string) => litellmProvider.chatModel(modelId),
@@ -93,10 +96,26 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
     scopeService = kyselyScopes
   }
 
+  // The definitions in scopes.ts and roles.ts are declarations until something
+  // writes them down. Nothing else does, and a role with no row cannot be
+  // granted — `addUserToRole` fails the pikku_role_scopes foreign key, which is
+  // how persona provisioning discovers it.
+  await scopeService.syncScopes(SCOPES)
+  await scopeService.syncSystemRoles(SYSTEM_ROLES)
+
+  // Workflows are declared in this project, so a workflowService is not
+  // optional — without one the CLI refuses to generate (PKU600) and a run has
+  // nowhere to keep its state between steps.
+  const workflowService =
+    existingServices?.workflowService ??
+    new SQLiteKyselyWorkflowService(kysely as any)
+  await (workflowService as { init?: () => Promise<void> }).init?.()
+
   return {
     ...(existingServices ?? {}),
     config,
     scopeService,
+    workflowService,
     variables,
     secrets,
     schema,

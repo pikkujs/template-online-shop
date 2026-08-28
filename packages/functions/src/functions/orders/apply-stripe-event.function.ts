@@ -1,4 +1,4 @@
-import { pikkuSessionlessFunc } from '#pikku'
+import { pikkuSessionlessFunc } from '#pikku/function'
 
 /**
  * Turn a verified Stripe event into a change to this shop's orders.

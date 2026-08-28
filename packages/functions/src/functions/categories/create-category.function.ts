@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { randomUUID } from 'node:crypto'
-import { pikkuFunc } from '#pikku'
+import { pikkuFunc } from '#pikku/function'
 
 export const CreateCategoryInput = z.object({
   name: z.string().min(1).max(100),

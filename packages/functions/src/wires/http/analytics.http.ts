@@ -1,4 +1,4 @@
-import { wireHTTP } from '#pikku'
+import { wireHTTP } from '#pikku/http'
 import { recordAnalyticsEvents } from '../../functions/record-analytics-events.function.js'
 import { analyticsOriginMiddleware } from '../../middleware/analytics-origin.middleware.js'
 

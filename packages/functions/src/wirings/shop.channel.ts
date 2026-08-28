@@ -1,5 +1,5 @@
 import { wireChannel, pikkuChannelFunc, pikkuChannelConnectionFunc, pikkuChannelDisconnectionFunc } from '#pikku/channel/pikku-channel-types.gen.js'
-import { pikkuFunc } from '#pikku'
+import { pikkuFunc } from '#pikku/function'
 
 export const onConnect = pikkuChannelConnectionFunc(
   async ({ logger }, _, { channel }) => {

@@ -1,5 +1,5 @@
-import { pikkuAIAgent, agent, agentStream } from '#pikku/agent/pikku-agent-types.gen.js'
-import { wireHTTP } from '#pikku'
+import { pikkuAgent, agent, agentStream } from '#pikku/agent'
+import { wireHTTP } from '#pikku/http'
 import { listCategories } from '../functions/categories/list-categories.function.js'
 import { listItems } from '../functions/items/list-items.function.js'
 import { getItem } from '../functions/items/get-item.function.js'
@@ -11,7 +11,7 @@ import { getOrder } from '../functions/orders/get-order.function.js'
 import { cancelOrder } from '../functions/orders/cancel-order.function.js'
 
 // @snippet start aiAgent
-export const shopAssistant = pikkuAIAgent({
+export const shopAssistant = pikkuAgent({
   name: 'shop-assistant',
   description: 'Helps customers browse the catalogue and manage their basket.',
   goal: 'Help users find products, manage their basket, and answer questions about shop items.',
@@ -42,7 +42,7 @@ wireHTTP({
 })
 // @snippet end aiAgentStream
 
-export const opsAgent = pikkuAIAgent({
+export const opsAgent = pikkuAgent({
   name: 'ops-agent',
   description: 'Manages orders; automates repeat ops tasks.',
   goal: 'Manage orders and automate recurring ops as durable workflows.',
@@ -52,7 +52,7 @@ export const opsAgent = pikkuAIAgent({
 })
 
 // A focused checkout assistant — delegates browsing to the shop assistant.
-export const checkoutAssistant = pikkuAIAgent({
+export const checkoutAssistant = pikkuAgent({
   name: 'checkout-assistant',
   description: 'Guides authenticated users through checkout.',
   goal: 'Help users review their basket and complete their purchase. Delegate product questions to the shop assistant.',

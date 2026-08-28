@@ -1,4 +1,4 @@
-import { pikkuSessionlessFunc, pikkuFunc } from '#pikku'
+import { pikkuSessionlessFunc, pikkuFunc } from '#pikku/function'
 import { getBasket } from '../functions/basket/get-basket.function.js'
 
 // @snippet start rpcFunc

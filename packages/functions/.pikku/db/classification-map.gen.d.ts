@@ -40,6 +40,67 @@ export type DbClassificationMap = {
     "created_at": ColumnEntry
     "updated_at": ColumnEntry
   }
+  "agent_message": {
+    "id": ColumnEntry
+    "thread_id": ColumnEntry
+    "role": ColumnEntry
+    "content": ColumnEntry
+    "created_at": ColumnEntry
+  }
+  "agent_run": {
+    "run_id": ColumnEntry
+    "agent_name": ColumnEntry
+    "thread_id": ColumnEntry
+    "resource_id": ColumnEntry
+    "status": ColumnEntry
+    "error_message": ColumnEntry
+    "suspend_reason": ColumnEntry
+    "missing_rpcs": ColumnEntry
+    "pending_approvals": ColumnEntry
+    "usage_input_tokens": ColumnEntry
+    "usage_output_tokens": ColumnEntry
+    "usage_model": ColumnEntry
+    "created_at": ColumnEntry
+    "updated_at": ColumnEntry
+  }
+  "agent_run_score": {
+    "id": ColumnEntry
+    "run_id": ColumnEntry
+    "scorer_name": ColumnEntry
+    "score": ColumnEntry
+    "reason": ColumnEntry
+    "metadata": ColumnEntry
+    "created_at": ColumnEntry
+  }
+  "agent_threads": {
+    "id": ColumnEntry
+    "resource_id": ColumnEntry
+    "title": ColumnEntry
+    "metadata": ColumnEntry
+    "created_at": ColumnEntry
+    "updated_at": ColumnEntry
+  }
+  "agent_tool_call": {
+    "id": ColumnEntry
+    "thread_id": ColumnEntry
+    "message_id": ColumnEntry
+    "run_id": ColumnEntry
+    "tool_name": ColumnEntry
+    "args": ColumnEntry
+    "result": ColumnEntry
+    "approval_status": ColumnEntry
+    "approval_type": ColumnEntry
+    "agent_run_id": ColumnEntry
+    "display_tool_name": ColumnEntry
+    "display_args": ColumnEntry
+    "created_at": ColumnEntry
+  }
+  "agent_working_memory": {
+    "id": ColumnEntry
+    "scope": ColumnEntry
+    "data": ColumnEntry
+    "updated_at": ColumnEntry
+  }
   "ai_message": {
     "id": ColumnEntry
     "thread_id": ColumnEntry
@@ -92,6 +153,26 @@ export type DbClassificationMap = {
     "data": ColumnEntry
     "updated_at": ColumnEntry
   }
+  "audit": {
+    "audit_id": ColumnEntry
+    "occurred_at": ColumnEntry
+    "type": ColumnEntry
+    "source": ColumnEntry
+    "outcome": ColumnEntry
+    "function_id": ColumnEntry
+    "wire_type": ColumnEntry
+    "trace_id": ColumnEntry
+    "transaction_id": ColumnEntry
+    "query_id": ColumnEntry
+    "user_id": ColumnEntry
+    "org_id": ColumnEntry
+    "pikku_user_id": ColumnEntry
+    "tables": ColumnEntry
+    "changed_cols": ColumnEntry
+    "event": ColumnEntry
+    "old": ColumnEntry
+    "data": ColumnEntry
+  }
   "audit_log": {
     "audit_id": ColumnEntry
     "entity_type": ColumnEntry
@@ -133,6 +214,11 @@ export type DbClassificationMap = {
     "pikku_user_id": ColumnEntry
     "state": ColumnEntry
     "last_wire": ColumnEntry
+  }
+  "credential_kek_salts": {
+    "key_version": ColumnEntry
+    "salt": ColumnEntry
+    "created_at": ColumnEntry
   }
   "credentials": {
     "name": ColumnEntry
@@ -233,6 +319,11 @@ export type DbClassificationMap = {
     "created_at": ColumnEntry
     "updated_at": ColumnEntry
   }
+  "secret_kek_salts": {
+    "key_version": ColumnEntry
+    "salt": ColumnEntry
+    "created_at": ColumnEntry
+  }
   "secrets": {
     "key": ColumnEntry
     "ciphertext": ColumnEntry
@@ -280,6 +371,47 @@ export type DbClassificationMap = {
     "expires_at": ColumnEntry
     "created_at": ColumnEntry
     "updated_at": ColumnEntry
+  }
+  "virtual_user_run": {
+    "run_id": ColumnEntry
+    "persona": ColumnEntry
+    "disposition": ColumnEntry
+    "seed": ColumnEntry
+    "status": ColumnEntry
+    "goals": ColumnEntry
+    "memory": ColumnEntry
+    "findings": ColumnEntry
+    "intents": ColumnEntry
+    "tally": ColumnEntry
+    "stopped_by": ColumnEntry
+    "error": ColumnEntry
+    "started_by": ColumnEntry
+    "created_at": ColumnEntry
+    "finished_at": ColumnEntry
+  }
+  "virtual_user_run_step": {
+    "run_id": ColumnEntry
+    "step_index": ColumnEntry
+    "intent_id": ColumnEntry
+    "action": ColumnEntry
+    "status": ColumnEntry
+    "ok": ColumnEntry
+    "response": ColumnEntry
+    "finding_kinds": ColumnEntry
+    "tokens_in": ColumnEntry
+    "tokens_out": ColumnEntry
+  }
+  "virtual_user_schedule": {
+    "persona": ColumnEntry
+    "enabled": ColumnEntry
+    "disposition": ColumnEntry
+    "goals": ColumnEntry
+    "budget": ColumnEntry
+    "min_interval_ms": ColumnEntry
+    "max_interval_ms": ColumnEntry
+    "next_run_at": ColumnEntry
+    "last_run_id": ColumnEntry
+    "last_run_at": ColumnEntry
   }
   "webhook_delivery": {
     "delivery_id": ColumnEntry
@@ -333,6 +465,7 @@ export type DbClassificationMap = {
     "from_step_name": ColumnEntry
     "created_at": ColumnEntry
     "updated_at": ColumnEntry
+    "current_attempt": ColumnEntry
   }
   "workflow_step_history": {
     "history_id": ColumnEntry
@@ -345,6 +478,7 @@ export type DbClassificationMap = {
     "scheduled_at": ColumnEntry
     "succeeded_at": ColumnEntry
     "failed_at": ColumnEntry
+    "attempt": ColumnEntry
   }
   "workflow_versions": {
     "workflow_name": ColumnEntry

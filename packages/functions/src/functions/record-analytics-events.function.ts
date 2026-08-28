@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { pikkuSessionlessFunc } from '#pikku'
+import { pikkuSessionlessFunc } from '#pikku/function'
 import { analyticsEvent } from '../analytics/registry.js'
 import { forwardAnalyticsEvents } from '../__fabric_analytics__/fabric-analytics.js'
 

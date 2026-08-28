@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { pikkuFunc } from '#pikku'
+import { pikkuFunc } from '#pikku/function'
 
 export const UpdateItemInput = z.object({
   itemId: z.string(),

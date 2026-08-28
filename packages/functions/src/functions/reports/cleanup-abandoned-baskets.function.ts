@@ -1,4 +1,4 @@
-import { pikkuVoidFunc } from '#pikku'
+import { pikkuVoidFunc } from '#pikku/function'
 
 // @snippet start cleanupAbandonedBaskets
 // @snippet start cleanupFunction

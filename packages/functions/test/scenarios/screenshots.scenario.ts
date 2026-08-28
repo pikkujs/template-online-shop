@@ -14,7 +14,7 @@
  * a page that may be quietly broken — a failed API call renders as an empty
  * list, which photographs as a design decision.
  */
-import { pikkuFeature, pikkuScenario } from '#pikku/workflow/pikku-workflow-types.gen.js'
+import { pikkuFeature, pikkuScenario } from '#pikku/scenarios'
 
 const CAPTURES = [
   { path: '/app', name: 'home', width: 1280, height: 720, scheme: 'light' },

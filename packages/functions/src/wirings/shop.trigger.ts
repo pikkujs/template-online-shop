@@ -1,5 +1,5 @@
 import { wireTrigger } from '#pikku/trigger/pikku-trigger-types.gen.js'
-import { wireScheduler } from '#pikku/pikku-types.gen.js'
+import { wireScheduler } from '#pikku/scheduler'
 import { onLowStock } from '../functions/on-low-stock.function.js'
 import { sweepLowStock } from '../functions/sweep-low-stock.function.js'
 

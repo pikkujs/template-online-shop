@@ -1,4 +1,4 @@
-import { pikkuScenario } from '#pikku/workflow/pikku-workflow-types.gen.js'
+import { pikkuScenario } from '#pikku/scenarios'
 
 // @snippet start scenarioBasics
 // A scenario is a workflow whose steps run as real users ("actors") over the

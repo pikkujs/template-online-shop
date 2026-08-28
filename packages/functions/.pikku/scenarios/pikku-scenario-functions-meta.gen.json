@@ -89,6 +89,7 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
+    "scenarioStepRequiresActor": true,
     "scenarioStepTemplate": "opens {path}",
     "implementationHash": "7bf881d02774d9c2",
     "contractHash": "edb740c50579fb63",
@@ -113,6 +114,7 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
+    "scenarioStepRequiresActor": true,
     "scenarioStepTemplate": "sees {text}",
     "implementationHash": "0502fc8fedaa333c",
     "contractHash": "2ecfd4a1af1eed76",
@@ -137,6 +139,7 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
+    "scenarioStepRequiresActor": true,
     "scenarioStepTemplate": "is on {path}",
     "implementationHash": "93160648033a41e0",
     "contractHash": "31caec930ea7e893",
@@ -161,6 +164,7 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
+    "scenarioStepRequiresActor": true,
     "scenarioStepTemplate": "every page loads without errors",
     "implementationHash": "112cd4ec21d00210",
     "contractHash": "b9775d597942be0b",
@@ -185,6 +189,7 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
+    "scenarioStepRequiresActor": true,
     "scenarioStepTemplate": "captures {path} as {name}",
     "implementationHash": "cd5f36cec984ab37",
     "contractHash": "a1344e5b78ef685e",
@@ -209,6 +214,7 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
+    "scenarioStepRequiresActor": true,
     "scenarioStepTemplate": "clicks {name}",
     "implementationHash": "6702bc003c8deec4",
     "contractHash": "b29f371920e321e6",
@@ -233,6 +239,7 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
+    "scenarioStepRequiresActor": true,
     "scenarioStepTemplate": "does not see {text}",
     "implementationHash": "ae041a7166f5a155",
     "contractHash": "ad77445e29acd38f",
@@ -257,6 +264,7 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
+    "scenarioStepRequiresActor": true,
     "scenarioStepTemplate": "clicks {name} next to {near}",
     "implementationHash": "a83f8a19c9a06187",
     "contractHash": "4a42ea04a5ae4799",
@@ -281,6 +289,7 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
+    "scenarioStepRequiresActor": true,
     "scenarioStepTemplate": "types {text} into {label}",
     "implementationHash": "516c3f96289a8e79",
     "contractHash": "47b49a4d591b1a8f",
@@ -305,6 +314,7 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
+    "scenarioStepRequiresActor": true,
     "scenarioStepTemplate": "posts to {path}",
     "implementationHash": "7ec7677038d8199d",
     "contractHash": "73ad8d18ab5aa637",
@@ -329,6 +339,7 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
+    "scenarioStepRequiresActor": true,
     "scenarioStepTemplate": "subscribes to {route}",
     "implementationHash": "27b54f5396f636c3",
     "contractHash": "c6993df825994c89",
@@ -353,6 +364,7 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
+    "scenarioStepRequiresActor": true,
     "scenarioStepTemplate": "calls the {tool} MCP tool",
     "implementationHash": "b168787400d445b8",
     "contractHash": "4d1095c402284bf1",

@@ -19,6 +19,67 @@ export const classificationManifest = {
       "created_at": { classification: 'private', anonymize_strategy: null },
       "updated_at": { classification: 'private', anonymize_strategy: null }
     },
+    "agent_message": {
+      "id": { classification: 'private', anonymize_strategy: null },
+      "thread_id": { classification: 'private', anonymize_strategy: null },
+      "role": { classification: 'private', anonymize_strategy: null },
+      "content": { classification: 'private', anonymize_strategy: null },
+      "created_at": { classification: 'private', anonymize_strategy: null }
+    },
+    "agent_run": {
+      "run_id": { classification: 'private', anonymize_strategy: null },
+      "agent_name": { classification: 'private', anonymize_strategy: null },
+      "thread_id": { classification: 'private', anonymize_strategy: null },
+      "resource_id": { classification: 'private', anonymize_strategy: null },
+      "status": { classification: 'private', anonymize_strategy: null },
+      "error_message": { classification: 'private', anonymize_strategy: null },
+      "suspend_reason": { classification: 'private', anonymize_strategy: null },
+      "missing_rpcs": { classification: 'private', anonymize_strategy: null },
+      "pending_approvals": { classification: 'private', anonymize_strategy: null },
+      "usage_input_tokens": { classification: 'private', anonymize_strategy: null },
+      "usage_output_tokens": { classification: 'private', anonymize_strategy: null },
+      "usage_model": { classification: 'private', anonymize_strategy: null },
+      "created_at": { classification: 'private', anonymize_strategy: null },
+      "updated_at": { classification: 'private', anonymize_strategy: null }
+    },
+    "agent_run_score": {
+      "id": { classification: 'private', anonymize_strategy: null },
+      "run_id": { classification: 'private', anonymize_strategy: null },
+      "scorer_name": { classification: 'private', anonymize_strategy: null },
+      "score": { classification: 'private', anonymize_strategy: null },
+      "reason": { classification: 'private', anonymize_strategy: null },
+      "metadata": { classification: 'private', anonymize_strategy: null },
+      "created_at": { classification: 'private', anonymize_strategy: null }
+    },
+    "agent_threads": {
+      "id": { classification: 'private', anonymize_strategy: null },
+      "resource_id": { classification: 'private', anonymize_strategy: null },
+      "title": { classification: 'private', anonymize_strategy: null },
+      "metadata": { classification: 'private', anonymize_strategy: null },
+      "created_at": { classification: 'private', anonymize_strategy: null },
+      "updated_at": { classification: 'private', anonymize_strategy: null }
+    },
+    "agent_tool_call": {
+      "id": { classification: 'private', anonymize_strategy: null },
+      "thread_id": { classification: 'private', anonymize_strategy: null },
+      "message_id": { classification: 'private', anonymize_strategy: null },
+      "run_id": { classification: 'private', anonymize_strategy: null },
+      "tool_name": { classification: 'private', anonymize_strategy: null },
+      "args": { classification: 'private', anonymize_strategy: null },
+      "result": { classification: 'private', anonymize_strategy: null },
+      "approval_status": { classification: 'private', anonymize_strategy: null },
+      "approval_type": { classification: 'private', anonymize_strategy: null },
+      "agent_run_id": { classification: 'private', anonymize_strategy: null },
+      "display_tool_name": { classification: 'private', anonymize_strategy: null },
+      "display_args": { classification: 'private', anonymize_strategy: null },
+      "created_at": { classification: 'private', anonymize_strategy: null }
+    },
+    "agent_working_memory": {
+      "id": { classification: 'private', anonymize_strategy: null },
+      "scope": { classification: 'private', anonymize_strategy: null },
+      "data": { classification: 'private', anonymize_strategy: null },
+      "updated_at": { classification: 'private', anonymize_strategy: null }
+    },
     "ai_message": {
       "id": { classification: 'private', anonymize_strategy: null },
       "thread_id": { classification: 'private', anonymize_strategy: null },
@@ -71,6 +132,26 @@ export const classificationManifest = {
       "data": { classification: 'private', anonymize_strategy: null },
       "updated_at": { classification: 'private', anonymize_strategy: null }
     },
+    "audit": {
+      "audit_id": { classification: 'private', anonymize_strategy: null },
+      "occurred_at": { classification: 'private', anonymize_strategy: null },
+      "type": { classification: 'private', anonymize_strategy: null },
+      "source": { classification: 'private', anonymize_strategy: null },
+      "outcome": { classification: 'private', anonymize_strategy: null },
+      "function_id": { classification: 'private', anonymize_strategy: null },
+      "wire_type": { classification: 'private', anonymize_strategy: null },
+      "trace_id": { classification: 'private', anonymize_strategy: null },
+      "transaction_id": { classification: 'private', anonymize_strategy: null },
+      "query_id": { classification: 'private', anonymize_strategy: null },
+      "user_id": { classification: 'private', anonymize_strategy: null },
+      "org_id": { classification: 'private', anonymize_strategy: null },
+      "pikku_user_id": { classification: 'private', anonymize_strategy: null },
+      "tables": { classification: 'private', anonymize_strategy: null },
+      "changed_cols": { classification: 'private', anonymize_strategy: null },
+      "event": { classification: 'private', anonymize_strategy: null },
+      "old": { classification: 'private', anonymize_strategy: null },
+      "data": { classification: 'private', anonymize_strategy: null }
+    },
     "audit_log": {
       "audit_id": { classification: 'private', anonymize_strategy: null },
       "entity_type": { classification: 'private', anonymize_strategy: null },
@@ -112,6 +193,11 @@ export const classificationManifest = {
       "pikku_user_id": { classification: 'private', anonymize_strategy: null },
       "state": { classification: 'private', anonymize_strategy: null },
       "last_wire": { classification: 'private', anonymize_strategy: null }
+    },
+    "credential_kek_salts": {
+      "key_version": { classification: 'private', anonymize_strategy: null },
+      "salt": { classification: 'private', anonymize_strategy: null },
+      "created_at": { classification: 'private', anonymize_strategy: null }
     },
     "credentials": {
       "name": { classification: 'private', anonymize_strategy: null },
@@ -212,6 +298,11 @@ export const classificationManifest = {
       "created_at": { classification: 'private', anonymize_strategy: null },
       "updated_at": { classification: 'private', anonymize_strategy: null }
     },
+    "secret_kek_salts": {
+      "key_version": { classification: 'private', anonymize_strategy: null },
+      "salt": { classification: 'private', anonymize_strategy: null },
+      "created_at": { classification: 'private', anonymize_strategy: null }
+    },
     "secrets": {
       "key": { classification: 'private', anonymize_strategy: null },
       "ciphertext": { classification: 'private', anonymize_strategy: null },
@@ -259,6 +350,47 @@ export const classificationManifest = {
       "expires_at": { classification: 'private', anonymize_strategy: null },
       "created_at": { classification: 'private', anonymize_strategy: null },
       "updated_at": { classification: 'private', anonymize_strategy: null }
+    },
+    "virtual_user_run": {
+      "run_id": { classification: 'private', anonymize_strategy: null },
+      "persona": { classification: 'private', anonymize_strategy: null },
+      "disposition": { classification: 'private', anonymize_strategy: null },
+      "seed": { classification: 'private', anonymize_strategy: null },
+      "status": { classification: 'private', anonymize_strategy: null },
+      "goals": { classification: 'private', anonymize_strategy: null },
+      "memory": { classification: 'private', anonymize_strategy: null },
+      "findings": { classification: 'private', anonymize_strategy: null },
+      "intents": { classification: 'private', anonymize_strategy: null },
+      "tally": { classification: 'private', anonymize_strategy: null },
+      "stopped_by": { classification: 'private', anonymize_strategy: null },
+      "error": { classification: 'private', anonymize_strategy: null },
+      "started_by": { classification: 'private', anonymize_strategy: null },
+      "created_at": { classification: 'private', anonymize_strategy: null },
+      "finished_at": { classification: 'private', anonymize_strategy: null }
+    },
+    "virtual_user_run_step": {
+      "run_id": { classification: 'private', anonymize_strategy: null },
+      "step_index": { classification: 'private', anonymize_strategy: null },
+      "intent_id": { classification: 'private', anonymize_strategy: null },
+      "action": { classification: 'private', anonymize_strategy: null },
+      "status": { classification: 'private', anonymize_strategy: null },
+      "ok": { classification: 'private', anonymize_strategy: null },
+      "response": { classification: 'private', anonymize_strategy: null },
+      "finding_kinds": { classification: 'private', anonymize_strategy: null },
+      "tokens_in": { classification: 'private', anonymize_strategy: null },
+      "tokens_out": { classification: 'private', anonymize_strategy: null }
+    },
+    "virtual_user_schedule": {
+      "persona": { classification: 'private', anonymize_strategy: null },
+      "enabled": { classification: 'private', anonymize_strategy: null },
+      "disposition": { classification: 'private', anonymize_strategy: null },
+      "goals": { classification: 'private', anonymize_strategy: null },
+      "budget": { classification: 'private', anonymize_strategy: null },
+      "min_interval_ms": { classification: 'private', anonymize_strategy: null },
+      "max_interval_ms": { classification: 'private', anonymize_strategy: null },
+      "next_run_at": { classification: 'private', anonymize_strategy: null },
+      "last_run_id": { classification: 'private', anonymize_strategy: null },
+      "last_run_at": { classification: 'private', anonymize_strategy: null }
     },
     "webhook_delivery": {
       "delivery_id": { classification: 'private', anonymize_strategy: null },
@@ -311,7 +443,8 @@ export const classificationManifest = {
       "retry_delay": { classification: 'private', anonymize_strategy: null },
       "from_step_name": { classification: 'private', anonymize_strategy: null },
       "created_at": { classification: 'private', anonymize_strategy: null },
-      "updated_at": { classification: 'private', anonymize_strategy: null }
+      "updated_at": { classification: 'private', anonymize_strategy: null },
+      "current_attempt": { classification: 'private', anonymize_strategy: null }
     },
     "workflow_step_history": {
       "history_id": { classification: 'private', anonymize_strategy: null },
@@ -323,7 +456,8 @@ export const classificationManifest = {
       "running_at": { classification: 'private', anonymize_strategy: null },
       "scheduled_at": { classification: 'private', anonymize_strategy: null },
       "succeeded_at": { classification: 'private', anonymize_strategy: null },
-      "failed_at": { classification: 'private', anonymize_strategy: null }
+      "failed_at": { classification: 'private', anonymize_strategy: null },
+      "attempt": { classification: 'private', anonymize_strategy: null }
     },
     "workflow_versions": {
       "workflow_name": { classification: 'private', anonymize_strategy: null },

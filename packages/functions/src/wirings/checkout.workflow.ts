@@ -1,5 +1,6 @@
-import { pikkuWorkflowFunc } from '#pikku/workflow/pikku-workflow-types.gen.js'
-import { pikkuFunc, pikkuSessionlessFunc, wireHTTP } from '#pikku'
+import { pikkuWorkflowFunc } from '#pikku/workflow'
+import { pikkuFunc, pikkuSessionlessFunc } from '#pikku/function'
+import { wireHTTP } from '#pikku/http'
 import { randomUUID } from 'node:crypto'
 
 type ShippingAddress = {

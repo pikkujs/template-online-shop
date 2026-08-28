@@ -11,7 +11,7 @@
  * build. Behaviour tests that create, edit or delete belong in their own
  * feature, untagged `smoke`, so the fast gate stays fast and deterministic.
  */
-import { pikkuFeature, pikkuScenario } from '#pikku/workflow/pikku-workflow-types.gen.js'
+import { pikkuFeature, pikkuScenario } from '#pikku/scenarios'
 
 export const everyPageLoadsScenario = pikkuScenario<void, { routes: string[] }>({
   title: 'Every page loads cleanly when signed in',

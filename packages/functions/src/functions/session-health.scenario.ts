@@ -1,4 +1,4 @@
-import { pikkuScenario } from '#pikku/workflow/pikku-workflow-types.gen.js'
+import { pikkuScenario } from '#pikku/scenarios'
 
 /**
  * A scenario is a story of RPC calls told through a synthetic persona (an

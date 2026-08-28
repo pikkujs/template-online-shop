@@ -1,4 +1,4 @@
-import { wireHTTP } from '#pikku'
+import { wireHTTP } from '#pikku/http'
 import { deleteOrder } from '../functions/orders/delete-order.function.js'
 
 // @snippet start shopAuthScope

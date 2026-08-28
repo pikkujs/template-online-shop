@@ -1,4 +1,5 @@
-import { defineHTTPRoutes, wireHTTPRoutes, wireHTTP, addHTTPMiddleware } from '#pikku'
+import { defineHTTPRoutes, wireHTTPRoutes, wireHTTP } from '#pikku/http'
+import { addHTTPMiddleware } from '#pikku/middleware'
 import { startExport } from './shop.queue.js'
 import { conditionalReport } from './shop.cron.js'
 import { listCategories } from '../functions/categories/list-categories.function.js'

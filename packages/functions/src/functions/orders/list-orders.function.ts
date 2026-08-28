@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { pikkuFunc } from '#pikku'
+import { pikkuFunc } from '#pikku/function'
 
 export const ListOrdersInput = z.object({
   limit: z.number().int().min(1).max(50).default(20),

@@ -1,4 +1,4 @@
-import { pikkuFunc } from '#pikku'
+import { pikkuFunc } from '#pikku/function'
 
 // @snippet start scopedFunction
 // Administration is a scope, not a string comparison against a column. The old

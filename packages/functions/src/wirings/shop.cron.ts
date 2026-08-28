@@ -1,5 +1,6 @@
-import { wireScheduler } from '#pikku/pikku-types.gen.js'
-import { pikkuVoidFunc, pikkuMiddleware } from '#pikku'
+import { wireScheduler } from '#pikku/scheduler'
+import { pikkuVoidFunc } from '#pikku/function'
+import { pikkuMiddleware } from '#pikku/middleware'
 import { dailySalesReport } from '../functions/reports/daily-sales-report.function.js'
 import { cleanupAbandonedBaskets } from '../functions/reports/cleanup-abandoned-baskets.function.js'
 
