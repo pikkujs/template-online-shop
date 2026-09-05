@@ -17,7 +17,7 @@ export const shopAssistant = pikkuAgent({
   goal: 'Help users find products, manage their basket, and answer questions about shop items.',
   model: 'openai/gpt-4o-mini',
   tools: [listCategories, listItems, getItem, getBasket, addToBasket, removeFromBasket],
-  memory: { storage: 'aiStorage', lastMessages: 20 },
+  memory: { lastMessages: 20 },
   maxSteps: 10,
 })
 // @snippet end aiAgent

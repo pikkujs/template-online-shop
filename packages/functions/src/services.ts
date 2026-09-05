@@ -6,7 +6,12 @@ import {
   NoopAuditService,
   createInvocationAudit,
 } from '@pikku/core/services'
-import { createAuditedKysely, KyselyScopeService } from '@pikku/kysely'
+import {
+  createAuditedKysely,
+  KyselyAgentRunService,
+  KyselyAgentStorageService,
+  KyselyScopeService,
+} from '@pikku/kysely'
 import { SQLiteKyselyWorkflowService } from '@pikku/kysely-sqlite'
 import type { KyselyPikkuDB } from '@pikku/kysely'
 import { pikkuServices, pikkuWireServices } from '#pikku/setup'
@@ -56,7 +61,7 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
 
   const litellmProxyUrl = process.env.LITELLM_PROXY_URL ?? null
   const litellmApiKey = process.env.LITELLM_API_KEY ?? null
-  let aiAgentRunner: VercelAgentRunner | undefined
+  let agentRunner: VercelAgentRunner | undefined
   if (litellmProxyUrl && litellmApiKey) {
     // The AI SDKs (~3MB) are stubbed out of non-agent units at bundle time —
     // only units with the `ai-model` capability keep them. So import them
@@ -70,7 +75,7 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
         baseURL: litellmProxyUrl,
         apiKey: litellmApiKey,
       })
-      aiAgentRunner = new aiVercel.VercelAgentRunner({
+      agentRunner = new aiVercel.VercelAgentRunner({
         openai: (modelId: string) => litellmProvider.chatModel(modelId),
         anthropic: (modelId: string) => litellmProvider.chatModel(modelId),
         google: (modelId: string) => litellmProvider.chatModel(modelId),
@@ -85,8 +90,9 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
   // request. It resolves userId -> roles -> scopes out of the four pikku_* tables.
   //
   // Built as the concrete class rather than the `ScopeService` interface because
-  // `init()` (which creates those tables if they are absent) is the
-  // implementation's, not the contract's. The cast is the app's own `DB` — which
+  // `init()` is the implementation's, not the contract's. It *requires* the four
+  // tables rather than creating them, and throws pointing at `pikku db generate`
+  // if they are missing. The cast is the app's own `DB` — which
   // includes the pikku_* tables — against the narrower shape the service
   // declares; the two differ only in kysely's internal builder generics.
   let scopeService = existingServices?.scopeService
@@ -111,6 +117,23 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
     new SQLiteKyselyWorkflowService(kysely as any)
   await (workflowService as { init?: () => Promise<void> }).init?.()
 
+  // The shop assistant declares `memory`, and memory is only ever as durable as
+  // the storage behind it — with no `agentStorage` registered the agent still
+  // answers, it just forgets between turns. One instance covers `agentStorage`
+  // and `agentRunState`: KyselyAgentStorageService implements both, and threads
+  // and runs share the same tables, so splitting them across two instances would
+  // only duplicate the connection. `init()` requires the agent_* tables (created
+  // by db/sqlite/0005-pikku-runtime.sql) rather than creating them.
+  const agentStorage =
+    (existingServices?.agentStorage as KyselyAgentStorageService | undefined) ??
+    new KyselyAgentStorageService(kysely as unknown as Kysely<KyselyPikkuDB>)
+  await agentStorage.init()
+
+  // Read-only, and only the Console reads it — the agent itself never does.
+  const agentRunService =
+    existingServices?.agentRunService ??
+    new KyselyAgentRunService(kysely as unknown as Kysely<KyselyPikkuDB>)
+
   return {
     ...(existingServices ?? {}),
     config,
@@ -128,7 +151,10 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
     // `secrets` at all (every function-facing services type is bounded by
     // SecretlessServices).
     ...(credentialService ? { credentialService } : {}),
-    ...(aiAgentRunner ? { aiAgentRunner } : {}),
+    ...(agentRunner ? { agentRunner } : {}),
+    agentStorage,
+    agentRunState: agentStorage,
+    agentRunService,
   }
 })
 // @snippet end shopServices
