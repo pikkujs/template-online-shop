@@ -164,12 +164,21 @@ export const confirmAndWait = pikkuSessionlessFunc({
 })
 // @snippet end wb-queue-wait-for-completion
 
+export const processExport = pikkuVoidFunc({
+  func: async ({ logger }) => {
+    logger.info({ event: 'export_started' })
+  },
+  title: 'Build a large export',
+  tags: ['exports'],
+})
+
 // @snippet start wb-queue-lock-duration
 export function wireSlowWorker() {
   wireQueueWorker({
     name: 'process-export',
-    func: sendOrderConfirmation,
+    func: processExport,
     config: {
+      batchSize: 1,
       // How long a worker may hold a job: milliseconds for push-based
       // backends like BullMQ (use visibilityTimeout, in seconds, for polling ones)
       lockDuration: 1800000,
