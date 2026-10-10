@@ -13,6 +13,7 @@ import { crossSiteSession } from './dev/cross-site-session.plugin'
 // here — that would double-apply it and couple the template to a provider.
 export default defineConfig({
   plugins: [
+    // @snippet start paraglide-enums-vite-config
     // Compile messages/*.json → src/paraglide so `m` resolves, with HMR
     // on message edits. Must run first.
     paraglideVitePlugin({ project: './project.inlang', outdir: './src/paraglide' }),
@@ -23,6 +24,7 @@ export default defineConfig({
     paraglideEnums({
       enumsFile: '../../packages/functions/.pikku/db/enums.gen.ts',
     }),
+    // @snippet end paraglide-enums-vite-config
     tanstackStart(),
     react(),
     // Dev-only (apply: 'serve'), and nothing in src/ imports it: keeps the app

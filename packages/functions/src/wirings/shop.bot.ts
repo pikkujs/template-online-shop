@@ -1,4 +1,4 @@
-import { pikkuAgent, agent, agentStream } from '#pikku/agent'
+import { pikkuAgent, agent, agentStream, agentApprove, agentResume } from '#pikku/agent'
 import { wireHTTP } from '#pikku/http'
 import { listCategories } from '../functions/categories/list-categories.function.js'
 import { listItems } from '../functions/items/list-items.function.js'
@@ -41,6 +41,24 @@ wireHTTP({
   auth: true,
 })
 // @snippet end aiAgentStream
+
+// @snippet start aiAgentApprove
+// Answers every pending approval for a run in one call.
+wireHTTP({
+  method: 'post',
+  route: '/agents/ops/approve',
+  func: agentApprove('opsAgent'),
+  auth: true,
+})
+
+// Answers a single pending approval, then the run carries on.
+wireHTTP({
+  method: 'post',
+  route: '/agents/ops/resume',
+  func: agentResume(),
+  auth: true,
+})
+// @snippet end aiAgentApprove
 
 export const opsAgent = pikkuAgent({
   name: 'ops-agent',
