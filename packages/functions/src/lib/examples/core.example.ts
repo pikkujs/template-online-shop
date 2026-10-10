@@ -483,19 +483,23 @@ export class LocalBookService implements BookService {
 // @snippet end co-service-interface
 
 // @snippet start co-service-use
-export const getBookFromService = (books: BookService) =>
-  pikkuFunc<{ bookId: string }, Book>({
-    func: async () => {
-      // Only the books service is included in the bundle for this function
-      const book = books.getBook('1')
-      if (!book) {
-        throw new NotFoundError('Book not found')
-      }
-      return book
-    },
-    title: 'Get a book by ID',
-    tags: ['books'],
-  })
+export const getItemFromService = pikkuFunc<{ itemId: string }, unknown>({
+  // Destructure only the services this function needs: only `kysely`
+  // is included in the bundle for it
+  func: async ({ kysely }, { itemId }) => {
+    const item = await kysely
+      .selectFrom('item')
+      .selectAll()
+      .where('itemId', '=', itemId)
+      .executeTakeFirst()
+    if (!item) {
+      throw new NotFoundError('Item not found')
+    }
+    return item
+  },
+  title: 'Get an item by ID',
+  tags: ['items'],
+})
 // @snippet end co-service-use
 
 // @snippet start co-lifecycle-minimal
