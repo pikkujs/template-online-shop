@@ -1004,14 +1004,22 @@
         ]
       },
       "pikkuAgentJudge": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
+        "imports": 1,
+        "seenIn": [
+          "@project/functions"
+        ],
+        "files": [
+          "packages/functions/src/wirings/shop.scoring.ts"
+        ]
       },
       "pikkuAgentScorer": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
+        "imports": 1,
+        "seenIn": [
+          "@project/functions"
+        ],
+        "files": [
+          "packages/functions/src/wirings/shop.scoring.ts"
+        ]
       }
     },
     "#pikku/analytics": {
@@ -1513,9 +1521,13 @@
         "files": []
       },
       "pikkuApprovalDescription": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
+        "imports": 1,
+        "seenIn": [
+          "@project/functions"
+        ],
+        "files": [
+          "packages/functions/src/functions/orders/refund-order.function.ts"
+        ]
       },
       "PikkuApprovalDescription": {
         "imports": 0,
@@ -1523,7 +1535,7 @@
         "files": []
       },
       "pikkuFunc": {
-        "imports": 14,
+        "imports": 15,
         "seenIn": [
           "@project/functions"
         ],
@@ -1538,6 +1550,7 @@
           "packages/functions/src/functions/orders/delete-order.function.ts",
           "packages/functions/src/functions/orders/get-order.function.ts",
           "packages/functions/src/functions/orders/list-orders.function.ts",
+          "packages/functions/src/functions/orders/refund-order.function.ts",
           "packages/functions/src/wirings/checkout.workflow.ts",
           "packages/functions/src/wirings/shop.channel.ts",
           "packages/functions/src/wirings/shop.queue.ts",
@@ -1565,9 +1578,13 @@
         "files": []
       },
       "pikkuRemoteChannelFunc": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
+        "imports": 1,
+        "seenIn": [
+          "@project/functions"
+        ],
+        "files": [
+          "packages/functions/src/wirings/shop.channel.ts"
+        ]
       },
       "pikkuSessionlessFunc": {
         "imports": 15,

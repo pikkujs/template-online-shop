@@ -41,7 +41,7 @@ type GatedService = 'scopeService' | 'webhookService' | 'incomingWebhookService'
 const requiredServices: Record<GatedService, boolean> = {
   "scopeService": true,
   "webhookService": true,
-  "incomingWebhookService": true,
+  "incomingWebhookService": false,
   "agentStorage": true,
   "agentRunState": true,
   "agentRunService": true

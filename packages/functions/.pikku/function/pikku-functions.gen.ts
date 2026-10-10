@@ -17,6 +17,7 @@ import { createOrder } from '../../src/functions/orders/create-order.function.js
 import { createOrderRecord } from '../../src/wirings/checkout.workflow.js'
 import { dailySalesReport } from '../../src/functions/reports/daily-sales-report.function.js'
 import { deleteAgentThread } from '../../src/scaffold/agent/agent.gen.js'
+import { deliveryLocation } from '../../src/wirings/shop.channel.js'
 import { executeVirtualUserRun } from '../../src/scaffold/virtual-user/virtual-user.gen.js'
 import { finalizeOrder } from '../../src/wirings/checkout.workflow.js'
 import { getAgentThreadMessages } from '../../src/scaffold/agent/agent.gen.js'
@@ -70,6 +71,7 @@ addFunction('createOrder', createOrder)
 addFunction('createOrderRecord', createOrderRecord)
 addFunction('dailySalesReport', dailySalesReport)
 addFunction('deleteAgentThread', deleteAgentThread)
+addFunction('deliveryLocation', deliveryLocation)
 addFunction('executeVirtualUserRun', executeVirtualUserRun)
 addFunction('finalizeOrder', finalizeOrder)
 addFunction('getAgentThreadMessages', getAgentThreadMessages)

@@ -173,6 +173,10 @@ export type DeleteAgentThreadOutput = {
     deleted: boolean;
 }
 export type DeleteOrderInput = { orderId: string; }
+export type DeliveryLocationOutput = {
+    postcode: string;
+    country: string;
+}
 export type DoesNotSeeTextInput = {
     text: string;
 }
@@ -380,7 +384,6 @@ export type HttpPostAgentsOpsOutput = { runId: string; result: string; usage: { 
 export type HttpPostAgentsOpsResumeInput = { runId: string; toolCallId: string; approved: boolean; }
 export type HttpPostAgentsShopOutput = { runId: string; result: string; usage: { inputTokens: number; outputTokens: number; }; }
 export type HttpPostAgentsShopStreamInput = { agentName?: string | undefined; message: string; threadId: string; resourceId: string; }
-export type HttpPostWebhooksStripeInput = Record<string, unknown>
 export type IssueRefundInput = { orderId: string; }
 export type ListCategoriesOutput = {
     categoryId: string;
@@ -522,7 +525,6 @@ export type PostsToOutput = {
     body: string;
 }
 export type ProcessExportInput = { exportId: string; }
-export type QueuePikkuIncomingWebhooksInput = { source: string; event: { name: string; data: unknown; id?: string | undefined; }; receiptId?: string | undefined; }
 export type RealtimeEventStreamInput = {
     topic: string;
 }
@@ -549,6 +551,9 @@ export type RecordAnalyticsEventsInput = {
 }
 export type RecordAnalyticsEventsOutput = {
     accepted: number;
+}
+export type RefundOrderInput = {
+    orderId: string;
 }
 export type RefundWorkflowInput = { orderId: string; reason: string; }
 export type RefundWorkflowOutput = { orderId: string; refunded: boolean; message: string; }
@@ -948,6 +953,7 @@ export type RPCMap = {
   readonly 'deleteOrder': RPCHandler<DeleteOrderInput, null>,
   readonly 'getOrder': RPCHandler<GetOrderInput, GetOrderOutput>,
   readonly 'listOrders': RPCHandler<ListOrdersInput, ListOrdersOutput>,
+  readonly 'refundOrder': RPCHandler<RefundOrderInput, null>,
   readonly 'recordAnalyticsEvents': RPCHandler<RecordAnalyticsEventsInput, RecordAnalyticsEventsOutput>,
   readonly 'cleanupAbandonedBaskets': RPCHandler<null, null>,
   readonly 'dailySalesReport': RPCHandler<null, null>,
@@ -993,6 +999,7 @@ export type RPCMap = {
   readonly 'subscribeToOrder': RPCHandler<SubscribeToOrderInput, null>,
   readonly 'unsubscribeFromOrder': RPCHandler<UnsubscribeFromOrderInput, null>,
   readonly 'notifyOrderShipped': RPCHandler<NotifyOrderShippedInput, null>,
+  readonly 'deliveryLocation': RPCHandler<null, DeliveryLocationOutput>,
   readonly 'conditionalReport': RPCHandler<null, null>,
   readonly 'listCategoriesTool': RPCHandler<null, MCPToolResponse>,
   readonly 'listItemsTool': RPCHandler<ListItemsToolInput, MCPToolResponse>,

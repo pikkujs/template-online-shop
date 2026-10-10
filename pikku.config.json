@@ -6,6 +6,13 @@
     "packages/functions/src",
     "packages/functions/test"
   ],
+  "ignoreFiles": [
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/*.example.ts",
+    "**/node_modules/**",
+    "**/dist/**"
+  ],
   "outDir": "packages/functions/.pikku",
   "emailTemplatesDir": "emails",
   "clientFiles": {

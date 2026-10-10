@@ -19,6 +19,8 @@ export const shopAssistant = pikkuAgent({
   tools: [listCategories, listItems, getItem, getBasket, addToBasket, removeFromBasket],
   memory: { lastMessages: 20 },
   maxSteps: 10,
+  // Graded after each run; these are the scorers in shop.scoring.ts, by exported name.
+  scorers: ['pricesComeFromTools', 'answersTheShopper'],
 })
 // @snippet end aiAgent
 

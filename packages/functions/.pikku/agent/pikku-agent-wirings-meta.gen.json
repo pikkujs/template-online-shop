@@ -16,6 +16,10 @@
         "addToBasket",
         "removeFromBasket"
       ],
+      "scorers": [
+        "pricesComeFromTools",
+        "answersTheShopper"
+      ],
       "inputSchema": null,
       "outputSchema": null,
       "workingMemorySchema": null

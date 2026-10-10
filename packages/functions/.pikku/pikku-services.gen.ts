@@ -25,7 +25,7 @@ export const requiredSingletonServices = {
   'emailService': true,
   'eventHub': true,
   'featureFlags': false,
-  'incomingWebhookService': true,
+  'incomingWebhookService': false,
   'jwt': false,
   'kysely': true,
   'leaseService': false,
@@ -51,6 +51,6 @@ export const requiredWireServices = {
 } as const
 
 // Type exports
-export type RequiredSingletonServices = Required<Pick<SingletonServices, 'agentRunService' | 'agentRunState' | 'agentRunner' | 'agentStorage' | 'audit' | 'auth' | 'config' | 'coverageService' | 'credentialService' | 'deploymentService' | 'emailService' | 'eventHub' | 'incomingWebhookService' | 'kysely' | 'logger' | 'metaService' | 'queueService' | 'schedulerService' | 'schema' | 'scopeService' | 'secrets' | 'variables' | 'virtualUserRunStore' | 'virtualUserScheduleStore' | 'webhookService' | 'workflowRunService' | 'workflowService'>> & Partial<Omit<SingletonServices, 'agentRunService' | 'agentRunState' | 'agentRunner' | 'agentStorage' | 'audit' | 'auth' | 'config' | 'coverageService' | 'credentialService' | 'deploymentService' | 'emailService' | 'eventHub' | 'incomingWebhookService' | 'kysely' | 'logger' | 'metaService' | 'queueService' | 'schedulerService' | 'schema' | 'scopeService' | 'secrets' | 'variables' | 'virtualUserRunStore' | 'virtualUserScheduleStore' | 'webhookService' | 'workflowRunService' | 'workflowService'>>
+export type RequiredSingletonServices = Required<Pick<SingletonServices, 'agentRunService' | 'agentRunState' | 'agentRunner' | 'agentStorage' | 'audit' | 'auth' | 'config' | 'coverageService' | 'credentialService' | 'deploymentService' | 'emailService' | 'eventHub' | 'kysely' | 'logger' | 'metaService' | 'queueService' | 'schedulerService' | 'schema' | 'scopeService' | 'secrets' | 'variables' | 'virtualUserRunStore' | 'virtualUserScheduleStore' | 'webhookService' | 'workflowRunService' | 'workflowService'>> & Partial<Omit<SingletonServices, 'agentRunService' | 'agentRunState' | 'agentRunner' | 'agentStorage' | 'audit' | 'auth' | 'config' | 'coverageService' | 'credentialService' | 'deploymentService' | 'emailService' | 'eventHub' | 'kysely' | 'logger' | 'metaService' | 'queueService' | 'schedulerService' | 'schema' | 'scopeService' | 'secrets' | 'variables' | 'virtualUserRunStore' | 'virtualUserScheduleStore' | 'webhookService' | 'workflowRunService' | 'workflowService'>>
 
 export type RequiredWireServices = Partial<Services>

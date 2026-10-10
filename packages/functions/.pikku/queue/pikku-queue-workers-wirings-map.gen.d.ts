@@ -173,6 +173,10 @@ export type DeleteAgentThreadOutput = {
     deleted: boolean;
 }
 export type DeleteOrderInput = { orderId: string; }
+export type DeliveryLocationOutput = {
+    postcode: string;
+    country: string;
+}
 export type DoesNotSeeTextInput = {
     text: string;
 }
@@ -547,6 +551,9 @@ export type RecordAnalyticsEventsInput = {
 }
 export type RecordAnalyticsEventsOutput = {
     accepted: number;
+}
+export type RefundOrderInput = {
+    orderId: string;
 }
 export type RefundWorkflowInput = { orderId: string; reason: string; }
 export type RefundWorkflowOutput = { orderId: string; refunded: boolean; message: string; }

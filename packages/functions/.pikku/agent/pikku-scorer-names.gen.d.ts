@@ -5,4 +5,4 @@
  * The AI scorers declared in this project.
  */
 
-export type ScorerName = never
+export type ScorerName = 'answersTheShopper' | 'pricesComeFromTools'

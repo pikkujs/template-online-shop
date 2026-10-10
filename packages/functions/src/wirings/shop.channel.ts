@@ -1,5 +1,6 @@
 import { wireChannel, pikkuChannelFunc, pikkuChannelConnectionFunc, pikkuChannelDisconnectionFunc } from '#pikku/channel/pikku-channel-types.gen.js'
-import { pikkuFunc } from '#pikku/function'
+import { z } from 'zod'
+import { pikkuFunc, pikkuRemoteChannelFunc } from '#pikku/function'
 
 export const onConnect = pikkuChannelConnectionFunc(
   async ({ logger }, _, { channel }) => {
@@ -60,3 +61,17 @@ export const notifyOrderShipped = pikkuFunc<{ orderId: string }, void>({
   },
 })
 // @snippet end channelPubSub
+
+// @snippet start remoteChannelFunc
+export const deliveryLocationOutput = z.object({
+  postcode: z.string(),
+  country: z.string(),
+})
+
+// The server owns the contract; the connected client owns the body.
+// @coverage-unreachable declares a capability the browser answers; the server only ever calls it as channel.remote
+export const deliveryLocation = pikkuRemoteChannelFunc({
+  description: 'Read the delivery postcode and country saved in your browser',
+  output: deliveryLocationOutput,
+})
+// @snippet end remoteChannelFunc

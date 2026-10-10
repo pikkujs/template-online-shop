@@ -471,6 +471,26 @@
     "singletonServicesOnly": true,
     "description": "List orders for the current user."
   },
+  "refundOrder": {
+    "pikkuFuncId": "refundOrder",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "refundOrder",
+    "inputSchemaName": "RefundOrderInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "RefundOrderInput"
+    ],
+    "outputs": [],
+    "approvalRequired": true,
+    "approvalDescription": "refundOrderApproval",
+    "implementationHash": "dce06e8ba50c867d",
+    "contractHash": "44759267c6776624",
+    "inputHash": "3f6d3497",
+    "outputHash": "ad3bf0ec",
+    "singletonServicesOnly": true
+  },
   "recordAnalyticsEvents": {
     "pikkuFuncId": "recordAnalyticsEvents",
     "functionType": "user",
@@ -1453,6 +1473,23 @@
     "contractHash": "577e6d7e156d1c65",
     "inputHash": "606cab48",
     "outputHash": "4094c392",
+    "singletonServicesOnly": true
+  },
+  "deliveryLocation": {
+    "pikkuFuncId": "deliveryLocation",
+    "functionType": "remote",
+    "funcWrapper": "pikkuRemoteChannelFunc",
+    "sessionless": true,
+    "name": "deliveryLocation",
+    "inputSchemaName": null,
+    "outputSchemaName": "DeliveryLocationOutput",
+    "inputs": [],
+    "outputs": [
+      "DeliveryLocationOutput"
+    ],
+    "contractHash": "7a122d46e11fb3c7",
+    "inputHash": "fc943e75",
+    "outputHash": "22579118",
     "singletonServicesOnly": true
   },
   "conditionalReport": {

@@ -127,6 +127,10 @@ import * as DeleteOrderInput from './schemas/DeleteOrderInput.schema.json' with 
 addSchema('DeleteOrderInput', DeleteOrderInput)
 
 
+import * as DeliveryLocationOutput from './schemas/DeliveryLocationOutput.schema.json' with { type: 'json' }
+addSchema('DeliveryLocationOutput', DeliveryLocationOutput)
+
+
 import * as ExecuteVirtualUserRunInput from './schemas/ExecuteVirtualUserRunInput.schema.json' with { type: 'json' }
 addSchema('ExecuteVirtualUserRunInput', ExecuteVirtualUserRunInput)
 
@@ -377,6 +381,10 @@ addSchema('RecordAnalyticsEventsInput', RecordAnalyticsEventsInput)
 
 import * as RecordAnalyticsEventsOutput from './schemas/RecordAnalyticsEventsOutput.schema.json' with { type: 'json' }
 addSchema('RecordAnalyticsEventsOutput', RecordAnalyticsEventsOutput)
+
+
+import * as RefundOrderInput from './schemas/RefundOrderInput.schema.json' with { type: 'json' }
+addSchema('RefundOrderInput', RefundOrderInput)
 
 
 import * as RefundWorkflowInput from './schemas/RefundWorkflowInput.schema.json' with { type: 'json' }

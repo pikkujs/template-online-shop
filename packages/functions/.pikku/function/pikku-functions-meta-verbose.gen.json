@@ -776,6 +776,38 @@
     "outputHash": "0c72b8bc",
     "singletonServicesOnly": true
   },
+  "refundOrder": {
+    "pikkuFuncId": "refundOrder",
+    "functionType": "user",
+    "funcWrapper": "pikkuFunc",
+    "sessionless": false,
+    "name": "refundOrder",
+    "services": {
+      "optimized": true,
+      "services": [
+        "kysely"
+      ]
+    },
+    "inputSchemaName": "RefundOrderInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "RefundOrderInput"
+    ],
+    "outputs": [],
+    "approvalRequired": true,
+    "approvalDescription": "refundOrderApproval",
+    "implementationHash": "dce06e8ba50c867d",
+    "description": "Refund an order that has already been paid.",
+    "isDirectFunction": false,
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/functions/orders/refund-order.function.ts",
+    "exportedName": "refundOrder",
+    "bodyStart": 27,
+    "bodyEnd": 31,
+    "contractHash": "44759267c6776624",
+    "inputHash": "3f6d3497",
+    "outputHash": "ad3bf0ec",
+    "singletonServicesOnly": true
+  },
   "recordAnalyticsEvents": {
     "pikkuFuncId": "recordAnalyticsEvents",
     "functionType": "user",
@@ -2456,8 +2488,8 @@
     "isDirectFunction": true,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.channel.ts",
     "exportedName": "onConnect",
-    "bodyStart": 6,
-    "bodyEnd": 6,
+    "bodyStart": 7,
+    "bodyEnd": 7,
     "contractHash": "bb33d053aba472f8",
     "inputHash": "d50f122e",
     "outputHash": "ec9ebad4",
@@ -2489,8 +2521,8 @@
     "isDirectFunction": true,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.channel.ts",
     "exportedName": "onDisconnect",
-    "bodyStart": 12,
-    "bodyEnd": 12,
+    "bodyStart": 13,
+    "bodyEnd": 13,
     "contractHash": "43619d59be3869e2",
     "inputHash": "e784dc94",
     "outputHash": "af0b48e4",
@@ -2524,8 +2556,8 @@
     "isDirectFunction": true,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.channel.ts",
     "exportedName": "subscribeToOrder",
-    "bodyStart": 20,
-    "bodyEnd": 20,
+    "bodyStart": 21,
+    "bodyEnd": 21,
     "contractHash": "adce351da05a3b51",
     "inputHash": "e6f7c708",
     "outputHash": "83679a05",
@@ -2559,8 +2591,8 @@
     "isDirectFunction": true,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.channel.ts",
     "exportedName": "unsubscribeFromOrder",
-    "bodyStart": 26,
-    "bodyEnd": 26,
+    "bodyStart": 27,
+    "bodyEnd": 27,
     "contractHash": "bcb9d84db342ef81",
     "inputHash": "cc993948",
     "outputHash": "a2205913",
@@ -2589,11 +2621,35 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.channel.ts",
     "exportedName": "notifyOrderShipped",
-    "bodyStart": 53,
-    "bodyEnd": 59,
+    "bodyStart": 54,
+    "bodyEnd": 60,
     "contractHash": "577e6d7e156d1c65",
     "inputHash": "606cab48",
     "outputHash": "4094c392",
+    "singletonServicesOnly": true
+  },
+  "deliveryLocation": {
+    "pikkuFuncId": "deliveryLocation",
+    "functionType": "remote",
+    "funcWrapper": "pikkuRemoteChannelFunc",
+    "sessionless": true,
+    "name": "deliveryLocation",
+    "services": {
+      "optimized": true,
+      "services": []
+    },
+    "inputSchemaName": null,
+    "outputSchemaName": "DeliveryLocationOutput",
+    "inputs": [],
+    "outputs": [
+      "DeliveryLocationOutput"
+    ],
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.channel.ts",
+    "exportedName": "deliveryLocation",
+    "description": "Read the delivery postcode and country saved in your browser",
+    "contractHash": "7a122d46e11fb3c7",
+    "inputHash": "fc943e75",
+    "outputHash": "22579118",
     "singletonServicesOnly": true
   },
   "conditionalReport": {
