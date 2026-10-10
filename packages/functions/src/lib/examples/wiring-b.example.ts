@@ -468,6 +468,25 @@ export const weeklyReport = pikkuVoidFunc({
 })
 // @snippet end wb-cron-void-func
 
+// The jobs the schedule examples below point at. Each is its own function.
+const logJob = (title: string) =>
+  pikkuVoidFunc({
+    func: async ({ logger }) => {
+      logger.info({ event: 'job', title })
+    },
+    title,
+    tags: ['jobs'],
+  })
+export const healthCheck = logJob('Check the system is healthy')
+export const hourlyUpdate = logJob('Refresh the hourly figures')
+export const dailyBackup = logJob('Back up the database')
+export const monthlyBilling = logJob('Run the monthly billing')
+export const cleanupOldLogs = logJob('Remove old logs')
+export const updateStatistics = logJob('Recompute statistics')
+export const archiveOldData = logJob('Archive old data')
+export const refreshCache = logJob('Refresh the cache')
+export const runMaintenance = logJob('Run routine maintenance')
+
 // @snippet start wb-cron-manual-trigger
 export function wireManualTrigger() {
   wireHTTP({
@@ -484,21 +503,21 @@ export function wireCronExamples() {
   wireScheduler({
     name: 'healthCheck',
     schedule: '*/5 * * * *',
-    func: weeklyReport,
+    func: healthCheck,
   })
 
   // Every hour at minute 30
   wireScheduler({
     name: 'hourlyUpdate',
     schedule: '30 * * * *',
-    func: weeklyReport,
+    func: hourlyUpdate,
   })
 
   // Every day at 2:30 AM
   wireScheduler({
     name: 'dailyBackup',
     schedule: '30 2 * * *',
-    func: weeklyReport,
+    func: dailyBackup,
   })
 
   // Every Monday at 9:00 AM
@@ -512,7 +531,7 @@ export function wireCronExamples() {
   wireScheduler({
     name: 'monthlyBilling',
     schedule: '0 0 1 * *',
-    func: weeklyReport,
+    func: monthlyBilling,
   })
 }
 // @snippet end wb-cron-expressions
@@ -523,7 +542,7 @@ export function wireMaintenance(maintenanceSchedule: string) {
     // Required
     name: 'runMaintenance',
     schedule: maintenanceSchedule, // '0 2 * * *' in prod, '0 */4 * * *' in dev
-    func: weeklyReport,
+    func: runMaintenance,
 
     // Optional
     tags: ['maintenance', 'critical'],
@@ -569,7 +588,7 @@ export function wireWithMiddleware() {
   wireScheduler({
     name: 'runMaintenance',
     schedule: '0 3 * * *',
-    func: weeklyReport,
+    func: runMaintenance,
     middleware: [schedulerMetrics],
   })
 
@@ -598,13 +617,13 @@ export const syncData = pikkuVoidFunc({
 // @snippet start wb-cron-grouped
 export function wireHousekeeping() {
   // Every hour
-  wireScheduler({ name: 'cleanupOldLogs', schedule: '0 * * * *', func: weeklyReport })
+  wireScheduler({ name: 'cleanupOldLogs', schedule: '0 * * * *', func: cleanupOldLogs })
   // Every 6 hours
-  wireScheduler({ name: 'updateStatistics', schedule: '0 */6 * * *', func: weeklyReport })
+  wireScheduler({ name: 'updateStatistics', schedule: '0 */6 * * *', func: updateStatistics })
   // Daily at 2 AM
-  wireScheduler({ name: 'archiveOldData', schedule: '0 2 * * *', func: weeklyReport })
+  wireScheduler({ name: 'archiveOldData', schedule: '0 2 * * *', func: archiveOldData })
   // Every 15 minutes
-  wireScheduler({ name: 'refreshCache', schedule: '*/15 * * * *', func: weeklyReport })
+  wireScheduler({ name: 'refreshCache', schedule: '*/15 * * * *', func: refreshCache })
 }
 // @snippet end wb-cron-grouped
 
