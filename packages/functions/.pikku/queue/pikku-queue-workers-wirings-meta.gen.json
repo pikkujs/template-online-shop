@@ -1,4 +1,8 @@
 {
+  "pikku-virtual-user-runs": {
+    "pikkuFuncId": "executeVirtualUserRun",
+    "name": "pikku-virtual-user-runs"
+  },
   "stripe-webhook-event": {
     "pikkuFuncId": "applyStripeEvent",
     "name": "stripe-webhook-event"

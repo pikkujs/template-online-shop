@@ -13,6 +13,7 @@ import {
   KyselyScopeService,
 } from '@pikku/kysely'
 import { SQLiteKyselyWorkflowService } from '@pikku/kysely-sqlite'
+import { KyselyLeaseService } from '@pikku/kysely'
 import type { KyselyPikkuDB } from '@pikku/kysely'
 import { pikkuServices, pikkuWireServices } from '#pikku/setup'
 import { SCOPES } from '#pikku/scopes/pikku-scopes.gen.js'
@@ -112,9 +113,16 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
   // Workflows are declared in this project, so a workflowService is not
   // optional — without one the CLI refuses to generate (PKU600) and a run has
   // nowhere to keep its state between steps.
+  // The workflow service serialises orchestration and step claims on a lease, so
+  // it is built over the same lease service the app registers.
+  const leaseService =
+    existingServices?.leaseService ??
+    new KyselyLeaseService(kysely as unknown as Kysely<KyselyPikkuDB>)
+  await (leaseService as { init?: () => Promise<void> }).init?.()
+
   const workflowService =
     existingServices?.workflowService ??
-    new SQLiteKyselyWorkflowService(kysely as any)
+    new SQLiteKyselyWorkflowService(kysely as any, { leaseService })
   await (workflowService as { init?: () => Promise<void> }).init?.()
 
   // The shop assistant declares `memory`, and memory is only ever as durable as
@@ -139,6 +147,7 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
     config,
     scopeService,
     workflowService,
+    leaseService,
     variables,
     secrets,
     schema,

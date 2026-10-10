@@ -53,6 +53,98 @@
         "files": []
       }
     },
+    "#pikku/addon/analytics": {
+      "AnalyticsClientContext": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsEventBase": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsEventDefinitions": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsEventPropsSchema": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsIdentity": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsIdentityResolver": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsLog": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsRecord": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsService": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsSink": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "anonymousAnalyticsIdentity": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "composeAnalyticsIdentity": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "cookieAnalyticsIdentity": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "defineAnalyticsEvents": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "fanOutAnalytics": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "LoggerAnalyticsService": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "mintCookie": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "randomDigits": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      }
+    },
     "#pikku/addon/auth": {
       "addGlobalPermission": {
         "imports": 0,
@@ -107,6 +199,23 @@
         "files": []
       }
     },
+    "#pikku/addon/cli": {
+      "defineCLICommands": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "pikkuCLICommand": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "pikkuCLIRender": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      }
+    },
     "#pikku/addon/error": {
       "addError": {
         "imports": 0,
@@ -138,12 +247,22 @@
         "seenIn": [],
         "files": []
       },
+      "CredentialRejectedError": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
       "ErrorDetails": {
         "imports": 0,
         "seenIn": [],
         "files": []
       },
       "ExpectationFailedError": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "FeatureUnavailableError": {
         "imports": 0,
         "seenIn": [],
         "files": []
@@ -573,11 +692,6 @@
         "seenIn": [],
         "files": []
       },
-      "createScenarioRunner": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
-      },
       "pikkuAddonScenarioStep": {
         "imports": 0,
         "seenIn": [],
@@ -690,12 +804,22 @@
       }
     },
     "#pikku/addon/scopes": {
+      "defineFeatureFlags": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
       "defineScope": {
         "imports": 0,
         "seenIn": [],
         "files": []
       },
       "defineSystemRole": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "FeatureFlagName": {
         "imports": 0,
         "seenIn": [],
         "files": []
@@ -765,6 +889,23 @@
         "imports": 0,
         "seenIn": [],
         "files": []
+      },
+      "pikkuWebhookReceive": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "wireTriggerWebhookSource": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      }
+    },
+    "#pikku/addon/utils": {
+      "parseJson": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
       }
     },
     "#pikku/addon/variables": {
@@ -827,14 +968,22 @@
         ]
       },
       "agentApprove": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
+        "imports": 1,
+        "seenIn": [
+          "@project/functions"
+        ],
+        "files": [
+          "packages/functions/src/wirings/shop.bot.ts"
+        ]
       },
       "agentResume": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
+        "imports": 1,
+        "seenIn": [
+          "@project/functions"
+        ],
+        "files": [
+          "packages/functions/src/wirings/shop.bot.ts"
+        ]
       },
       "agentStream": {
         "imports": 1,
@@ -860,6 +1009,98 @@
         "files": []
       },
       "pikkuAgentScorer": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      }
+    },
+    "#pikku/analytics": {
+      "AnalyticsClientContext": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsEventBase": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsEventDefinitions": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsEventPropsSchema": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsIdentity": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsIdentityResolver": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsLog": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsRecord": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsService": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AnalyticsSink": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "anonymousAnalyticsIdentity": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "composeAnalyticsIdentity": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "cookieAnalyticsIdentity": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "defineAnalyticsEvents": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "fanOutAnalytics": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "LoggerAnalyticsService": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "mintCookie": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "randomDigits": {
         "imports": 0,
         "seenIn": [],
         "files": []
@@ -1034,12 +1275,22 @@
         "seenIn": [],
         "files": []
       },
+      "CredentialRejectedError": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
       "ErrorDetails": {
         "imports": 0,
         "seenIn": [],
         "files": []
       },
       "ExpectationFailedError": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "FeatureUnavailableError": {
         "imports": 0,
         "seenIn": [],
         "files": []
@@ -1633,14 +1884,13 @@
     },
     "#pikku/scenarios": {
       "createCookieJar": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
-      },
-      "createScenarioRunner": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
+        "imports": 1,
+        "seenIn": [
+          "@project/functions"
+        ],
+        "files": [
+          "packages/functions/src/wirings/shop.scenario-steps.ts"
+        ]
       },
       "personaConfigs": {
         "imports": 1,
@@ -1648,7 +1898,7 @@
           "@project/functions"
         ],
         "files": [
-          "packages/functions/src/server-lifecycle.ts"
+          "packages/functions/src/auth.ts"
         ]
       },
       "personaEnvironments": {
@@ -1657,13 +1907,17 @@
           "@project/functions"
         ],
         "files": [
-          "packages/functions/src/server-lifecycle.ts"
+          "packages/functions/src/auth.ts"
         ]
       },
       "pikkuAddonScenarioStep": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
+        "imports": 1,
+        "seenIn": [
+          "@project/functions"
+        ],
+        "files": [
+          "packages/functions/src/wirings/shop.scenario-steps.ts"
+        ]
       },
       "PikkuBrowserWire": {
         "imports": 0,
@@ -1671,11 +1925,12 @@
         "files": []
       },
       "pikkuFeature": {
-        "imports": 5,
+        "imports": 6,
         "seenIn": [
           "@project/functions"
         ],
         "files": [
+          "packages/functions/src/wirings/shop.feature.ts",
           "packages/functions/test/scenarios/auth.scenario.ts",
           "packages/functions/test/scenarios/coverage.scenario.ts",
           "packages/functions/test/scenarios/journey.scenario.ts",
@@ -1699,9 +1954,13 @@
         "files": []
       },
       "pikkuPlatformScenarioStep": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
+        "imports": 1,
+        "seenIn": [
+          "@project/functions"
+        ],
+        "files": [
+          "packages/functions/src/wirings/shop.scenario-steps.ts"
+        ]
       },
       "pikkuScenario": {
         "imports": 7,
@@ -1719,9 +1978,13 @@
         ]
       },
       "pikkuScenarioHook": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
+        "imports": 1,
+        "seenIn": [
+          "@project/functions"
+        ],
+        "files": [
+          "packages/functions/src/wirings/shop.scenario-steps.ts"
+        ]
       },
       "PikkuScenarioHook": {
         "imports": 0,
@@ -1743,24 +2006,40 @@
         ]
       },
       "pollUntil": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
+        "imports": 1,
+        "seenIn": [
+          "@project/functions"
+        ],
+        "files": [
+          "packages/functions/src/wirings/shop.scenario-steps.ts"
+        ]
       },
       "postScenarioJson": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
+        "imports": 1,
+        "seenIn": [
+          "@project/functions"
+        ],
+        "files": [
+          "packages/functions/src/wirings/shop.scenario-steps.ts"
+        ]
       },
       "readScenarioHttpResponse": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
+        "imports": 1,
+        "seenIn": [
+          "@project/functions"
+        ],
+        "files": [
+          "packages/functions/src/wirings/shop.scenario-steps.ts"
+        ]
       },
       "requireScenarioEnv": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
+        "imports": 1,
+        "seenIn": [
+          "@project/functions"
+        ],
+        "files": [
+          "packages/functions/src/wirings/shop.scenario-steps.ts"
+        ]
       },
       "ScenarioHttpResponse": {
         "imports": 0,
@@ -1806,6 +2085,11 @@
       }
     },
     "#pikku/scopes": {
+      "defineFeatureFlags": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
       "definePersonas": {
         "imports": 1,
         "seenIn": [
@@ -1832,6 +2116,11 @@
         "files": [
           "packages/functions/src/roles.ts"
         ]
+      },
+      "FeatureFlagName": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
       },
       "SCOPES": {
         "imports": 1,
@@ -1888,6 +2177,11 @@
           "packages/functions/src/config.ts"
         ]
       },
+      "pikkuServerLifecycle": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
       "pikkuServices": {
         "imports": 1,
         "seenIn": [
@@ -1913,6 +2207,11 @@
         "seenIn": [],
         "files": []
       },
+      "pikkuWebhookReceive": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
       "wireTrigger": {
         "imports": 1,
         "seenIn": [
@@ -1923,6 +2222,18 @@
         ]
       },
       "wireTriggerSource": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "wireTriggerWebhookSource": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      }
+    },
+    "#pikku/utils": {
+      "parseJson": {
         "imports": 0,
         "seenIn": [],
         "files": []

@@ -15,7 +15,9 @@
     "implementationHash": "626b6eed5a44701b",
     "contractHash": "f5f36d6618c1be48",
     "inputHash": "a8ce2291",
-    "outputHash": "2f28f3c9"
+    "outputHash": "2f28f3c9",
+    "singletonServicesOnly": true,
+    "description": "Add an item to a basket, or increase its quantity if already present."
   },
   "getBasket": {
     "pikkuFuncId": "getBasket",
@@ -35,7 +37,9 @@
     "implementationHash": "c76e53818fbb2528",
     "contractHash": "8320f312eba9cce0",
     "inputHash": "ac0a0186",
-    "outputHash": "27d0ae74"
+    "outputHash": "27d0ae74",
+    "singletonServicesOnly": true,
+    "description": "Get basket for the current user or session. Creates one if it does not exist."
   },
   "removeFromBasket": {
     "pikkuFuncId": "removeFromBasket",
@@ -53,7 +57,9 @@
     "implementationHash": "c6100c113a0ccaa0",
     "contractHash": "f0c0f960dd928ea5",
     "inputHash": "dc2d38c8",
-    "outputHash": "8eea6cd5"
+    "outputHash": "8eea6cd5",
+    "singletonServicesOnly": true,
+    "description": "Remove an item from a basket entirely."
   },
   "createCategory": {
     "pikkuFuncId": "createCategory",
@@ -76,7 +82,8 @@
     "implementationHash": "364f54d245197ccf",
     "contractHash": "27fecffd1ac7d6c2",
     "inputHash": "f6149532",
-    "outputHash": "f2fbb552"
+    "outputHash": "f2fbb552",
+    "singletonServicesOnly": true
   },
   "listCategories": {
     "pikkuFuncId": "listCategories",
@@ -94,7 +101,9 @@
     "implementationHash": "487283eb6098b31f",
     "contractHash": "e4e6b1464c738680",
     "inputHash": "10457de4",
-    "outputHash": "dbc43cfd"
+    "outputHash": "dbc43cfd",
+    "singletonServicesOnly": true,
+    "description": "List all product categories."
   },
   "handleChatMessage": {
     "pikkuFuncId": "handleChatMessage",
@@ -113,7 +122,8 @@
     "implementationHash": "276db171f41d180b",
     "contractHash": "1b6a0182806b18ec",
     "inputHash": "3bbe48bb",
-    "outputHash": "ce28b5f8"
+    "outputHash": "ce28b5f8",
+    "singletonServicesOnly": true
   },
   "getProfile": {
     "pikkuFuncId": "getProfile",
@@ -131,7 +141,8 @@
     "implementationHash": "e8f24e561b7c9e1d",
     "contractHash": "7fbda8ede4e384e5",
     "inputHash": "3bae9870",
-    "outputHash": "ca6915cd"
+    "outputHash": "ca6915cd",
+    "singletonServicesOnly": true
   },
   "getSession": {
     "pikkuFuncId": "getSession",
@@ -153,7 +164,8 @@
     "implementationHash": "2ed4f21ea016c7e3",
     "contractHash": "493320ce1e00cb69",
     "inputHash": "ba4ab2e7",
-    "outputHash": "386fe409"
+    "outputHash": "386fe409",
+    "singletonServicesOnly": true
   },
   "createItem": {
     "pikkuFuncId": "createItem",
@@ -176,7 +188,8 @@
     "implementationHash": "980b1a912b2af519",
     "contractHash": "4b4353432e043692",
     "inputHash": "7c76a951",
-    "outputHash": "bf65f740"
+    "outputHash": "bf65f740",
+    "singletonServicesOnly": true
   },
   "getItem@v1": {
     "pikkuFuncId": "getItem@v1",
@@ -197,7 +210,8 @@
     "version": 1,
     "contractHash": "0c6d151750bebde6",
     "inputHash": "2cad2fce",
-    "outputHash": "95e1d33c"
+    "outputHash": "95e1d33c",
+    "singletonServicesOnly": true
   },
   "getItem@v2": {
     "pikkuFuncId": "getItem@v2",
@@ -218,7 +232,8 @@
     "version": 2,
     "contractHash": "1ec223331587c80d",
     "inputHash": "2cad2fce",
-    "outputHash": "3902877b"
+    "outputHash": "3902877b",
+    "singletonServicesOnly": true
   },
   "listItems": {
     "pikkuFuncId": "listItems",
@@ -238,7 +253,9 @@
     "implementationHash": "d3b6b3d33ce43c19",
     "contractHash": "f91b782f1222d52d",
     "inputHash": "34c12795",
-    "outputHash": "8a9a177c"
+    "outputHash": "8a9a177c",
+    "singletonServicesOnly": true,
+    "description": "List items, optionally filtered by category or search query."
   },
   "updateItem": {
     "pikkuFuncId": "updateItem",
@@ -259,7 +276,8 @@
     "implementationHash": "3930f7133f36b26b",
     "contractHash": "925b1428502fd7ca",
     "inputHash": "04f0ce98",
-    "outputHash": "b58dfe42"
+    "outputHash": "b58dfe42",
+    "singletonServicesOnly": true
   },
   "sendOrderConfirmation": {
     "pikkuFuncId": "sendOrderConfirmation",
@@ -276,7 +294,8 @@
     "implementationHash": "8b1e3f1c454ce2cc",
     "contractHash": "581f58f9f3563094",
     "inputHash": "ff4c9138",
-    "outputHash": "5027f276"
+    "outputHash": "5027f276",
+    "singletonServicesOnly": true
   },
   "writeAuditEvent": {
     "pikkuFuncId": "writeAuditEvent",
@@ -293,7 +312,8 @@
     "implementationHash": "c6ad1d2aaf9bc28a",
     "contractHash": "a450ec7318b3045c",
     "inputHash": "24a0a82a",
-    "outputHash": "d55282fc"
+    "outputHash": "d55282fc",
+    "singletonServicesOnly": true
   },
   "onLowStock": {
     "pikkuFuncId": "onLowStock",
@@ -311,7 +331,8 @@
     "implementationHash": "e3a2140ff6a3a75e",
     "contractHash": "879f6560661514bf",
     "inputHash": "6f78dfe5",
-    "outputHash": "d6ebbb69"
+    "outputHash": "d6ebbb69",
+    "singletonServicesOnly": true
   },
   "applyStripeEvent": {
     "pikkuFuncId": "applyStripeEvent",
@@ -331,7 +352,8 @@
     "implementationHash": "b74da3e8c87a2d78",
     "contractHash": "b325a83d153e1374",
     "inputHash": "20058ead",
-    "outputHash": "93d26782"
+    "outputHash": "93d26782",
+    "singletonServicesOnly": true
   },
   "cancelOrder": {
     "pikkuFuncId": "cancelOrder",
@@ -359,7 +381,9 @@
     ],
     "contractHash": "f381569738a90b20",
     "inputHash": "1ab7f089",
-    "outputHash": "27dc45ee"
+    "outputHash": "27dc45ee",
+    "singletonServicesOnly": true,
+    "description": "Cancel a pending order and restore stock."
   },
   "createOrder": {
     "pikkuFuncId": "createOrder",
@@ -379,7 +403,8 @@
     "implementationHash": "20b60a218ab6b6b0",
     "contractHash": "a5be481b778a1d8b",
     "inputHash": "165ef10b",
-    "outputHash": "de346d00"
+    "outputHash": "de346d00",
+    "singletonServicesOnly": true
   },
   "deleteOrder": {
     "pikkuFuncId": "deleteOrder",
@@ -399,7 +424,8 @@
     "implementationHash": "87306d90ef4e0a19",
     "contractHash": "c8c9c16009473756",
     "inputHash": "63015468",
-    "outputHash": "95998d10"
+    "outputHash": "95998d10",
+    "singletonServicesOnly": true
   },
   "getOrder": {
     "pikkuFuncId": "getOrder",
@@ -419,7 +445,9 @@
     "implementationHash": "1f7245100ba9d2a8",
     "contractHash": "185e20c90cea12ab",
     "inputHash": "20ab47d1",
-    "outputHash": "b4ab02c0"
+    "outputHash": "b4ab02c0",
+    "singletonServicesOnly": true,
+    "description": "Get a single order. Users can only access their own orders."
   },
   "listOrders": {
     "pikkuFuncId": "listOrders",
@@ -439,7 +467,9 @@
     "implementationHash": "e879dd2ee4391606",
     "contractHash": "4b83b6a294f35460",
     "inputHash": "4a70189d",
-    "outputHash": "0c72b8bc"
+    "outputHash": "0c72b8bc",
+    "singletonServicesOnly": true,
+    "description": "List orders for the current user."
   },
   "recordAnalyticsEvents": {
     "pikkuFuncId": "recordAnalyticsEvents",
@@ -455,10 +485,12 @@
     "outputs": [
       "RecordAnalyticsEventsOutput"
     ],
+    "auth": false,
     "implementationHash": "9d9165f0b52dd16c",
     "contractHash": "72e0ba8d189e8018",
     "inputHash": "792b8885",
-    "outputHash": "0aad28eb"
+    "outputHash": "0aad28eb",
+    "singletonServicesOnly": true
   },
   "cleanupAbandonedBaskets": {
     "pikkuFuncId": "cleanupAbandonedBaskets",
@@ -474,7 +506,8 @@
     "implementationHash": "44cefbfb0a35a8e6",
     "contractHash": "bfd266803f3c472e",
     "inputHash": "008b046d",
-    "outputHash": "1d49c1b8"
+    "outputHash": "1d49c1b8",
+    "singletonServicesOnly": true
   },
   "dailySalesReport": {
     "pikkuFuncId": "dailySalesReport",
@@ -490,7 +523,8 @@
     "implementationHash": "f4e703c6d40e7a84",
     "contractHash": "757e4681fc30dc55",
     "inputHash": "b3a8987e",
-    "outputHash": "468747d0"
+    "outputHash": "468747d0",
+    "singletonServicesOnly": true
   },
   "sweepLowStock": {
     "pikkuFuncId": "sweepLowStock",
@@ -506,7 +540,8 @@
     "implementationHash": "6428d417ca4e1350",
     "contractHash": "297e148458b7a0a9",
     "inputHash": "02abc633",
-    "outputHash": "752e3171"
+    "outputHash": "752e3171",
+    "singletonServicesOnly": true
   },
   "agentCaller": {
     "pikkuFuncId": "agentCaller",
@@ -522,10 +557,12 @@
     "outputs": [
       "AgentCallerOutput"
     ],
+    "auth": false,
     "implementationHash": "53ff00a5c5e608f9",
     "contractHash": "37551e5ed7eab8ce",
     "inputHash": "b7250306",
-    "outputHash": "5fb07a82"
+    "outputHash": "5fb07a82",
+    "singletonServicesOnly": true
   },
   "agentStreamCaller": {
     "pikkuFuncId": "agentStreamCaller",
@@ -539,10 +576,12 @@
       "AgentStreamCallerInput"
     ],
     "outputs": [],
+    "auth": false,
     "implementationHash": "db7a79fb3d5c8f4c",
     "contractHash": "cbee447908b3884f",
     "inputHash": "8ce997b4",
-    "outputHash": "641a263e"
+    "outputHash": "641a263e",
+    "singletonServicesOnly": true
   },
   "agentApproveCaller": {
     "pikkuFuncId": "agentApproveCaller",
@@ -556,10 +595,12 @@
       "AgentApproveCallerInput"
     ],
     "outputs": [],
+    "auth": false,
     "implementationHash": "0def3f7e0907c5fc",
     "contractHash": "dac7ab155be9f5f9",
     "inputHash": "5492770b",
-    "outputHash": "ef71f08a"
+    "outputHash": "ef71f08a",
+    "singletonServicesOnly": true
   },
   "agentResumeCaller": {
     "pikkuFuncId": "agentResumeCaller",
@@ -573,10 +614,12 @@
       "AgentResumeCallerInput"
     ],
     "outputs": [],
+    "auth": false,
     "implementationHash": "00505b167dc5ce1d",
     "contractHash": "e1f0e61706b653c2",
     "inputHash": "88f39100",
-    "outputHash": "ee89e454"
+    "outputHash": "ee89e454",
+    "singletonServicesOnly": true
   },
   "getAgentThreads": {
     "pikkuFuncId": "getAgentThreads",
@@ -597,7 +640,8 @@
     "implementationHash": "f8ab408c1989d90d",
     "contractHash": "85b4ebdde3a957e4",
     "inputHash": "92d13c90",
-    "outputHash": "8f00b4d1"
+    "outputHash": "8f00b4d1",
+    "singletonServicesOnly": true
   },
   "getAgentThreadMessages": {
     "pikkuFuncId": "getAgentThreadMessages",
@@ -614,6 +658,7 @@
       "GetAgentThreadMessagesOutput"
     ],
     "expose": true,
+    "auth": false,
     "implementationHash": "305ea4752fa201a3",
     "permissions": [
       {
@@ -624,7 +669,8 @@
     ],
     "contractHash": "bdc9b69edcc668fc",
     "inputHash": "4e30fe21",
-    "outputHash": "5a543720"
+    "outputHash": "5a543720",
+    "singletonServicesOnly": true
   },
   "getAgentThreadRuns": {
     "pikkuFuncId": "getAgentThreadRuns",
@@ -641,6 +687,7 @@
       "GetAgentThreadRunsOutput"
     ],
     "expose": true,
+    "auth": false,
     "implementationHash": "feda90bb2c95a4b5",
     "permissions": [
       {
@@ -651,7 +698,8 @@
     ],
     "contractHash": "0c560ded2ce4755a",
     "inputHash": "df3cdce9",
-    "outputHash": "feff89e7"
+    "outputHash": "feff89e7",
+    "singletonServicesOnly": true
   },
   "deleteAgentThread": {
     "pikkuFuncId": "deleteAgentThread",
@@ -668,6 +716,7 @@
       "DeleteAgentThreadOutput"
     ],
     "expose": true,
+    "auth": false,
     "implementationHash": "817aab1df9dc0111",
     "permissions": [
       {
@@ -678,7 +727,8 @@
     ],
     "contractHash": "a394477bbe43212f",
     "inputHash": "080e0438",
-    "outputHash": "fc86f2f3"
+    "outputHash": "fc86f2f3",
+    "singletonServicesOnly": true
   },
   "authHandler": {
     "pikkuFuncId": "authHandler",
@@ -695,7 +745,8 @@
     "implementationHash": "0d0218bff99f1773",
     "contractHash": "9dfce2dcd1fac626",
     "inputHash": "3db46710",
-    "outputHash": "5b0d193e"
+    "outputHash": "5b0d193e",
+    "singletonServicesOnly": true
   },
   "pikkuConsoleGetVariable": {
     "pikkuFuncId": "pikkuConsoleGetVariable",
@@ -712,10 +763,14 @@
       "PikkuConsoleGetVariableOutput"
     ],
     "expose": true,
-    "implementationHash": "57ca891e80c241dd",
+    "scopes": [
+      "pikku:console"
+    ],
+    "implementationHash": "234f7edd1b50545f",
     "contractHash": "2848c3e22b23fe00",
     "inputHash": "38f93644",
-    "outputHash": "dc35791b"
+    "outputHash": "dc35791b",
+    "singletonServicesOnly": true
   },
   "pikkuConsoleSetVariable": {
     "pikkuFuncId": "pikkuConsoleSetVariable",
@@ -732,10 +787,14 @@
       "PikkuConsoleSetVariableOutput"
     ],
     "expose": true,
-    "implementationHash": "8a0b387c7187e677",
+    "scopes": [
+      "pikku:console"
+    ],
+    "implementationHash": "f85641263b018cb4",
     "contractHash": "cb14a60d90a58c6b",
     "inputHash": "f2e64dab",
-    "outputHash": "ef85132e"
+    "outputHash": "ef85132e",
+    "singletonServicesOnly": true
   },
   "realtimeSubscribe": {
     "pikkuFuncId": "realtimeSubscribe",
@@ -752,7 +811,8 @@
     "implementationHash": "1857667479118a95",
     "contractHash": "bc5e1561fda444bd",
     "inputHash": "9e8c21ea",
-    "outputHash": "4a97e651"
+    "outputHash": "4a97e651",
+    "singletonServicesOnly": true
   },
   "realtimeUnsubscribe": {
     "pikkuFuncId": "realtimeUnsubscribe",
@@ -769,7 +829,8 @@
     "implementationHash": "f1414854056624fe",
     "contractHash": "63d0658de9b01f24",
     "inputHash": "bd6266c1",
-    "outputHash": "460c0c66"
+    "outputHash": "460c0c66",
+    "singletonServicesOnly": true
   },
   "realtimeEventStream": {
     "pikkuFuncId": "realtimeEventStream",
@@ -786,7 +847,8 @@
     "implementationHash": "14f2a75366d274a3",
     "contractHash": "c12792757a387726",
     "inputHash": "0e03de1d",
-    "outputHash": "d6679eb5"
+    "outputHash": "d6679eb5",
+    "singletonServicesOnly": true
   },
   "rpcCaller": {
     "pikkuFuncId": "rpcCaller",
@@ -800,10 +862,12 @@
       "RpcCallerInput"
     ],
     "outputs": [],
+    "auth": false,
     "implementationHash": "1be6e1c1e2f95190",
     "contractHash": "634bbf0fea9ae7d2",
     "inputHash": "255f53e2",
-    "outputHash": "629e0b5a"
+    "outputHash": "629e0b5a",
+    "singletonServicesOnly": true
   },
   "runVirtualUser": {
     "pikkuFuncId": "runVirtualUser",
@@ -823,10 +887,11 @@
     "scopes": [
       "virtualUser:run"
     ],
-    "implementationHash": "5db5e748d4f1023f",
+    "implementationHash": "936a481bae728e14",
     "contractHash": "8e4038bc02085975",
     "inputHash": "3bc28000",
-    "outputHash": "4d9bf767"
+    "outputHash": "4d9bf767",
+    "singletonServicesOnly": true
   },
   "getVirtualUserRun": {
     "pikkuFuncId": "getVirtualUserRun",
@@ -849,7 +914,8 @@
     "implementationHash": "9034f10c4844da81",
     "contractHash": "aad2164ff8988462",
     "inputHash": "369b4c8c",
-    "outputHash": "1665d703"
+    "outputHash": "1665d703",
+    "singletonServicesOnly": true
   },
   "listVirtualUserRuns": {
     "pikkuFuncId": "listVirtualUserRuns",
@@ -872,7 +938,8 @@
     "implementationHash": "d0cf7e1b3f896ab5",
     "contractHash": "ea48fa66331ba0f4",
     "inputHash": "7cbccac9",
-    "outputHash": "5fafe14d"
+    "outputHash": "5fafe14d",
+    "singletonServicesOnly": true
   },
   "getVirtualUserRunSteps": {
     "pikkuFuncId": "getVirtualUserRunSteps",
@@ -895,7 +962,8 @@
     "implementationHash": "1ee36f400cc2494b",
     "contractHash": "543832b28ea27a25",
     "inputHash": "57b03b61",
-    "outputHash": "45411245"
+    "outputHash": "45411245",
+    "singletonServicesOnly": true
   },
   "setVirtualUserSchedule": {
     "pikkuFuncId": "setVirtualUserSchedule",
@@ -915,10 +983,11 @@
     "scopes": [
       "virtualUser:schedule"
     ],
-    "implementationHash": "be8ec0fbef7fa54e",
+    "implementationHash": "7774575da24ed00d",
     "contractHash": "fa118435a0d1ce06",
     "inputHash": "e2e48287",
-    "outputHash": "7a4019cc"
+    "outputHash": "7a4019cc",
+    "singletonServicesOnly": true
   },
   "listVirtualUserSchedules": {
     "pikkuFuncId": "listVirtualUserSchedules",
@@ -939,7 +1008,8 @@
     "implementationHash": "3c28c9e6dc7bbe01",
     "contractHash": "d05f02d540587d6c",
     "inputHash": "cd2c2ea7",
-    "outputHash": "a33d94e1"
+    "outputHash": "a33d94e1",
+    "singletonServicesOnly": true
   },
   "tickVirtualUserSchedules": {
     "pikkuFuncId": "tickVirtualUserSchedules",
@@ -973,7 +1043,8 @@
     "implementationHash": "40b860aba5d551f8",
     "contractHash": "5dc1ddc01a4cfdd6",
     "inputHash": "7207b057",
-    "outputHash": "d3e108a4"
+    "outputHash": "d3e108a4",
+    "singletonServicesOnly": true
   },
   "workflowStarter": {
     "pikkuFuncId": "workflowStarter",
@@ -989,10 +1060,12 @@
     "outputs": [
       "WorkflowStarterOutput"
     ],
+    "auth": false,
     "implementationHash": "a193546f27bfbc50",
     "contractHash": "ca905bee516424d2",
     "inputHash": "65720316",
-    "outputHash": "724d2246"
+    "outputHash": "724d2246",
+    "singletonServicesOnly": true
   },
   "workflowRunner": {
     "pikkuFuncId": "workflowRunner",
@@ -1006,10 +1079,12 @@
       "WorkflowRunnerInput"
     ],
     "outputs": [],
+    "auth": false,
     "implementationHash": "19e173ac8dbf155a",
     "contractHash": "d0538aadf6ed3553",
     "inputHash": "d43158b5",
-    "outputHash": "316bdb87"
+    "outputHash": "316bdb87",
+    "singletonServicesOnly": true
   },
   "workflowStatusChecker": {
     "pikkuFuncId": "workflowStatusChecker",
@@ -1025,10 +1100,12 @@
     "outputs": [
       "WorkflowRunStatus"
     ],
+    "auth": false,
     "implementationHash": "9fcf800dece37eec",
-    "contractHash": "4d68a0e13e05c878",
+    "contractHash": "b6bf55a2fa8bbb82",
     "inputHash": "8b76388a",
-    "outputHash": "402bbecf"
+    "outputHash": "1d5979b5",
+    "singletonServicesOnly": true
   },
   "workflowStatusStream": {
     "pikkuFuncId": "workflowStatusStream",
@@ -1042,10 +1119,12 @@
       "WorkflowStatusStreamInput"
     ],
     "outputs": [],
+    "auth": false,
     "implementationHash": "a57a952f67d46bb6",
     "contractHash": "c80642eaef991622",
     "inputHash": "1ffa4b0a",
-    "outputHash": "6180f124"
+    "outputHash": "6180f124",
+    "singletonServicesOnly": true
   },
   "workflowStatusStreamFull": {
     "pikkuFuncId": "workflowStatusStreamFull",
@@ -1059,10 +1138,12 @@
       "WorkflowStatusStreamFullInput"
     ],
     "outputs": [],
+    "auth": false,
     "implementationHash": "8dec97ec4183a745",
     "contractHash": "cfa22ced3946bfb4",
     "inputHash": "901e07ab",
-    "outputHash": "dcd02549"
+    "outputHash": "dcd02549",
+    "singletonServicesOnly": true
   },
   "workflowApprover": {
     "pikkuFuncId": "workflowApprover",
@@ -1078,10 +1159,12 @@
     "outputs": [
       "WorkflowApproverOutput"
     ],
+    "auth": false,
     "implementationHash": "4897aa0edae99d7f",
     "contractHash": "743929fad4bbaf60",
     "inputHash": "b37eecda",
-    "outputHash": "330cba2c"
+    "outputHash": "330cba2c",
+    "singletonServicesOnly": true
   },
   "validateBasket": {
     "pikkuFuncId": "validateBasket",
@@ -1100,7 +1183,8 @@
     "implementationHash": "6e86805cf7f38a9c",
     "contractHash": "64ab24c801efbe64",
     "inputHash": "09fc3daa",
-    "outputHash": "892b24ac"
+    "outputHash": "892b24ac",
+    "singletonServicesOnly": true
   },
   "createOrderRecord": {
     "pikkuFuncId": "createOrderRecord",
@@ -1119,7 +1203,8 @@
     "implementationHash": "d70e6f0f1d1a7bab",
     "contractHash": "87f363bd1ab88c25",
     "inputHash": "299de8ca",
-    "outputHash": "ce239a25"
+    "outputHash": "ce239a25",
+    "singletonServicesOnly": true
   },
   "chargeCard": {
     "pikkuFuncId": "chargeCard",
@@ -1139,7 +1224,8 @@
     "implementationHash": "231bf2665314aaca",
     "contractHash": "96237633fb7ad71f",
     "inputHash": "f855eb5f",
-    "outputHash": "bd6e8cf6"
+    "outputHash": "bd6e8cf6",
+    "singletonServicesOnly": true
   },
   "finalizeOrder": {
     "pikkuFuncId": "finalizeOrder",
@@ -1156,7 +1242,8 @@
     "implementationHash": "ec78e1fbb4b1c607",
     "contractHash": "cf4105eee757fa81",
     "inputHash": "b547b38f",
-    "outputHash": "3bddfeec"
+    "outputHash": "3bddfeec",
+    "singletonServicesOnly": true
   },
   "checkoutWorkflow": {
     "pikkuFuncId": "checkoutWorkflow",
@@ -1176,7 +1263,8 @@
     "implementationHash": "cce5bf73455f3283",
     "contractHash": "33fc3db1aeda33af",
     "inputHash": "6129b387",
-    "outputHash": "cbd83fab"
+    "outputHash": "cbd83fab",
+    "singletonServicesOnly": true
   },
   "startCheckout": {
     "pikkuFuncId": "startCheckout",
@@ -1196,7 +1284,8 @@
     "implementationHash": "b3367185d73a3090",
     "contractHash": "b437127d364f1c5a",
     "inputHash": "e324754d",
-    "outputHash": "10b494ca"
+    "outputHash": "10b494ca",
+    "singletonServicesOnly": true
   },
   "checkOrderRefundable": {
     "pikkuFuncId": "checkOrderRefundable",
@@ -1215,7 +1304,8 @@
     "implementationHash": "1043d5994414f969",
     "contractHash": "e9fad2745ecb4443",
     "inputHash": "29349325",
-    "outputHash": "5da5da14"
+    "outputHash": "5da5da14",
+    "singletonServicesOnly": true
   },
   "issueRefund": {
     "pikkuFuncId": "issueRefund",
@@ -1232,7 +1322,8 @@
     "implementationHash": "1886b27bd8cc9431",
     "contractHash": "3e47cde276bcb9c8",
     "inputHash": "35c6cd52",
-    "outputHash": "a7d40b02"
+    "outputHash": "a7d40b02",
+    "singletonServicesOnly": true
   },
   "startRefund": {
     "pikkuFuncId": "startRefund",
@@ -1255,7 +1346,8 @@
     "implementationHash": "a111a9bfbed025c6",
     "contractHash": "9820cfea4ba54804",
     "inputHash": "8c01b813",
-    "outputHash": "2a2cd2c9"
+    "outputHash": "2a2cd2c9",
+    "singletonServicesOnly": true
   },
   "refundWorkflow": {
     "pikkuFuncId": "refundWorkflow",
@@ -1274,7 +1366,8 @@
     "implementationHash": "9f7906acf6b486c2",
     "contractHash": "05d9be905688f7f8",
     "inputHash": "2076ac67",
-    "outputHash": "51d8e912"
+    "outputHash": "51d8e912",
+    "singletonServicesOnly": true
   },
   "onConnect": {
     "pikkuFuncId": "onConnect",
@@ -1289,7 +1382,8 @@
     "implementationHash": "4e14ba4f944cea01",
     "contractHash": "bb33d053aba472f8",
     "inputHash": "d50f122e",
-    "outputHash": "ec9ebad4"
+    "outputHash": "ec9ebad4",
+    "singletonServicesOnly": true
   },
   "onDisconnect": {
     "pikkuFuncId": "onDisconnect",
@@ -1304,7 +1398,8 @@
     "implementationHash": "5909c731551d98d9",
     "contractHash": "43619d59be3869e2",
     "inputHash": "e784dc94",
-    "outputHash": "af0b48e4"
+    "outputHash": "af0b48e4",
+    "singletonServicesOnly": true
   },
   "subscribeToOrder": {
     "pikkuFuncId": "subscribeToOrder",
@@ -1321,7 +1416,8 @@
     "implementationHash": "9da729f2ccd19137",
     "contractHash": "adce351da05a3b51",
     "inputHash": "e6f7c708",
-    "outputHash": "83679a05"
+    "outputHash": "83679a05",
+    "singletonServicesOnly": true
   },
   "unsubscribeFromOrder": {
     "pikkuFuncId": "unsubscribeFromOrder",
@@ -1338,7 +1434,8 @@
     "implementationHash": "fec9cba5636b3fef",
     "contractHash": "bcb9d84db342ef81",
     "inputHash": "cc993948",
-    "outputHash": "a2205913"
+    "outputHash": "a2205913",
+    "singletonServicesOnly": true
   },
   "notifyOrderShipped": {
     "pikkuFuncId": "notifyOrderShipped",
@@ -1355,7 +1452,8 @@
     "implementationHash": "46ed4e087233c4ba",
     "contractHash": "577e6d7e156d1c65",
     "inputHash": "606cab48",
-    "outputHash": "4094c392"
+    "outputHash": "4094c392",
+    "singletonServicesOnly": true
   },
   "conditionalReport": {
     "pikkuFuncId": "conditionalReport",
@@ -1371,7 +1469,8 @@
     "implementationHash": "f8cd928376e95d0b",
     "contractHash": "f29b6e139f77f5fa",
     "inputHash": "05eaeca0",
-    "outputHash": "bed14a05"
+    "outputHash": "bed14a05",
+    "singletonServicesOnly": true
   },
   "listCategoriesTool": {
     "pikkuFuncId": "listCategoriesTool",
@@ -1389,7 +1488,8 @@
     "implementationHash": "5a4d73de07c99c23",
     "contractHash": "7db1eaad49f2bc7a",
     "inputHash": "c185f20c",
-    "outputHash": "e7d453f3"
+    "outputHash": "e7d453f3",
+    "singletonServicesOnly": true
   },
   "listItemsTool": {
     "pikkuFuncId": "listItemsTool",
@@ -1409,7 +1509,8 @@
     "implementationHash": "41fc94187268ccb1",
     "contractHash": "1d72354caf263b6e",
     "inputHash": "b2b8291d",
-    "outputHash": "9c435ce6"
+    "outputHash": "9c435ce6",
+    "singletonServicesOnly": true
   },
   "getItemTool": {
     "pikkuFuncId": "getItemTool",
@@ -1429,7 +1530,8 @@
     "implementationHash": "b65efd7a53a5fa65",
     "contractHash": "cf645ca80e8d36dd",
     "inputHash": "2cd66ef0",
-    "outputHash": "7a04d710"
+    "outputHash": "7a04d710",
+    "singletonServicesOnly": true
   },
   "getItemForAI": {
     "pikkuFuncId": "getItemForAI",
@@ -1449,7 +1551,8 @@
     "implementationHash": "65520e4d64c3e42b",
     "contractHash": "73b9e17b31c0176f",
     "inputHash": "b190b9cd",
-    "outputHash": "f1b68dee"
+    "outputHash": "f1b68dee",
+    "singletonServicesOnly": true
   },
   "updateStockTool": {
     "pikkuFuncId": "updateStockTool",
@@ -1469,7 +1572,8 @@
     "implementationHash": "4f363d7063dc5e37",
     "contractHash": "6e656190de0abcd9",
     "inputHash": "5acef028",
-    "outputHash": "b01af4f7"
+    "outputHash": "b01af4f7",
+    "singletonServicesOnly": true
   },
   "processExport": {
     "pikkuFuncId": "processExport",
@@ -1486,7 +1590,8 @@
     "implementationHash": "2c97cdd8f517b2b2",
     "contractHash": "76b125af7fb001e4",
     "inputHash": "2023710f",
-    "outputHash": "11138aa5"
+    "outputHash": "11138aa5",
+    "singletonServicesOnly": true
   },
   "startExport": {
     "pikkuFuncId": "startExport",
@@ -1504,7 +1609,8 @@
     "implementationHash": "59e1596d3612018b",
     "contractHash": "29b90994173e416a",
     "inputHash": "f88edcf0",
-    "outputHash": "a6c0b160"
+    "outputHash": "a6c0b160",
+    "singletonServicesOnly": true
   },
   "checkItemAvailability": {
     "pikkuFuncId": "checkItemAvailability",
@@ -1524,7 +1630,8 @@
     "implementationHash": "443c2076cfea4f28",
     "contractHash": "1e07efab7ec97539",
     "inputHash": "4538ab88",
-    "outputHash": "e698c31e"
+    "outputHash": "e698c31e",
+    "singletonServicesOnly": true
   },
   "http:post:/agents/shop": {
     "pikkuFuncId": "http:post:/agents/shop",
@@ -1555,6 +1662,36 @@
     "contractHash": "374292e4e16732ae",
     "inputHash": "e4f8daaf",
     "outputHash": "326e5dd3"
+  },
+  "http:post:/agents/ops/approve": {
+    "pikkuFuncId": "http:post:/agents/ops/approve",
+    "functionType": "inline",
+    "name": "/agents/ops/approve",
+    "inputSchemaName": "HttpPostAgentsOpsApproveInput",
+    "outputSchemaName": "unknown",
+    "inputs": [
+      "HttpPostAgentsOpsApproveInput"
+    ],
+    "outputs": [
+      "unknown"
+    ],
+    "contractHash": "3dd76707480acc70",
+    "inputHash": "f38ee4d5",
+    "outputHash": "aa4b65d0"
+  },
+  "http:post:/agents/ops/resume": {
+    "pikkuFuncId": "http:post:/agents/ops/resume",
+    "functionType": "inline",
+    "name": "/agents/ops/resume",
+    "inputSchemaName": "HttpPostAgentsOpsResumeInput",
+    "outputSchemaName": null,
+    "inputs": [
+      "HttpPostAgentsOpsResumeInput"
+    ],
+    "outputs": [],
+    "contractHash": "3986d53d68fd23fc",
+    "inputHash": "204d11e8",
+    "outputHash": "57d10a5d"
   },
   "http:post:/agents/ops": {
     "pikkuFuncId": "http:post:/agents/ops",
@@ -1635,6 +1772,7 @@
     "version": 3,
     "contractHash": "1ec223331587c80d",
     "inputHash": "2cad2fce",
-    "outputHash": "3902877b"
+    "outputHash": "3902877b",
+    "singletonServicesOnly": true
   }
 }

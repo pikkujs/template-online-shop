@@ -38,9 +38,9 @@
       "inputSchema": "GetItemForAIInput",
       "outputSchema": "MCPToolResponse"
     },
-    "updateStockTool": {
+    "update_stock": {
       "pikkuFuncId": "updateStockTool",
-      "name": "updateStockTool",
+      "name": "update_stock",
       "description": "Update stock level for a shop item",
       "inputSchema": "UpdateStockToolInput",
       "outputSchema": "MCPToolResponse"

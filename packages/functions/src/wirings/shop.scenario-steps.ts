@@ -1,6 +1,5 @@
 import {
   createCookieJar,
-  createScenarioRunner,
   pikkuAddonScenarioStep,
   pikkuPlatformScenarioStep,
   pikkuScenarioHook,
@@ -9,6 +8,7 @@ import {
   readScenarioHttpResponse,
   requireScenarioEnv,
 } from '#pikku/scenarios'
+import { createScenarioRunner } from '@pikku/core/scenario'
 
 // @snippet start addonScenarioStep
 // A step in which a third-party system acts. `addon` names the addon that wraps
@@ -32,7 +32,7 @@ export const stripeReportsPayment = pikkuAddonScenarioStep<
           metadata: { orderId },
         },
       },
-    } as never)
+    })
   },
 })
 // @snippet end addonScenarioStep

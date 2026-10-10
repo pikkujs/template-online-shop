@@ -4,15 +4,15 @@
   "providers": [],
   "plugins": [
     {
-      "id": "actor",
+      "id": "pikkuActor",
       "displayName": "Actor"
     },
     {
-      "id": "ban",
+      "id": "pikkuBan",
       "displayName": "Ban"
     },
     {
-      "id": "fabric",
+      "id": "pikkuFabric",
       "displayName": "Fabric"
     }
   ]

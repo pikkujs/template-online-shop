@@ -1,4 +1,25 @@
 {
+  "shopFeature": {
+    "id": "shopFeature",
+    "name": "Shop",
+    "tags": [
+      "shop"
+    ],
+    "entries": [
+      {
+        "scenario": "sessionHealthScenario"
+      },
+      {
+        "scenario": "shopperBuysAnItem"
+      },
+      {
+        "scenario": "shopperAsksTheAssistant"
+      }
+    ],
+    "unresolvedEntries": 0,
+    "hasBefore": false,
+    "hasAfter": false
+  },
   "authFeature": {
     "id": "authFeature",
     "name": "Authentication",

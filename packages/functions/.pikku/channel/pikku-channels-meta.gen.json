@@ -17,6 +17,7 @@
       }
     },
     "binary": null,
+    "auth": false,
     "tags": [
       "pikku:realtime"
     ]
@@ -42,6 +43,7 @@
         }
       }
     },
-    "binary": null
+    "binary": null,
+    "auth": true
   }
 }
