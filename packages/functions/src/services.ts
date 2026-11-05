@@ -28,21 +28,24 @@ import type { DB } from '#pikku/db/schema.gen.js'
 
 // @snippet start shopServices
 export const createSingletonServices = pikkuServices(async (config, existingServices) => {
+  // @snippet hide
   const variables =
     existingServices?.variables ?? new TypedVariablesService(new LocalVariablesService())
   const secrets =
     existingServices?.secrets ?? new TypedSecretService(new LocalSecretService(variables))
   const logger = existingServices?.logger ?? new JsonConsoleLogger()
   const schema = existingServices?.schema ?? new CFWorkerSchemaService(logger)
-  // @snippet hide
+  // @snippet show
   const emailService =
     existingServices?.emailService ??
     new GeneratedTemplateEmailService({
       delegate: new LocalEmailService(),
     })
+  // @snippet hide
   // The durable audit sink. In a deployed stage fabric injects the platform's
   // audit service; locally it falls back to a no-op so nothing is persisted.
   const audit = existingServices?.audit ?? new NoopAuditService()
+  // @snippet show
   // kysely is injected by pikku dev (node:sqlite) or the CF Worker workflow (libsql).
   // The template never constructs its own dialect — dialects are fabric/runtime
   // concerns — so it must always be provided by the runtime.
@@ -50,6 +53,7 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
     throw new Error('kysely service was not injected by the runtime (pikku dev / fabric)')
   }
   const kysely: Kysely<DB> = existingServices.kysely
+  // @snippet hide
 
   // Per-user credential store (wire.getCredential) — needed by addons imported
   // with --auth per-user/delegated. A deployed stage injects it: credentials are
@@ -151,15 +155,15 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
     scopeService,
     workflowService,
     leaseService,
-    // @snippet show
     variables,
     secrets,
     schema,
     logger,
-    // @snippet hide
+    // @snippet show
     emailService,
-    audit,
     kysely,
+    // @snippet hide
+    audit,
     // Constructed once here rather than read per call: the payment provider's
     // credentials belong to service construction, and functions cannot reach
     // `secrets` at all (every function-facing services type is bounded by
