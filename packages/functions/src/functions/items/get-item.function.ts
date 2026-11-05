@@ -46,6 +46,7 @@ export const getItemV2 = pikkuSessionlessFunc({
   input: GetItemInput,
   output: GetItemOutput,
   func: async ({ kysely }, { itemId }) => {
+    // @snippet hide
     const row = await kysely
       .selectFrom('item')
       .innerJoin('category', 'category.categoryId', 'item.categoryId')
@@ -61,6 +62,7 @@ export const getItemV2 = pikkuSessionlessFunc({
       ...row,
       category: { categoryId: row.categoryId, name: row.categoryName, slug: row.categorySlug },
     }
+    // @snippet show
   },
 })
 // @snippet end shopVersionedItem
@@ -75,12 +77,14 @@ export const getItem = pikkuSessionlessFunc({
     const row = await kysely
       .selectFrom('item')
       .innerJoin('category', 'category.categoryId', 'item.categoryId')
+      // @snippet hide
       .select([
         'item.itemId', 'item.name', 'item.slug', 'item.description',
         'item.priceCents', 'item.stock', 'item.imageUrl', 'item.isActive',
         'item.createdAt', 'item.updatedAt',
         'category.categoryId', 'category.name as categoryName', 'category.slug as categorySlug',
       ])
+      // @snippet show
       .where('item.itemId', '=', itemId)
       .executeTakeFirst()
 

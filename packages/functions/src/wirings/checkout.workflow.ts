@@ -87,6 +87,7 @@ export const createOrderRecord = pikkuSessionlessFunc({
 // quoted — so the documented example was the one piece of payment code no
 // shopper ever reached.
 export const chargeCard = pikkuSessionlessFunc({
+  // @snippet skip
   // Invoked by name from `createOrder` as well as by the workflow, so one
   // charge path exists rather than two that can drift.
   expose: true,
@@ -149,6 +150,7 @@ export const finalizeOrder = pikkuSessionlessFunc({
 
 // @snippet start checkoutWorkflow
 // @snippet start wireWorkflow
+// @snippet keep
 // The workflow body is the plan, not the work: each `workflow.do` names a step
 // and the function that performs it. Pikku records every step in a durable log,
 // so a crash mid-payment resumes at the step that failed rather than charging
@@ -242,6 +244,7 @@ export const issueRefund = pikkuSessionlessFunc({
 
 // @snippet start workflowPatterns
 // A refund workflow demonstrating conditional branching and a built-in sleep step.
+// @snippet hide
 /**
  * The way in to the refund workflow.
  *
@@ -261,6 +264,7 @@ export const startRefund = pikkuFunc({
   },
 })
 
+// @snippet show
 export const refundWorkflow = pikkuWorkflowFunc<
   { orderId: string; reason: string },
   { orderId: string; refunded: boolean; message: string }

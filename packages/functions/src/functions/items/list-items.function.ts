@@ -37,16 +37,19 @@ export const listItems = pikkuSessionlessFunc({
     let query = kysely
       .selectFrom('item')
       .innerJoin('category', 'category.categoryId', 'item.categoryId')
+      // @snippet hide
       .select([
         'item.itemId', 'item.name', 'item.slug', 'item.description',
         'item.priceCents', 'item.stock', 'item.imageUrl',
         'category.categoryId', 'category.name as categoryName', 'category.slug as categorySlug',
       ])
+      // @snippet show
       .where('item.isActive', '=', 1)
 
     if (categorySlug) {
       query = query.where('category.slug', '=', categorySlug)
     }
+    // @snippet hide
     if (search) {
       query = query.where((eb) =>
         eb.or([
@@ -74,6 +77,7 @@ export const listItems = pikkuSessionlessFunc({
       })),
       total: Number(countRow?.count ?? 0),
     }
+  // @snippet show
   },
 })
 // @snippet end readFunction

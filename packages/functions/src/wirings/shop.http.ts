@@ -31,6 +31,7 @@ export const shopRoutes = defineHTTPRoutes({
     getItem: { method: 'get', route: '/items/:itemId', func: getItem },
     createItem: { method: 'post', route: '/items', func: createItem, auth: true },
     updateItem: { method: 'patch', route: '/items/:itemId', func: updateItem, auth: true },
+    // @snippet hide
 
     // Account
     getProfile: { method: 'get', route: '/profile', func: getProfile, auth: true },
@@ -45,6 +46,7 @@ export const shopRoutes = defineHTTPRoutes({
     listOrders: { method: 'get', route: '/orders', func: listOrders, auth: true },
     getOrder: { method: 'get', route: '/orders/:orderId', func: getOrder, auth: true },
     cancelOrder: { method: 'post', route: '/orders/:orderId/cancel', func: cancelOrder, auth: true },
+    // @snippet show
   },
 })
 // @snippet end wireHttp

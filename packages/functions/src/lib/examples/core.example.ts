@@ -716,11 +716,13 @@ export const createAccount = pikkuSessionlessFunc<
       throw new BadRequestError('Invalid email format')
     }
 
+    // @snippet hide
     const existing = await kysely
       .selectFrom('user')
       .select('id')
       .where('email', '=', data.email)
       .executeTakeFirst()
+    // @snippet show
     if (existing) {
       throw new ConflictError('User with this email already exists')
     }
@@ -731,11 +733,13 @@ export const createAccount = pikkuSessionlessFunc<
 
 export const getOwnBasket = pikkuFunc<{ basketId: string }, { basketId: string }>({
   func: async ({ kysely }, { basketId }, { session }) => {
+    // @snippet hide
     const basket = await kysely
       .selectFrom('basket')
       .selectAll()
       .where('basketId', '=', basketId)
       .executeTakeFirst()
+    // @snippet show
     if (!basket) {
       throw new NotFoundError(`Basket ${basketId} not found`)
     }
@@ -813,6 +817,7 @@ export const issueToken = pikkuSessionlessFunc<
   { token: string }
 >({
   func: async ({ kysely, jwt }, { email }) => {
+    // @snippet hide
     const user = await kysely
       .selectFrom('user')
       .select(['id', 'email'])
@@ -820,6 +825,7 @@ export const issueToken = pikkuSessionlessFunc<
       .executeTakeFirst()
     if (!user) throw new UnauthorizedError('Invalid credentials')
 
+    // @snippet show
     const token = await jwt!.encode<UserTokenPayload>(
       { value: 24, unit: 'hour' },
       { userId: user.id, email: user.email, role: 'customer' }

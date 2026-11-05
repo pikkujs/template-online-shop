@@ -34,6 +34,7 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
     existingServices?.secrets ?? new TypedSecretService(new LocalSecretService(variables))
   const logger = existingServices?.logger ?? new JsonConsoleLogger()
   const schema = existingServices?.schema ?? new CFWorkerSchemaService(logger)
+  // @snippet hide
   const emailService =
     existingServices?.emailService ??
     new GeneratedTemplateEmailService({
@@ -142,16 +143,20 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
     existingServices?.agentRunService ??
     new KyselyAgentRunService(kysely as unknown as Kysely<KyselyPikkuDB>)
 
+  // @snippet show
   return {
     ...(existingServices ?? {}),
     config,
+    // @snippet hide
     scopeService,
     workflowService,
     leaseService,
+    // @snippet show
     variables,
     secrets,
     schema,
     logger,
+    // @snippet hide
     emailService,
     audit,
     kysely,
@@ -164,6 +169,7 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
     agentStorage,
     agentRunState: agentStorage,
     agentRunService,
+  // @snippet show
   }
 })
 // @snippet end shopServices

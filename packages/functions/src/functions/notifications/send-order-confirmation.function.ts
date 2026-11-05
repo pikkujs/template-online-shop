@@ -13,6 +13,7 @@ export const sendOrderConfirmation = pikkuSessionlessFunc({
   description: 'Queue consumer: send order confirmation email after a successful payment.',
   input: SendOrderConfirmationInput,
   func: async ({ kysely, logger }, { orderId, userId }) => {
+    // @snippet hide
     const [order, user] = await Promise.all([
       kysely
         .selectFrom('order')
@@ -32,6 +33,7 @@ export const sendOrderConfirmation = pikkuSessionlessFunc({
     }
 
     // In production: call your email service here (SendGrid, Resend, etc.)
+    // @snippet show
     logger.info({
       event: 'order_confirmation_sent',
       to: user.email,

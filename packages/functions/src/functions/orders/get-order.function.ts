@@ -21,6 +21,7 @@ export const GetOrderOutput = z.object({
 
 // @snippet start getOrder
 // @snippet start funcThreeParams
+// @snippet keep
 // Three parameters, always: services, data, wire.
 //   services — your toolbox (db, logger, queues)
 //   data     — the typed input, wherever it arrived from
@@ -42,6 +43,7 @@ export const getOrder = pikkuFunc({
       throw new Error('Forbidden')
     }
 
+    // @snippet hide
     const items = await kysely
       .selectFrom('orderItem')
       .innerJoin('item', 'item.itemId', 'orderItem.itemId')
@@ -64,6 +66,7 @@ export const getOrder = pikkuFunc({
       })),
       createdAt: order.createdAt,
     }
+  // @snippet show
   },
 })
 // @snippet end funcThreeParams

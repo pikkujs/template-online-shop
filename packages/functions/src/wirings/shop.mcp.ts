@@ -26,6 +26,7 @@ export const listItemsTool = pikkuMCPToolFunc<{ categorySlug?: string; search?: 
     return [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }]
   },
 })
+// @snippet hide
 
 export const getItemTool = pikkuMCPToolFunc<{ itemId: string }>({
   description: 'Get full details for a specific shop item by ID',
@@ -34,6 +35,7 @@ export const getItemTool = pikkuMCPToolFunc<{ itemId: string }>({
     return [{ type: 'text' as const, text: JSON.stringify(result, null, 2) }]
   },
 })
+// @snippet show
 // @snippet end mcpTools
 
 // @snippet start mcpSingleTool

@@ -4,8 +4,10 @@ import { defineVariable } from '#pikku/variables/pikku-variable-types.gen.js'
 // @snippet start variables
 export const DatabaseUrlSchema = z.string()
 export const LowStockThresholdSchema = z.number().int().positive()
+// @snippet hide
 export const ScenarioActorSecretSchema = z.string()
 export const BetterAuthUrlSchema = z.string().url()
+// @snippet show
 
 defineVariable({
   name: 'databaseUrl',
@@ -23,6 +25,7 @@ defineVariable({
   schema: LowStockThresholdSchema,
 })
 
+// @snippet hide
 defineVariable({
   name: 'scenarioActorSecret',
   displayName: 'Scenario Actor Secret',
@@ -38,4 +41,5 @@ defineVariable({
   variableId: 'BETTER_AUTH_URL',
   schema: BetterAuthUrlSchema,
 })
+// @snippet show
 // @snippet end variables

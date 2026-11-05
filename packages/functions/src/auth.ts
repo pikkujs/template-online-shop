@@ -38,12 +38,14 @@ export const auth = pikkuBetterAuth(async ({ kysely, secrets, variables, emailSe
     .getSecret('SCENARIO_ACTOR_SECRET')
     .then((value) => value?.reveal())
     .catch(() => undefined)
+  // @snippet hide
   // Fabric operator admin: the RSA public key the control plane's token is
   // verified against. The Fabric deployer pushes FABRIC_AUTH_PUBLIC_KEY onto
   // every stage; locally it's simply absent, which disables /sign-in/fabric.
   // Asymmetric — the app verifies, it can never forge an operator login.
   const FABRIC_AUTH_PUBLIC_KEY = await variables.get('FABRIC_AUTH_PUBLIC_KEY')
 
+  // @snippet show
   return betterAuth({
     secret: BETTER_AUTH_SECRET,
     database: { db: kysely, type: 'sqlite' },
@@ -64,6 +66,7 @@ export const auth = pikkuBetterAuth(async ({ kysely, secrets, variables, emailSe
         })
       },
     },
+    // @snippet skip
     // Stateless session: CLI splits out betterAuthStatelessSession so non-auth
     // units verify the signed cookie instead of bundling better-auth. pikku #737.
     session: { cookieCache: { enabled: true } },
@@ -86,10 +89,12 @@ export const auth = pikkuBetterAuth(async ({ kysely, secrets, variables, emailSe
     plugins: [
       pikkuActor({ secret: SCENARIO_ACTOR_SECRET }),
       pikkuBan(),
+      // @snippet hide
       pikkuFabric({
         publicKey: FABRIC_AUTH_PUBLIC_KEY,
         personas: { personas: personaConfigs, environments: personaEnvironments },
       }),
+    // @snippet show
     ],
   })
 })

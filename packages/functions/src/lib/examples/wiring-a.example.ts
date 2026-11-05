@@ -369,6 +369,7 @@ export function registerGlobalMiddleware() {
 
 // @snippet start wa-router-pattern-middleware
 const adminAuth = pikkuMiddleware(async ({ jwt }, { http, setSession }, next) => {
+  // @snippet hide
   if (!http) return await next()
 
   const token = http.request?.header('Authorization')
@@ -386,11 +387,13 @@ const adminAuth = pikkuMiddleware(async ({ jwt }, { http, setSession }, next) =>
   } catch (e) {
     http.response?.status(401).json({ error: 'Invalid token' })
   }
+// @snippet show
 })
 
 const hits = new Map<string, { count: number; resetAt: number }>()
 
 const rateLimit = pikkuMiddleware(async (_services, { http }, next) => {
+  // @snippet hide
   if (!http) return await next()
 
   const ip = http.request?.header('x-forwarded-for') || 'unknown'
@@ -409,6 +412,7 @@ const rateLimit = pikkuMiddleware(async (_services, { http }, next) => {
 
   entry.count++
   await next()
+// @snippet show
 })
 
 export function registerPatternMiddleware() {
@@ -820,6 +824,7 @@ export const adjustStock = pikkuFunc({
   input: z.object({ itemId: z.string(), stock: z.number().int().min(0) }),
   output: z.object({ itemId: z.string(), stock: z.number() }),
   func: async ({ kysely, logger }, data) => {
+    // @snippet hide
     logger.info(`Adjusting stock for ${data.itemId}`)
 
     await kysely
@@ -829,6 +834,7 @@ export const adjustStock = pikkuFunc({
       .execute()
 
     return { itemId: data.itemId, stock: data.stock }
+  // @snippet show
   },
 })
 
@@ -975,6 +981,7 @@ export const getUserInfo = pikkuFunc({
   tags: ['users'],
   input: z.object({ userId: z.string() }),
   func: async ({ kysely }, data) => {
+    // @snippet hide
     const user = await kysely
       .selectFrom('user')
       .select(['id', 'name', 'email'])
@@ -985,6 +992,7 @@ export const getUserInfo = pikkuFunc({
       throw new NotFoundError(`User not found: ${data.userId}`)
     }
 
+    // @snippet show
     return { userId: user.id, name: user.name, email: user.email }
   },
 })
@@ -1157,6 +1165,7 @@ export const dynamicPromptGenerator = pikkuMCPPromptFunc<{
       content += `This is a beginner-friendly introduction to ${topic}.\n\n`
       content += `Start with the basics and build up your understanding gradually.\n`
       break
+    // @snippet hide
     case 'intermediate':
       content += `This is an intermediate guide to ${topic}.\n\n`
       content += `Assumes some familiarity with related concepts.\n`
@@ -1165,8 +1174,10 @@ export const dynamicPromptGenerator = pikkuMCPPromptFunc<{
       content += `This is an advanced discussion of ${topic}.\n\n`
       content += `Deep dive into complex scenarios and edge cases.\n`
       break
+  // @snippet show
   }
 
+  // @snippet hide
   if (includeExamples) {
     content += `\n## Examples\n\n`
     content += `Here are some practical examples for ${topic}:\n`
@@ -1175,6 +1186,7 @@ export const dynamicPromptGenerator = pikkuMCPPromptFunc<{
     content += `- Example 3: Common pitfalls to avoid\n`
   }
 
+  // @snippet show
   return [
     {
       role: 'user' as const,
@@ -1516,9 +1528,11 @@ export const triggerAndWait = pikkuSessionlessFunc({
   func: async ({ workflowService }, _data, { rpc }) => {
     // Start workflow
     const { runId } = await rpc.startWorkflow('checkoutWorkflow', {
+      // @snippet hide
       basketId: 'basket-123',
       userId: 'user-456',
       shippingAddress: { line1: '1 High St', city: 'London', postcode: 'SW1A 1AA', country: 'GB' },
+    // @snippet show
     })
 
     // Poll for completion
@@ -1540,10 +1554,12 @@ export const triggerAndWait = pikkuSessionlessFunc({
         throw new Error(run.error?.message || 'Workflow failed')
       }
 
+      // @snippet hide
       if (run.status === 'cancelled') {
         throw new Error('Workflow was cancelled')
       }
 
+      // @snippet show
       await new Promise((resolve) => setTimeout(resolve, pollIntervalMs))
     }
 
@@ -1580,6 +1596,7 @@ export const checkoutGraph = pikkuWorkflowGraph({
         items: ref('validate', 'items'),
       }),
     },
+    // @snippet hide
     charge: {
       next: 'finalize',
       input: (ref) => ({
@@ -1594,6 +1611,7 @@ export const checkoutGraph = pikkuWorkflowGraph({
         userId: ref('trigger', 'userId'),
       }),
     },
+  // @snippet show
   },
 })
 // @snippet end wa-graph-basic

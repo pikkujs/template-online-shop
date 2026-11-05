@@ -9,6 +9,7 @@ export const dailySalesReport = pikkuVoidFunc({
   expose: true,
   description: 'Cron job: compute and log a daily sales summary.',
   func: async ({ kysely, logger }) => {
+    // @snippet hide
     const yesterday = new Date()
     yesterday.setDate(yesterday.getDate() - 1)
     yesterday.setHours(0, 0, 0, 0)
@@ -46,6 +47,7 @@ export const dailySalesReport = pikkuVoidFunc({
         .execute(),
     ])
 
+    // @snippet show
     logger.info({
       event: 'daily_sales_report',
       date: yesterday.toISOString().split('T')[0],

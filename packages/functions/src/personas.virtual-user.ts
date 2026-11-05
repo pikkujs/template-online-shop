@@ -15,6 +15,7 @@ import { definePersonas } from '#pikku/scopes/pikku-personas.gen.js'
 
 // @snippet start definePersonas
 definePersonas({
+  // @snippet hide
   visitor: {
     // A customer, like the people this app is for. The catalogue happens to be
     // readable without a session, so this is not what makes the smoke gate
@@ -25,9 +26,10 @@ definePersonas({
     personality: 'Signs in and checks their own session — proves auth end to end',
     account: {},
   },
+  // @snippet show
   shopper: {
     name: 'Susan',
-    jobTitle: 'Buys for a small caf\u00e9',
+    jobTitle: 'Buys for a small café',
     description: 'Orders stock every week and watches the margins',
     roles: ['customer'],
     personality:
@@ -45,22 +47,24 @@ definePersonas({
   priya: {
     name: 'Priya from Support',
     jobTitle: 'Customer support',
-    description: 'Handles refunds and cancellations for other people\u2019s orders',
+    description: 'Handles refunds and cancellations for other people’s orders',
     roles: ['support'],
     personality:
       'Methodical. Reads the order history before touching anything, and says what she changed.',
-    goals: ['Resolve the customer\u2019s problem without escalating'],
+    goals: ['Resolve the customer’s problem without escalating'],
     account: {},
   },
+  // @snippet hide
   alex: {
     name: 'Alex the Owner',
     jobTitle: 'Shop owner',
-    description: 'Runs the shop \u2014 prices, stock and who works here',
+    description: 'Runs the shop — prices, stock and who works here',
     roles: ['admin'],
     personality:
       'Impatient. Knows the catalogue by heart and expects bulk actions to exist.',
     goals: ['Keep stock accurate', 'See what sold this week'],
     account: {},
   },
+// @snippet show
 })
 // @snippet end definePersonas

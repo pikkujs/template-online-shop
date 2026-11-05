@@ -1,6 +1,7 @@
 import { pikkuScenario } from '#pikku/scenarios'
 
 // @snippet start scenarioBasics
+// @snippet keep
 // A scenario is a workflow whose steps run as real users ("actors") over the
 // real transport — sign-in, auth middleware, permissions and serialization are
 // all exercised end-to-end. The same flow doubles as an e2e test and a
@@ -10,12 +11,15 @@ export const shopperBuysAnItem = pikkuScenario({
   description: 'Browse the catalogue, fill a basket and pay for an order.',
   tags: ['checkout'],
   func: async ({ logger }, _input, { scenario, actors }) => {
+    // @snippet hide
     if (!actors?.shopper) {
       throw new Error('shopperBuysAnItem needs the `shopper` actor — run via `pikku scenario run`')
     }
+    // @snippet show
     const shopper = actors.shopper
 
     // @snippet start scenarioSteps
+    // @snippet keep
     // Each step names what the actor is trying to achieve, the exposed RPC
     // that achieves it, and who performs it. The call goes through the actor's
     // authenticated client — never internal dispatch.
@@ -35,6 +39,7 @@ export const shopperBuysAnItem = pikkuScenario({
     if (catalogue.items.length === 0) throw new Error('Catalogue has no mugs to buy')
     // @snippet end scenarioSteps
 
+    // @snippet hide
     await scenario.do(
       'Shopper adds a mug to the basket',
       'addToBasket',
@@ -52,6 +57,7 @@ export const shopperBuysAnItem = pikkuScenario({
       { actor: shopper }
     )
 
+    // @snippet show
     // Durable polling step: re-invokes the RPC as the actor until the
     // predicate passes, or `within` elapses and fails the scenario.
     await scenario.expectEventually(
@@ -61,9 +67,11 @@ export const shopperBuysAnItem = pikkuScenario({
       (o: { status: string }) => o.status === 'paid',
       { actor: shopper, within: '30s', interval: 500 }
     )
+    // @snippet hide
 
     logger.info(`Scenario order ${order.orderId} paid: ${order.totalCents} cents`)
     return { orderId: order.orderId, totalCents: order.totalCents }
+  // @snippet show
   },
 })
 // @snippet end scenarioBasics
@@ -77,9 +85,11 @@ export const shopperAsksTheAssistant = pikkuScenario({
   description: 'The shop assistant finds a product and adds it to the basket.',
   tags: ['agents'],
   func: async ({ logger }, _input, { scenario, actors }) => {
+    // @snippet hide
     if (!actors?.shopper) {
       throw new Error('shopperAsksTheAssistant needs the `shopper` actor — run via `pikku scenario run`')
     }
+    // @snippet show
     const shopper = actors.shopper
 
     // @snippet start converseSteps
