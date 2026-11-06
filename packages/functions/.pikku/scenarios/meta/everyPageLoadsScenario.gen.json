@@ -2,7 +2,8 @@
   "name": "everyPageLoadsScenario",
   "pikkuFuncId": "everyPageLoadsScenario",
   "source": "scenario",
-  "actors": [
+  "scenario": true,
+  "virtualUsers": [
     "visitor"
   ],
   "nodes": {
@@ -17,7 +18,7 @@
       "rpcName": "sweepsAllPages",
       "scenarioStepPhase": "then",
       "next": "step_2",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "repoRoot": "../.."
       },
@@ -39,5 +40,5 @@
   "entryNodeIds": [
     "step_0"
   ],
-  "graphHash": "b2b9adc34290"
+  "graphHash": "f55c365b488b"
 }

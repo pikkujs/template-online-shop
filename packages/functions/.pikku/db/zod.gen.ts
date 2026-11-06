@@ -635,6 +635,22 @@ export const PikkuDeploymentsInsertZ = z.object({
 
 export const PikkuDeploymentsPatchZ = PikkuDeploymentsZ.partial()
 
+export const PikkuLeaseZ = z.object({
+  key: z.string(),
+  holder: z.string(),
+  token: z.number(),
+  expiresAt: z.number(),
+})
+
+export const PikkuLeaseInsertZ = z.object({
+  key: z.string(),
+  holder: z.string(),
+  token: z.number(),
+  expiresAt: z.number(),
+})
+
+export const PikkuLeasePatchZ = PikkuLeaseZ.partial()
+
 export const PikkuRoleScopesZ = z.object({
   role: z.string(),
   scope: z.string(),
@@ -811,7 +827,7 @@ export const UserZ = z.object({
   image: z.string().nullable(),
   createdAt: z.string(),
   updatedAt: z.string(),
-  actor: z.number().nullable(),
+  virtualUser: z.number().nullable(),
   role: z.string().nullable(),
   banned: z.number().nullable(),
   banReason: z.string().nullable(),
@@ -827,7 +843,7 @@ export const UserInsertZ = z.object({
   image: z.string().nullable(),
   createdAt: z.string(),
   updatedAt: z.string(),
-  actor: z.number().nullable(),
+  virtualUser: z.number().nullable(),
   role: z.string().nullable(),
   banned: z.number().nullable(),
   banReason: z.string().nullable(),
@@ -859,7 +875,7 @@ export const VerificationPatchZ = VerificationZ.partial()
 
 export const VirtualUserRunZ = z.object({
   runId: z.string(),
-  persona: z.string(),
+  virtualUserId: z.string(),
   disposition: z.string(),
   seed: z.number(),
   status: z.string(),
@@ -877,7 +893,7 @@ export const VirtualUserRunZ = z.object({
 
 export const VirtualUserRunInsertZ = z.object({
   runId: z.string(),
-  persona: z.string(),
+  virtualUserId: z.string(),
   disposition: z.string(),
   seed: z.number(),
   status: z.string().optional(),
@@ -924,7 +940,7 @@ export const VirtualUserRunStepInsertZ = z.object({
 export const VirtualUserRunStepPatchZ = VirtualUserRunStepZ.partial()
 
 export const VirtualUserScheduleZ = z.object({
-  persona: z.string(),
+  virtualUserId: z.string(),
   enabled: z.number(),
   disposition: z.string(),
   goals: z.string(),
@@ -937,7 +953,7 @@ export const VirtualUserScheduleZ = z.object({
 })
 
 export const VirtualUserScheduleInsertZ = z.object({
-  persona: z.string(),
+  virtualUserId: z.string(),
   enabled: z.number().optional(),
   disposition: z.string(),
   goals: z.string().optional(),
@@ -999,6 +1015,32 @@ export const WebhookDeliveryAttemptInsertZ = z.object({
 
 export const WebhookDeliveryAttemptPatchZ = WebhookDeliveryAttemptZ.partial()
 
+export const WebhookReceiptZ = z.object({
+  receiptId: z.string(),
+  source: z.string(),
+  event: z.string(),
+  providerEventId: z.string().nullable(),
+  status: z.string(),
+  attempts: z.number(),
+  lastError: z.string().nullable(),
+  createdAt: z.string(),
+  deliveredAt: z.string().nullable(),
+})
+
+export const WebhookReceiptInsertZ = z.object({
+  receiptId: z.string(),
+  source: z.string(),
+  event: z.string(),
+  providerEventId: z.string().nullable(),
+  status: z.string().optional(),
+  attempts: z.number().optional(),
+  lastError: z.string().nullable(),
+  createdAt: z.string().optional(),
+  deliveredAt: z.string().nullable(),
+})
+
+export const WebhookReceiptPatchZ = WebhookReceiptZ.partial()
+
 export const WorkflowRunsZ = z.object({
   workflowRunId: z.string(),
   workflow: z.string(),
@@ -1052,6 +1094,7 @@ export const WorkflowStepZ = z.object({
   createdAt: z.string(),
   updatedAt: z.string(),
   currentAttempt: z.number().nullable(),
+  leaseExpiresAt: z.number().nullable(),
 })
 
 export const WorkflowStepInsertZ = z.object({
@@ -1071,6 +1114,7 @@ export const WorkflowStepInsertZ = z.object({
   createdAt: z.string().optional(),
   updatedAt: z.string().optional(),
   currentAttempt: z.number().nullable(),
+  leaseExpiresAt: z.number().nullable(),
 })
 
 export const WorkflowStepPatchZ = WorkflowStepZ.partial()

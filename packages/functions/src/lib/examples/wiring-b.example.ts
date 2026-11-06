@@ -23,7 +23,7 @@ import { sweepLowStock } from '../../functions/sweep-low-stock.function.js'
 import { onLowStock } from '../../functions/on-low-stock.function.js'
 import { dailySalesReport } from '../../functions/reports/daily-sales-report.function.js'
 import { voiceInput, voiceOutput } from '@pikku/core/agent'
-import { LocalGatewayService } from '@pikku/core/services'
+import { LocalGatewayService } from '@pikku/core/services/local-gateway'
 import type {
   GatewayAdapter,
   GatewayInboundMessage,
@@ -233,7 +233,7 @@ export const queueByPriority = pikkuSessionlessFunc({
 export const remoteAvailability = pikkuSessionlessFunc({
   func: async (_services, { itemId }: { itemId: string }, { rpc }) => {
     // Runs on whichever instance hosts the function
-    return await rpc.remote('checkItemAvailability', { itemId })
+    return await rpc.mesh('checkItemAvailability', { itemId })
   },
 })
 // @snippet end wb-rpc-remote-call

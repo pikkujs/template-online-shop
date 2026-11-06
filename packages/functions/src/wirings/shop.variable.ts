@@ -5,7 +5,8 @@ import { defineVariable } from '#pikku/variables/pikku-variable-types.gen.js'
 export const DatabaseUrlSchema = z.string()
 export const LowStockThresholdSchema = z.number().int().positive()
 // @snippet hide
-export const ScenarioActorSecretSchema = z.string()
+export const VirtualUserVerifyKeySchema = z.string()
+export const SeedDemoDataSchema = z.string()
 export const BetterAuthUrlSchema = z.string().url()
 // @snippet show
 
@@ -27,11 +28,21 @@ defineVariable({
 
 // @snippet hide
 defineVariable({
-  name: 'scenarioActorSecret',
-  displayName: 'Scenario Actor Secret',
-  description: 'Impersonation secret for `pikku scenario run` actors. Leave unset to disable actor sign-in',
-  variableId: 'SCENARIO_ACTOR_SECRET',
-  schema: ScenarioActorSecretSchema,
+  name: 'virtualUserVerifyKey',
+  displayName: 'Virtual User Verify Key',
+  description: 'Public key that checks the signed statements callers outside the app present to sign in as a virtual user. Leave unset to refuse them.',
+  variableId: 'VIRTUAL_USER_VERIFY_KEY',
+  schema: VirtualUserVerifyKeySchema,
+  optional: true,
+})
+
+defineVariable({
+  name: 'seedDemoData',
+  displayName: 'Seed Demo Data',
+  description: 'Set to `true` to load the sample catalogue on startup',
+  variableId: 'SEED_DEMO_DATA',
+  schema: SeedDemoDataSchema,
+  optional: true,
 })
 
 defineVariable({

@@ -2,7 +2,8 @@
   "name": "everyFunctionRuns",
   "pikkuFuncId": "everyFunctionRuns",
   "source": "scenario",
-  "actors": [
+  "scenario": true,
+  "virtualUsers": [
     "alex",
     "priya",
     "visitor"
@@ -19,7 +20,7 @@
       "rpcName": "getSession",
       "next": "creates a category",
       "outputVar": "session",
-      "stepHash": "faea284ade4f"
+      "stepHash": "39e9ecc226d3"
     },
     "creates a category": {
       "nodeId": "creates a category",
@@ -106,7 +107,7 @@
       "nodeId": "lists categories",
       "rpcName": "listCategories",
       "next": "checks availability",
-      "stepHash": "9b75f5032d07"
+      "stepHash": "14f69cd2c270"
     },
     "checks availability": {
       "nodeId": "checks availability",
@@ -125,7 +126,7 @@
       "rpcName": "getBasket",
       "next": "fills it",
       "outputVar": "basket",
-      "stepHash": "fa8e4a4a249a"
+      "stepHash": "49352d8b59f0"
     },
     "fills it": {
       "nodeId": "fills it",
@@ -175,7 +176,7 @@
         "limit": 20,
         "offset": 0
       },
-      "stepHash": "9b8da67aff0f"
+      "stepHash": "998eb4fd5707"
     },
     "runs the sales report": {
       "nodeId": "runs the sales report",
@@ -187,7 +188,7 @@
       "nodeId": "queues an order export",
       "rpcName": "startExport",
       "next": "runs the conditional report",
-      "stepHash": "26c757dd23fc"
+      "stepHash": "dfa29debd06b"
     },
     "runs the conditional report": {
       "nodeId": "runs the conditional report",
@@ -205,7 +206,7 @@
       "nodeId": "applies a verified stripe event",
       "rpcName": "applyStripeEvent",
       "next": "refunds an order",
-      "actor": "alex",
+      "virtualUser": "alex",
       "input": {
         "type": "payment_intent.succeeded",
         "data": {
@@ -223,7 +224,7 @@
       "nodeId": "refunds an order",
       "rpcName": "startRefund",
       "next": "reads item v1",
-      "actor": "priya",
+      "virtualUser": "priya",
       "input": {
         "orderId": "ord_probe",
         "reason": "requested_by_customer"
@@ -234,7 +235,7 @@
       "nodeId": "reads item v1",
       "rpcName": "getItemV1",
       "next": "reads item v2",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "itemId": "itm_mug"
       },
@@ -244,7 +245,7 @@
       "nodeId": "reads item v2",
       "rpcName": "getItemV2",
       "next": "runs the scheduled sweep",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "itemId": "itm_mug"
       },
@@ -260,7 +261,7 @@
       "nodeId": "reads the stored profile",
       "rpcName": "getProfile",
       "next": "calls listCategoriesTool",
-      "actor": "alex",
+      "virtualUser": "alex",
       "stepHash": "2383487ff870"
     },
     "calls listCategoriesTool": {
@@ -268,7 +269,7 @@
       "rpcName": "callsMcpTool",
       "scenarioStepPhase": "then",
       "next": "calls listItemsTool",
-      "actor": "alex",
+      "virtualUser": "alex",
       "input": {
         "tool": "listCategoriesTool",
         "args": "{}"
@@ -280,7 +281,7 @@
       "rpcName": "callsMcpTool",
       "scenarioStepPhase": "then",
       "next": "calls getItemTool",
-      "actor": "alex",
+      "virtualUser": "alex",
       "input": {
         "tool": "listItemsTool",
         "args": "{\"limit\":5}"
@@ -292,7 +293,7 @@
       "rpcName": "callsMcpTool",
       "scenarioStepPhase": "then",
       "next": "calls getItemForAI",
-      "actor": "alex",
+      "virtualUser": "alex",
       "input": {
         "tool": "getItemTool",
         "args": "{\"itemId\":\"itm_mug\"}"
@@ -304,7 +305,7 @@
       "rpcName": "callsMcpTool",
       "scenarioStepPhase": "then",
       "next": "calls updateStockTool",
-      "actor": "alex",
+      "virtualUser": "alex",
       "input": {
         "tool": "getItemForAI",
         "args": "{\"itemId\":\"itm_mug\"}"
@@ -316,7 +317,7 @@
       "rpcName": "callsMcpTool",
       "scenarioStepPhase": "then",
       "next": "step_26",
-      "actor": "alex",
+      "virtualUser": "alex",
       "input": {
         "tool": "updateStockTool",
         "args": "{\"itemId\":\"itm_mug\",\"stock\":42}"
@@ -337,5 +338,5 @@
   "entryNodeIds": [
     "step_0"
   ],
-  "graphHash": "600607e8681d"
+  "graphHash": "338b368e5e9a"
 }

@@ -4,16 +4,16 @@ import { pikkuSessionlessFunc } from '#pikku/function'
  * Turn a verified Stripe event into a change to this shop's orders.
  *
  * The addon's receiver has already checked the signature and answered Stripe;
- * this runs off the queue, where a slow database or a bad deploy costs a retry
+ * this runs as a trigger off a queue, where a slow database or a bad deploy costs a retry
  * rather than making Stripe believe the endpoint is down and start backing off.
  *
  * The order id travels in the payment intent's metadata, which is where the
  * checkout step puts it. Stripe knows nothing about our order ids otherwise.
  */
-// @coverage-machine-surface Stripe feeds this through the addon's webhook queue; no person clicks it, and the scenario invokes it directly
+// @coverage-machine-surface Stripe feeds this through the addon's webhook source; no person clicks it, and the scenario invokes it directly
 export const applyStripeEvent = pikkuSessionlessFunc({
   // Exposed so a scenario can prove the mapping works. Reaching it through the
-  // queue alone would mean signing a real Stripe event to test our own switch
+  // trigger alone would mean signing a real Stripe event to test our own switch
   // statement — the signature is the addon's concern and has its own tests.
   expose: true,
   description: 'Apply a verified Stripe webhook event to the order it refers to.',

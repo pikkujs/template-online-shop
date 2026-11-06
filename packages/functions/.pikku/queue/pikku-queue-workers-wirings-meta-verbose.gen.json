@@ -1,14 +1,17 @@
 {
+  "pikku-incoming-webhooks": {
+    "pikkuFuncId": "queue:pikku-incoming-webhooks",
+    "name": "pikku-incoming-webhooks",
+    "tags": [
+      "pikku"
+    ]
+  },
   "pikku-virtual-user-runs": {
     "pikkuFuncId": "executeVirtualUserRun",
     "name": "pikku-virtual-user-runs",
     "tags": [
       "pikku"
     ]
-  },
-  "stripe-webhook-event": {
-    "pikkuFuncId": "applyStripeEvent",
-    "name": "stripe-webhook-event"
   },
   "send-order-confirmation": {
     "pikkuFuncId": "sendOrderConfirmation",

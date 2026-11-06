@@ -2,6 +2,7 @@
   "name": "capturesEveryPageScenario",
   "pikkuFuncId": "capturesEveryPageScenario",
   "source": "scenario",
+  "scenario": true,
   "title": "Capture every page for review",
   "description": "Screenshots the app as a signed-in user, at desktop and phone widths",
   "tags": [
@@ -39,7 +40,7 @@
       "rpcName": "capturesPage",
       "stepName": "captures ${capture.name}",
       "scenarioStepPhase": "then",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "path": {
           "$ref": "$item",
@@ -64,7 +65,7 @@
         }
       },
       "outputVar": "shot",
-      "stepHash": "576faa290d97"
+      "stepHash": "deb87aa11231"
     },
     "step_2": {
       "nodeId": "step_2",
@@ -84,5 +85,5 @@
   "entryNodeIds": [
     "step_0"
   ],
-  "graphHash": "c11c810dd443"
+  "graphHash": "6fd54bac38ef"
 }

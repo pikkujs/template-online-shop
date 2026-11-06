@@ -21,23 +21,6 @@
       "schema": "SecretSchema_secret_key",
       "sourceFile": "/home/runner/work/addons/addons/packages/payments/stripe/src/stripe.secret.ts"
     },
-    "webhook_secret": {
-      "name": "webhook_secret",
-      "displayName": "Stripe Webhook Signing Secret",
-      "description": "Signing secret used to verify inbound Stripe webhook signatures",
-      "secretId": "STRIPE_WEBHOOK_SECRET",
-      "schema": "SecretSchema_webhook_secret",
-      "sourceFile": "/home/runner/work/addons/addons/packages/payments/stripe/src/stripe.secret.ts"
-    },
-    "scenarioActorSecret": {
-      "name": "scenarioActorSecret",
-      "displayName": "Scenario Actor Secret",
-      "description": "Signing secret that lets scenarios and virtual users sign in as a declared persona",
-      "secretId": "SCENARIO_ACTOR_SECRET",
-      "schema": "SecretSchema_scenarioActorSecret",
-      "optional": true,
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/.pikku/scopes/pikku-personas-secrets.gen.ts"
-    },
     "betterAuthSecret": {
       "name": "betterAuthSecret",
       "displayName": "Better Auth Secret",
@@ -341,6 +324,7 @@
     "virtualUserScheduleStore",
     "scopeService",
     "secrets",
-    "variables"
+    "variables",
+    "credentialService"
   ]
 }

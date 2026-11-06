@@ -64,9 +64,9 @@
     "exportedName": "getBasket",
     "bodyStart": 34,
     "bodyEnd": 80,
-    "contractHash": "8320f312eba9cce0",
+    "contractHash": "7a672d30cb1538ea",
     "inputHash": "ac0a0186",
-    "outputHash": "27d0ae74",
+    "outputHash": "ab3676c7",
     "singletonServicesOnly": true
   },
   "removeFromBasket": {
@@ -162,9 +162,9 @@
     "exportedName": "listCategories",
     "bodyStart": 19,
     "bodyEnd": 23,
-    "contractHash": "e4e6b1464c738680",
+    "contractHash": "25d2c23f2aa2e738",
     "inputHash": "10457de4",
-    "outputHash": "dbc43cfd",
+    "outputHash": "c6aefeb6",
     "singletonServicesOnly": true
   },
   "handleChatMessage": {
@@ -272,9 +272,9 @@
     "exportedName": "getSession",
     "bodyStart": 21,
     "bodyEnd": 31,
-    "contractHash": "493320ce1e00cb69",
+    "contractHash": "f2a461373197ee2b",
     "inputHash": "ba4ab2e7",
-    "outputHash": "386fe409",
+    "outputHash": "a568a046",
     "singletonServicesOnly": true
   },
   "createItem": {
@@ -373,11 +373,11 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/functions/items/get-item.function.ts",
     "exportedName": "getItemV2",
-    "bodyStart": 49,
-    "bodyEnd": 63,
-    "contractHash": "1ec223331587c80d",
+    "bodyStart": 50,
+    "bodyEnd": 64,
+    "contractHash": "66b52e30a5a3f68a",
     "inputHash": "2cad2fce",
-    "outputHash": "3902877b",
+    "outputHash": "4dfde5cb",
     "singletonServicesOnly": true
   },
   "listItems": {
@@ -407,10 +407,10 @@
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/functions/items/list-items.function.ts",
     "exportedName": "listItems",
     "bodyStart": 37,
-    "bodyEnd": 76,
-    "contractHash": "f91b782f1222d52d",
+    "bodyEnd": 79,
+    "contractHash": "884ba94de3eadd81",
     "inputHash": "34c12795",
-    "outputHash": "8a9a177c",
+    "outputHash": "e140ce11",
     "singletonServicesOnly": true
   },
   "updateItem": {
@@ -471,8 +471,8 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/functions/notifications/send-order-confirmation.function.ts",
     "exportedName": "sendOrderConfirmation",
-    "bodyStart": 16,
-    "bodyEnd": 41,
+    "bodyStart": 17,
+    "bodyEnd": 43,
     "contractHash": "581f58f9f3563094",
     "inputHash": "ff4c9138",
     "outputHash": "5027f276",
@@ -730,8 +730,8 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/functions/orders/get-order.function.ts",
     "exportedName": "getOrder",
-    "bodyStart": 34,
-    "bodyEnd": 66,
+    "bodyStart": 35,
+    "bodyEnd": 68,
     "contractHash": "185e20c90cea12ab",
     "inputHash": "20ab47d1",
     "outputHash": "b4ab02c0",
@@ -771,9 +771,9 @@
     "exportedName": "listOrders",
     "bodyStart": 15,
     "bodyEnd": 22,
-    "contractHash": "4b83b6a294f35460",
+    "contractHash": "5a61cc9ecaafb1b4",
     "inputHash": "4a70189d",
-    "outputHash": "0c72b8bc",
+    "outputHash": "5d259c04",
     "singletonServicesOnly": true
   },
   "refundOrder": {
@@ -904,8 +904,8 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/functions/reports/daily-sales-report.function.ts",
     "exportedName": "dailySalesReport",
-    "bodyStart": 12,
-    "bodyEnd": 55,
+    "bodyStart": 13,
+    "bodyEnd": 57,
     "contractHash": "757e4681fc30dc55",
     "inputHash": "b3a8987e",
     "outputHash": "468747d0",
@@ -1140,9 +1140,9 @@
     "exportedName": "getAgentThreads",
     "bodyStart": 87,
     "bodyEnd": 93,
-    "contractHash": "85b4ebdde3a957e4",
+    "contractHash": "4d1d42f000f8e53f",
     "inputHash": "92d13c90",
-    "outputHash": "8f00b4d1",
+    "outputHash": "a54c3a9d",
     "singletonServicesOnly": true
   },
   "getAgentThreadMessages": {
@@ -1186,9 +1186,9 @@
     "exportedName": "getAgentThreadMessages",
     "bodyStart": 107,
     "bodyEnd": 107,
-    "contractHash": "bdc9b69edcc668fc",
+    "contractHash": "c6af4c5835786747",
     "inputHash": "4e30fe21",
-    "outputHash": "5a543720",
+    "outputHash": "f7fa19aa",
     "singletonServicesOnly": true
   },
   "getAgentThreadRuns": {
@@ -1232,9 +1232,9 @@
     "exportedName": "getAgentThreadRuns",
     "bodyStart": 121,
     "bodyEnd": 121,
-    "contractHash": "0c560ded2ce4755a",
+    "contractHash": "cbf94bbb03b48fd5",
     "inputHash": "df3cdce9",
-    "outputHash": "feff89e7",
+    "outputHash": "3f7928af",
     "singletonServicesOnly": true
   },
   "deleteAgentThread": {
@@ -1295,7 +1295,8 @@
         "kysely",
         "secrets",
         "variables",
-        "emailService"
+        "emailService",
+        "scopeService"
       ]
     },
     "wires": {
@@ -1317,9 +1318,9 @@
     "exportedName": "authHandler",
     "bodyStart": 15,
     "bodyEnd": 15,
-    "contractHash": "9dfce2dcd1fac626",
+    "contractHash": "56ca81afb5965d88",
     "inputHash": "3db46710",
-    "outputHash": "5b0d193e",
+    "outputHash": "4a0c6eec",
     "singletonServicesOnly": true
   },
   "pikkuConsoleGetVariable": {
@@ -1424,12 +1425,15 @@
       "RealtimeSubscribeInput"
     ],
     "outputs": [],
-    "implementationHash": "1857667479118a95",
+    "implementationHash": "c4a480e777b7ad22",
+    "tags": [
+      "pikku"
+    ],
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/realtime/events.gen.ts",
     "exportedName": "realtimeSubscribe",
-    "bodyStart": 22,
-    "bodyEnd": 22,
+    "bodyStart": 23,
+    "bodyEnd": 23,
     "contractHash": "bc5e1561fda444bd",
     "inputHash": "9e8c21ea",
     "outputHash": "4a97e651",
@@ -1459,12 +1463,15 @@
       "RealtimeUnsubscribeInput"
     ],
     "outputs": [],
-    "implementationHash": "f1414854056624fe",
+    "implementationHash": "9212a08952804071",
+    "tags": [
+      "pikku"
+    ],
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/realtime/events.gen.ts",
     "exportedName": "realtimeUnsubscribe",
-    "bodyStart": 29,
-    "bodyEnd": 29,
+    "bodyStart": 31,
+    "bodyEnd": 31,
     "contractHash": "63d0658de9b01f24",
     "inputHash": "bd6266c1",
     "outputHash": "460c0c66",
@@ -1494,13 +1501,16 @@
       "RealtimeEventStreamInput"
     ],
     "outputs": [],
-    "implementationHash": "14f2a75366d274a3",
+    "implementationHash": "d1aedb73bde2de54",
+    "tags": [
+      "pikku"
+    ],
     "description": "Auto-generated SSE stream for a single event-hub topic",
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/realtime/events.gen.ts",
     "exportedName": "realtimeEventStream",
-    "bodyStart": 59,
-    "bodyEnd": 62,
+    "bodyStart": 62,
+    "bodyEnd": 65,
     "contractHash": "c12792757a387726",
     "inputHash": "0e03de1d",
     "outputHash": "d6679eb5",
@@ -1579,19 +1589,19 @@
     "scopes": [
       "virtualUser:run"
     ],
-    "implementationHash": "936a481bae728e14",
+    "implementationHash": "af55f47d40d38c3a",
     "title": "Run a Virtual User",
     "tags": [
       "pikku"
     ],
-    "description": "Turns a declared persona loose on this application and records what it finds. Returns immediately with a run id; read the result back with getVirtualUserRun.",
+    "description": "Turns a declared virtual user loose on this application and records what it finds. Returns immediately with a run id; read the result back with getVirtualUserRun.",
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/virtual-user/virtual-user.gen.ts",
     "exportedName": "runVirtualUser",
-    "bodyStart": 77,
-    "bodyEnd": 125,
-    "contractHash": "8e4038bc02085975",
-    "inputHash": "3bc28000",
+    "bodyStart": 78,
+    "bodyEnd": 122,
+    "contractHash": "446af8a1e5157fe5",
+    "inputHash": "71c3672f",
     "outputHash": "4d9bf767",
     "singletonServicesOnly": true
   },
@@ -1628,11 +1638,11 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/virtual-user/virtual-user.gen.ts",
     "exportedName": "getVirtualUserRun",
-    "bodyStart": 142,
-    "bodyEnd": 149,
-    "contractHash": "aad2164ff8988462",
+    "bodyStart": 139,
+    "bodyEnd": 146,
+    "contractHash": "bd41cfa3c5656553",
     "inputHash": "369b4c8c",
-    "outputHash": "1665d703",
+    "outputHash": "fbb7455a",
     "singletonServicesOnly": true
   },
   "listVirtualUserRuns": {
@@ -1659,20 +1669,20 @@
     "scopes": [
       "virtualUser:read"
     ],
-    "implementationHash": "d0cf7e1b3f896ab5",
+    "implementationHash": "236f28960d54d6e3",
     "title": "List Virtual User Runs",
     "tags": [
       "pikku"
     ],
-    "description": "Reads back what the virtual users have been doing, newest first. Narrow with `persona` for one user's history.",
+    "description": "Reads back what the virtual users have been doing, newest first. Narrow with `virtualUserId` for one user's history.",
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/virtual-user/virtual-user.gen.ts",
     "exportedName": "listVirtualUserRuns",
-    "bodyStart": 163,
-    "bodyEnd": 167,
-    "contractHash": "ea48fa66331ba0f4",
-    "inputHash": "7cbccac9",
-    "outputHash": "5fafe14d",
+    "bodyStart": 160,
+    "bodyEnd": 164,
+    "contractHash": "dcbe7ed6bf839d60",
+    "inputHash": "290747a6",
+    "outputHash": "063bbe03",
     "singletonServicesOnly": true
   },
   "getVirtualUserRunSteps": {
@@ -1708,8 +1718,8 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/virtual-user/virtual-user.gen.ts",
     "exportedName": "getVirtualUserRunSteps",
-    "bodyStart": 184,
-    "bodyEnd": 188,
+    "bodyStart": 181,
+    "bodyEnd": 185,
     "contractHash": "543832b28ea27a25",
     "inputHash": "57b03b61",
     "outputHash": "45411245",
@@ -1740,20 +1750,20 @@
     "scopes": [
       "virtualUser:schedule"
     ],
-    "implementationHash": "7774575da24ed00d",
+    "implementationHash": "1c14dca63c3bc045",
     "title": "Put a Virtual User on a Clock",
     "tags": [
       "pikku"
     ],
-    "description": "Says how often a persona should use the application on its own. Off until enabled, and every field left out keeps what it already had.",
+    "description": "Says how often a virtual user should use the application on its own. Off until enabled, and every field left out keeps what it already had.",
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/virtual-user/virtual-user.gen.ts",
     "exportedName": "setVirtualUserSchedule",
-    "bodyStart": 205,
-    "bodyEnd": 212,
-    "contractHash": "fa118435a0d1ce06",
-    "inputHash": "e2e48287",
-    "outputHash": "7a4019cc",
+    "bodyStart": 202,
+    "bodyEnd": 209,
+    "contractHash": "5e8b5c7eed2d4eff",
+    "inputHash": "22602efd",
+    "outputHash": "988c80b6",
     "singletonServicesOnly": true
   },
   "listVirtualUserSchedules": {
@@ -1778,20 +1788,20 @@
     "scopes": [
       "virtualUser:read"
     ],
-    "implementationHash": "3c28c9e6dc7bbe01",
+    "implementationHash": "6f324a8c3b14dfef",
     "title": "List Virtual User Schedules",
     "tags": [
       "pikku"
     ],
-    "description": "Which personas are on a clock, how often they run, and when each is next due.",
+    "description": "Which virtual users are on a clock, how often they run, and when each is next due.",
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/virtual-user/virtual-user.gen.ts",
     "exportedName": "listVirtualUserSchedules",
-    "bodyStart": 225,
-    "bodyEnd": 233,
-    "contractHash": "d05f02d540587d6c",
+    "bodyStart": 222,
+    "bodyEnd": 230,
+    "contractHash": "cde98afc557a32fc",
     "inputHash": "cd2c2ea7",
-    "outputHash": "a33d94e1",
+    "outputHash": "f1b5670f",
     "singletonServicesOnly": true
   },
   "tickVirtualUserSchedules": {
@@ -1824,8 +1834,8 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/virtual-user/virtual-user.gen.ts",
     "exportedName": "tickVirtualUserSchedules",
-    "bodyStart": 298,
-    "bodyEnd": 315,
+    "bodyStart": 306,
+    "bodyEnd": 323,
     "contractHash": "ec44d69a11649866",
     "inputHash": "44a8b5a8",
     "outputHash": "2ea61ea2"
@@ -1843,7 +1853,8 @@
         "metaService",
         "agentRunner",
         "variables",
-        "logger"
+        "logger",
+        "auth"
       ]
     },
     "inputSchemaName": "ExecuteVirtualUserRunInput",
@@ -1854,17 +1865,17 @@
     "outputs": [
       "ExecuteVirtualUserRunOutput"
     ],
-    "implementationHash": "40b860aba5d551f8",
+    "implementationHash": "ff9295f324630cd7",
     "tags": [
       "pikku"
     ],
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/virtual-user/virtual-user.gen.ts",
     "exportedName": "executeVirtualUserRun",
-    "bodyStart": 332,
-    "bodyEnd": 341,
-    "contractHash": "5dc1ddc01a4cfdd6",
-    "inputHash": "7207b057",
+    "bodyStart": 340,
+    "bodyEnd": 350,
+    "contractHash": "c03a7987bd0528a6",
+    "inputHash": "f4e02e47",
     "outputHash": "d3e108a4",
     "singletonServicesOnly": true
   },
@@ -1984,9 +1995,9 @@
     "exportedName": "workflowStatusChecker",
     "bodyStart": 60,
     "bodyEnd": 66,
-    "contractHash": "b6bf55a2fa8bbb82",
+    "contractHash": "5db482530a44887f",
     "inputHash": "8b76388a",
-    "outputHash": "1d5979b5",
+    "outputHash": "7f8c585b",
     "singletonServicesOnly": true
   },
   "workflowStatusStream": {
@@ -2169,9 +2180,9 @@
     "exportedName": "createOrderRecord",
     "bodyStart": 51,
     "bodyEnd": 67,
-    "contractHash": "87f363bd1ab88c25",
+    "contractHash": "1e4d45637ab9c638",
     "inputHash": "299de8ca",
-    "outputHash": "ce239a25",
+    "outputHash": "27b949e4",
     "singletonServicesOnly": true
   },
   "chargeCard": {
@@ -2209,11 +2220,11 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "chargeCard",
-    "bodyStart": 103,
-    "bodyEnd": 118,
-    "contractHash": "96237633fb7ad71f",
+    "bodyStart": 104,
+    "bodyEnd": 119,
+    "contractHash": "fa67e473982af6ca",
     "inputHash": "f855eb5f",
-    "outputHash": "bd6e8cf6",
+    "outputHash": "feb16db5",
     "singletonServicesOnly": true
   },
   "finalizeOrder": {
@@ -2240,8 +2251,8 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "finalizeOrder",
-    "bodyStart": 136,
-    "bodyEnd": 145,
+    "bodyStart": 137,
+    "bodyEnd": 146,
     "contractHash": "cf4105eee757fa81",
     "inputHash": "b547b38f",
     "outputHash": "3bddfeec",
@@ -2276,8 +2287,8 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "checkoutWorkflow",
-    "bodyStart": 162,
-    "bodyEnd": 189,
+    "bodyStart": 164,
+    "bodyEnd": 191,
     "contractHash": "33fc3db1aeda33af",
     "inputHash": "6129b387",
     "outputHash": "cbd83fab",
@@ -2312,8 +2323,8 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "startCheckout",
-    "bodyStart": 210,
-    "bodyEnd": 210,
+    "bodyStart": 212,
+    "bodyEnd": 212,
     "startsWorkflows": [
       "checkoutWorkflow"
     ],
@@ -2347,8 +2358,8 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "checkOrderRefundable",
-    "bodyStart": 225,
-    "bodyEnd": 228,
+    "bodyStart": 227,
+    "bodyEnd": 230,
     "contractHash": "e9fad2745ecb4443",
     "inputHash": "29349325",
     "outputHash": "5da5da14",
@@ -2377,8 +2388,8 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "issueRefund",
-    "bodyStart": 235,
-    "bodyEnd": 239,
+    "bodyStart": 237,
+    "bodyEnd": 241,
     "contractHash": "3e47cde276bcb9c8",
     "inputHash": "35c6cd52",
     "outputHash": "a7d40b02",
@@ -2417,8 +2428,8 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "startRefund",
-    "bodyStart": 260,
-    "bodyEnd": 260,
+    "bodyStart": 263,
+    "bodyEnd": 263,
     "startsWorkflows": [
       "refundWorkflow"
     ],
@@ -2455,8 +2466,8 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/checkout.workflow.ts",
     "exportedName": "refundWorkflow",
-    "bodyStart": 270,
-    "bodyEnd": 288,
+    "bodyStart": 274,
+    "bodyEnd": 292,
     "contractHash": "05d9be905688f7f8",
     "inputHash": "2076ac67",
     "outputHash": "51d8e912",
@@ -2628,30 +2639,6 @@
     "outputHash": "4094c392",
     "singletonServicesOnly": true
   },
-  "deliveryLocation": {
-    "pikkuFuncId": "deliveryLocation",
-    "functionType": "remote",
-    "funcWrapper": "pikkuRemoteChannelFunc",
-    "sessionless": true,
-    "name": "deliveryLocation",
-    "services": {
-      "optimized": true,
-      "services": []
-    },
-    "inputSchemaName": null,
-    "outputSchemaName": "DeliveryLocationOutput",
-    "inputs": [],
-    "outputs": [
-      "DeliveryLocationOutput"
-    ],
-    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.channel.ts",
-    "exportedName": "deliveryLocation",
-    "description": "Read the delivery postcode and country saved in your browser",
-    "contractHash": "7a122d46e11fb3c7",
-    "inputHash": "fc943e75",
-    "outputHash": "22579118",
-    "singletonServicesOnly": true
-  },
   "conditionalReport": {
     "pikkuFuncId": "conditionalReport",
     "functionType": "user",
@@ -2720,9 +2707,9 @@
     "exportedName": "listCategoriesTool",
     "bodyStart": 8,
     "bodyEnd": 9,
-    "contractHash": "7db1eaad49f2bc7a",
+    "contractHash": "baf6c8e9b4a56d42",
     "inputHash": "c185f20c",
-    "outputHash": "e7d453f3",
+    "outputHash": "29fbcd39",
     "singletonServicesOnly": true
   },
   "listItemsTool": {
@@ -2760,9 +2747,9 @@
     "exportedName": "listItemsTool",
     "bodyStart": 20,
     "bodyEnd": 26,
-    "contractHash": "1d72354caf263b6e",
+    "contractHash": "09f85983b475f5c2",
     "inputHash": "b2b8291d",
-    "outputHash": "9c435ce6",
+    "outputHash": "b8be2a14",
     "singletonServicesOnly": true
   },
   "getItemTool": {
@@ -2798,11 +2785,11 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.mcp.ts",
     "exportedName": "getItemTool",
-    "bodyStart": 33,
-    "bodyEnd": 34,
-    "contractHash": "cf645ca80e8d36dd",
+    "bodyStart": 34,
+    "bodyEnd": 35,
+    "contractHash": "813fff250baf5a71",
     "inputHash": "2cd66ef0",
-    "outputHash": "7a04d710",
+    "outputHash": "173f5dd8",
     "singletonServicesOnly": true
   },
   "getItemForAI": {
@@ -2838,11 +2825,11 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.mcp.ts",
     "exportedName": "getItemForAI",
-    "bodyStart": 44,
-    "bodyEnd": 45,
-    "contractHash": "73b9e17b31c0176f",
+    "bodyStart": 46,
+    "bodyEnd": 47,
+    "contractHash": "d2cba3c4da3a3032",
     "inputHash": "b190b9cd",
-    "outputHash": "f1b68dee",
+    "outputHash": "1f35a04d",
     "singletonServicesOnly": true
   },
   "updateStockTool": {
@@ -2879,11 +2866,11 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.mcp.ts",
     "exportedName": "updateStockTool",
-    "bodyStart": 110,
-    "bodyEnd": 115,
-    "contractHash": "6e656190de0abcd9",
+    "bodyStart": 112,
+    "bodyEnd": 117,
+    "contractHash": "050250fe27df4206",
     "inputHash": "5acef028",
-    "outputHash": "b01af4f7",
+    "outputHash": "04a51e06",
     "singletonServicesOnly": true
   },
   "processExport": {
@@ -2954,9 +2941,9 @@
     "exportedName": "startExport",
     "bodyStart": 76,
     "bodyEnd": 78,
-    "contractHash": "29b90994173e416a",
+    "contractHash": "4a2997b13622e177",
     "inputHash": "f88edcf0",
-    "outputHash": "a6c0b160",
+    "outputHash": "2a7517dd",
     "singletonServicesOnly": true
   },
   "checkItemAvailability": {
@@ -2992,6 +2979,56 @@
     "outputHash": "e698c31e",
     "singletonServicesOnly": true
   },
+  "http:post:/webhooks/stripe": {
+    "pikkuFuncId": "http:post:/webhooks/stripe",
+    "functionType": "inline",
+    "name": "/webhooks/stripe",
+    "services": {
+      "optimized": false,
+      "services": []
+    },
+    "inputSchemaName": "HttpPostWebhooksStripeInput",
+    "outputSchemaName": "unknown",
+    "inputs": [
+      "HttpPostWebhooksStripeInput"
+    ],
+    "outputs": [
+      "unknown"
+    ],
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/.pikku/webhooks/pikku-webhook-sources.gen.ts",
+    "tags": [
+      "pikku"
+    ],
+    "sessionless": true,
+    "contractHash": "dc87e6cdd677af16",
+    "inputHash": "715384bb",
+    "outputHash": "2d0e7bc2"
+  },
+  "queue:pikku-incoming-webhooks": {
+    "pikkuFuncId": "queue:pikku-incoming-webhooks",
+    "functionType": "inline",
+    "name": "pikku-incoming-webhooks",
+    "services": {
+      "optimized": false,
+      "services": []
+    },
+    "inputSchemaName": "QueuePikkuIncomingWebhooksInput",
+    "outputSchemaName": "unknown",
+    "inputs": [
+      "QueuePikkuIncomingWebhooksInput"
+    ],
+    "outputs": [
+      "unknown"
+    ],
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/.pikku/webhooks/pikku-webhook-sources.gen.ts",
+    "tags": [
+      "pikku"
+    ],
+    "sessionless": true,
+    "contractHash": "49748d4b4fedffec",
+    "inputHash": "f7984c4a",
+    "outputHash": "a00764f0"
+  },
   "http:post:/agents/shop": {
     "pikkuFuncId": "http:post:/agents/shop",
     "functionType": "inline",
@@ -3009,8 +3046,8 @@
       "HttpPostAgentsShopOutput"
     ],
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.bot.ts",
-    "contractHash": "df3263c022ad8272",
-    "inputHash": "a5d7bb7d",
+    "contractHash": "489766fad26ec037",
+    "inputHash": "0dd352fe",
     "outputHash": "a27dab8e"
   },
   "http:post:/agents/shop/stream": {
@@ -3089,8 +3126,8 @@
       "HttpPostAgentsOpsOutput"
     ],
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.bot.ts",
-    "contractHash": "0ab22bbd79092eb7",
-    "inputHash": "410100be",
+    "contractHash": "50018775cf03677f",
+    "inputHash": "a730408e",
     "outputHash": "9d890812"
   },
   "http:post:/agents/checkout": {
@@ -3110,8 +3147,8 @@
       "HttpPostAgentsCheckoutOutput"
     ],
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.bot.ts",
-    "contractHash": "e099551f5281264d",
-    "inputHash": "930a831f",
+    "contractHash": "75285328eb33c29a",
+    "inputHash": "2c9173db",
     "outputHash": "fb2ad3c2"
   },
   "mcp:resource:shop://items/{itemId}": {
@@ -3179,11 +3216,11 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/functions/items/get-item.function.ts",
     "exportedName": "getItem",
-    "bodyStart": 75,
-    "bodyEnd": 92,
-    "contractHash": "1ec223331587c80d",
+    "bodyStart": 77,
+    "bodyEnd": 96,
+    "contractHash": "66b52e30a5a3f68a",
     "inputHash": "2cad2fce",
-    "outputHash": "3902877b",
+    "outputHash": "4dfde5cb",
     "singletonServicesOnly": true
   }
 }

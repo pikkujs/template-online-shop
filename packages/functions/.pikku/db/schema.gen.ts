@@ -300,6 +300,13 @@ export interface PikkuDeployments {
   createdAt: ColumnType<Private<string>, string | undefined, string>
 }
 
+export interface PikkuLease {
+  key: ColumnType<Private<string>, string, string>
+  holder: ColumnType<Private<string>, string, string>
+  token: ColumnType<Private<number>, number, number>
+  expiresAt: ColumnType<Private<number>, number, number>
+}
+
 export interface PikkuRoleScopes {
   role: ColumnType<Private<string>, string, string>
   scope: ColumnType<Private<string>, string, string>
@@ -382,7 +389,7 @@ export interface User {
   image: ColumnType<Private<string> | null, string | null, string | null>
   createdAt: ColumnType<Private<string>, string, string>
   updatedAt: ColumnType<Private<string>, string, string>
-  actor: ColumnType<Private<number> | null, number | null, number | null>
+  virtualUser: ColumnType<Private<number> | null, number | null, number | null>
   role: ColumnType<Private<string> | null, string | null, string | null>
   banned: ColumnType<Private<number> | null, number | null, number | null>
   banReason: ColumnType<Private<string> | null, string | null, string | null>
@@ -401,7 +408,7 @@ export interface Verification {
 
 export interface VirtualUserRun {
   runId: ColumnType<Private<string>, string, string>
-  persona: ColumnType<Private<string>, string, string>
+  virtualUserId: ColumnType<Private<string>, string, string>
   disposition: ColumnType<Private<string>, string, string>
   seed: ColumnType<Private<number>, number, number>
   status: ColumnType<Private<string>, string | undefined, string>
@@ -431,7 +438,7 @@ export interface VirtualUserRunStep {
 }
 
 export interface VirtualUserSchedule {
-  persona: ColumnType<Private<string>, string, string>
+  virtualUserId: ColumnType<Private<string>, string, string>
   enabled: ColumnType<Private<number>, number | undefined, number>
   disposition: ColumnType<Private<string>, string, string>
   goals: ColumnType<Private<string>, string | undefined, string>
@@ -463,6 +470,18 @@ export interface WebhookDeliveryAttempt {
   responseBody: ColumnType<Private<string> | null, string | null, string | null>
   error: ColumnType<Private<string> | null, string | null, string | null>
   createdAt: ColumnType<Private<string>, string | undefined, string>
+}
+
+export interface WebhookReceipt {
+  receiptId: ColumnType<Private<string>, string, string>
+  source: ColumnType<Private<string>, string, string>
+  event: ColumnType<Private<string>, string, string>
+  providerEventId: ColumnType<Private<string> | null, string | null, string | null>
+  status: ColumnType<Private<string>, string | undefined, string>
+  attempts: ColumnType<Private<number>, number | undefined, number>
+  lastError: ColumnType<Private<string> | null, string | null, string | null>
+  createdAt: ColumnType<Private<string>, string | undefined, string>
+  deliveredAt: ColumnType<Private<string> | null, string | null, string | null>
 }
 
 export interface WorkflowRuns {
@@ -499,6 +518,7 @@ export interface WorkflowStep {
   createdAt: ColumnType<Private<string>, string | undefined, string>
   updatedAt: ColumnType<Private<string>, string | undefined, string>
   currentAttempt: ColumnType<Private<number> | null, number | null, number | null>
+  leaseExpiresAt: ColumnType<Private<number> | null, number | null, number | null>
 }
 
 export interface WorkflowStepHistory {
@@ -553,6 +573,7 @@ export interface DB {
   payment: Payment
   pikkuDeploymentFunctions: PikkuDeploymentFunctions
   pikkuDeployments: PikkuDeployments
+  pikkuLease: PikkuLease
   pikkuRoleScopes: PikkuRoleScopes
   pikkuRoles: PikkuRoles
   pikkuScopes: PikkuScopes
@@ -570,6 +591,7 @@ export interface DB {
   virtualUserSchedule: VirtualUserSchedule
   webhookDelivery: WebhookDelivery
   webhookDeliveryAttempt: WebhookDeliveryAttempt
+  webhookReceipt: WebhookReceipt
   workflowRuns: WorkflowRuns
   workflowStep: WorkflowStep
   workflowStepHistory: WorkflowStepHistory

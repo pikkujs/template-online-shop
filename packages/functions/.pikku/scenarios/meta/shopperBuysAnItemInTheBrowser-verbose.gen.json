@@ -2,13 +2,14 @@
   "name": "shopperBuysAnItemInTheBrowser",
   "pikkuFuncId": "shopperBuysAnItemInTheBrowser",
   "source": "scenario",
+  "scenario": true,
   "title": "A shopper fills a basket and checks out",
   "description": "The journey the home page promises, performed by clicking rather than over RPC",
   "tags": [
     "scenario",
     "journey"
   ],
-  "actors": [
+  "virtualUsers": [
     "visitor"
   ],
   "nodes": {
@@ -24,11 +25,11 @@
       "stepName": "opens the app",
       "scenarioStepPhase": "then",
       "next": "clicks through to the catalogue",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "path": "/app"
       },
-      "stepHash": "a1b115870778"
+      "stepHash": "bf1c24899051"
     },
     "clicks through to the catalogue": {
       "nodeId": "clicks through to the catalogue",
@@ -36,7 +37,7 @@
       "stepName": "clicks through to the catalogue",
       "scenarioStepPhase": "then",
       "next": "is on the catalogue",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "name": "Catalogue"
       },
@@ -48,7 +49,7 @@
       "stepName": "is on the catalogue",
       "scenarioStepPhase": "then",
       "next": "sees a mug for sale",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "path": "/app/catalogue"
       },
@@ -60,7 +61,7 @@
       "stepName": "sees a mug for sale",
       "scenarioStepPhase": "then",
       "next": "adds it to the basket",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "text": "Enamel coffee mug"
       },
@@ -72,7 +73,7 @@
       "stepName": "adds it to the basket",
       "scenarioStepPhase": "then",
       "next": "opens the basket",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "near": "Enamel coffee mug",
         "name": "Add to basket"
@@ -85,7 +86,7 @@
       "stepName": "opens the basket",
       "scenarioStepPhase": "then",
       "next": "sees the mug in it",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "name": "Basket"
       },
@@ -98,7 +99,7 @@
       "stepName": "sees the mug in it",
       "scenarioStepPhase": "then",
       "next": "checks out",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "text": "Enamel coffee mug"
       },
@@ -110,7 +111,7 @@
       "stepName": "checks out",
       "scenarioStepPhase": "then",
       "next": "sees the order confirmed",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "name": "Checkout"
       },
@@ -122,7 +123,7 @@
       "stepName": "sees the order confirmed",
       "scenarioStepPhase": "then",
       "next": "opens operations",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "text": "Order"
       },
@@ -134,7 +135,7 @@
       "stepName": "opens operations",
       "scenarioStepPhase": "then",
       "next": "sees the live panel",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "name": "Manage"
       },
@@ -146,7 +147,7 @@
       "stepName": "sees the live panel",
       "scenarioStepPhase": "then",
       "next": "is refused an unsigned payment webhook",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "text": "activity"
       },
@@ -158,7 +159,7 @@
       "stepName": "is refused an unsigned payment webhook",
       "scenarioStepPhase": "then",
       "next": "posts to /api/analytics",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "path": "/api/webhooks/stripe",
         "body": "{\"type\":\"payment_intent.succeeded\",\"data\":{\"object\":{\"id\":\"pi_coverage\"}}}",
@@ -173,7 +174,7 @@
       "stepName": "posts to /api/analytics",
       "scenarioStepPhase": "then",
       "next": "subscribes to the channel",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "path": "/api/analytics",
         "body": "{\"events\":[{\"event\":{\"name\":\"page_viewed\",\"path\":\"/app/catalogue\"}}]}",
@@ -188,7 +189,7 @@
       "stepName": "subscribes to the channel",
       "scenarioStepPhase": "then",
       "next": "step_15",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "route": "/orders/status",
         "action": "subscribeToOrder",
@@ -211,5 +212,5 @@
   "entryNodeIds": [
     "step_0"
   ],
-  "graphHash": "845066010fad"
+  "graphHash": "452bde9df078"
 }

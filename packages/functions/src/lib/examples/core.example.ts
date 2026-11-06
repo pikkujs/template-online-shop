@@ -452,8 +452,8 @@ export const callRemote = pikkuFunc<{ userId: string }, unknown>({
     const local = await rpc.invoke('getItem', { itemId: data.userId })
 
     // Call a function in another deployed unit
-    const remote = await rpc.remote('externalService', data)
-    return { local, remote }
+    const mesh = await rpc.mesh('externalService', data)
+    return { local, mesh }
   },
 })
 // @snippet end co-wire-rpc-remote
@@ -521,7 +521,7 @@ export const lifecycle = pikkuServerLifecycle<SingletonServices>({
   },
 
   afterStart: async ({ logger, variables }) => {
-    if ((await variables.get('SCENARIO_ACTOR_SECRET')) === 'true') {
+    if ((await variables.get('SEED_DEMO_DATA')) === 'true') {
       await seedItems()
       logger.info('Seeded development data')
     }
@@ -585,11 +585,11 @@ export const buysTheItem = pikkuScenarioStep<{ name: string }, { name: string }>
   name: 'buysTheItem',
   description: 'puts one item in the basket',
   template: 'buys the {name}',
-  actor: true,
-  default: async (_services, { name }, { actor }) => {
-    const catalogue = await actor.invoke('listItems', { search: name })
-    const basket = await actor.invoke('getBasket', {})
-    await actor.invoke('addToBasket', {
+  virtualUser: true,
+  default: async (_services, { name }, { virtualUser }) => {
+    const catalogue = await virtualUser.invoke('listItems', { search: name })
+    const basket = await virtualUser.invoke('getBasket', {})
+    await virtualUser.invoke('addToBasket', {
       basketId: basket.basketId,
       itemId: catalogue.items[0].itemId,
       quantity: 1,
@@ -804,6 +804,24 @@ export const sendWelcomeEmail = pikkuFunc<{ email: string; name: string }, void>
 })
 // @snippet end co-email-send
 
+// @snippet start i18n-session-email
+export const sendOrderShipped = pikkuFunc<
+  { email: string; orderId: string },
+  void
+>({
+  func: async ({ emailService }, { email, orderId }, { session }) => {
+    await emailService.send({
+      to: email,
+      template: {
+        name: 'orderShipped',
+        locale: session!.locale,
+        data: { orderId },
+      },
+    })
+  },
+})
+// @snippet end i18n-session-email
+
 // @snippet start co-jwt-encode-decode
 interface UserTokenPayload {
   userId: string
@@ -892,7 +910,7 @@ export const readVariables = pikkuSessionlessFunc<void, { threshold: number; deb
 
     return {
       threshold: threshold ?? 0,
-      debug: all.SCENARIO_ACTOR_SECRET === 'true',
+      debug: all.SEED_DEMO_DATA === 'true',
     }
   },
 })

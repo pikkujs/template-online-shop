@@ -1,5 +1,6 @@
 import { Button, Stack, TextInput } from '@pikku/mantine/core'
-import { asI18n } from '@/i18n/messages'
+import { asI18nStub } from '@pikku/react'
+
 import type { Story, StoryMeta } from './csf.types'
 import { AuthShell } from './AuthShell'
 
@@ -19,19 +20,19 @@ export default {
 } satisfies StoryMeta
 
 const base = {
-  appName: asI18n('Acme'),
-  footer: asI18n('New here? Create an account'),
+  appName: asI18nStub('Acme'),
+  footer: asI18nStub('New here? Create an account'),
 }
 
 export const SignIn: Story = {
   args: {
     ...base,
-    title: asI18n('Welcome back'),
-    description: asI18n('Sign in to continue.'),
+    title: asI18nStub('Welcome back'),
+    description: asI18nStub('Sign in to continue.'),
     children: (
       <Stack gap="sm">
-        <TextInput label={asI18n('Email')} placeholder={asI18n('you@acme.com')} />
-        <Button fullWidth>{asI18n('Sign in')}</Button>
+        <TextInput label={asI18nStub('Email')} placeholder={asI18nStub('you@acme.com')} />
+        <Button fullWidth>{asI18nStub('Sign in')}</Button>
       </Stack>
     ),
   },
@@ -40,12 +41,12 @@ export const SignIn: Story = {
 export const ForgotPassword: Story = {
   args: {
     ...base,
-    title: asI18n('Reset your password'),
-    description: asI18n('We will email you a link to choose a new one.'),
+    title: asI18nStub('Reset your password'),
+    description: asI18nStub('We will email you a link to choose a new one.'),
     children: (
       <Stack gap="sm">
-        <TextInput label={asI18n('Email')} placeholder={asI18n('you@acme.com')} />
-        <Button fullWidth>{asI18n('Send reset link')}</Button>
+        <TextInput label={asI18nStub('Email')} placeholder={asI18nStub('you@acme.com')} />
+        <Button fullWidth>{asI18nStub('Send reset link')}</Button>
       </Stack>
     ),
   },

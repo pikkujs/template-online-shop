@@ -13,6 +13,10 @@ export type ColumnEntry = {
    *  real encrypt/seal/hash result can be written to it. Defaults to 'plain',
    *  which on a `secret` column is warned about (PKU483) until stated here. */
   form?: 'plain' | 'hashed' | 'wrapped' | 'sealed'
+  /** Which key protects this column, for a 'wrapped' or 'sealed' form. It is a
+   *  purpose, not a tenant: naming one here says these columns open together and
+   *  separately from the rest. Defaults to 'default'. */
+  keyId?: string
   /** Anonymize strategy used by `pikku db anonymize`. */
   classification?: 'fake:email' | 'fake:name' | 'hash' | 'keep'
   /** Column kind override for codegen coercion + typing. */
@@ -285,6 +289,12 @@ export type DbClassificationMap = {
     "last_heartbeat": ColumnEntry
     "created_at": ColumnEntry
   }
+  "pikku_lease": {
+    "key": ColumnEntry
+    "holder": ColumnEntry
+    "token": ColumnEntry
+    "expires_at": ColumnEntry
+  }
   "pikku_role_scopes": {
     "role": ColumnEntry
     "scope": ColumnEntry
@@ -357,7 +367,7 @@ export type DbClassificationMap = {
     "image": ColumnEntry
     "created_at": ColumnEntry
     "updated_at": ColumnEntry
-    "actor": ColumnEntry
+    "virtual_user": ColumnEntry
     "role": ColumnEntry
     "banned": ColumnEntry
     "ban_reason": ColumnEntry
@@ -374,7 +384,7 @@ export type DbClassificationMap = {
   }
   "virtual_user_run": {
     "run_id": ColumnEntry
-    "persona": ColumnEntry
+    "virtual_user_id": ColumnEntry
     "disposition": ColumnEntry
     "seed": ColumnEntry
     "status": ColumnEntry
@@ -402,7 +412,7 @@ export type DbClassificationMap = {
     "tokens_out": ColumnEntry
   }
   "virtual_user_schedule": {
-    "persona": ColumnEntry
+    "virtual_user_id": ColumnEntry
     "enabled": ColumnEntry
     "disposition": ColumnEntry
     "goals": ColumnEntry
@@ -432,6 +442,17 @@ export type DbClassificationMap = {
     "response_body": ColumnEntry
     "error": ColumnEntry
     "created_at": ColumnEntry
+  }
+  "webhook_receipt": {
+    "receipt_id": ColumnEntry
+    "source": ColumnEntry
+    "event": ColumnEntry
+    "provider_event_id": ColumnEntry
+    "status": ColumnEntry
+    "attempts": ColumnEntry
+    "last_error": ColumnEntry
+    "created_at": ColumnEntry
+    "delivered_at": ColumnEntry
   }
   "workflow_runs": {
     "workflow_run_id": ColumnEntry
@@ -466,6 +487,7 @@ export type DbClassificationMap = {
     "created_at": ColumnEntry
     "updated_at": ColumnEntry
     "current_attempt": ColumnEntry
+    "lease_expires_at": ColumnEntry
   }
   "workflow_step_history": {
     "history_id": ColumnEntry

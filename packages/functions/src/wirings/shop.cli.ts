@@ -29,6 +29,7 @@ wireCLI({
 // @snippet end cliWiring
 
 // @snippet start cliUsage
+// @snippet keep
 // $ pikku shop report
 // [2026-06-09] Daily sales: 14 orders · £1,240.00 revenue
 //

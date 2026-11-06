@@ -2,13 +2,13 @@
  * Replaces e2e/tests/features/auth.feature.
  *
  * The gherkin drove the login form: "a test account exists" → "the user signs
- * in through the login form" → "they land on the app". Scenario actors are
+ * in through the login form" → "they land on the app". Scenario virtual users are
  * signed in by the runner before the first step, so there is no form to drive
  * and no signed-out state to start from. What that gherkin actually proved —
  * a real session, carried in a real cookie, admitted to the gated area — is
  * proved here by opening `/app` and not being bounced to `/app/login`.
  *
- * This is the same claim over a shorter path, and it now covers the actor
+ * This is the same claim over a shorter path, and it now covers the virtual user
  * sign-in endpoint too, which is what every other browser scenario depends on.
  * The login FORM itself is no longer covered; if that matters to your app, test
  * it as an API scenario against `/api/auth/sign-in/email`, which is where a
@@ -26,10 +26,10 @@ export const signedInActorReachesTheAppScenario = pikkuScenario<
   title: 'A signed-in user reaches the app',
   description: 'The session cookie carries into the browser and the route guard admits it',
   tags: ['scenario', 'auth', 'smoke'],
-  func: async (_services, _data, { scenario, actors }) => {
-    if (!actors?.visitor) {
+  func: async (_services, _data, { scenario, virtualUsers }) => {
+    if (!virtualUsers?.visitor) {
       throw new Error(
-        'signedInActorReachesTheAppScenario needs the visitor actor — run via `pikku scenario run <environment>`',
+        'signedInActorReachesTheAppScenario needs the visitor virtual user — run via `pikku scenario run <environment>`',
       )
     }
 
@@ -38,7 +38,7 @@ export const signedInActorReachesTheAppScenario = pikkuScenario<
       'opensPage',
       { path: APP_HOME },
       {
-        actor: actors.visitor,
+        virtualUser: virtualUsers.visitor,
       },
     )
     if (landed.status != null && landed.status >= 400) {
@@ -49,7 +49,7 @@ export const signedInActorReachesTheAppScenario = pikkuScenario<
     // the scenario exists to make, and only a `then` counts toward witness
     // coverage. A ladder with no assertion fails inspection outright (PKU680).
     await scenario.then('stays in the app', 'restsOnPath', { path: APP_HOME }, {
-      actor: actors.visitor,
+      virtualUser: virtualUsers.visitor,
     })
 
     // The same session over the API: the browser is admitted AND the server
@@ -61,7 +61,7 @@ export const signedInActorReachesTheAppScenario = pikkuScenario<
       'getSession',
       {},
       {
-        actor: actors.visitor,
+        virtualUser: virtualUsers.visitor,
       },
     )
 

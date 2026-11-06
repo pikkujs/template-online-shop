@@ -15,7 +15,7 @@
       "optimized": true,
       "wires": [
         "scenario",
-        "actors"
+        "virtualUsers"
       ]
     },
     "inputSchemaName": null,
@@ -25,7 +25,7 @@
       "SessionHealthScenarioOutput"
     ],
     "scenario": true,
-    "implementationHash": "17f0bbd4dde1ce02",
+    "implementationHash": "ecbe4c89af3fa850",
     "title": "Session health (scenario)",
     "tags": [
       "scenario"
@@ -227,7 +227,7 @@
       "optimized": true,
       "wires": [
         "scenario",
-        "actors"
+        "virtualUsers"
       ]
     },
     "inputSchemaName": null,
@@ -237,7 +237,7 @@
       "ShopperBuysAnItemOutput"
     ],
     "scenario": true,
-    "implementationHash": "4717e77a8fba4ce8",
+    "implementationHash": "88095e193b9e042d",
     "title": "Shopper buys an item",
     "tags": [
       "checkout"
@@ -246,8 +246,8 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.scenario.ts",
     "exportedName": "shopperBuysAnItem",
-    "bodyStart": 13,
-    "bodyEnd": 66,
+    "bodyStart": 15,
+    "bodyEnd": 73,
     "contractHash": "ec991de7ecbf3ec5",
     "inputHash": "c22138d6",
     "outputHash": "7f04e386",
@@ -269,7 +269,7 @@
       "optimized": true,
       "wires": [
         "scenario",
-        "actors"
+        "virtualUsers"
       ]
     },
     "inputSchemaName": null,
@@ -279,7 +279,7 @@
       "ShopperAsksTheAssistantOutput"
     ],
     "scenario": true,
-    "implementationHash": "44fe3aa314a94fe4",
+    "implementationHash": "8214d4e66f96119d",
     "title": "Shopper gets help from the assistant",
     "tags": [
       "agents"
@@ -288,8 +288,8 @@
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.scenario.ts",
     "exportedName": "shopperAsksTheAssistant",
-    "bodyStart": 80,
-    "bodyEnd": 104,
+    "bodyStart": 89,
+    "bodyEnd": 114,
     "contractHash": "5bae8309c7cafd6e",
     "inputHash": "db130ce1",
     "outputHash": "2d895abd",
@@ -309,7 +309,7 @@
       "optimized": true,
       "wires": [
         "scenario",
-        "actors"
+        "virtualUsers"
       ]
     },
     "inputSchemaName": null,
@@ -319,7 +319,7 @@
       "SignedInActorReachesTheAppScenarioOutput"
     ],
     "scenario": true,
-    "implementationHash": "74ca80dca8d35477",
+    "implementationHash": "c5d1786bced1323f",
     "title": "A signed-in user reaches the app",
     "tags": [
       "scenario",
@@ -365,18 +365,18 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "opens {path}",
-    "implementationHash": "7bf881d02774d9c2",
-    "description": "opens an app page as the signed-in actor",
+    "implementationHash": "41dce6a13071f9c2",
+    "description": "opens an app page as the signed-in virtual user",
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/test/scenarios/browser.steps.ts",
     "exportedName": "opensPage",
     "bodyStart": 56,
     "bodyEnd": 65,
-    "contractHash": "edb740c50579fb63",
+    "contractHash": "a185b7285c444aa8",
     "inputHash": "6ef318ba",
-    "outputHash": "cde56954",
+    "outputHash": "2aaa05fb",
     "singletonServicesOnly": true
   },
   "seesText": {
@@ -407,7 +407,7 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "sees {text}",
     "implementationHash": "0502fc8fedaa333c",
     "description": "waits for text to appear on the current page",
@@ -449,9 +449,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "is on {path}",
-    "implementationHash": "93160648033a41e0",
+    "implementationHash": "acaeb63e6e6d470d",
     "description": "asserts the browser came to rest on an app path",
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/test/scenarios/browser.steps.ts",
@@ -491,9 +491,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "every page loads without errors",
-    "implementationHash": "112cd4ec21d00210",
+    "implementationHash": "e397ceb29cfda4e7",
     "description": "visits every static route and fails on any runtime error",
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/test/scenarios/browser.steps.ts",
@@ -533,18 +533,18 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "captures {path} as {name}",
-    "implementationHash": "cd5f36cec984ab37",
-    "description": "screenshots an app page as the signed-in actor",
+    "implementationHash": "afb7b5cfa1674a14",
+    "description": "screenshots an app page as the signed-in virtual user",
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/test/scenarios/browser.steps.ts",
     "exportedName": "capturesPage",
     "bodyStart": 225,
     "bodyEnd": 279,
-    "contractHash": "a1344e5b78ef685e",
+    "contractHash": "e5e7c1e3ecd5e43a",
     "inputHash": "ab2ec9d7",
-    "outputHash": "530b1976",
+    "outputHash": "23c5e5e1",
     "singletonServicesOnly": true
   },
   "clicks": {
@@ -575,9 +575,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "clicks {name}",
-    "implementationHash": "6702bc003c8deec4",
+    "implementationHash": "2690ed6814d411e3",
     "description": "clicks a link or button by its visible label",
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/test/scenarios/browser.steps.ts",
@@ -617,9 +617,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "does not see {text}",
-    "implementationHash": "ae041a7166f5a155",
+    "implementationHash": "30bbde6a9c6f3ae1",
     "description": "asserts text is absent from the current page",
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/test/scenarios/browser.steps.ts",
@@ -659,9 +659,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "clicks {name} next to {near}",
-    "implementationHash": "a83f8a19c9a06187",
+    "implementationHash": "8bcc1c5f83c83a14",
     "description": "clicks a control inside the row or card containing some text",
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/test/scenarios/browser.steps.ts",
@@ -701,9 +701,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "types {text} into {label}",
-    "implementationHash": "516c3f96289a8e79",
+    "implementationHash": "68e0a43f42c2b32d",
     "description": "types text into a field found by its label",
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/test/scenarios/browser.steps.ts",
@@ -743,9 +743,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "posts to {path}",
-    "implementationHash": "7ec7677038d8199d",
+    "implementationHash": "7f8ec8dab0a8b88c",
     "description": "posts to an app route from the signed-in browser",
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/test/scenarios/browser.steps.ts",
@@ -785,9 +785,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "subscribes to {route}",
-    "implementationHash": "27b54f5396f636c3",
+    "implementationHash": "f5d24596ff84b298",
     "description": "opens an app channel and sends its subscribe action",
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/test/scenarios/browser.steps.ts",
@@ -827,10 +827,10 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "calls the {tool} MCP tool",
-    "implementationHash": "b168787400d445b8",
-    "description": "calls an MCP tool with a real MCP client, as the signed-in actor",
+    "implementationHash": "af973d1db1c0066d",
+    "description": "calls an MCP tool with a real MCP client, as the signed-in virtual user",
     "isDirectFunction": false,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/test/scenarios/browser.steps.ts",
     "exportedName": "callsMcpTool",
@@ -857,7 +857,7 @@
       "optimized": true,
       "wires": [
         "scenario",
-        "actors"
+        "virtualUsers"
       ]
     },
     "inputSchemaName": null,
@@ -867,7 +867,7 @@
       "EveryFunctionRunsOutput"
     ],
     "scenario": true,
-    "implementationHash": "55a49508d730265f",
+    "implementationHash": "dfb985c76ac8de6a",
     "title": "Every callable function runs",
     "tags": [
       "scenario",
@@ -898,7 +898,7 @@
       "optimized": true,
       "wires": [
         "scenario",
-        "actors"
+        "virtualUsers"
       ]
     },
     "inputSchemaName": null,
@@ -908,7 +908,7 @@
       "ShopperBuysAnItemInTheBrowserOutput"
     ],
     "scenario": true,
-    "implementationHash": "da51f82294ba7637",
+    "implementationHash": "8fdee6d1cd6cbe01",
     "title": "A shopper fills a basket and checks out",
     "tags": [
       "scenario",
@@ -939,7 +939,7 @@
       "optimized": true,
       "wires": [
         "scenario",
-        "actors"
+        "virtualUsers"
       ]
     },
     "inputSchemaName": null,
@@ -949,7 +949,7 @@
       "EveryPageLoadsScenarioOutput"
     ],
     "scenario": true,
-    "implementationHash": "66603a257dc68d99",
+    "implementationHash": "9a03ba22638f7f23",
     "title": "Every page loads cleanly when signed in",
     "tags": [
       "scenario",
@@ -983,7 +983,7 @@
       "optimized": true,
       "wires": [
         "scenario",
-        "actors"
+        "virtualUsers"
       ]
     },
     "inputSchemaName": null,
@@ -993,7 +993,7 @@
       "CapturesEveryPageScenarioOutput"
     ],
     "scenario": true,
-    "implementationHash": "9d76b97887e7eb70",
+    "implementationHash": "d4c98e0535e216ef",
     "title": "Capture every page for review",
     "tags": [
       "scenario",

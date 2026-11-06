@@ -2,6 +2,7 @@
   "name": "sessionHealthScenario",
   "pikkuFuncId": "sessionHealthScenario",
   "source": "scenario",
+  "scenario": true,
   "title": "Session health (scenario)",
   "tags": [
     "scenario"
@@ -11,15 +12,15 @@
       "nodeId": "step_0",
       "flow": "branch",
       "branches": [],
-      "next": "an actor signs in and reads their session"
+      "next": "a virtual user signs in and reads their session"
     },
-    "an actor signs in and reads their session": {
-      "nodeId": "an actor signs in and reads their session",
+    "a virtual user signs in and reads their session": {
+      "nodeId": "a virtual user signs in and reads their session",
       "rpcName": "getSession",
-      "stepName": "an actor signs in and reads their session",
+      "stepName": "a virtual user signs in and reads their session",
       "next": "step_2",
       "outputVar": "session",
-      "stepHash": "b279c2de8d07"
+      "stepHash": "4e76dbf7e526"
     },
     "step_2": {
       "nodeId": "step_2",
@@ -41,5 +42,5 @@
   "entryNodeIds": [
     "step_0"
   ],
-  "graphHash": "e6fdda9fa66b"
+  "graphHash": "f595583c1ddf"
 }

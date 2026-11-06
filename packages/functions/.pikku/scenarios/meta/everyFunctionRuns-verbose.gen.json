@@ -2,13 +2,14 @@
   "name": "everyFunctionRuns",
   "pikkuFuncId": "everyFunctionRuns",
   "source": "scenario",
+  "scenario": true,
   "title": "Every callable function runs",
   "description": "Invokes each callable function once, so an uncallable one fails loudly",
   "tags": [
     "scenario",
     "coverage"
   ],
-  "actors": [
+  "virtualUsers": [
     "alex",
     "priya",
     "visitor"
@@ -26,7 +27,7 @@
       "stepName": "reads the session",
       "next": "creates a category",
       "outputVar": "session",
-      "stepHash": "faea284ade4f"
+      "stepHash": "39e9ecc226d3"
     },
     "creates a category": {
       "nodeId": "creates a category",
@@ -117,7 +118,7 @@
       "rpcName": "listCategories",
       "stepName": "lists categories",
       "next": "checks availability",
-      "stepHash": "9b75f5032d07"
+      "stepHash": "14f69cd2c270"
     },
     "checks availability": {
       "nodeId": "checks availability",
@@ -138,7 +139,7 @@
       "stepName": "opens a basket",
       "next": "fills it",
       "outputVar": "basket",
-      "stepHash": "fa8e4a4a249a"
+      "stepHash": "49352d8b59f0"
     },
     "fills it": {
       "nodeId": "fills it",
@@ -191,7 +192,7 @@
         "limit": 20,
         "offset": 0
       },
-      "stepHash": "9b8da67aff0f"
+      "stepHash": "998eb4fd5707"
     },
     "runs the sales report": {
       "nodeId": "runs the sales report",
@@ -205,7 +206,7 @@
       "rpcName": "startExport",
       "stepName": "queues an order export",
       "next": "runs the conditional report",
-      "stepHash": "26c757dd23fc"
+      "stepHash": "dfa29debd06b"
     },
     "runs the conditional report": {
       "nodeId": "runs the conditional report",
@@ -226,7 +227,7 @@
       "rpcName": "applyStripeEvent",
       "stepName": "applies a verified stripe event",
       "next": "refunds an order",
-      "actor": "alex",
+      "virtualUser": "alex",
       "input": {
         "type": "payment_intent.succeeded",
         "data": {
@@ -245,7 +246,7 @@
       "rpcName": "startRefund",
       "stepName": "refunds an order",
       "next": "reads item v1",
-      "actor": "priya",
+      "virtualUser": "priya",
       "input": {
         "orderId": "ord_probe",
         "reason": "requested_by_customer"
@@ -257,7 +258,7 @@
       "rpcName": "getItemV1",
       "stepName": "reads item v1",
       "next": "reads item v2",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "itemId": "itm_mug"
       },
@@ -268,7 +269,7 @@
       "rpcName": "getItemV2",
       "stepName": "reads item v2",
       "next": "runs the scheduled sweep",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "itemId": "itm_mug"
       },
@@ -286,7 +287,7 @@
       "rpcName": "getProfile",
       "stepName": "reads the stored profile",
       "next": "calls listCategoriesTool",
-      "actor": "alex",
+      "virtualUser": "alex",
       "stepHash": "2383487ff870"
     },
     "calls listCategoriesTool": {
@@ -295,7 +296,7 @@
       "stepName": "calls listCategoriesTool",
       "scenarioStepPhase": "then",
       "next": "calls listItemsTool",
-      "actor": "alex",
+      "virtualUser": "alex",
       "input": {
         "tool": "listCategoriesTool",
         "args": "{}"
@@ -308,7 +309,7 @@
       "stepName": "calls listItemsTool",
       "scenarioStepPhase": "then",
       "next": "calls getItemTool",
-      "actor": "alex",
+      "virtualUser": "alex",
       "input": {
         "tool": "listItemsTool",
         "args": "{\"limit\":5}"
@@ -321,7 +322,7 @@
       "stepName": "calls getItemTool",
       "scenarioStepPhase": "then",
       "next": "calls getItemForAI",
-      "actor": "alex",
+      "virtualUser": "alex",
       "input": {
         "tool": "getItemTool",
         "args": "{\"itemId\":\"itm_mug\"}"
@@ -334,7 +335,7 @@
       "stepName": "calls getItemForAI",
       "scenarioStepPhase": "then",
       "next": "calls updateStockTool",
-      "actor": "alex",
+      "virtualUser": "alex",
       "input": {
         "tool": "getItemForAI",
         "args": "{\"itemId\":\"itm_mug\"}"
@@ -347,7 +348,7 @@
       "stepName": "calls updateStockTool",
       "scenarioStepPhase": "then",
       "next": "step_26",
-      "actor": "alex",
+      "virtualUser": "alex",
       "input": {
         "tool": "updateStockTool",
         "args": "{\"itemId\":\"itm_mug\",\"stock\":42}"
@@ -368,5 +369,5 @@
   "entryNodeIds": [
     "step_0"
   ],
-  "graphHash": "600607e8681d"
+  "graphHash": "338b368e5e9a"
 }

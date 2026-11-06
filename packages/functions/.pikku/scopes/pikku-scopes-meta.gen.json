@@ -87,6 +87,9 @@
               },
               "manage": {
                 "description": "Delete scenario runs and their artifacts"
+              },
+              "run": {
+                "description": "Start a scenario run against the local copy, as `pikku scenario run` does"
               }
             }
           },
@@ -108,10 +111,10 @@
                 "description": "Read what the virtual users found and every turn they took"
               },
               "run": {
-                "description": "Turn a persona loose on this application"
+                "description": "Turn a virtual user loose on this application"
               },
               "schedule": {
-                "description": "Decide which personas keep using this application on their own"
+                "description": "Decide which virtual users keep using this application on their own"
               }
             }
           },
@@ -190,7 +193,7 @@
             }
           },
           "changes": {
-            "description": "Changes to make to the app — local, or filed by Fabric against the deployed app",
+            "description": "Changes to make to the app — local, or filed by Pikku Studio Cloud against the deployed app",
             "scopes": {
               "read": {
                 "description": "Read the changes queue"
@@ -254,7 +257,7 @@
   "virtualUser": {
     "name": "virtualUser",
     "displayName": "Virtual Users",
-    "description": "Run personas against this application and read what they found",
+    "description": "Run virtual users against this application and read what they found",
     "scopes": {
       "run": {
         "description": "Start a virtual user run"
@@ -263,7 +266,7 @@
         "description": "Read a run's findings"
       },
       "schedule": {
-        "description": "Decide that a persona keeps running on its own"
+        "description": "Decide that a virtual user keeps running on its own"
       }
     },
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/virtual-user/virtual-user.gen.ts",

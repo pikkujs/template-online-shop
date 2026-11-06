@@ -3,7 +3,7 @@ import { pikkuFunc, pikkuSessionlessFunc, ref } from '#pikku/function'
 import { pikkuAgent } from '#pikku/agent'
 import { wireAddon, wireRemoteAddon } from '#pikku/addon'
 import { wireHTTP, wireHTTPRoutes } from '#pikku/http'
-import { defineScreens } from '@pikku/core/addon'
+import { definePlugin } from '@pikku/core/addon'
 import { defineCredential } from '@pikku/core/credential'
 import { defineSecret } from '#pikku/secrets'
 import { executeCLI } from '@pikku/core/cli'
@@ -146,13 +146,14 @@ export const wireAddonExposeInline = () => {
 }
 
 // @snippet start ea-define-screens
-export default defineScreens({
-  title: 'Invoices',
+export default definePlugin({
+  title: 'invoices__title',
   screens: [
     {
       path: '/',
-      title: 'Invoices',
-      nav: true,
+      title: 'invoices__title',
+      scope: 'project',
+      nav: { area: 'project', icon: 'receipt', order: 10 },
       scopes: ['invoices:read'],
       component: () => import('./errors-a.example.js'),
     },
@@ -169,7 +170,7 @@ export const wireAddonWithoutUi = () => {
 
 export const wireAddonWithUi = () => {
   // @snippet start ea-addon-ui
-  // Mounts the screens the package declares with defineScreens
+  // Mounts the screens the package declares with definePlugin
   wireAddon({ name: 'stripe', package: '@pikku/addon-stripe', ui: true })
   // @snippet end ea-addon-ui
 }

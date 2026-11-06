@@ -1,0 +1,1 @@
+{"$schema":"http://json-schema.org/draft-07/schema#","type":"object","properties":{"source":{"type":"string"},"event":{"type":"object","properties":{"name":{"type":"string"},"data":{},"id":{"type":"string"}},"required":["name","data"],"additionalProperties":false},"receiptId":{"type":"string"}},"required":["source","event"],"additionalProperties":false,"definitions":{}}

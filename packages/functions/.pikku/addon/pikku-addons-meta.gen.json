@@ -1,0 +1,421 @@
+{
+  "console": {
+    "package": "@pikku/addon-console",
+    "functions": {
+      "addCatalogEmail": {
+        "expose": true
+      },
+      "addI18nLocale": {
+        "expose": true
+      },
+      "addonReadiness": {
+        "expose": true
+      },
+      "agentCredentialCheck": {
+        "expose": true
+      },
+      "applyTheme": {
+        "expose": true
+      },
+      "commitGitChanges": {
+        "expose": true
+      },
+      "completeStudioChange": {
+        "expose": true
+      },
+      "createStudioChange": {
+        "expose": true
+      },
+      "createTheme": {
+        "expose": true
+      },
+      "deleteAgentThread": {
+        "expose": true
+      },
+      "deleteI18nLocale": {
+        "expose": true
+      },
+      "deleteScenarioRun": {
+        "expose": true
+      },
+      "deleteTheme": {
+        "expose": true
+      },
+      "deleteWorkflowRun": {
+        "expose": true
+      },
+      "extractDesign": {
+        "expose": true
+      },
+      "generateFavicon": {
+        "expose": true
+      },
+      "getAddonCategories": {
+        "expose": true
+      },
+      "getAddonIcon": {
+        "expose": true
+      },
+      "getAddonInstances": {
+        "expose": true
+      },
+      "getAddonMeta": {
+        "expose": true
+      },
+      "getAddonCommunityPackage": {
+        "expose": true
+      },
+      "getAgentRunScores": {
+        "expose": true
+      },
+      "getAgentThreadMessages": {
+        "expose": true
+      },
+      "getAgentThreadRuns": {
+        "expose": true
+      },
+      "getAgentThreads": {
+        "expose": true
+      },
+      "getAllMeta": {
+        "expose": true
+      },
+      "getAuthProviders": {
+        "expose": true
+      },
+      "getChannelSnippets": {
+        "expose": true
+      },
+      "getComponentMeta": {
+        "expose": true
+      },
+      "getDbSchema": {
+        "expose": true
+      },
+      "getDesignServer": {
+        "expose": true
+      },
+      "getEmailCatalog": {
+        "expose": true
+      },
+      "getFileDiagnostics": {
+        "expose": true
+      },
+      "getFunctionsMeta": {
+        "expose": true
+      },
+      "getGitDiff": {
+        "expose": true
+      },
+      "getGitLog": {
+        "expose": true
+      },
+      "getGitStatus": {
+        "expose": true
+      },
+      "getI18n": {
+        "expose": true
+      },
+      "getInstalledAddons": {
+        "expose": true
+      },
+      "getAddonInstalledPackage": {
+        "expose": true
+      },
+      "getJsxProps": {
+        "expose": true
+      },
+      "getKnowledge": {
+        "expose": true
+      },
+      "getMyAccess": {
+        "expose": true
+      },
+      "getOpenapiCategories": {
+        "expose": true
+      },
+      "getOpenapiDetail": {
+        "expose": true
+      },
+      "getOpenapis": {
+        "expose": true
+      },
+      "getPages": {
+        "expose": true
+      },
+      "getScenarioArtifact": {},
+      "getScenarioCoverage": {
+        "expose": true
+      },
+      "getScenarioRun": {
+        "expose": true
+      },
+      "getSchema": {
+        "expose": true
+      },
+      "getScorers": {
+        "expose": true
+      },
+      "getSecurityAudit": {
+        "expose": true
+      },
+      "getStateDiff": {
+        "expose": true
+      },
+      "getStudioHost": {
+        "expose": true
+      },
+      "getSurface": {
+        "expose": true
+      },
+      "getThemePresets": {
+        "expose": true
+      },
+      "getThemeSpec": {
+        "expose": true
+      },
+      "getThemes": {
+        "expose": true
+      },
+      "getUiComponents": {
+        "expose": true
+      },
+      "getVerifyResults": {
+        "expose": true
+      },
+      "getVirtualUserRunSteps": {
+        "expose": true
+      },
+      "getVirtualUserRuns": {
+        "expose": true
+      },
+      "getVirtualUserSchedules": {
+        "expose": true
+      },
+      "getWebhookDelivery": {
+        "expose": true
+      },
+      "getWorkflowMetaById": {
+        "expose": true
+      },
+      "getWorkflowRunHistory": {
+        "expose": true
+      },
+      "getWorkflowRunNames": {
+        "expose": true
+      },
+      "getWorkflowRunSteps": {
+        "expose": true
+      },
+      "getWorkflowRun": {
+        "expose": true
+      },
+      "getWorkflowRuns": {
+        "expose": true
+      },
+      "getWorkflowVersion": {
+        "expose": true
+      },
+      "installAddon": {
+        "expose": true
+      },
+      "installOpenapiAddon": {
+        "expose": true
+      },
+      "listProjectFilePaths": {
+        "expose": true
+      },
+      "listProjectFiles": {
+        "expose": true
+      },
+      "listScenarioRuns": {
+        "expose": true
+      },
+      "listStudioChanges": {
+        "expose": true
+      },
+      "listStudioWishes": {
+        "expose": true
+      },
+      "listWebhookDeliveries": {
+        "expose": true
+      },
+      "ping": {
+        "expose": true
+      },
+      "pullGitChanges": {
+        "expose": true
+      },
+      "pushGitChanges": {
+        "expose": true
+      },
+      "reactToStudioWish": {
+        "expose": true
+      },
+      "readAgentSource": {
+        "expose": true
+      },
+      "readFunctionBody": {
+        "expose": true
+      },
+      "readFunctionSource": {
+        "expose": true
+      },
+      "readProjectFile": {
+        "expose": true
+      },
+      "renderEmailPreview": {
+        "expose": true
+      },
+      "replyToStudioChange": {
+        "expose": true
+      },
+      "runScenarios": {
+        "expose": true
+      },
+      "runSecurityAudit": {
+        "expose": true
+      },
+      "runVerify": {
+        "expose": true
+      },
+      "screenshotPages": {
+        "expose": true
+      },
+      "secretGet": {
+        "expose": true
+      },
+      "secretHas": {
+        "expose": true
+      },
+      "secretSet": {
+        "expose": true
+      },
+      "setActiveTheme": {
+        "expose": true
+      },
+      "setI18nDefaultLocale": {
+        "expose": true
+      },
+      "setStudioChangeStatus": {
+        "expose": true
+      },
+      "setVirtualUserSchedule": {
+        "expose": true
+      },
+      "startVirtualUserRun": {
+        "expose": true
+      },
+      "streamMetaChanges": {},
+      "streamWorkflowRun": {},
+      "syncI18n": {
+        "expose": true
+      },
+      "updateAgentConfig": {
+        "expose": true
+      },
+      "updateDependency": {
+        "expose": true
+      },
+      "updateEmailTemplate": {
+        "expose": true
+      },
+      "updateFunctionBody": {
+        "expose": true
+      },
+      "updateFunctionConfig": {
+        "expose": true
+      },
+      "updateJsxProp": {
+        "expose": true
+      },
+      "updateJsxStyle": {
+        "expose": true
+      },
+      "updateThemeSpec": {
+        "expose": true
+      },
+      "variableGet": {
+        "expose": true
+      },
+      "variableSet": {
+        "expose": true
+      },
+      "writeI18nLocale": {
+        "expose": true
+      },
+      "writeProjectFile": {
+        "expose": true
+      }
+    }
+  },
+  "stripe": {
+    "package": "@pikku/addon-stripe",
+    "functions": {
+      "accountLinkCreate": {},
+      "accountCreate": {},
+      "accountGet": {},
+      "balanceGet": {},
+      "billingPortalSessionCreate": {},
+      "chargeCreate": {},
+      "chargeGet": {},
+      "chargeList": {},
+      "chargeUpdate": {},
+      "checkoutSessionCreate": {},
+      "couponCreate": {},
+      "couponList": {},
+      "customerCardAdd": {},
+      "customerCardGet": {},
+      "customerCardRemove": {},
+      "customerCreate": {},
+      "customerDelete": {},
+      "customerGet": {},
+      "customerList": {},
+      "customerUpdate": {},
+      "invoiceItemCreate": {},
+      "invoiceCreate": {},
+      "invoiceFinalize": {},
+      "invoiceGet": {},
+      "invoiceList": {},
+      "invoicePay": {},
+      "invoiceSend": {},
+      "invoiceVoid": {},
+      "meterEventCreate": {},
+      "paymentIntentCancel": {},
+      "paymentIntentCapture": {},
+      "paymentIntentConfirm": {},
+      "paymentIntentCreate": {},
+      "paymentIntentGet": {},
+      "paymentIntentUpdate": {},
+      "paymentMethodDetach": {},
+      "paymentMethodGet": {},
+      "payoutCreate": {},
+      "priceCreate": {},
+      "priceGet": {},
+      "priceList": {},
+      "priceUpdate": {},
+      "productCreate": {},
+      "productGet": {},
+      "productList": {},
+      "productUpdate": {},
+      "refundCreate": {},
+      "refundGet": {},
+      "refundList": {},
+      "setupIntentCreate": {},
+      "setupIntentGet": {},
+      "sourceCreate": {},
+      "sourceDelete": {},
+      "sourceGet": {},
+      "subscriptionCancel": {},
+      "subscriptionCreate": {},
+      "subscriptionGet": {},
+      "subscriptionUpdate": {},
+      "tokenCreate": {},
+      "transferCreate": {},
+      "stripeWebhookReceive": {},
+      "stripeWebhookCheck": {},
+      "stripeWebhookSetup": {},
+      "stripeWebhookTeardown": {}
+    }
+  }
+}

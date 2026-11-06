@@ -1485,6 +1485,37 @@
       ]
     },
     {
+      "name": "pikku_lease",
+      "source": "pikku-runtime",
+      "origin": "@pikku/kysely's runtime services",
+      "columns": [
+        {
+          "name": "key",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": true
+        },
+        {
+          "name": "holder",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "token",
+          "type": "INTEGER",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "expires_at",
+          "type": "bigint",
+          "nullable": false,
+          "isPrimaryKey": false
+        }
+      ]
+    },
+    {
       "name": "pikku_role_scopes",
       "source": "pikku-runtime",
       "origin": "@pikku/kysely's runtime services",
@@ -1894,7 +1925,7 @@
           "isPrimaryKey": false
         },
         {
-          "name": "actor",
+          "name": "virtual_user",
           "type": "INTEGER",
           "nullable": true,
           "isPrimaryKey": false
@@ -1986,7 +2017,7 @@
           "isPrimaryKey": true
         },
         {
-          "name": "persona",
+          "name": "virtual_user_id",
           "type": "varchar(255)",
           "nullable": false,
           "isPrimaryKey": false
@@ -2144,7 +2175,7 @@
       "origin": "@pikku/kysely's runtime services",
       "columns": [
         {
-          "name": "persona",
+          "name": "virtual_user_id",
           "type": "varchar(255)",
           "nullable": false,
           "isPrimaryKey": true
@@ -2315,6 +2346,67 @@
           "name": "created_at",
           "type": "timestamp",
           "nullable": false,
+          "isPrimaryKey": false
+        }
+      ]
+    },
+    {
+      "name": "webhook_receipt",
+      "source": "pikku-runtime",
+      "origin": "@pikku/kysely's runtime services",
+      "columns": [
+        {
+          "name": "receipt_id",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": true
+        },
+        {
+          "name": "source",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "event",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "provider_event_id",
+          "type": "TEXT",
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "status",
+          "type": "TEXT",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "attempts",
+          "type": "INTEGER",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "last_error",
+          "type": "TEXT",
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp",
+          "nullable": false,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "delivered_at",
+          "type": "timestamp",
+          "nullable": true,
           "isPrimaryKey": false
         }
       ]
@@ -2512,6 +2604,12 @@
         {
           "name": "current_attempt",
           "type": "INTEGER",
+          "nullable": true,
+          "isPrimaryKey": false
+        },
+        {
+          "name": "lease_expires_at",
+          "type": "bigint",
           "nullable": true,
           "isPrimaryKey": false
         }

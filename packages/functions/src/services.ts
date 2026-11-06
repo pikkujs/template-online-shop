@@ -92,7 +92,7 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
 
   // Without a ScopeService no user can hold any scope, so every function that
   // requires one denies everybody — `defineScope`, `defineSystemRole` and the
-  // role grants `pikku persona sync` writes all exist and none of them reach a
+  // role grants `pikku virtual user sync` writes all exist and none of them reach a
   // request. It resolves userId -> roles -> scopes out of the four pikku_* tables.
   //
   // Built as the concrete class rather than the `ScopeService` interface because
@@ -111,7 +111,7 @@ export const createSingletonServices = pikkuServices(async (config, existingServ
   // The definitions in scopes.ts and roles.ts are declarations until something
   // writes them down. Nothing else does, and a role with no row cannot be
   // granted — `addUserToRole` fails the pikku_role_scopes foreign key, which is
-  // how persona provisioning discovers it.
+  // how virtual user provisioning discovers it.
   await scopeService.syncScopes(SCOPES)
   await scopeService.syncSystemRoles(SYSTEM_ROLES)
 

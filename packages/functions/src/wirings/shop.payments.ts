@@ -1,8 +1,5 @@
 import { wireAddon } from '#pikku/addon'
-import { ref } from '#pikku/function'
-import { wireHTTP } from '#pikku/http'
-import { wireQueueWorker } from '#pikku/queue/pikku-queue-types.gen.js'
-import { STRIPE_WEBHOOK_QUEUE } from '@pikku/addon-stripe'
+import { wireTrigger } from '#pikku/trigger'
 import { applyStripeEvent } from '../functions/orders/apply-stripe-event.function.js'
 
 /**
@@ -15,8 +12,8 @@ import { applyStripeEvent } from '../functions/orders/apply-stripe-event.functio
  *
  * `@pikku/addon-stripe` is the payments story. Its webhook receiver verifies the
  * signature against the raw request bytes and `STRIPE_WEBHOOK_SECRET`, publishes
- * the verified event onto a queue, and returns 200 immediately. Mapping an event
- * to this shop's orders happens in the queue worker, where a retry is free and a
+ * the verified event as a trigger, and returns 200 immediately. Mapping an event
+ * to this shop's orders happens in the trigger below, where a retry is free and a
  * slow database does not make Stripe think the endpoint is down.
  *
  * ---------------------------------------------------------------------------
@@ -57,32 +54,16 @@ wireAddon({
 })
 
 /**
- * Stripe's own receiver, on our route.
- *
- * `auth: false` because Stripe has no session — but unlike the hand-rolled
- * route this replaces, it is not unauthenticated: the handler verifies the
- * signature against the raw bytes and `STRIPE_WEBHOOK_SECRET` before it does
- * anything, and publishes onto `stripe-webhook-event` for the worker below.
+ * The addon owns the webhook source: POST /webhooks/stripe verifies the signature
+ * against the raw bytes before it does anything, and `setup` creates the endpoint
+ * at Stripe and stores its signing secret. Each trigger below subscribes to one
+ * `stripe:<event>`.
  */
-wireHTTP({
-  method: 'post',
-  route: '/webhooks/stripe',
-  func: ref('stripe:stripeWebhookHandler'),
-  auth: false,
-})
 
 /**
- * The domain half. The addon deliberately stops at "verified event on a queue"
- * — it knows Stripe, not this shop — so mapping an event to an order is ours.
+ * The domain half. The addon deliberately stops at "verified event" — it knows
+ * Stripe, not this shop — so mapping an event to an order is ours.
  */
-// The literal, not the addon's constant: the inspector reads wiring identity
-// statically from source, and a reference is keyed by its identifier text — the
-// wiring would be silently skipped at runtime (PKU118). The assertion below is
-// what stops the two drifting apart, since the literal is now unchecked.
-const STRIPE_QUEUE: typeof STRIPE_WEBHOOK_QUEUE = 'stripe-webhook-event'
-void STRIPE_QUEUE
-
-wireQueueWorker({
-  name: 'stripe-webhook-event',
-  func: applyStripeEvent,
-})
+wireTrigger({ name: 'stripe:payment_intent.succeeded', func: applyStripeEvent })
+wireTrigger({ name: 'stripe:payment_intent.payment_failed', func: applyStripeEvent })
+wireTrigger({ name: 'stripe:charge.refunded', func: applyStripeEvent })

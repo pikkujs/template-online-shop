@@ -264,6 +264,12 @@ export const classificationManifest = {
       "last_heartbeat": { classification: 'private', anonymize_strategy: null },
       "created_at": { classification: 'private', anonymize_strategy: null }
     },
+    "pikku_lease": {
+      "key": { classification: 'private', anonymize_strategy: null },
+      "holder": { classification: 'private', anonymize_strategy: null },
+      "token": { classification: 'private', anonymize_strategy: null },
+      "expires_at": { classification: 'private', anonymize_strategy: null }
+    },
     "pikku_role_scopes": {
       "role": { classification: 'private', anonymize_strategy: null },
       "scope": { classification: 'private', anonymize_strategy: null }
@@ -336,7 +342,7 @@ export const classificationManifest = {
       "image": { classification: 'private', anonymize_strategy: null },
       "created_at": { classification: 'private', anonymize_strategy: null },
       "updated_at": { classification: 'private', anonymize_strategy: null },
-      "actor": { classification: 'private', anonymize_strategy: null },
+      "virtual_user": { classification: 'private', anonymize_strategy: null },
       "role": { classification: 'private', anonymize_strategy: null },
       "banned": { classification: 'private', anonymize_strategy: null },
       "ban_reason": { classification: 'private', anonymize_strategy: null },
@@ -353,7 +359,7 @@ export const classificationManifest = {
     },
     "virtual_user_run": {
       "run_id": { classification: 'private', anonymize_strategy: null },
-      "persona": { classification: 'private', anonymize_strategy: null },
+      "virtual_user_id": { classification: 'private', anonymize_strategy: null },
       "disposition": { classification: 'private', anonymize_strategy: null },
       "seed": { classification: 'private', anonymize_strategy: null },
       "status": { classification: 'private', anonymize_strategy: null },
@@ -381,7 +387,7 @@ export const classificationManifest = {
       "tokens_out": { classification: 'private', anonymize_strategy: null }
     },
     "virtual_user_schedule": {
-      "persona": { classification: 'private', anonymize_strategy: null },
+      "virtual_user_id": { classification: 'private', anonymize_strategy: null },
       "enabled": { classification: 'private', anonymize_strategy: null },
       "disposition": { classification: 'private', anonymize_strategy: null },
       "goals": { classification: 'private', anonymize_strategy: null },
@@ -411,6 +417,17 @@ export const classificationManifest = {
       "response_body": { classification: 'private', anonymize_strategy: null },
       "error": { classification: 'private', anonymize_strategy: null },
       "created_at": { classification: 'private', anonymize_strategy: null }
+    },
+    "webhook_receipt": {
+      "receipt_id": { classification: 'private', anonymize_strategy: null },
+      "source": { classification: 'private', anonymize_strategy: null },
+      "event": { classification: 'private', anonymize_strategy: null },
+      "provider_event_id": { classification: 'private', anonymize_strategy: null },
+      "status": { classification: 'private', anonymize_strategy: null },
+      "attempts": { classification: 'private', anonymize_strategy: null },
+      "last_error": { classification: 'private', anonymize_strategy: null },
+      "created_at": { classification: 'private', anonymize_strategy: null },
+      "delivered_at": { classification: 'private', anonymize_strategy: null }
     },
     "workflow_runs": {
       "workflow_run_id": { classification: 'private', anonymize_strategy: null },
@@ -444,7 +461,8 @@ export const classificationManifest = {
       "from_step_name": { classification: 'private', anonymize_strategy: null },
       "created_at": { classification: 'private', anonymize_strategy: null },
       "updated_at": { classification: 'private', anonymize_strategy: null },
-      "current_attempt": { classification: 'private', anonymize_strategy: null }
+      "current_attempt": { classification: 'private', anonymize_strategy: null },
+      "lease_expires_at": { classification: 'private', anonymize_strategy: null }
     },
     "workflow_step_history": {
       "history_id": { classification: 'private', anonymize_strategy: null },

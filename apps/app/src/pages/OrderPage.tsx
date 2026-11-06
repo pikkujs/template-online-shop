@@ -83,7 +83,7 @@ export const OrderPage: FC<Props> = ({ orderId }) => {
         <Stack gap="sm">
           {data.items.map((line) => (
             <Group key={line.itemId} justify="space-between" wrap="nowrap">
-              <Text size="sm">{asI18n(`${line.quantity} × ${line.name}`)}</Text>
+              <Text size="sm">{asI18n(String(`${line.quantity} × ${line.name}`))}</Text>
               <Text size="sm" fw={600} style={{ flexShrink: 0 }}>
                 {asI18n(money(line.lineTotalCents))}
               </Text>

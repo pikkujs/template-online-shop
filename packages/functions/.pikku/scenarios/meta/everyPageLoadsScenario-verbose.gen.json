@@ -2,6 +2,7 @@
   "name": "everyPageLoadsScenario",
   "pikkuFuncId": "everyPageLoadsScenario",
   "source": "scenario",
+  "scenario": true,
   "title": "Every page loads cleanly when signed in",
   "description": "The baseline reliability gate — no page errors for a signed-in user",
   "tags": [
@@ -9,7 +10,7 @@
     "pages",
     "smoke"
   ],
-  "actors": [
+  "virtualUsers": [
     "visitor"
   ],
   "nodes": {
@@ -25,7 +26,7 @@
       "stepName": "every page loads without errors",
       "scenarioStepPhase": "then",
       "next": "step_2",
-      "actor": "visitor",
+      "virtualUser": "visitor",
       "input": {
         "repoRoot": "../.."
       },
@@ -47,5 +48,5 @@
   "entryNodeIds": [
     "step_0"
   ],
-  "graphHash": "b2b9adc34290"
+  "graphHash": "f55c365b488b"
 }

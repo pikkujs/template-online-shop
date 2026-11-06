@@ -83,11 +83,11 @@ section a build never starts from.
 
 A milestone note carries its scenario as a fenced ```gherkin block written in the **third
 person** (`Given 'owner' …`, never `Given I …`), because the scenario runs AS someone. A
-quoted word in a step MEANS a persona, wherever it sits in the sentence — so quote only
-declared personas and write domain values bare.
+quoted word in a step MEANS a virtual user, wherever it sits in the sentence — so quote only
+declared virtual users and write domain values bare.
 
-There is no `personas/`: the people live in `pikku.config.json`, put there by
-`fabric persona`, because they are the same personas pikku materialises scenario actors
+There is no `virtual-users/` folder: the people live in `pikku.config.json`, put there by
+`pikku virtual-user`, because they are the same virtual users pikku materialises scenario virtual users
 from. There is no `scenarios/` or `permissions/` either — a milestone note carries its own
 scenario and the rule it enforces.
 

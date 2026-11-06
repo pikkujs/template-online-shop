@@ -1,4 +1,5 @@
-import { asI18n } from '@/i18n/messages'
+import { asI18nStub } from '@pikku/react'
+
 import type { AppStory, AppStoryMeta } from './csf.types'
 import { AuthCard } from './AuthCard'
 
@@ -26,16 +27,16 @@ export default {
 } satisfies AppStoryMeta
 
 const base = {
-  appName: asI18n('Acme'),
-  title: asI18n('Welcome back'),
-  description: asI18n('Sign in to continue.'),
-  cta: asI18n('Sign in'),
+  appName: asI18nStub('Acme'),
+  title: asI18nStub('Welcome back'),
+  description: asI18nStub('Sign in to continue.'),
+  cta: asI18nStub('Sign in'),
   passwordAutoComplete: 'current-password' as const,
   error: null,
   googleBusy: false,
   busy: false,
-  footer: asI18n('New here? Create an account'),
-  secondaryAction: asI18n('Forgot your password?'),
+  footer: asI18nStub('New here? Create an account'),
+  secondaryAction: asI18nStub('Forgot your password?'),
   onAuthSubmit: () => {},
   onGoogle: () => {},
 }
@@ -46,19 +47,19 @@ export const Submitting: AppStory = { tag: 'signIn: pending', args: { ...base, b
 
 export const Rejected: AppStory = {
   tag: 'signIn: error',
-  args: { ...base, error: asI18n('That email and password do not match.') },
+  args: { ...base, error: asI18nStub('That email and password do not match.') },
 }
 
 export const SignUp: AppStory = {
   tag: 'signIn: idle (sign-up)',
   args: {
     ...base,
-    title: asI18n('Create your account'),
-    description: asI18n('Start your free trial.'),
-    cta: asI18n('Create account'),
+    title: asI18nStub('Create your account'),
+    description: asI18nStub('Start your free trial.'),
+    cta: asI18nStub('Create account'),
     includeName: true,
     passwordAutoComplete: 'new-password' as const,
-    footer: asI18n('Already have an account? Sign in'),
+    footer: asI18nStub('Already have an account? Sign in'),
     secondaryAction: undefined,
   },
 }

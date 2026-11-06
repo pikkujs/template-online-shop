@@ -41,16 +41,18 @@
     "virtualUserPlatformSession": {
       "services": {
         "optimized": true,
-        "services": []
+        "services": [
+          "auth"
+        ]
       },
       "wires": {
         "optimized": true,
         "wires": [
-          "setSession"
+          "setInitialSession"
         ]
       },
       "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/virtual-user/virtual-user.gen.ts",
-      "position": 9354,
+      "position": 9756,
       "exportedName": "virtualUserPlatformSession"
     },
     "timingMiddleware": {
@@ -106,7 +108,7 @@
         {
           "exportName": null,
           "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
-          "position": 3402,
+          "position": 3444,
           "isFactory": false
         }
       ]
@@ -114,7 +116,7 @@
     "/orders": {
       "exportName": null,
       "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.http.ts",
-      "position": 3647,
+      "position": 3689,
       "services": {
         "optimized": false,
         "services": []

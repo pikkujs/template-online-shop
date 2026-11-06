@@ -12,7 +12,7 @@
       "SessionHealthScenarioOutput"
     ],
     "scenario": true,
-    "implementationHash": "17f0bbd4dde1ce02",
+    "implementationHash": "ecbe4c89af3fa850",
     "contractHash": "b28a58eb62a2c6fd",
     "inputHash": "bd605e05",
     "outputHash": "a130cbe6",
@@ -132,7 +132,7 @@
       "ShopperBuysAnItemOutput"
     ],
     "scenario": true,
-    "implementationHash": "4717e77a8fba4ce8",
+    "implementationHash": "88095e193b9e042d",
     "contractHash": "ec991de7ecbf3ec5",
     "inputHash": "c22138d6",
     "outputHash": "7f04e386",
@@ -151,7 +151,7 @@
       "ShopperAsksTheAssistantOutput"
     ],
     "scenario": true,
-    "implementationHash": "44fe3aa314a94fe4",
+    "implementationHash": "8214d4e66f96119d",
     "contractHash": "5bae8309c7cafd6e",
     "inputHash": "db130ce1",
     "outputHash": "2d895abd",
@@ -170,7 +170,7 @@
       "SignedInActorReachesTheAppScenarioOutput"
     ],
     "scenario": true,
-    "implementationHash": "74ca80dca8d35477",
+    "implementationHash": "c5d1786bced1323f",
     "contractHash": "bcac1c5e71fc7071",
     "inputHash": "bea55478",
     "outputHash": "5e03efd8",
@@ -194,12 +194,12 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "opens {path}",
-    "implementationHash": "7bf881d02774d9c2",
-    "contractHash": "edb740c50579fb63",
+    "implementationHash": "41dce6a13071f9c2",
+    "contractHash": "a185b7285c444aa8",
     "inputHash": "6ef318ba",
-    "outputHash": "cde56954",
+    "outputHash": "2aaa05fb",
     "singletonServicesOnly": true
   },
   "seesText": {
@@ -220,7 +220,7 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "sees {text}",
     "implementationHash": "0502fc8fedaa333c",
     "contractHash": "2ecfd4a1af1eed76",
@@ -246,9 +246,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "is on {path}",
-    "implementationHash": "93160648033a41e0",
+    "implementationHash": "acaeb63e6e6d470d",
     "contractHash": "31caec930ea7e893",
     "inputHash": "76a2ed38",
     "outputHash": "b28b5f54",
@@ -272,9 +272,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "every page loads without errors",
-    "implementationHash": "112cd4ec21d00210",
+    "implementationHash": "e397ceb29cfda4e7",
     "contractHash": "b9775d597942be0b",
     "inputHash": "7012a113",
     "outputHash": "87f44271",
@@ -298,12 +298,12 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "captures {path} as {name}",
-    "implementationHash": "cd5f36cec984ab37",
-    "contractHash": "a1344e5b78ef685e",
+    "implementationHash": "afb7b5cfa1674a14",
+    "contractHash": "e5e7c1e3ecd5e43a",
     "inputHash": "ab2ec9d7",
-    "outputHash": "530b1976",
+    "outputHash": "23c5e5e1",
     "singletonServicesOnly": true
   },
   "clicks": {
@@ -324,9 +324,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "clicks {name}",
-    "implementationHash": "6702bc003c8deec4",
+    "implementationHash": "2690ed6814d411e3",
     "contractHash": "b29f371920e321e6",
     "inputHash": "41313a54",
     "outputHash": "b73b0c52",
@@ -350,9 +350,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "does not see {text}",
-    "implementationHash": "ae041a7166f5a155",
+    "implementationHash": "30bbde6a9c6f3ae1",
     "contractHash": "ad77445e29acd38f",
     "inputHash": "16b5bda2",
     "outputHash": "e19dd522",
@@ -376,9 +376,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "clicks {name} next to {near}",
-    "implementationHash": "a83f8a19c9a06187",
+    "implementationHash": "8bcc1c5f83c83a14",
     "contractHash": "4a42ea04a5ae4799",
     "inputHash": "502e02fc",
     "outputHash": "a846d399",
@@ -402,9 +402,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "types {text} into {label}",
-    "implementationHash": "516c3f96289a8e79",
+    "implementationHash": "68e0a43f42c2b32d",
     "contractHash": "47b49a4d591b1a8f",
     "inputHash": "704b38cc",
     "outputHash": "0a127c58",
@@ -428,9 +428,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "posts to {path}",
-    "implementationHash": "7ec7677038d8199d",
+    "implementationHash": "7f8ec8dab0a8b88c",
     "contractHash": "73ad8d18ab5aa637",
     "inputHash": "024a7b17",
     "outputHash": "254eca7c",
@@ -454,9 +454,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "subscribes to {route}",
-    "implementationHash": "27b54f5396f636c3",
+    "implementationHash": "f5d24596ff84b298",
     "contractHash": "c6993df825994c89",
     "inputHash": "bae9de57",
     "outputHash": "6ea80919",
@@ -480,9 +480,9 @@
     "scenarioStepSurfaces": [
       "browser"
     ],
-    "scenarioStepRequiresActor": true,
+    "scenarioStepRequiresVirtualUser": true,
     "scenarioStepTemplate": "calls the {tool} MCP tool",
-    "implementationHash": "b168787400d445b8",
+    "implementationHash": "af973d1db1c0066d",
     "contractHash": "4d1095c402284bf1",
     "inputHash": "f2e8172a",
     "outputHash": "5ecd0034",
@@ -501,7 +501,7 @@
       "EveryFunctionRunsOutput"
     ],
     "scenario": true,
-    "implementationHash": "55a49508d730265f",
+    "implementationHash": "dfb985c76ac8de6a",
     "contractHash": "09ff5e63357ff1e4",
     "inputHash": "588222a5",
     "outputHash": "c7a53e2a",
@@ -520,7 +520,7 @@
       "ShopperBuysAnItemInTheBrowserOutput"
     ],
     "scenario": true,
-    "implementationHash": "da51f82294ba7637",
+    "implementationHash": "8fdee6d1cd6cbe01",
     "contractHash": "86c6ff001855265a",
     "inputHash": "8b13350f",
     "outputHash": "9adb2911",
@@ -539,7 +539,7 @@
       "EveryPageLoadsScenarioOutput"
     ],
     "scenario": true,
-    "implementationHash": "66603a257dc68d99",
+    "implementationHash": "9a03ba22638f7f23",
     "contractHash": "c9ed3a193312a2f6",
     "inputHash": "8db7c3cf",
     "outputHash": "b5aed092",
@@ -558,7 +558,7 @@
       "CapturesEveryPageScenarioOutput"
     ],
     "scenario": true,
-    "implementationHash": "9d76b97887e7eb70",
+    "implementationHash": "d4c98e0535e216ef",
     "contractHash": "39556a8f17d52fd0",
     "inputHash": "1b1e7272",
     "outputHash": "87089750",

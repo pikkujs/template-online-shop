@@ -222,6 +222,11 @@
         "seenIn": [],
         "files": []
       },
+      "AgentOutputValidationError": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
       "AIProviderAuthError": {
         "imports": 0,
         "seenIn": [],
@@ -787,11 +792,6 @@
         "seenIn": [],
         "files": []
       },
-      "TypedPersonas": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
-      },
       "TypedScenario": {
         "imports": 0,
         "seenIn": [],
@@ -801,9 +801,19 @@
         "imports": 0,
         "seenIn": [],
         "files": []
+      },
+      "TypedVirtualUsers": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
       }
     },
     "#pikku/addon/scopes": {
+      "DeclaredFlag": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
       "defineFeatureFlags": {
         "imports": 0,
         "seenIn": [],
@@ -1240,6 +1250,43 @@
         ]
       }
     },
+    "#pikku/contributor": {
+      "Contributor": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "ContributorBindingSource": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "ContributorDb": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "ContributorPlatform": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "ContributorTarget": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "ContributorVariants": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "defineContributors": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      }
+    },
     "#pikku/db": {
       "DB": {
         "imports": 2,
@@ -1254,6 +1301,11 @@
     },
     "#pikku/error": {
       "addError": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "AgentOutputValidationError": {
         "imports": 0,
         "seenIn": [],
         "files": []
@@ -1622,13 +1674,9 @@
         ]
       },
       "ref": {
-        "imports": 1,
-        "seenIn": [
-          "@project/functions"
-        ],
-        "files": [
-          "packages/functions/src/wirings/shop.payments.ts"
-        ]
+        "imports": 0,
+        "seenIn": [],
+        "files": []
       },
       "refChannel": {
         "imports": 0,
@@ -1719,7 +1767,7 @@
         ]
       },
       "wireHTTP": {
-        "imports": 6,
+        "imports": 5,
         "seenIn": [
           "@project/functions"
         ],
@@ -1728,8 +1776,7 @@
           "packages/functions/src/wirings/checkout.workflow.ts",
           "packages/functions/src/wirings/shop.bot.ts",
           "packages/functions/src/wirings/shop.delete-order.http.ts",
-          "packages/functions/src/wirings/shop.http.ts",
-          "packages/functions/src/wirings/shop.payments.ts"
+          "packages/functions/src/wirings/shop.http.ts"
         ]
       },
       "wireHTTPRoutes": {
@@ -1889,12 +1936,11 @@
     },
     "#pikku/queue": {
       "wireQueueWorker": {
-        "imports": 2,
+        "imports": 1,
         "seenIn": [
           "@project/functions"
         ],
         "files": [
-          "packages/functions/src/wirings/shop.payments.ts",
           "packages/functions/src/wirings/shop.queue.ts"
         ]
       }
@@ -1907,24 +1953,6 @@
         ],
         "files": [
           "packages/functions/src/wirings/shop.scenario-steps.ts"
-        ]
-      },
-      "personaConfigs": {
-        "imports": 1,
-        "seenIn": [
-          "@project/functions"
-        ],
-        "files": [
-          "packages/functions/src/auth.ts"
-        ]
-      },
-      "personaEnvironments": {
-        "imports": 1,
-        "seenIn": [
-          "@project/functions"
-        ],
-        "files": [
-          "packages/functions/src/auth.ts"
         ]
       },
       "pikkuAddonScenarioStep": {
@@ -2073,11 +2101,6 @@
         "seenIn": [],
         "files": []
       },
-      "TypedPersonas": {
-        "imports": 0,
-        "seenIn": [],
-        "files": []
-      },
       "TypedScenario": {
         "imports": 0,
         "seenIn": [],
@@ -2087,6 +2110,20 @@
         "imports": 0,
         "seenIn": [],
         "files": []
+      },
+      "TypedVirtualUsers": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
+      },
+      "virtualUserList": {
+        "imports": 1,
+        "seenIn": [
+          "@project/functions"
+        ],
+        "files": [
+          "packages/functions/src/auth.ts"
+        ]
       }
     },
     "#pikku/scheduler": {
@@ -2102,19 +2139,15 @@
       }
     },
     "#pikku/scopes": {
-      "defineFeatureFlags": {
+      "DeclaredFlag": {
         "imports": 0,
         "seenIn": [],
         "files": []
       },
-      "definePersonas": {
-        "imports": 1,
-        "seenIn": [
-          "@project/functions"
-        ],
-        "files": [
-          "packages/functions/src/personas.virtual-user.ts"
-        ]
+      "defineFeatureFlags": {
+        "imports": 0,
+        "seenIn": [],
+        "files": []
       },
       "defineScope": {
         "imports": 1,
@@ -2132,6 +2165,15 @@
         ],
         "files": [
           "packages/functions/src/roles.ts"
+        ]
+      },
+      "defineVirtualUsers": {
+        "imports": 1,
+        "seenIn": [
+          "@project/functions"
+        ],
+        "files": [
+          "packages/functions/src/shop.virtual-user.ts"
         ]
       },
       "FeatureFlagName": {
@@ -2230,11 +2272,12 @@
         "files": []
       },
       "wireTrigger": {
-        "imports": 1,
+        "imports": 2,
         "seenIn": [
           "@project/functions"
         ],
         "files": [
+          "packages/functions/src/wirings/shop.payments.ts",
           "packages/functions/src/wirings/shop.trigger.ts"
         ]
       },

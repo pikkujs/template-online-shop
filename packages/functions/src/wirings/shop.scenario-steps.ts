@@ -39,7 +39,7 @@ export const stripeReportsPayment = pikkuAddonScenarioStep<
 
 // @snippet start platformScenarioStep
 // A step in which the app acts on itself. The subject of "the shop ships the
-// order" is the app, not a user of it, so there is no actor.
+// order" is the app, not a user of it, so there is no virtualUser.
 export const shipsTheOrder = pikkuPlatformScenarioStep<{ orderId: string }, { orderId: string }>({
   name: 'shipsTheOrder',
   description: 'ships an order, which is what tells the shopper it is on its way',
@@ -55,10 +55,10 @@ export const shipsTheOrder = pikkuPlatformScenarioStep<{ orderId: string }, { or
 // Empties the basket before the assistant is asked to fill it. Without this,
 // a basket a previous run left full would satisfy "the basket has the mug"
 // whether or not the assistant did anything.
-export const emptiesTheBasket = pikkuScenarioHook(async (_services, _data, { actors }) => {
-  const basket = await actors.shopper.invoke('getBasket', {})
+export const emptiesTheBasket = pikkuScenarioHook(async (_services, _data, { virtualUsers }) => {
+  const basket = await virtualUsers.shopper.invoke('getBasket', {})
   for (const item of basket.items) {
-    await actors.shopper.invoke('removeFromBasket', {
+    await virtualUsers.shopper.invoke('removeFromBasket', {
       basketId: basket.basketId,
       itemId: item.itemId,
     })

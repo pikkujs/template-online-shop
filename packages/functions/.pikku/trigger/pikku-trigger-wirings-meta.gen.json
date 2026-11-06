@@ -1,4 +1,16 @@
 {
+  "stripe:payment_intent.succeeded": {
+    "pikkuFuncId": "applyStripeEvent",
+    "name": "stripe:payment_intent.succeeded"
+  },
+  "stripe:payment_intent.payment_failed": {
+    "pikkuFuncId": "applyStripeEvent",
+    "name": "stripe:payment_intent.payment_failed"
+  },
+  "stripe:charge.refunded": {
+    "pikkuFuncId": "applyStripeEvent",
+    "name": "stripe:charge.refunded"
+  },
   "low-stock": {
     "pikkuFuncId": "onLowStock",
     "name": "low-stock"

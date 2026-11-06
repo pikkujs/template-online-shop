@@ -93,8 +93,8 @@ export const AccountPage: FC = () => {
                 <Avatar size={24} radius="xl" style={{ flexShrink: 0 }}>
                   {asI18n(initials(session.data.name, session.data.email))}
                 </Avatar>
-                {/* `truncate` and a shrinkable box, because the seeded persona
-                    flatters this. `visitor@actors.local` is 20 characters and at
+                {/* `truncate` and a shrinkable box, because the seeded virtual user
+                    flatters this. `visitor@virtualUsers.local` is 20 characters and at
                     320px the box holds 23, so a real
                     `firstname.lastname@company.com` overruns it — and without
                     these the overrun is silent: the Group has `overflow: visible`

@@ -38,6 +38,24 @@
       "sse": true,
       "requiresSession": false
     },
+    "/meta/stream": {
+      "pikkuFuncId": "console:streamMetaChanges",
+      "route": "/meta/stream",
+      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/scaffold/console/console.gen.ts",
+      "method": "get",
+      "auth": true,
+      "tags": [
+        "pikku"
+      ],
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        }
+      ],
+      "sse": true,
+      "requiresSession": true
+    },
     "/scenario-run/:runId/artifact": {
       "pikkuFuncId": "console:getScenarioArtifact",
       "route": "/scenario-run/:runId/artifact",
@@ -255,6 +273,23 @@
     }
   },
   "post": {
+    "/webhooks/stripe": {
+      "pikkuFuncId": "http:post:/webhooks/stripe",
+      "route": "/webhooks/stripe",
+      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/.pikku/webhooks/pikku-webhook-sources.gen.ts",
+      "method": "post",
+      "auth": false,
+      "tags": [
+        "pikku"
+      ],
+      "middleware": [
+        {
+          "type": "http",
+          "route": "*"
+        }
+      ],
+      "requiresSession": false
+    },
     "/rpc/agent/:agentName": {
       "pikkuFuncId": "agentCaller",
       "route": "/rpc/agent/:agentName",
@@ -673,20 +708,6 @@
         }
       ],
       "requiresSession": true
-    },
-    "/webhooks/stripe": {
-      "pikkuFuncId": "stripe:stripeWebhookHandler",
-      "route": "/webhooks/stripe",
-      "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.payments.ts",
-      "method": "post",
-      "auth": false,
-      "middleware": [
-        {
-          "type": "http",
-          "route": "*"
-        }
-      ],
-      "requiresSession": false
     }
   },
   "put": {},

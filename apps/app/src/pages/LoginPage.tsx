@@ -5,7 +5,7 @@ import { useMutation } from '@tanstack/react-query'
 import { m } from '@/i18n/messages'
 import { useLocale } from '@/i18n/config'
 import { AuthCard, type AuthFormValues } from '@/components/AuthCard'
-import { DevActorSwitcher } from '@/components/DevActorSwitcher'
+import { DevVirtualUserSwitcher } from '@/components/DevVirtualUserSwitcher'
 import { INVALID_CREDENTIALS, signInWithGoogle, signInWithPassword } from '@/lib/auth'
 
 export const LoginPage: FC = () => {
@@ -55,7 +55,7 @@ export const LoginPage: FC = () => {
           </>
         }
       />
-      <DevActorSwitcher />
+      <DevVirtualUserSwitcher />
     </>
   )
 }

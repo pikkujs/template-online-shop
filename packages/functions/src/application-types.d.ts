@@ -15,6 +15,8 @@ export interface UserSession extends CoreUserSession {
    * page shows.
    */
   role: 'customer' | 'support' | 'admin'
+  /** The user's language, for anything the server writes for them. */
+  locale?: string
 }
 
 export interface Config extends CoreConfig {

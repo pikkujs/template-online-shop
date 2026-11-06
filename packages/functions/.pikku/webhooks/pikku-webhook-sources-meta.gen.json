@@ -1,1 +1,12 @@
-{}
+{
+  "stripe": {
+    "name": "stripe",
+    "method": "post",
+    "route": "/webhooks/stripe",
+    "events": [],
+    "receive": "stripe:stripeWebhookReceive",
+    "check": "stripe:stripeWebhookCheck",
+    "setup": "stripe:stripeWebhookSetup",
+    "teardown": "stripe:stripeWebhookTeardown"
+  }
+}

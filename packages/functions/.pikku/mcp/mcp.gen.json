@@ -9,6 +9,7 @@
         "items": {
           "$ref": "#/definitions/MCPToolMessage"
         },
+        "description": "What an MCP tool function may return to control its content parts directly; any other output is sent as JSON text.",
         "definitions": {
           "MCPToolMessage": {
             "anyOf": [
@@ -80,6 +81,7 @@
         "items": {
           "$ref": "#/definitions/MCPToolMessage"
         },
+        "description": "What an MCP tool function may return to control its content parts directly; any other output is sent as JSON text.",
         "definitions": {
           "MCPToolMessage": {
             "anyOf": [
@@ -145,6 +147,7 @@
         "items": {
           "$ref": "#/definitions/MCPToolMessage"
         },
+        "description": "What an MCP tool function may return to control its content parts directly; any other output is sent as JSON text.",
         "definitions": {
           "MCPToolMessage": {
             "anyOf": [
@@ -210,6 +213,7 @@
         "items": {
           "$ref": "#/definitions/MCPToolMessage"
         },
+        "description": "What an MCP tool function may return to control its content parts directly; any other output is sent as JSON text.",
         "definitions": {
           "MCPToolMessage": {
             "anyOf": [
@@ -279,6 +283,7 @@
         "items": {
           "$ref": "#/definitions/MCPToolMessage"
         },
+        "description": "What an MCP tool function may return to control its content parts directly; any other output is sent as JSON text.",
         "definitions": {
           "MCPToolMessage": {
             "anyOf": [

@@ -71,6 +71,18 @@
           "packageName": "@pikku/addon-console"
         }
       },
+      "metaChangesStream": {
+        "auth": true,
+        "contentType": null,
+        "method": "get",
+        "route": "/meta/stream",
+        "sse": true,
+        "timeout": null,
+        "func": {
+          "pikkuFuncId": "console:streamMetaChanges",
+          "packageName": "@pikku/addon-console"
+        }
+      },
       "scenarioArtifact": {
         "auth": true,
         "contentType": null,

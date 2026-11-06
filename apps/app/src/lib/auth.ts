@@ -79,33 +79,25 @@ export async function registerWithPassword(
   }
 }
 
-// Scenario personas exposed by the sandbox dev server (empty in production, where
-// none of the VITE_DEV_* vars are set). Powers the dev-only "Sign in as" switcher.
-export type DevActor = { key: string; email: string; name: string; jobTitle: string }
-export function devActors(): DevActor[] {
-  const raw = import.meta.env.VITE_DEV_ACTORS
-  if (!import.meta.env.DEV || typeof raw !== 'string') return []
-  try {
-    const parsed = JSON.parse(raw)
-    return Array.isArray(parsed) ? parsed : []
-  } catch (error) {
-    console.error('Failed to parse VITE_DEV_ACTORS', error)
-    return []
-  }
+// The virtual users the "Sign in as" switcher may offer. The server decides: it
+// lists nothing outside `pikku dev`, or a stage that has opted in.
+export type DevVirtualUser = { id: string; name: string; jobTitle: string | null }
+export async function devVirtualUsers(): Promise<DevVirtualUser[]> {
+  const res = await fetch(`${apiUrl()}/auth/sign-in/virtual-users`, { credentials: 'include' })
+  if (!res.ok) return []
+  const { virtualUsers } = (await res.json()) as { virtualUsers: DevVirtualUser[] }
+  return virtualUsers
 }
 
-// Sign in as a scenario actor via Better Auth's actor endpoint — no password,
-// using the shared secret the sandbox dev server injects. Dev-only.
-export async function signInAsActor(email: string): Promise<void> {
-  const secret = import.meta.env.VITE_SCENARIO_ACTOR_SECRET
-  if (!secret) throw new Error('Actor sign-in is unavailable')
-  const res = await fetch(`${apiUrl()}/auth/sign-in/actor`, {
+// Sign in as a virtual user by id, with no password. The server resolves the rest.
+export async function signInAsVirtualUser(id: string): Promise<void> {
+  const res = await fetch(`${apiUrl()}/auth/sign-in/switch-virtual-user`, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
-    body: JSON.stringify({ email, secret }),
+    body: JSON.stringify({ id }),
   })
-  if (!res.ok) throw new Error('Unable to sign in as actor')
+  if (!res.ok) throw new Error('Unable to sign in as virtual user')
 }
 
 // Continue with Google. Better Auth redirects the browser to the provider and

@@ -1,4 +1,5 @@
-import { asI18n } from '@/i18n/messages'
+import { asI18nStub } from '@pikku/react'
+
 import type { Story, StoryMeta } from './csf.types'
 import { Wordmark } from './Wordmark'
 
@@ -13,8 +14,8 @@ export default {
   },
 } satisfies StoryMeta
 
-export const Default: Story = { args: { name: asI18n('Acme') } }
+export const Default: Story = { args: { name: asI18nStub('Acme') } }
 
-export const Large: Story = { args: { name: asI18n('Acme'), size: 48 } }
+export const Large: Story = { args: { name: asI18nStub('Acme'), size: 48 } }
 
-export const LongName: Story = { args: { name: asI18n('Northwind Logistics') } }
+export const LongName: Story = { args: { name: asI18nStub('Northwind Logistics') } }

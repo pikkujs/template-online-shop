@@ -2,6 +2,7 @@
   "name": "shopperBuysAnItem",
   "pikkuFuncId": "shopperBuysAnItem",
   "source": "scenario",
+  "scenario": true,
   "title": "Shopper buys an item",
   "description": "Browse the catalogue, fill a basket and pay for an order.",
   "tags": [
@@ -20,7 +21,7 @@
       "stepName": "Shopper opens their basket",
       "next": "Shopper browses the catalogue",
       "outputVar": "basket",
-      "stepHash": "175cf333fa5b"
+      "stepHash": "9fe83838e05d"
     },
     "Shopper browses the catalogue": {
       "nodeId": "Shopper browses the catalogue",
@@ -31,7 +32,7 @@
         "search": "mug"
       },
       "outputVar": "catalogue",
-      "stepHash": "24da124677d3"
+      "stepHash": "524de6019dd4"
     },
     "step_3": {
       "nodeId": "step_3",
@@ -107,5 +108,5 @@
   "entryNodeIds": [
     "step_0"
   ],
-  "graphHash": "d3285ca7d507"
+  "graphHash": "de1434d02df4"
 }

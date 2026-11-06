@@ -4,16 +4,12 @@
   "providers": [],
   "plugins": [
     {
-      "id": "pikkuActor",
-      "displayName": "Actor"
+      "id": "pikkuVirtualUser",
+      "displayName": "VirtualUser"
     },
     {
       "id": "pikkuBan",
       "displayName": "Ban"
-    },
-    {
-      "id": "pikkuFabric",
-      "displayName": "Fabric"
     }
   ]
 }

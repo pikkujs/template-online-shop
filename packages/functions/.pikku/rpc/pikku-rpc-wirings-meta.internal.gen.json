@@ -69,7 +69,6 @@
   "subscribeToOrder": "subscribeToOrder",
   "unsubscribeFromOrder": "unsubscribeFromOrder",
   "notifyOrderShipped": "notifyOrderShipped",
-  "deliveryLocation": "deliveryLocation",
   "conditionalReport": "conditionalReport",
   "listCategoriesTool": "listCategoriesTool",
   "listItemsTool": "listItemsTool",

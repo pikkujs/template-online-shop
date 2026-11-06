@@ -67,12 +67,22 @@
     "schema": "VariableSchema_lowStockThreshold",
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.variable.ts"
   },
-  "scenarioActorSecret": {
-    "name": "scenarioActorSecret",
-    "displayName": "Scenario Actor Secret",
-    "description": "Impersonation secret for `pikku scenario run` actors. Leave unset to disable actor sign-in",
-    "variableId": "SCENARIO_ACTOR_SECRET",
-    "schema": "VariableSchema_scenarioActorSecret",
+  "virtualUserVerifyKey": {
+    "name": "virtualUserVerifyKey",
+    "displayName": "Virtual User Verify Key",
+    "description": "Public key that checks the signed statements callers outside the app present to sign in as a virtual user. Leave unset to refuse them.",
+    "variableId": "VIRTUAL_USER_VERIFY_KEY",
+    "schema": "VariableSchema_virtualUserVerifyKey",
+    "optional": true,
+    "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.variable.ts"
+  },
+  "seedDemoData": {
+    "name": "seedDemoData",
+    "displayName": "Seed Demo Data",
+    "description": "Set to `true` to load the sample catalogue on startup",
+    "variableId": "SEED_DEMO_DATA",
+    "schema": "VariableSchema_seedDemoData",
+    "optional": true,
     "sourceFile": "/Users/yasser/git/pikku/website/.template-online-shop/packages/functions/src/wirings/shop.variable.ts"
   },
   "betterAuthUrl": {

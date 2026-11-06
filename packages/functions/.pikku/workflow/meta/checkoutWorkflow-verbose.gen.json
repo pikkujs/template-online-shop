@@ -41,7 +41,7 @@
         }
       },
       "outputVar": "order",
-      "stepHash": "d9f5259769a2"
+      "stepHash": "6b13dbe4e534"
     },
     "Process payment": {
       "nodeId": "Process payment",
@@ -63,7 +63,7 @@
         }
       },
       "outputVar": "payment",
-      "stepHash": "8805e3ccda04"
+      "stepHash": "4b23501abd50"
     },
     "Finalize": {
       "nodeId": "Finalize",
@@ -114,7 +114,7 @@
   "entryNodeIds": [
     "Validate basket"
   ],
-  "graphHash": "3ccc0acaecea",
+  "graphHash": "ad18b1b30f13",
   "deterministic": true,
   "plannedSteps": [
     {
