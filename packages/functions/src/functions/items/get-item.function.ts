@@ -40,51 +40,26 @@ export const getItemV1 = pikkuSessionlessFunc({
 })
 
 // v2 — adds stock and imageUrl to the response
+// @snippet start getItem
 export const getItemV2 = pikkuSessionlessFunc({
   expose: true,
   version: 2,
-  input: GetItemInput,
-  output: GetItemOutput,
-  func: async ({ kysely }, { itemId }) => {
-    // @snippet hide
-    const row = await kysely
-      .selectFrom('item')
-      .innerJoin('category', 'category.categoryId', 'item.categoryId')
-      .select([
-        'item.itemId', 'item.name', 'item.slug', 'item.description',
-        'item.priceCents', 'item.stock', 'item.imageUrl', 'item.isActive',
-        'item.createdAt', 'item.updatedAt',
-        'category.categoryId', 'category.name as categoryName', 'category.slug as categorySlug',
-      ])
-      .where('item.itemId', '=', itemId)
-      .executeTakeFirstOrThrow()
-    return {
-      ...row,
-      category: { categoryId: row.categoryId, name: row.categoryName, slug: row.categorySlug },
-    }
-    // @snippet show
-  },
-})
-// @snippet end shopVersionedItem
-
-// @snippet start getItem
-export const getItem = pikkuSessionlessFunc({
-  expose: true,
   description: 'Get a single item by ID.',
   input: GetItemInput,
   output: GetItemOutput,
   func: async ({ kysely }, { itemId }) => {
+    // @snippet hide shopVersionedItem
     const row = await kysely
       .selectFrom('item')
       .innerJoin('category', 'category.categoryId', 'item.categoryId')
-      // @snippet hide
+      // @snippet hide getItem
       .select([
         'item.itemId', 'item.name', 'item.slug', 'item.description',
         'item.priceCents', 'item.stock', 'item.imageUrl', 'item.isActive',
         'item.createdAt', 'item.updatedAt',
         'category.categoryId', 'category.name as categoryName', 'category.slug as categorySlug',
       ])
-      // @snippet show
+      // @snippet show getItem
       .where('item.itemId', '=', itemId)
       .executeTakeFirst()
 
@@ -94,6 +69,8 @@ export const getItem = pikkuSessionlessFunc({
       ...row,
       category: { categoryId: row.categoryId, name: row.categoryName, slug: row.categorySlug },
     }
+    // @snippet show shopVersionedItem
   },
 })
 // @snippet end getItem
+// @snippet end shopVersionedItem
