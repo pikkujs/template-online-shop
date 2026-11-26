@@ -5,7 +5,7 @@ import { conditionalReport } from './shop.cron.js'
 import { listCategories } from '../functions/categories/list-categories.function.js'
 import { createCategory } from '../functions/categories/create-category.function.js'
 import { listItems } from '../functions/items/list-items.function.js'
-import { getItemV2 } from '../functions/items/get-item.function.js'
+import { getItem } from '../functions/items/get-item.function.js'
 import { createItem } from '../functions/items/create-item.function.js'
 import { updateItem } from '../functions/items/update-item.function.js'
 import { getProfile } from '../functions/get-profile.function.js'
@@ -28,7 +28,7 @@ export const shopRoutes = defineHTTPRoutes({
 
     // Items
     listItems: { method: 'get', route: '/items', func: listItems },
-    getItem: { method: 'get', route: '/items/:itemId', func: getItemV2 },
+    getItem: { method: 'get', route: '/items/:itemId', func: getItem },
     createItem: { method: 'post', route: '/items', func: createItem, auth: true },
     updateItem: { method: 'patch', route: '/items/:itemId', func: updateItem, auth: true },
     // @snippet hide
@@ -59,7 +59,7 @@ wireHTTPRoutes({ routes: { shop: shopRoutes } })
 wireHTTP({
   method: 'get',
   route: '/items/:itemId',
-  func: getItemV2,
+  func: getItem,
   auth: false,
 })
 // @snippet end httpSingleRoute
@@ -94,7 +94,7 @@ addHTTPMiddleware('/orders', [
 // @snippet start funcMultiWire
 // The same function can be wired to multiple transports without any changes.
 // Define once, wire everywhere.
-wireHTTP({ method: 'get', route: '/items/:itemId', func: getItemV2, auth: false })
+wireHTTP({ method: 'get', route: '/items/:itemId', func: getItem, auth: false })
 // @snippet end funcMultiWire
 
 wireHTTP({ method: 'post', route: '/exports', func: startExport, auth: true })

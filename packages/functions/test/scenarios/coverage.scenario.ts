@@ -122,7 +122,7 @@ export const everyFunctionRuns = pikkuScenario<void, { checked: number }>({
     // template's demonstration that a function can be versioned without
     // breaking callers, and neither had ever been called.
     await scenario.do('reads item v1', 'getItemV1', { itemId: 'itm_mug' }, { virtualUser: virtualUsers.visitor })
-    await scenario.do('reads item v2', 'getItemV2', { itemId: 'itm_mug' }, { virtualUser: virtualUsers.visitor })
+    await scenario.do('reads item v2', 'getItem', { itemId: 'itm_mug' }, { virtualUser: virtualUsers.visitor })
 
     await scenario.do('runs the scheduled sweep', 'sweepLowStock', null, { virtualUser: admin })
 
