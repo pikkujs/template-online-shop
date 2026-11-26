@@ -16,7 +16,7 @@ import { pikkuAgent } from '#pikku/agent'
 import { InvalidMiddlewareWireError } from '@pikku/core/errors'
 import { sendOrderConfirmation } from '../../functions/notifications/send-order-confirmation.function.js'
 import { getBasket } from '../../functions/basket/get-basket.function.js'
-import { getItemV2 } from '../../functions/items/get-item.function.js'
+import { getItem } from '../../functions/items/get-item.function.js'
 import { listItems } from '../../functions/items/list-items.function.js'
 import { listOrders } from '../../functions/orders/list-orders.function.js'
 import { sweepLowStock } from '../../functions/sweep-low-stock.function.js'
@@ -806,7 +806,7 @@ export function wireCliParameters() {
     commands: {
       item: pikkuCLICommand({
         parameters: '<itemId>',
-        func: getItemV2,
+        func: getItem,
         description: 'Show one item',
       }),
       orders: pikkuCLICommand({
@@ -827,7 +827,7 @@ export function wireCliNested() {
         description: 'Catalogue management',
         subcommands: {
           list: pikkuCLICommand({ func: listItems }),
-          show: pikkuCLICommand({ parameters: '<itemId>', func: getItemV2 }),
+          show: pikkuCLICommand({ parameters: '<itemId>', func: getItem }),
         },
       },
     },
@@ -874,7 +874,7 @@ export const catalogueAssistant = pikkuAgent({
   description: 'A helpful assistant that browses the catalogue',
   goal: 'You help users find items in the catalogue.',
   model: 'openai/gpt-4o-mini',
-  tools: [listItems, getItemV2],
+  tools: [listItems, getItem],
   memory: { storage: 'agentStorage', lastMessages: 10 },
   maxSteps: 5,
 })
@@ -886,7 +886,7 @@ export const itemFinder = pikkuAgent({
   description: 'Finds items in the catalogue',
   goal: 'You help users find items.',
   model: 'openai/gpt-4o-mini',
-  tools: [listItems, getItemV2],
+  tools: [listItems, getItem],
 })
 
 export const orderLookup = pikkuAgent({

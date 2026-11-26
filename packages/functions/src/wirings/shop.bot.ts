@@ -2,7 +2,7 @@ import { pikkuAgent, agent, agentStream, agentApprove, agentResume } from '#pikk
 import { wireHTTP } from '#pikku/http'
 import { listCategories } from '../functions/categories/list-categories.function.js'
 import { listItems } from '../functions/items/list-items.function.js'
-import { getItemV2 } from '../functions/items/get-item.function.js'
+import { getItem } from '../functions/items/get-item.function.js'
 import { getBasket } from '../functions/basket/get-basket.function.js'
 import { addToBasket } from '../functions/basket/add-to-basket.function.js'
 import { removeFromBasket } from '../functions/basket/remove-from-basket.function.js'
@@ -16,7 +16,7 @@ export const shopAssistant = pikkuAgent({
   description: 'Helps customers browse the catalogue and manage their basket.',
   goal: 'Help users find products, manage their basket, and answer questions about shop items.',
   model: 'openai/gpt-4o-mini',
-  tools: [listCategories, listItems, getItemV2, getBasket, addToBasket, removeFromBasket],
+  tools: [listCategories, listItems, getItem, getBasket, addToBasket, removeFromBasket],
   memory: { lastMessages: 20 },
   maxSteps: 10,
   // Graded after each run; these are the scorers in shop.scoring.ts, by exported name.
@@ -77,7 +77,7 @@ export const checkoutAssistant = pikkuAgent({
   description: 'Guides authenticated users through checkout.',
   goal: 'Help users review their basket and complete their purchase. Delegate product questions to the shop assistant.',
   model: 'openai/gpt-4o-mini',
-  tools: [getBasket, getItemV2],
+  tools: [getBasket, getItem],
   agents: [shopAssistant],
   maxSteps: 5,
 })

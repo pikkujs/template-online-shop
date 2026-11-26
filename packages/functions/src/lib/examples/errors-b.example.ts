@@ -3,7 +3,7 @@ import { pikkuFunc, pikkuSessionlessFunc } from '#pikku/function'
 import { wireHTTPRoutes } from '#pikku/http'
 import { wireAddon } from '#pikku/addon'
 import { isOrderOwner } from '../../wirings/shop.security.js'
-import { getItemV2 } from '../../functions/items/get-item.function.js'
+import { getItem } from '../../functions/items/get-item.function.js'
 import { getOrder } from '../../functions/orders/get-order.function.js'
 
 // @snippet start eb-exported-pikku-func
@@ -20,7 +20,7 @@ export function wireShopRoutes() {
   wireHTTPRoutes({
     auth: false,
     routes: {
-      getItem: { method: 'get', route: '/items/:itemId', func: getItemV2 },
+      getItem: { method: 'get', route: '/items/:itemId', func: getItem },
     },
   })
   wireHTTPRoutes({

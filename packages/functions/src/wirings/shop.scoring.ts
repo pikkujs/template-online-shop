@@ -10,10 +10,10 @@ export const pricesComeFromTools = pikkuAgentScorer({
   score: ({ output, toolCalls }) => {
     const quotesPrice = /[$€£]\s?\d/.test(output)
     const lookedItUp = toolCalls.some(
-      ({ name }) => name === 'getItemV2' || name === 'listItems'
+      ({ name }) => name === 'getItem' || name === 'listItems'
     )
     return quotesPrice && !lookedItUp
-      ? { score: 0, reason: 'Quoted a price without calling getItemV2 or listItems' }
+      ? { score: 0, reason: 'Quoted a price without calling getItem or listItems' }
       : { score: 1 }
   },
 })

@@ -41,7 +41,7 @@ export const getItemV1 = pikkuSessionlessFunc({
 
 // v2 — adds stock and imageUrl to the response
 // @snippet start getItem
-export const getItemV2 = pikkuSessionlessFunc({
+export const getItem = pikkuSessionlessFunc({
   expose: true,
   version: 2,
   description: 'Get a single item by ID.',
