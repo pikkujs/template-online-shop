@@ -170,7 +170,6 @@ export const cancelMyOrder = pikkuFunc<{ orderId: string }, void>({
       .execute()
   },
   permissions: {
-    auth: requireAuth,
     owner: requireOwnership,
   },
   title: 'Cancel an order',
